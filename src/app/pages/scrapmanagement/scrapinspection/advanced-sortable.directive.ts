@@ -18,9 +18,10 @@ export interface SortEvent {
   }
 })
 
-export class OrderSortableService {
+export class AdvancedSortableDirective {
 
   constructor() { }
+
   @Input() sortable: string;
   @Input() direction: SortDirection = '';
   @Output() sort = new EventEmitter<SortEvent>();

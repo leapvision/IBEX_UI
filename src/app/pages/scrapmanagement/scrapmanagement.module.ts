@@ -9,7 +9,7 @@ import { WidgetModule } from '../../shared/widget/widget.module';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ArchwizardModule } from 'angular-archwizard';
 // import { SharedModule } from './saas/shared/shared.module'
-import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, NgbDatepickerModule, NgbTypeaheadModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, NgbDatepickerModule, NgbTypeaheadModule, NgbPaginationModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap'
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { ScrapPurchaseComponent } from './scrappurchase/scrappurchase.component';
 import { SharedModule } from '../../shared/shared.module';
@@ -35,7 +35,8 @@ import { ScrapInspectionComponent } from './scrapinspection/scrapinspection.comp
     NgbDatepickerModule,
     NgbTypeaheadModule,
     NgbPaginationModule,
-    ArchwizardModule
+    ArchwizardModule,
+    NgbPopoverModule
   ]
 })
 export class ScrapManagementModule { }
