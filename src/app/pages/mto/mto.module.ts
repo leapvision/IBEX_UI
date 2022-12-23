@@ -13,10 +13,11 @@ import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, N
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { SharedModule } from '../../shared/shared.module';
 import { LoadingOfRmComponent } from './loadingofrm/loadingofrm.component';
+import { MeltingComponent } from './melting/melting.component';
 
 
 @NgModule({
-  declarations: [LoadingOfRmComponent],
+  declarations: [LoadingOfRmComponent,MeltingComponent],
   imports: [
     CommonModule,
     FormsModule,
