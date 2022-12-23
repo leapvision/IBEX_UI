@@ -14,10 +14,11 @@ import { SimplebarAngularModule } from 'simplebar-angular';
 import { SharedModule } from '../../shared/shared.module';
 import { LoadingOfRmComponent } from './loadingofrm/loadingofrm.component';
 import { MeltingComponent } from './melting/melting.component';
+import { FluxMixingComponent } from './fluxmixing/fluxmixing.component';
 
 
 @NgModule({
-  declarations: [LoadingOfRmComponent,MeltingComponent],
+  declarations: [LoadingOfRmComponent,MeltingComponent,FluxMixingComponent],
   imports: [
     CommonModule,
     FormsModule,

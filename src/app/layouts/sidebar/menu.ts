@@ -98,7 +98,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 25,
                 label: 'Flux Mixing',
-                link: '/dashboard',
+                link: '/mto/fluxmixing',
                 parentId: 22
             },
             {
