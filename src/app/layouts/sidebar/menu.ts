@@ -86,7 +86,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 23,
                 label: 'Material Loading',
-                link: '/dashboard',
+                link: '/mto/loadingofrm',
                 parentId: 22
             },
             {

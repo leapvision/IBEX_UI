@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DefaultComponent },
   { path: 'dashboards', loadChildren: () => import('./dashboards/dashboards.module').then(m => m.DashboardsModule) },
   { path: 'scrapmanagement', loadChildren: () => import('./scrapmanagement/scrapmanagement.module').then(m => m.ScrapManagementModule) },
+  { path: 'mto', loadChildren: () => import('./mto/mto.module').then(m => m.MtoModule) },
 ];
 
 @NgModule({
