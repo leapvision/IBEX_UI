@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-prod": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --prod"
+    "build-prod": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --prod",
+    "deploy": "ng deploy --base-href=/IBEX-UI/"
   },
   "private": true,
   "dependencies": {
@@ -92,6 +93,7 @@
     "@types/leaflet": "^1.7.11",
     "@types/node": "^15.12.4",
     "@types/youtube": "^0.0.45",
+    "angular-cli-ghpages": "^1.0.5",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
