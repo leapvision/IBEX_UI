@@ -103,7 +103,7 @@ export const MENU: MenuItem[] = [
             },
             {
                 id: 26,
-                label: 'Slag Removing',
+                label: 'Slag Removal',
                 link: '/mto/slagremoving',
                 parentId: 22
             },
