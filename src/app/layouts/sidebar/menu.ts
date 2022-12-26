@@ -110,7 +110,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 27,
                 label: 'Composition Check',
-                link: '/dashboard',
+                link: '/mto/slaginspection',
                 parentId: 22
             },
             

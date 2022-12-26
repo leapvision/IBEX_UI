@@ -16,10 +16,11 @@ import { LoadingOfRmComponent } from './loadingofrm/loadingofrm.component';
 import { MeltingComponent } from './melting/melting.component';
 import { FluxMixingComponent } from './fluxmixing/fluxmixing.component';
 import { SlagRemovingComponent } from './slagremoving/slagremoving.component';
+import { SlagInspectionComponent } from './slaginspection/slaginspection.component';
 
 
 @NgModule({
-  declarations: [LoadingOfRmComponent,MeltingComponent,FluxMixingComponent,SlagRemovingComponent],
+  declarations: [LoadingOfRmComponent,MeltingComponent,FluxMixingComponent,SlagRemovingComponent,SlagInspectionComponent],
   imports: [
     CommonModule,
     FormsModule,
