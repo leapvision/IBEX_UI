@@ -5,14 +5,14 @@
         <div class="col-lg-12 align-items-center">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title mb-4 text-center">Flux Mixing</h4>
+                <h4 class="card-title mb-4 text-center">Slag Removal</h4>
                 <aw-wizard [navBarLayout]="'large-empty-symbols'">
                   
                   <aw-wizard-step stepTitle="Heat Number">
                     <ng-template awWizardStepSymbol>1</ng-template>
                     <form>
                       <div class="row mb-4">
-                          <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Ready for Flux Mixing</label>
+                          <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Ready for Slag Removal</label>
                           <div class="col-sm-9">
                             <div class="row">
                                 <div class="col-sm-3">
@@ -42,7 +42,7 @@
                   </aw-wizard-step>
 
 
-                  <aw-wizard-step stepTitle="Flux Adding (KG)">
+                  <aw-wizard-step stepTitle="Slag Removal (KG)">
                     <ng-template awWizardStepSymbol>2</ng-template>
                     <form>
                       <div class="row mb-4">
@@ -53,26 +53,22 @@
                       </div>
                     </form>
                     <ul class="list-inline wizard mb-0">
-                      
+                      <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                      </li>
                       <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Next</button>
                       </li>
                     </ul>
                   </aw-wizard-step>
 
-                  <aw-wizard-step stepTitle="N2 Degassing">
+                  <aw-wizard-step stepTitle="Time">
                     <ng-template awWizardStepSymbol>3</ng-template>
                     <div class="mb-3 row">
-                      <label for="example-time-input" class="col-md-2 col-form-label">Start Time</label>
+                      <label for="example-time-input" class="col-md-2 col-form-label">Time</label>
                       <div class="col-md-10">
                           <input class="form-control" type="time" value="10:00:00" >
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="example-time-input" class="col-md-2 col-form-label">End Time</label>
-                      <div class="col-md-10">
-                          <input class="form-control" type="time" value="12:00:00" >
-                      </div>
-                    </div>
+                    
                     <ul class="list-inline wizard mb-0">
                       <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
                       </li>
@@ -93,10 +89,7 @@
                                     <h3 class="card-title text-white text-center">Flux Adding Quantity - 20KG</h3>
                                 </div>
                                 <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Start Time - 10:00</h3>
-                                </div>
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">End Time - 12:00</h3>
+                                    <h3 class="card-title text-white text-center">Time - 10:00</h3>
                                 </div>
                                 <button type="button" class="btn btn-ibex btn-lg w-md text-black">Confirm</button>
                                 <br>
@@ -115,28 +108,18 @@
         <div class="col-lg-12">
           <div class="card">
               <div class="card-body">
-                <h4 class="card-title text-center">Flux Mixing Report</h4>
+                <h4 class="card-title text-center">Slag Removal Report</h4>
                 <div class="table-responsive">
                   <table class="table mb-0 table-hover">
                     <thead>
                       <tr>
                         <th rowspan="1"></th>
                         <th rowspan="1">Sl No</th>
-                        <th rowspan="1">Flux Mixing Date</th>
+                        <th rowspan="1">Slag Removal Date</th>
                         <th rowspan="1">Shift & Time</th>
                         <th rowspan="1">Heat Number</th>
-                        <th rowspan="1">Flux Adding Quantity (KG)</th>
-                        <th colspan="2" class="text-center">N2 Degassing</th>
-                      </tr>
-                      <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th>Start Time </th>
-                        <th>End Time </th>
+                        <th rowspan="1">Slag Removal Quantity (KG)</th>
+                        <th colspan="2" class="text-center">Time</th>
                       </tr>
                     </thead>
                     <tbody >
@@ -153,7 +136,6 @@
                         <td>MT-01-1001</td>
                         <td>470</td>
                         <td>10:00</td>
-                        <td>12:00</td>
                       </tr>
                       <tr>
                         <td align="center">
@@ -167,7 +149,6 @@
                           <td>MT-01-1002</td>
                           <td>470</td>
                           <td>10:00</td>
-                          <td>12:00</td>
                       </tr>
                       <tr>
                         <td align="center">
@@ -181,7 +162,6 @@
                           <td>MT-02-1003</td>
                           <td>470</td>
                           <td>10:00</td>
-                          <td>12:00</td>
                       </tr>
                       <tr *ngIf="!hideme[2]" class="sub-table no-bg">
                         <td align="center"> </td>
@@ -189,6 +169,45 @@
                           <div class="m-4">
                             <ngb-accordion #acc="ngbAccordion" activeIds="static-1" [closeOthers]="false">
                               <ngb-panel id="static-1">
+                                <ng-template ngbPanelTitle class="text-black">
+                                  Flux Mixing Report
+                                </ng-template>
+                                <ng-template ngbPanelContent>
+                                  <table class="table mb-0 table-hover">
+                                    <thead class="bg-dark text-white">
+                                      <tr>
+                                        <th rowspan="1">Sl No</th>
+                                        <th rowspan="1">Flux Mixing Date</th>
+                                        <th rowspan="1">Shift & Time</th>
+                                        <th rowspan="1">Heat Number</th>
+                                        <th rowspan="1">Flux Adding Quantity (KG)</th>
+                                        <th colspan="2" class="text-center">N2 Degassing</th>
+                                      </tr>
+                                      <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Start Time </th>
+                                        <th>End Time </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody >
+                                      <tr>
+                                        <th scope="row">100</th>
+                                        <td>23/12/2022</td>
+                                        <td></td>
+                                        <td>MT-01-1001</td>
+                                        <td>470</td>
+                                        <td>10:00</td>
+                                        <td>12:00</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </ng-template>
+                              </ngb-panel>
+                              <ngb-panel id="static-2">
                                 <ng-template ngbPanelTitle class="text-black">
                                   Melting Report
                                 </ng-template>

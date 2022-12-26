@@ -104,7 +104,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 26,
                 label: 'Slag Removing',
-                link: '/dashboard',
+                link: '/mto/slagremoving',
                 parentId: 22
             },
             {

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FluxMixingComponent } from './fluxmixing/fluxmixing.component';
 import { LoadingOfRmComponent } from './loadingofrm/loadingofrm.component';
 import { MeltingComponent } from './melting/melting.component';
+import { SlagRemovingComponent } from './slagremoving/slagremoving.component';
 
 const routes: Routes = [
     {
@@ -16,6 +17,10 @@ const routes: Routes = [
     {
         path: 'fluxmixing',
         component: FluxMixingComponent
+    },
+    {
+        path: 'slagremoving',
+        component: SlagRemovingComponent
     },
 
 ];

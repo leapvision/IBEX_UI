@@ -9,16 +9,17 @@ import { WidgetModule } from '../../shared/widget/widget.module';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ArchwizardModule } from 'angular-archwizard';
 // import { SharedModule } from './saas/shared/shared.module'
-import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, NgbDatepickerModule, NgbTypeaheadModule, NgbPaginationModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, NgbDatepickerModule, NgbTypeaheadModule, NgbPaginationModule, NgbPopoverModule, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap'
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { SharedModule } from '../../shared/shared.module';
 import { LoadingOfRmComponent } from './loadingofrm/loadingofrm.component';
 import { MeltingComponent } from './melting/melting.component';
 import { FluxMixingComponent } from './fluxmixing/fluxmixing.component';
+import { SlagRemovingComponent } from './slagremoving/slagremoving.component';
 
 
 @NgModule({
-  declarations: [LoadingOfRmComponent,MeltingComponent,FluxMixingComponent],
+  declarations: [LoadingOfRmComponent,MeltingComponent,FluxMixingComponent,SlagRemovingComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -37,7 +38,8 @@ import { FluxMixingComponent } from './fluxmixing/fluxmixing.component';
     NgbTypeaheadModule,
     NgbPaginationModule,
     ArchwizardModule,
-    NgbPopoverModule
+    NgbPopoverModule,
+    NgbAccordionModule
   ]
 })
 export class MtoModule { }
