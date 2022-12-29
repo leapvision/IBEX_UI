@@ -13,11 +13,12 @@ import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, N
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { SharedModule } from '../../shared/shared.module';
 import { TransferToMwoComponent } from './transfertomwo/transfertomwo.component';
+import { SlagRemovalComponent } from './slagremoving/slagremoval.component';
 
 
 
 @NgModule({
-  declarations: [TransferToMwoComponent],
+  declarations: [TransferToMwoComponent,SlagRemovalComponent],
   imports: [
     CommonModule,
     FormsModule,
