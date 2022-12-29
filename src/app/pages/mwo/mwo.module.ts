@@ -14,11 +14,12 @@ import { SimplebarAngularModule } from 'simplebar-angular';
 import { SharedModule } from '../../shared/shared.module';
 import { TransferToMwoComponent } from './transfertomwo/transfertomwo.component';
 import { SlagRemovalComponent } from './slagremoving/slagremoval.component';
+import { MWOInspectionComponent } from './mwoinspection/mwoinspection.component';
 
 
 
 @NgModule({
-  declarations: [TransferToMwoComponent,SlagRemovalComponent],
+  declarations: [TransferToMwoComponent,SlagRemovalComponent,MWOInspectionComponent],
   imports: [
     CommonModule,
     FormsModule,

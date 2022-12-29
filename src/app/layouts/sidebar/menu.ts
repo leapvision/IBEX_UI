@@ -136,7 +136,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 31,
                 label: 'Composition Check',
-                link: '/dashboard',
+                link: '/mwo/mwoinspection',
                 parentId: 30
             },
             {
