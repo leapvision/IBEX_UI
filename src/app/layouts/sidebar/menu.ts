@@ -124,7 +124,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 31,
                 label: 'Transfer to MWO',
-                link: '/dashboard',
+                link: '/mwo/transfertomwo',
                 parentId: 30
             },
             {
