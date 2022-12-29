@@ -142,7 +142,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 32,
                 label: 'Ingots Pouring',
-                link: '/dashboard',
+                link: '/mwo/ingotpouring',
                 parentId: 30
             },
             {
