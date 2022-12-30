@@ -148,7 +148,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 31,
                 label: 'Visual Inspection',
-                link: '/dashboard',
+                link: '/mwo/visualinspection',
                 parentId: 30
             },
             {

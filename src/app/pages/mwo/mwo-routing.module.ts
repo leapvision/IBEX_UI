@@ -4,6 +4,7 @@ import { IngotPouringComponent } from './ignotpouring/ingotpouring.component';
 import { MWOInspectionComponent } from './mwoinspection/mwoinspection.component';
 import { SlagRemovalComponent } from './slagremoving/slagremoval.component';
 import { TransferToMwoComponent } from './transfertomwo/transfertomwo.component';
+import { VisualInspectionComponent } from './visualinspection/visualinspection.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
         path: 'ingotpouring',
         component: IngotPouringComponent
+    },
+    {
+        path: 'visualinspection',
+        component: VisualInspectionComponent
     },
 ];
 
