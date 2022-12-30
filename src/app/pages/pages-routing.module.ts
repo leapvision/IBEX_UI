@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'scrapmanagement', loadChildren: () => import('./scrapmanagement/scrapmanagement.module').then(m => m.ScrapManagementModule) },
   { path: 'mto', loadChildren: () => import('./mto/mto.module').then(m => m.MtoModule) },
   { path: 'mwo', loadChildren: () => import('./mwo/mwo.module').then(m => m.MwoModule) },
+  { path: 'packing', loadChildren: () => import('./packing/packing.module').then(m => m.PackingModule) },
 ];
 
 @NgModule({

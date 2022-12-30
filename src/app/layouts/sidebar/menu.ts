@@ -168,13 +168,13 @@ export const MENU: MenuItem[] = [
     },
     {
         id: 37,
-        label: 'PACKING',
+        label: 'PACKING & DISPATCH',
         icon: 'bx-receipt',
         subItems: [
             {
                 id: 38,
                 label: 'Final Inspection',
-                link: '/dashboard',
+                link: '/packing/finalinspection',
                 parentId: 37
             },
             {

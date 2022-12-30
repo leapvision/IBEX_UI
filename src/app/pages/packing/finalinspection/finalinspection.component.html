@@ -1,0 +1,507 @@
+<div class="container-fluid">
+    <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+              <div class="card-body">
+                <h4 class="card-title text-center">Final Inspection Report</h4>
+                <div class="table-responsive">
+                  <table class="table mb-0 table-hover">
+                    <thead>
+                      <tr>
+                        <th rowspan="1"></th>
+                        <th rowspan="1">Sl No</th>
+                        <th rowspan="1">Final Heat Number</th>
+                        <th rowspan="1" class="text-center">Status</th>
+                        <th rowspan="1" class="text-center">Action</th>
+                        <th rowspan="1" class="text-center">Remarks</th>
+                      </tr>
+                    </thead>
+                    <tbody >
+                      <tr>
+                        <td align="center">
+                          <a class="expand-row" (click)="changeValue()">
+                            +
+                          </a>
+                        </td>
+                        <th scope="row">1001</th>
+                        <td>IBEX-MW-01-22122022</td>
+                        <td> 
+                          <div class="row justify-content-center">
+                            <div class="col-xl-6 col-sm-12">
+                              <button type="button" class="btn btn-success">Ok</button>
+                            </div>
+                          </div> 
+                        </td>
+                        <td> 
+                          <div class="row justify-content-center">
+                            <div class="col-xl-6 col-sm-12">
+                              <button type="button" class="btn btn-success">Moved to Packing</button>
+                            </div>
+                          </div> 
+                        </td>
+                        <td> 
+                          <form>
+                            <div class="row mb-4 justify-content-center">
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" >
+                                </div>
+                            </div>
+                          </form>  
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center">
+                          <a class="expand-row" (click)="changeValue()">
+                            +
+                          </a>
+                        </td>
+                        <th scope="row">1002</th>
+                          <td>IBEX-MW-01-22122022</td>
+                          <td> 
+                            <div class="row justify-content-center">
+                              <div class="col-xl-6 col-sm-12">
+                                <button type="button" class="btn btn-danger">Not ok</button>
+                              </div>
+                            </div> 
+                          </td>
+                          <td> 
+                            
+                          </td>
+                          <td> 
+                            <form>
+                              <div class="row mb-4 justify-content-center">
+                                  <div class="col-sm-9">
+                                      <input type="text" class="form-control" value="Rejected due to inconsistency">
+                                  </div>
+                              </div>
+                            </form>  
+                          </td>
+                      </tr>
+                      <tr>
+                        <td align="center">
+                          <a class="expand-row" (click)="changeValue()">
+                            +
+                          </a>
+                        </td>
+                        <th scope="row">1003</th>
+                          <td>IBEX-MW-02-22122022</td>
+                          <td> 
+                            <div class="row justify-content-center">
+                              <div class="col-xl-6 col-sm-12">
+                                <button type="button" class="btn btn-warning">Pending</button>
+                              </div>
+                            </div> 
+                          </td>
+                          <td> 
+                            <div class="row justify-content-center">
+                              <div class="col-xl-6 col-sm-12">
+                                <button type="button" class="btn btn-danger">Approve</button>
+                              </div>
+                            </div> 
+                          </td>
+                          <td> 
+                            <form>
+                              <div class="row mb-4 justify-content-center">
+                                  <div class="col-sm-9">
+                                      <input type="text" class="form-control" >
+                                  </div>
+                              </div>
+                            </form>  
+                          </td>
+                      </tr>
+                      <tr *ngIf="!hideme[2]" class="sub-table no-bg">
+                        <td align="center"> </td>
+                        <td colspan="15" class="p-0">
+                          <div class="m-4">
+
+                            <ngb-accordion #acc="ngbAccordion" activeIds="static-1" [closeOthers]="false">
+                              <ngb-panel id="static-1">
+                                <ng-template ngbPanelTitle class="text-black">
+                                  Ingot Pouring
+                                </ng-template>
+                                <ng-template ngbPanelContent>
+                                  <table class="table mb-0 table-hover">
+                                    <thead class="bg-dark text-white">
+                                      <tr>
+                                        <th rowspan="1">Sl No</th>
+                                        <th rowspan="1">Ingot Pouring Date</th>
+                                        <th rowspan="1">Shift & Time</th>
+                                        <th rowspan="1">Heat Number(MWO)</th>
+                                        <th colspan="4" class="text-center">Ingot Pouring</th>
+                                        <th colspan="2" class="text-center">Ingot Details</th>
+                                      </tr>
+                                      <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Temp(°C) </th>
+                                        <th>Time </th>
+                                        <th>Quantity(KG)</th>
+                                        <th>Slag Removal(KG) </th>                
+                                        <th>No of Ingots Poured </th>
+                                        <th>Ingot Weight</th>
+                                    </thead>
+                                    <tbody >
+                                      <tr>
+                                        <th scope="row">1003</th>
+                                        <td>22/12/2022</td>
+                                        <td></td>
+                                        <td>MW-02-1003</td>
+                                        <td>500</td>
+                                        <td>10:00</td>
+                                        <td>470</td>
+                                        <td>200</td>
+                                        <td>200</td>
+                                        <td>500</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </ng-template>
+                              </ngb-panel>
+                              <ngb-panel id="static-2">
+                                <ng-template ngbPanelTitle class="text-black">
+                                  Sample Spectro Reports
+                                </ng-template>
+                                <ng-template ngbPanelContent>
+                                  <ngb-accordion #acc="ngbAccordion" activeIds="static-1-1" [closeOthers]="false">
+                                    <ngb-panel id="static-1-1">
+                                      <ng-template ngbPanelTitle class="text-black">
+                                        Sample 2
+                                      </ng-template>
+                                      <ng-template ngbPanelContent>
+                                        <div class="row m-1">
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Al (%)</h3>
+                                                  <p class="card-text text-white text-center">5.00</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Zn (%)</h3>
+                                                  <p class="card-text text-white text-center">0.060</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-danger border border-danger card-body"
+                                                  ngbPopover="Value out of range"
+                                                  triggers="mouseenter:mouseleave">
+                                                  <h3 class="card-title text-white text-center">Mn (%)</h3>
+                                                  <p class="card-text text-white text-center">0.292</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Si (%)</h3>
+                                                  <p class="card-text text-white text-center">0.018</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Fe (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0026</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Cu (%)</h3>
+                                                  <p class="card-text text-white text-center"><0.0004</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Ni (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0010</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Be (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0006</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-danger border border-danger card-body">
+                                                  <h3 class="card-title text-white text-center">Ca (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0018</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-danger border border-danger card-body">
+                                                  <h3 class="card-title text-white text-center">Cd (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0001</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Ag (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0006</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">La (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0015</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Zr (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0015</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Na (%)</h3>
+                                                  <p class="card-text text-white text-center">~0.0080</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">P (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0080</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Pb (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0040</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Sn (%)</h3>
+                                                  <p class="card-text text-white text-center">0.011</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Mg (%)</h3>
+                                                  <p class="card-text text-white text-center">94.6</p>
+                                              </div>
+                                          </div>
+                                          
+                                        </div>
+                                      </ng-template>
+                                    </ngb-panel>
+                                    <ngb-panel id="static-2-1">
+                                      <ng-template ngbPanelTitle class="text-black">
+                                        Sample 1
+                                      </ng-template>
+                                      <ng-template ngbPanelContent>
+                                        <div class="row m-1">
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Al (%)</h3>
+                                                  <p class="card-text text-white text-center">5.00</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Zn (%)</h3>
+                                                  <p class="card-text text-white text-center">0.060</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-danger border border-danger card-body"
+                                                  ngbPopover="Value out of range"
+                                                  triggers="mouseenter:mouseleave">
+                                                  <h3 class="card-title text-white text-center">Mn (%)</h3>
+                                                  <p class="card-text text-white text-center">0.292</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Si (%)</h3>
+                                                  <p class="card-text text-white text-center">0.018</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Fe (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0026</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Cu (%)</h3>
+                                                  <p class="card-text text-white text-center"><0.0004</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Ni (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0010</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Be (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0006</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-danger border border-danger card-body">
+                                                  <h3 class="card-title text-white text-center">Ca (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0018</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-danger border border-danger card-body">
+                                                  <h3 class="card-title text-white text-center">Cd (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0001</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Ag (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0006</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">La (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0015</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Zr (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0015</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Na (%)</h3>
+                                                  <p class="card-text text-white text-center">~0.0080</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">P (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0080</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Pb (%)</h3>
+                                                  <p class="card-text text-white text-center">0.0040</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Sn (%)</h3>
+                                                  <p class="card-text text-white text-center">0.011</p>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-2 col-sm-4">
+                                              <div class="card bg-success border border-success card-body">
+                                                  <h3 class="card-title text-white text-center">Mg (%)</h3>
+                                                  <p class="card-text text-white text-center">94.6</p>
+                                              </div>
+                                          </div>
+                                          
+                                        </div>
+                                      </ng-template>
+                                    </ngb-panel>
+                                  </ngb-accordion>
+                                </ng-template>
+                              </ngb-panel>
+                              <ngb-panel id="static-3">
+                                <ng-template ngbPanelTitle class="text-black">
+                                  Slag Removal
+                                </ng-template>
+                                <ng-template ngbPanelContent>
+                                  <table class="table mb-0 table-hover">
+                                    <thead class="bg-dark text-white">
+                                      <tr>
+                                        <th rowspan="1">Sl No</th>
+                                        <th rowspan="1">Slag Removal Date</th>
+                                        <th rowspan="1">Shift & Time</th>
+                                        <th rowspan="1">Heat Number(MWO)</th>
+                                        <th colspan="5" class="text-center">Addition Details(KG)</th>
+                                        <th colspan="4" class="text-center">Metal Tapping to MWO</th>
+                                      </tr>
+                                      <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Be Grams </th>
+                                        <th>Pure Alu </th>
+                                        <th>Zinc </th>
+                                        <th>Al Mn </th>                
+                                        <th>Pure Mg </th>
+                                        <th>Tapping Temp</th>
+                                        <th>Time</th>
+                                        <th>Quantity(KG)</th>
+                                        <th>Slag Removal(KG)</th>
+                                    </thead>
+                                    <tbody >
+                                      <tr>
+                                        <th scope="row">1003</th>
+                                        <td>22/12/2022</td>
+                                        <td></td>
+                                        <td>MW-02-1003</td>
+                                        <td>370</td>
+                                        <td>500</td>
+                                        <td>470</td>
+                                        <td>200</td>
+                                        <td>470</td>
+                                        <td>710</td>
+                                        <td>10:00</td>
+                                        <td>200</td>
+                                        <td>10</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </ng-template>
+                              </ngb-panel>
+                              <ngb-panel id="static-4">
+                                <ng-template ngbPanelTitle class="text-black">
+                                 Transfer to MWO
+                                </ng-template>
+                                <ng-template ngbPanelContent>
+                                  <table class="table mb-0 table-hover">
+                                    <thead class="bg-dark text-white">
+                                      <tr>
+                                        <th rowspan="1">Sl No</th>
+                                        <th rowspan="1">Date</th>
+                                        <th rowspan="1">Furnace No</th>
+                                        <th rowspan="1">Alloy Name</th>
+                                        <th rowspan="1">MTO No</th>
+                                        <th rowspan="1">MWO No</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody >
+                                      <tr>
+                                        <th scope="row">1001</th>
+                                        <td>23/12/2022</td>
+                                        <td>MWO-02</td>
+                                        <td>AM50A</td>
+                                        <td>MT-1003</td>
+                                        <td>MWO-1003</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </ng-template>
+                              </ngb-panel>
+                              
+                            </ngb-accordion>
+
+
+                            <!-- end accordion -->
+                        </div>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+      
+              </div>
+            </div>
+         </div>
+    </div>
+</div>
