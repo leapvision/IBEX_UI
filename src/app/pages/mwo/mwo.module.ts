@@ -18,12 +18,13 @@ import { MWOInspectionComponent } from './mwoinspection/mwoinspection.component'
 import { IngotPouringComponent } from './ignotpouring/ingotpouring.component';
 import { VisualInspectionComponent } from './visualinspection/visualinspection.component';
 import { BuffingAndPolishingComponent } from './buffingandpolishing/buffingandpolishing.component';
+import { PrintingComponent } from './printing/printing.component';
 
 
 
 @NgModule({
   declarations: [TransferToMwoComponent,SlagRemovalComponent,MWOInspectionComponent,IngotPouringComponent,VisualInspectionComponent,
-                BuffingAndPolishingComponent],
+                BuffingAndPolishingComponent,PrintingComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BuffingAndPolishingComponent } from './buffingandpolishing/buffingandpolishing.component';
 import { IngotPouringComponent } from './ignotpouring/ingotpouring.component';
 import { MWOInspectionComponent } from './mwoinspection/mwoinspection.component';
+import { PrintingComponent } from './printing/printing.component';
 import { SlagRemovalComponent } from './slagremoving/slagremoval.component';
 import { TransferToMwoComponent } from './transfertomwo/transfertomwo.component';
 import { VisualInspectionComponent } from './visualinspection/visualinspection.component';
@@ -32,6 +33,10 @@ const routes: Routes = [
     {
         path: 'buffingandpolishing',
         component: BuffingAndPolishingComponent
+    },
+    {
+        path: 'printing',
+        component: PrintingComponent
     },
 ];
 

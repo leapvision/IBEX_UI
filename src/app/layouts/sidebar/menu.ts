@@ -161,7 +161,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 32,
                 label: 'Heat Number Printing',
-                link: '/dashboard',
+                link: '/mwo/printing',
                 parentId: 30
             }
         ]
