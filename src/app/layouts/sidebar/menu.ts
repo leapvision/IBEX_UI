@@ -154,7 +154,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 32,
                 label: 'Buffing/Polishing',
-                link: '/dashboard',
+                link: '/mwo/buffingandpolishing',
                 parentId: 30
             },
             
