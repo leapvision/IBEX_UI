@@ -13,10 +13,11 @@ import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, N
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { SharedModule } from '../../shared/shared.module';
 import { FinalInspectionComponent } from './finalinspection/finalinspection.component';
+import { PackingIngotsComponent } from './packingingots/packingingots.component';
 
 
 @NgModule({
-  declarations: [FinalInspectionComponent],
+  declarations: [FinalInspectionComponent,PackingIngotsComponent],
   imports: [
     CommonModule,
     FormsModule,

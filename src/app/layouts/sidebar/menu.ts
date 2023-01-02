@@ -180,7 +180,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 39,
                 label: 'Packing',
-                link: '/dashboard',
+                link: '/packing/packingingots',
                 parentId: 37
             },
             {
