@@ -11,9 +11,12 @@ import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule } 
 import { SimplebarAngularModule } from 'simplebar-angular';
 
 import { DefaultComponent } from './default/default.component';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { MtoDashboardComponent } from './mto/mtodashboard.component';
+
 
 @NgModule({
-  declarations: [DefaultComponent],
+  declarations: [DefaultComponent,MtoDashboardComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -26,7 +29,10 @@ import { DefaultComponent } from './default/default.component';
     NgbCarouselModule,
     WidgetModule,
     NgApexchartsModule,
-    SimplebarAngularModule
+    SimplebarAngularModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ]
 })
 export class DashboardsModule { }

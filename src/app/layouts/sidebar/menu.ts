@@ -20,7 +20,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 4,
                 label: 'MTO',
-                link: '/dashboard',
+                link: '/dashboards/mto',
                 parentId: 2
             },
             {
@@ -38,7 +38,7 @@ export const MENU: MenuItem[] = [
         ]
     },
     {
-        id: 2,
+        id: 100,
         label: 'REPORTING',
         icon: 'bx-home-circle',
         link: '/reports'
