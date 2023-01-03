@@ -20,6 +20,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 
 import { DashboardsModule } from './dashboards/dashboards.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReportsComponent } from './reports/reports.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -28,7 +29,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 ]);
 
 @NgModule({
-  declarations: [],
+  declarations: [ReportsComponent],
   imports: [
     CommonModule,
     FormsModule,

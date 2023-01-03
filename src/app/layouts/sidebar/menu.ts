@@ -8,7 +8,7 @@ export const MENU: MenuItem[] = [
     },
     {
         id: 2,
-        label: 'MENUITEMS.DASHBOARDS.TEXT',
+        label: 'DASHBOARDS',
         icon: 'bx-home-circle',
         subItems: [
             {
@@ -36,6 +36,12 @@ export const MENU: MenuItem[] = [
                 parentId: 2
             }
         ]
+    },
+    {
+        id: 2,
+        label: 'REPORTING',
+        icon: 'bx-home-circle',
+        link: '/reports'
     },
     {
         id: 8,
