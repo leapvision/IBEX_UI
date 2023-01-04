@@ -71,7 +71,7 @@
     <div class="col-lg-12 align-items-center">
       <div class="card">
           <div class="card-body">
-            <h4 class="card-title text-center">Visual Inspection Report</h4>
+            <h4 class="card-title text-center">Printing Report</h4>
             <div class="table-responsive">
               <table class="table mb-0 table-hover">
                 <thead>
@@ -135,6 +135,89 @@
                         <ngb-accordion #acc="ngbAccordion" activeIds="static-1" [closeOthers]="false">
                           <ngb-panel id="static-1">
                             <ng-template ngbPanelTitle class="text-black">
+                              Buffing/Polishing
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                              <table class="table mb-0 table-hover">
+                                <thead class="bg-dark text-white">
+                                  <tr>
+                                    <th rowspan="1">Final Heat Number</th>
+                                    <th rowspan="1">Total Ok Ingots</th>
+                                    <th colspan="2" class="text-center">Status</th>
+                                  </tr>
+                                  <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="text-center">Buffing</th>
+                                    <th class="text-center">Polishing</th>
+                                  </tr>
+                                </thead>
+                                <tbody >
+                                  <tr>
+                                    <td>IBEX-MW-01-22122022</td>
+                                    <td>190</td>
+                                    <td>
+                                      <div class="card bg-success border border-success card-body">
+                                        <h3 class="card-title text-white text-center">Complete</h3>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="card bg-success border border-success card-body">
+                                        <h3 class="card-title text-white text-center">Complete</h3>
+                                      </div>
+                                    </td>
+                                   
+                                  </tr>
+                            
+                                </tbody>
+                              </table>
+                            </ng-template>
+                          </ngb-panel>
+                          <ngb-panel id="static-2">
+                            <ng-template ngbPanelTitle class="text-black">
+                              Visual Inspection
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                              <table class="table mb-0 table-hover">
+                                <thead class="bg-dark text-white">
+                                  <tr>
+                                    <th rowspan="1">Sl No</th>
+                                    <th rowspan="1">Final Heat Number</th>
+                                    <th colspan="3" class="text-center">Status</th>
+                                    <th rowspan="1" class="text-center">Remarks</th>
+                                  </tr>
+                                  <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Total Ingots</th>
+                                    <th>Ok Ingots</th>
+                                    <th>Not Ok Ingots</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody >
+                                  <tr>
+                                    <th scope="row">1001</th>
+                                    <td>IBEX-MW-01-22122022</td>
+                                    <td>200</td>
+                                    <td>190</td>
+                                    <td>10</td>
+                                    <td> 
+                                      <form>
+                                        <div class="row mb-4 justify-content-center">
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" value="">
+                                            </div>
+                                        </div>
+                                      </form>  
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </ng-template>
+                          </ngb-panel>
+                          <ngb-panel id="static-3">
+                            <ng-template ngbPanelTitle class="text-black">
                               Ingot Pouring
                             </ng-template>
                             <ng-template ngbPanelContent>
@@ -177,7 +260,7 @@
                               </table>
                             </ng-template>
                           </ngb-panel>
-                          <ngb-panel id="static-2">
+                          <ngb-panel id="static-4">
                             <ng-template ngbPanelTitle class="text-black">
                               Sample Spectro Reports
                             </ng-template>
@@ -426,7 +509,7 @@
                               </ngb-accordion>
                             </ng-template>
                           </ngb-panel>
-                          <ngb-panel id="static-3">
+                          <ngb-panel id="static-5">
                             <ng-template ngbPanelTitle class="text-black">
                               Slag Removal
                             </ng-template>
@@ -476,7 +559,7 @@
                               </table>
                             </ng-template>
                           </ngb-panel>
-                          <ngb-panel id="static-4">
+                          <ngb-panel id="static-6">
                             <ng-template ngbPanelTitle class="text-black">
                               Transfer to MWO
                             </ng-template>
