@@ -18,9 +18,23 @@ export class AdminPanelComponent implements OnInit {
   emailSentBarChart: ChartType;
   monthlyEarningChart: ChartType;
   transactions: Array<[]>;
-  statData: Array<[]>;
+  // statData: Array<[]>;
 
   isActive: string;
+
+  statData = [{
+    "icon": "bx bx-copy-alt",
+    "title": "Total Ingots Weight",
+    "value": "400KG"
+  }, {
+    "icon": "bx bx-archive-in",
+    "title": "Total Final Heat Numbers",
+    "value": "200"
+  },{
+    "icon": "bx bx-purchase-tag-alt",
+    "title": "Total Dispatched Weight",
+    "value": "1000KG",
+  }];
 
   @ViewChild('content') content;
   constructor(private modalService: NgbModal, private configService: ConfigService, private eventService: EventService) {
@@ -68,7 +82,7 @@ export class AdminPanelComponent implements OnInit {
     this.isActive = 'year';
     this.configService.getConfig().subscribe(data => {
       this.transactions = data.transactions;
-      this.statData = data.statData;
+      // this.statData = data.statData;
     });
   }
 
@@ -80,45 +94,87 @@ export class AdminPanelComponent implements OnInit {
     this.isActive = 'week';
     this.emailSentBarChart.series =
       [{
-        name: 'Series A',
-         data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48]
+        name: 'Line 1',
+         data: [44, 55, 41, 67, 22, 4, 10]
       }, {
-        name: 'Series B',
-        data: [11, 17, 15, 15, 21, 14, 11, 18, 17, 12, 20, 18]
-      }, {
-        name: 'Series C',
-        data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22]
+        name: 'Line 2',
+        data: [11, 17, 15, 15, 21, 14, 11]
       }];
+    this.emailSentBarChart.xaxis = {
+      categories: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+    };
+
+    this.statData = [{
+      "icon": "bx bx-copy-alt",
+      "title": "Total Ingots Weight",
+      "value": "100KG"
+    }, {
+      "icon": "bx bx-archive-in",
+      "title": "Total Final Heat Numbers",
+      "value": "50"
+    },{
+      "icon": "bx bx-purchase-tag-alt",
+      "title": "Total Dispatched Weight",
+      "value": "400KG",
+    }];
   }
 
   monthlyreport() {
     this.isActive = 'month';
     this.emailSentBarChart.series =
       [{
-        name: 'Series A',
-         data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48]
+        name: 'Line 1',
+         data: [44, 55, 41, 67, 22]
       }, {
-        name: 'Series B',
-        data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22]
-      }, {
-        name: 'Series C',
-        data: [11, 17, 15, 15, 21, 14, 11, 18, 17, 12, 20, 18]
+        name: 'Line 2',
+        data: [13, 23, 20, 8, 13]
       }];
+    this.emailSentBarChart.xaxis = {
+      categories: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+    };
+
+    this.statData = [{
+      "icon": "bx bx-copy-alt",
+      "title": "Total Ingots Weight",
+      "value": "200KG"
+    }, {
+      "icon": "bx bx-archive-in",
+      "title": "Total Final Heat Numbers",
+      "value": "100"
+    },{
+      "icon": "bx bx-purchase-tag-alt",
+      "title": "Total Dispatched Weight",
+      "value": "800KG",
+    }];
   }
 
   yearlyreport() {
     this.isActive = 'year';
     this.emailSentBarChart.series =
       [{
-        name: 'Series A',
+        name: 'Line 1',
          data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22]
       }, {
-        name: 'Series B',
+        name: 'Line 2',
         data: [11, 17, 15, 15, 21, 14, 11, 18, 17, 12, 20, 18]
-      }, {
-        name: 'Series C',
-        data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48]
       }];
+    this.emailSentBarChart.xaxis = {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    };
+
+    this.statData = [{
+      "icon": "bx bx-copy-alt",
+      "title": "Total Ingots Weight",
+      "value": "400KG"
+    }, {
+      "icon": "bx bx-archive-in",
+      "title": "Total Final Heat Numbers",
+      "value": "200"
+    },{
+      "icon": "bx bx-purchase-tag-alt",
+      "title": "Total Dispatched Weight",
+      "value": "1000KG",
+    }];
   }
 
 
