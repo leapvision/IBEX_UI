@@ -12,10 +12,11 @@ import { SimplebarAngularModule } from 'simplebar-angular';
 
 import { NgxEchartsModule } from 'ngx-echarts';
 import { AdminPanelComponent } from './admin/admin.component';
+import { SupervisorPanelComponent } from './supervisor/supervisor.component';
 
 
 @NgModule({
-  declarations: [AdminPanelComponent],
+  declarations: [AdminPanelComponent,SupervisorPanelComponent],
   imports: [
     CommonModule,
     FormsModule,
