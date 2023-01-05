@@ -1,4 +1,4 @@
-import { ChartType } from './dashboard.model';
+import { ChartType } from './admin.model';
 
 const emailSentBarChart: ChartType = {
     chart: {

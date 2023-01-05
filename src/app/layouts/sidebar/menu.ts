@@ -3,8 +3,27 @@ import { MenuItem } from './menu.model';
 export const MENU: MenuItem[] = [
     {
         id: 1,
-        label: 'MENUITEMS.MENU.TEXT',
+        label: 'CONSOLE',
         isTitle: true
+    },
+    {
+        id: 200,
+        label: 'PANEL',
+        icon: 'bx-home-circle',
+        subItems: [
+            {
+                id: 300,
+                label: 'Admin',
+                link: '/panel/admin',
+                parentId: 200
+            },
+            {
+                id: 400,
+                label: 'Supervisor',
+                link: '/panel/supervisor',
+                parentId: 200
+            }
+        ]
     },
     {
         id: 2,

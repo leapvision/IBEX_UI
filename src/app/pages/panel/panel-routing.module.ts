@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminPanelComponent } from './admin/admin.component';
 
-import { MtoDashboardComponent } from './mto/mtodashboard.component';
 
 const routes: Routes = [
     {
-        path: 'mto',
-        component: MtoDashboardComponent
+        path: 'admin',
+        component: AdminPanelComponent
     }
 ];
 

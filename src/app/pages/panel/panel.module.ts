@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { DashboardsRoutingModule } from './dashboards-routing.module';
+import { DashboardsRoutingModule } from './panel-routing.module';
 import { UIModule } from '../../shared/ui/ui.module';
 import { WidgetModule } from '../../shared/widget/widget.module';
 
@@ -11,11 +11,11 @@ import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule } 
 import { SimplebarAngularModule } from 'simplebar-angular';
 
 import { NgxEchartsModule } from 'ngx-echarts';
-import { MtoDashboardComponent } from './mto/mtodashboard.component';
+import { AdminPanelComponent } from './admin/admin.component';
 
 
 @NgModule({
-  declarations: [MtoDashboardComponent],
+  declarations: [AdminPanelComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -34,4 +34,4 @@ import { MtoDashboardComponent } from './mto/mtodashboard.component';
     })
   ]
 })
-export class DashboardsModule { }
+export class PanelModule { }
