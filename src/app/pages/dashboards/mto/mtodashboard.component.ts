@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { ChartType } from '../echart.model';
 
-import { pieChart } from '../data';
+import { donughnutChart, pieChart } from '../data';
 @Component({
   selector: 'app-mtodashboard',
   templateUrl: './mtodashboard.component.html',
@@ -21,6 +21,7 @@ export class MtoDashboardComponent implements OnInit {
   }
 
   pieChart: ChartType;
+  doughnutChart: ChartType;
 
   ngOnInit(): void {
     this._fetchData();
@@ -31,6 +32,7 @@ export class MtoDashboardComponent implements OnInit {
   }
   private _fetchData() {
     this.pieChart = pieChart;
+    this.doughnutChart = donughnutChart;
   }
 
 }

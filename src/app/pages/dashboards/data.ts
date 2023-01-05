@@ -102,26 +102,23 @@ const barChart: ChartType = {
 const pieChart: ChartType = {
     tooltip: {
         trigger: 'item',
-        formatter: "{a} <br/>{b} : {c} ({d}%)"
+        formatter: "{a} {b} : {c} KG <br/> Ibex Runners and Returns : 100 KG <br/> Rejection Ingots : 100 KG <br/> Welbow : 80 KG <br/> Others : 10 KG"
     },
     legend: {
         orient: 'vertical',
         left: 'left',
-        data: ['Laptop', 'Tablet', 'Mobile', 'Others', 'Desktop'],
+        data: ['AM50A','AZ91D'],
         textStyle: { color: '#8791af' }
     },
     series: [
         {
-            name: 'Total sales',
+            name: 'Total Weight',
             type: 'pie',
             radius: '55%',
             center: ['50%', '60%'],
             data: [
-                { value: 335, name: 'Laptop' },
-                { value: 310, name: 'Tablet' },
-                { value: 234, name: 'Mobile' },
-                { value: 135, name: 'Others' },
-                { value: 1548, name: 'Desktop' }
+                { value: 335, name: 'AM50A' },
+                { value: 310, name: 'AZ91D' },
             ],
             itemStyle: {
                 emphasis: {
@@ -132,7 +129,7 @@ const pieChart: ChartType = {
             }
         }
     ],
-    color: ['#556ee6', '#f1b44c', '#f46a6a', '#50a5f1', '#34c38f'],
+    color: ['#556ee6', '#f1b44c'],
 };
 
 const customPieChart: ChartType = {
@@ -307,18 +304,18 @@ const lineBarChart: ChartType = {
 const donughnutChart: ChartType = {
     tooltip: {
         trigger: 'item',
-        formatter: "{a} <br/>{b}: {c} ({d}%)"
+        formatter: "{a} <br/>{b}: {c} "
     },
     legend: {
         orient: 'vertical',
         x: 'left',
-        data: ['Laptop', 'Tablet', 'Mobile', 'Others', 'Desktop'],
+        data: ['Be', 'Pure Alu', 'Zinc', 'Al Mn', 'Pure Mg'],
         textStyle: { color: '#8791af' }
     },
     color: ['#556ee6', '#f1b44c', '#f46a6a', '#50a5f1', '#34c38f'],
     series: [
         {
-            name: 'Total sales',
+            name: 'Addition Details',
             type: 'pie',
             radius: ['50%', '70%'],
             avoidLabelOverlap: false,
@@ -341,11 +338,11 @@ const donughnutChart: ChartType = {
                 }
             },
             data: [
-                { value: 335, name: 'Laptop' },
-                { value: 310, name: 'Tablet' },
-                { value: 234, name: 'Mobile' },
-                { value: 135, name: 'Others' },
-                { value: 1548, name: 'Desktop' }
+                { value: 3, name: 'Be' },
+                { value: 310, name: 'Pure Alu' },
+                { value: 234, name: 'Zinc' },
+                { value: 135, name: 'Al Mn' },
+                { value: 1548, name: 'Pure Mg' }
             ]
         }
     ]
