@@ -63,6 +63,31 @@ export const MENU: MenuItem[] = [
         link: '/reports'
     },
     {
+        id: 380,
+        label: 'USER MANAGEMENT',
+        icon: 'bx-home-circle',
+        subItems: [
+            {
+                id: 390,
+                label: 'Supervisor',
+                link: '/usermanagement/supervisor',
+                parentId: 380
+            },
+            {
+                id: 400,
+                label: 'Opertors',
+                link: '/usermanagement/operators',
+                parentId: 380
+            },
+            {
+                id: 410,
+                label: 'Quality & Testing',
+                link: '/dashboard',
+                parentId: 380
+            }
+        ]
+    },
+    {
         id: 8,
         isLayout: true
     },
@@ -222,26 +247,26 @@ export const MENU: MenuItem[] = [
             },
         ]
     },
-    {
-        id: 38,
-        label: 'USER MANAGEMENT',
-        isTitle: true
-    },
-    {
-        id: 37,
-        label: 'Supervisors',
-        icon: 'bx-receipt',
-    },
-    {
-        id: 37,
-        label: 'Operators',
-        icon: 'bx-receipt',
-    },
-    {
-        id: 37,
-        label: 'Quality and Testing',
-        icon: 'bx-receipt',
-    },
+    // {
+    //     id: 38,
+    //     label: 'USER MANAGEMENT',
+    //     isTitle: true
+    // },
+    // {
+    //     id: 37,
+    //     label: 'Supervisors',
+    //     icon: 'bx-receipt',
+    // },
+    // {
+    //     id: 37,
+    //     label: 'Operators',
+    //     icon: 'bx-receipt',
+    // },
+    // {
+    //     id: 37,
+    //     label: 'Quality and Testing',
+    //     icon: 'bx-receipt',
+    // },
     
     
 ];

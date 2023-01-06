@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'mwo', loadChildren: () => import('./mwo/mwo.module').then(m => m.MwoModule) },
   { path: 'packing', loadChildren: () => import('./packing/packing.module').then(m => m.PackingModule) },
   { path: 'panel', loadChildren: () => import('./panel/panel.module').then(m => m.PanelModule) },
+  { path: 'usermanagement', loadChildren: () => import('./usermanagement/usermanagement.module').then(m => m.UserManagementModule) },
 ];
 
 @NgModule({
