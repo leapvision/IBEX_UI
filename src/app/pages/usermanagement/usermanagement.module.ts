@@ -12,11 +12,12 @@ import { SupervisorManagementComponent } from './supervisor/supervisor.component
 import { UserManagementRoutingModule } from './usermanagement-routing.module';
 import { OperatorManagementComponent } from './operator/operator.component';
 import { ArchwizardModule } from 'angular-archwizard';
+import { QualityManagementComponent } from './quality/quality.component';
 
 
 
 @NgModule({
-  declarations: [SupervisorManagementComponent,OperatorManagementComponent],
+  declarations: [SupervisorManagementComponent,OperatorManagementComponent, QualityManagementComponent],
   imports: [
     CommonModule,
     FormsModule,

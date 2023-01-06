@@ -82,7 +82,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 410,
                 label: 'Quality & Testing',
-                link: '/dashboard',
+                link: '/usermanagement/quality',
                 parentId: 380
             }
         ]
