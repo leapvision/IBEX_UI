@@ -24,6 +24,9 @@ export class LoginComponent implements OnInit {
   submitted = false;
   error = '';
   returnUrl: string;
+  showOperatorFlag = false;
+
+  processList;
 
   // set the currenr year
   year: number = new Date().getFullYear();
@@ -36,8 +39,13 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
       password: ['123456', [Validators.required]],
+      role: ['',[Validators.required]]
     });
 
+    this.processList = ['Scrap Purchase','Incoming Inspection','Storage of Raw Materials','Material Segmentation',
+                        'MTO - Material Loading','MTO - Melting','MTO - Flux Mixing','MTO - Slag Removal','MTO - Composition Check',
+                        'Transfer to MWO','MWO - Slag Removal','MWO - Composition Check','MWO - Ingots Pouring','MWO - Visual Inspection',
+                        'Buffing/Polishing','Heat Number Printing'];
     // reset login status
     // this.authenticationService.logout();
     // get return url from route parameters or default to '/'
@@ -77,5 +85,15 @@ export class LoginComponent implements OnInit {
             });
       }
     }
+  }
+
+  showOperator(){
+    if(this.f.role.value == 'Operator'){
+      this.showOperatorFlag = !this.showOperatorFlag;
+    }
+    else{
+      this.showOperatorFlag = false;
+    }
+    
   }
 }
