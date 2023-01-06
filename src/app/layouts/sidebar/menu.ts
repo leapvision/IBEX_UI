@@ -75,8 +75,8 @@ export const MENU: MenuItem[] = [
             },
             {
                 id: 400,
-                label: 'Opertors',
-                link: '/usermanagement/operators',
+                label: 'Opertor',
+                link: '/usermanagement/operator',
                 parentId: 380
             },
             {

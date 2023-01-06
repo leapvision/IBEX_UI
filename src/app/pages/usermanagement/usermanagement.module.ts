@@ -10,12 +10,13 @@ import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule } 
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { SupervisorManagementComponent } from './supervisor/supervisor.component';
 import { UserManagementRoutingModule } from './usermanagement-routing.module';
+import { OperatorManagementComponent } from './operator/operator.component';
 import { ArchwizardModule } from 'angular-archwizard';
 
 
 
 @NgModule({
-  declarations: [SupervisorManagementComponent],
+  declarations: [SupervisorManagementComponent,OperatorManagementComponent],
   imports: [
     CommonModule,
     FormsModule,
