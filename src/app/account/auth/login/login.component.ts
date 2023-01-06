@@ -78,7 +78,15 @@ export class LoginComponent implements OnInit {
           .pipe(first())
           .subscribe(
             data => {
-              this.router.navigate(['/dashboard']);
+              if(this.f.role.value == 'Admin'){
+                this.router.navigate(['/panel/admin']);
+              }
+              else if(this.f.role.value == 'Supervisor'){
+                this.router.navigate(['/panel/supervisor']);
+              }
+              else if(this.f.role.value == 'Operator'){
+                this.router.navigate(['/mto/loadingofrm']);
+              }
             },
             error => {
               this.error = error ? error : '';
