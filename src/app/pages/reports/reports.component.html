@@ -2,6 +2,28 @@
     <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
     <div class="row">
+      <div class="col-lg-12">
+          <div class="card">
+              <div class="card-body">
+  
+                  <h4 class="card-title text-center">Search for Heat Number</h4>
+
+                  <form>
+                      <div class="row justify-content-center">
+                          <div class="col-lg-6 col-sm-12">
+                              <div class="mb-3">
+                                  <ng-select [items]="heatNumbers"></ng-select>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+          <!-- end select2 -->
+      </div>
+    </div>
+
+    <div class="row">
     
       <div class="col-lg-12">
         <div class="card">
@@ -242,7 +264,7 @@
 <ng-template #ScrapPurchase>
   <div class="table-responsive">
     <table class="table mb-0 table-hover">
-      <thead class="bg-dark text-white">
+      <thead class="table-light">
         <tr>
           <th>Sl No</th>
           <th>Date</th>
@@ -269,7 +291,7 @@
 <ng-template #ScrapInspection>
   <div class="table-responsive">
     <table class="table mb-0 table-hover">
-      <thead class="bg-dark text-white">
+      <thead class="table-light">
         <tr>
           <th></th>
           <th>Sl No</th>
@@ -420,7 +442,7 @@
 
 <ng-template #MTOMaterialLoading>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th>Sl No</th>
         <th>Date</th>
@@ -448,7 +470,7 @@
 
 <ng-template #MTOMelting>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th rowspan="1">Sl No</th>
         <th rowspan="1">Date</th>
@@ -495,7 +517,7 @@
 
 <ng-template #MTOFluxMixing>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th rowspan="1">Sl No</th>
         <th rowspan="1">Flux Mixing Date</th>
@@ -530,7 +552,7 @@
 
 <ng-template #MTOSlagRemoval>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th rowspan="1">Sl No</th>
         <th rowspan="1">Slag Removal Date</th>
@@ -800,7 +822,7 @@
 
 <ng-template #MWOTransfer>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th rowspan="1">Sl No</th>
         <th rowspan="1">Date</th>
@@ -825,7 +847,7 @@
 
 <ng-template #MWOSlagRemoval>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th rowspan="1">Sl No</th>
         <th rowspan="1">Slag Removal Date</th>
@@ -1116,7 +1138,7 @@
 
 <ng-template #MWOIngotPouring>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th rowspan="1">Sl No</th>
         <th rowspan="1">Ingot Pouring Date</th>
@@ -1156,7 +1178,7 @@
 
 <ng-template #MWOVisualInspection>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th rowspan="1">Sl No</th>
         <th rowspan="1">Final Heat Number</th>
@@ -1195,7 +1217,7 @@
 
 <ng-template #MWOBuffingPolishing>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th rowspan="1">Final Heat Number</th>
         <th rowspan="1">Total Ok Ingots</th>
@@ -1231,7 +1253,7 @@
 
 <ng-template #MWOHeatNumberPrinting>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th rowspan="1">Final Heat Number</th>
         <th rowspan="1">Total Ingots</th>
@@ -1254,7 +1276,7 @@
 
 <ng-template #PDFinalInspection>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th rowspan="1">Sl No</th>
         <th rowspan="1">Final Heat Number</th>
@@ -1293,7 +1315,7 @@
 
 <ng-template #PDPacking>
   <table class="table mb-0 table-hover">
-    <thead class="bg-dark text-white">
+    <thead class="table-light">
       <tr>
         <th rowspan="1">Pallet Number</th>
         <th rowspan="1">Final Heat Number</th>

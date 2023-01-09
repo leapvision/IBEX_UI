@@ -21,6 +21,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardsModule } from './dashboards/dashboards.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReportsComponent } from './reports/reports.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -50,7 +51,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     LightboxModule,
     PickerModule,
     NgbDatepickerModule,
-    NgbAccordionModule
+    NgbAccordionModule,
+    NgSelectModule
   ],
 })
 export class PagesModule { }
