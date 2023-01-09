@@ -79,13 +79,13 @@ export class LoginComponent implements OnInit {
           .subscribe(
             data => {
               if(this.f.role.value == 'Admin'){
-                this.router.navigate(['/panel/admin']);
+                this.router.navigate(['/pages/panel/admin']);
               }
               else if(this.f.role.value == 'Supervisor'){
-                this.router.navigate(['/panel/supervisor']);
+                this.router.navigate(['/pages/panel/supervisor']);
               }
               else if(this.f.role.value == 'Operator'){
-                this.router.navigate(['/mto/loadingofrm']);
+                this.router.navigate(['/pages/mto/loadingofrm']);
               }
             },
             error => {

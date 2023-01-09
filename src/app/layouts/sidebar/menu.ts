@@ -14,13 +14,13 @@ export const MENU: MenuItem[] = [
             {
                 id: 300,
                 label: 'Admin',
-                link: '/panel/admin',
+                link: '/pages/panel/admin',
                 parentId: 200
             },
             {
                 id: 400,
                 label: 'Supervisor',
-                link: '/panel/supervisor',
+                link: '/pages/panel/supervisor',
                 parentId: 200
             }
         ]
@@ -39,7 +39,7 @@ export const MENU: MenuItem[] = [
             {
                 id: 4,
                 label: 'MTO',
-                link: '/dashboards/mto',
+                link: '/pages/dashboards/mto',
                 parentId: 2
             },
             {
@@ -60,7 +60,7 @@ export const MENU: MenuItem[] = [
         id: 100,
         label: 'REPORTING',
         icon: 'bx-home-circle',
-        link: '/reports'
+        link: '/pages/reports'
     },
     {
         id: 380,
@@ -70,19 +70,19 @@ export const MENU: MenuItem[] = [
             {
                 id: 390,
                 label: 'Supervisor',
-                link: '/usermanagement/supervisor',
+                link: '/pages/usermanagement/supervisor',
                 parentId: 380
             },
             {
                 id: 400,
                 label: 'Opertor',
-                link: '/usermanagement/operator',
+                link: '/pages/usermanagement/operator',
                 parentId: 380
             },
             {
                 id: 410,
                 label: 'Quality & Testing',
-                link: '/usermanagement/quality',
+                link: '/pages/usermanagement/quality',
                 parentId: 380
             }
         ]
@@ -104,13 +104,13 @@ export const MENU: MenuItem[] = [
             {
                 id: 14,
                 label: 'Scrap Purchase',
-                link: '/scrapmanagement/scrappurchase',
+                link: '/pages/scrapmanagement/scrappurchase',
                 parentId: 13
             },
             {
                 id: 15,
                 label: 'Incoming Inspection',
-                link: '/scrapmanagement/scrapinspection',
+                link: '/pages/scrapmanagement/scrapinspection',
                 parentId: 13
             },
             {
@@ -136,31 +136,31 @@ export const MENU: MenuItem[] = [
             {
                 id: 23,
                 label: 'Material Loading',
-                link: '/mto/loadingofrm',
+                link: '/pages/mto/loadingofrm',
                 parentId: 22
             },
             {
                 id: 24,
                 label: 'Melting',
-                link: '/mto/melting',
+                link: '/pages/mto/melting',
                 parentId: 22
             },
             {
                 id: 25,
                 label: 'Flux Mixing',
-                link: '/mto/fluxmixing',
+                link: '/pages/mto/fluxmixing',
                 parentId: 22
             },
             {
                 id: 26,
                 label: 'Slag Removal',
-                link: '/mto/slagremoving',
+                link: '/pages/mto/slagremoving',
                 parentId: 22
             },
             {
                 id: 27,
                 label: 'Composition Check',
-                link: '/mto/slaginspection',
+                link: '/pages/mto/slaginspection',
                 parentId: 22
             },
             
@@ -174,44 +174,44 @@ export const MENU: MenuItem[] = [
             {
                 id: 31,
                 label: 'Transfer to MWO',
-                link: '/mwo/transfertomwo',
+                link: '/pages/mwo/transfertomwo',
                 parentId: 30
             },
             {
                 id: 32,
                 label: 'Slag Removal',
-                link: '/mwo/slagremoval',
+                link: '/pages/mwo/slagremoval',
                 parentId: 30
             },
             {
                 id: 31,
                 label: 'Composition Check',
-                link: '/mwo/mwoinspection',
+                link: '/pages/mwo/mwoinspection',
                 parentId: 30
             },
             {
                 id: 32,
                 label: 'Ingots Pouring',
-                link: '/mwo/ingotpouring',
+                link: '/pages/mwo/ingotpouring',
                 parentId: 30
             },
             {
                 id: 31,
                 label: 'Visual Inspection',
-                link: '/mwo/visualinspection',
+                link: '/pages/mwo/visualinspection',
                 parentId: 30
             },
             {
                 id: 32,
                 label: 'Buffing/Polishing',
-                link: '/mwo/buffingandpolishing',
+                link: '/pages/mwo/buffingandpolishing',
                 parentId: 30
             },
             
             {
                 id: 32,
                 label: 'Heat Number Printing',
-                link: '/mwo/printing',
+                link: '/pages/mwo/printing',
                 parentId: 30
             }
         ]
@@ -224,13 +224,13 @@ export const MENU: MenuItem[] = [
             {
                 id: 38,
                 label: 'Final Inspection',
-                link: '/packing/finalinspection',
+                link: '/pages/packing/finalinspection',
                 parentId: 37
             },
             {
                 id: 39,
                 label: 'Packing',
-                link: '/packing/packingingots',
+                link: '/pages/packing/packingingots',
                 parentId: 37
             },
             {
