@@ -21,16 +21,16 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardsModule } from './dashboards/dashboards.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReportsComponent } from './reports/reports.component';
+import { ProfileComponent } from './profile/profile.component';
+
 import { NgSelectModule } from '@ng-select/ng-select';
-
-
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin
 ]);
 
 @NgModule({
-  declarations: [ReportsComponent],
+  declarations: [ReportsComponent, ProfileComponent],
   imports: [
     CommonModule,
     FormsModule,
