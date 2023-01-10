@@ -16,7 +16,7 @@ export class MWOInspectionComponent implements OnInit {
 
 
   constructor() {
-    this.breadCrumbItems = [{ label: 'MWO' }, { label: 'Chemical Inspection', active: true }];
+    this.breadCrumbItems = [{ label: 'MWO' }, { label: 'Composition Check', active: true }];
   }
 
   ngOnInit(): void {

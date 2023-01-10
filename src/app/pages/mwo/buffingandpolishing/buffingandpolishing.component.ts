@@ -15,7 +15,7 @@ export class BuffingAndPolishingComponent implements OnInit {
   breadCrumbItems: Array<{}>;
 
   constructor() {
-    this.breadCrumbItems = [{ label: 'MWO' }, { label: 'Buffing/Polishing', active: true }];
+    this.breadCrumbItems = [{ label: 'MWO' }, { label: 'Buffing & Polishing', active: true }];
   }
 
   ngOnInit(): void {

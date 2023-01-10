@@ -9,7 +9,7 @@
           <aw-wizard [navBarLayout]="'large-empty-symbols'">
             
             <aw-wizard-step stepTitle="Final Heat Number">
-              <ng-template awWizardStepSymbol>1</ng-template>
+              <ng-template awWizardStepSymbol><b>1</b></ng-template>
               <form>
                 <div class="row mb-4">
                   <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Ready for Printing</label>
@@ -43,7 +43,7 @@
 
 
             <aw-wizard-step stepTitle="Confirm">
-              <ng-template awWizardStepSymbol>2</ng-template>
+              <ng-template awWizardStepSymbol><b>2</b></ng-template>
               <div class="row justify-content-center">
                   <div class="col-xl col-sm-6">
                       <div class="mt-3 mb-0 text-center">
@@ -74,7 +74,7 @@
             <h4 class="card-title text-center">Printing Report</h4>
             <div class="table-responsive">
               <table class="table mb-0 table-hover">
-                <thead>
+                <thead class="table-light">
                   <tr>
                     <th rowspan="1"></th>
                     <th rowspan="1">Final Heat Number</th>

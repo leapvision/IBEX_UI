@@ -19,7 +19,7 @@ export class VisualInspectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'MWO' }, { label: 'Transfer to MWO', active: true }];
+    this.breadCrumbItems = [{ label: 'MWO' }, { label: 'Visual Inspection', active: true }];
   }
 
   changeValue() {
