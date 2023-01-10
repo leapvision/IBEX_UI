@@ -33,7 +33,7 @@ export class LoadingOfRmComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'Scrap Management' }, { label: 'Scrap Purchase', active: true }];
+    this.breadCrumbItems = [{ label: 'MTO' }, { label: 'Loading of Raw Material', active: true }];
 
     this.ordersData = ordersData;
   }

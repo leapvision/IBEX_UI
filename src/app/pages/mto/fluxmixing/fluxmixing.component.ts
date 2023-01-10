@@ -12,12 +12,14 @@ import { DecimalPipe } from '@angular/common';
 export class FluxMixingComponent implements OnInit {
   
   hideme: boolean[] = [false,false,true];
-
+  breadCrumbItems: Array<{}>;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.breadCrumbItems = [{ label: 'MTO' }, { label: 'Flux Mixing', active: true }];
+
   }
 
   changeValue() {

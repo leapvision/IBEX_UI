@@ -13,11 +13,13 @@ export class SlagRemovingComponent implements OnInit {
   
   hideme: boolean[] = [false,false,true];
 
+  breadCrumbItems: Array<{}>;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.breadCrumbItems = [{ label: 'MTO' }, { label: 'Slag Removing', active: true }];
   }
 
   changeValue() {

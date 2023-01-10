@@ -11,10 +11,13 @@ import { DecimalPipe } from '@angular/common';
 })
 export class MeltingComponent implements OnInit {
   
+  breadCrumbItems: Array<{}>;
+
   constructor() {
   }
 
   ngOnInit(): void {
+    this.breadCrumbItems = [{ label: 'MTO' }, { label: 'Melting', active: true }];
   }
 
 }

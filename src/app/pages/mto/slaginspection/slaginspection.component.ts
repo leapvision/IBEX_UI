@@ -12,12 +12,13 @@ import { DecimalPipe } from '@angular/common';
 export class SlagInspectionComponent implements OnInit {
   
   hideme: boolean[] = [false,false,true];
-
+  breadCrumbItems: Array<{}>;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.breadCrumbItems = [{ label: 'MTO' }, { label: 'Composition Check', active: true }];
   }
 
   changeValue() {
