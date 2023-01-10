@@ -28,7 +28,7 @@ export const MENU: MenuItem[] = [
     {
         id: 2,
         label: 'DASHBOARDS',
-        icon: 'bx-home-circle',
+        icon: 'bx-bar-chart-alt',
         subItems: [
             {
                 id: 3,
@@ -59,13 +59,13 @@ export const MENU: MenuItem[] = [
     {
         id: 100,
         label: 'REPORTING',
-        icon: 'bx-home-circle',
+        icon: 'bx-book-open',
         link: '/pages/reports'
     },
     {
         id: 380,
         label: 'USER MANAGEMENT',
-        icon: 'bx-home-circle',
+        icon: 'bx-user',
         subItems: [
             {
                 id: 390,
@@ -131,7 +131,7 @@ export const MENU: MenuItem[] = [
     {
         id: 22,
         label: 'MTO',
-        icon: 'bx-bitcoin',
+        icon: 'bx-tone',
         subItems: [
             {
                 id: 23,
@@ -169,7 +169,7 @@ export const MENU: MenuItem[] = [
     {
         id: 30,
         label: 'MWO',
-        icon: 'bx-envelope',
+        icon: 'bx-aperture',
         subItems: [
             {
                 id: 31,
@@ -219,7 +219,7 @@ export const MENU: MenuItem[] = [
     {
         id: 37,
         label: 'PACKING & DISPATCH',
-        icon: 'bx-receipt',
+        icon: 'bx-package',
         subItems: [
             {
                 id: 38,
