@@ -11,21 +11,23 @@
                   <aw-wizard-step stepTitle="Heat Number">
                     <ng-template awWizardStepSymbol><b>1</b></ng-template>
                     <form>
-                      <div class="row mb-4">
-                          <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Ready for Slag Removal</label>
-                          <div class="col-sm-9">
+                      <div class="row mb-4 justify-content-center">
+                        <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Ready for Slag Removal</label>
+                      </div>
+                      <div class="row mb-4 justify-content-center">
+                          <div class="col-sm-12">
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="card border border-primary card-body">
                                     <h3 class="card-title  text-center">MT-01-1001</h3>
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="card bg-success border border-success card-body">
                                     <h3 class="card-title text-white text-center">MT-01-1002</h3>
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="card border border-primary card-body">
                                     <h3 class="card-title text-center">MT-02-1003</h3>
                                   </div>
@@ -35,7 +37,6 @@
                       </div>
                     </form>
                     <ul class="list-inline wizard mb-0">
-                      
                       <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Next</button>
                       </li>
                     </ul>
@@ -45,7 +46,7 @@
                   <aw-wizard-step stepTitle="Slag Removal (KG)">
                     <ng-template awWizardStepSymbol><b>2</b></ng-template>
                     <form>
-                      <div class="row mb-4">
+                      <div class="row mb-4 mt-4">
                           <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Quantity</label>
                           <div class="col-sm-9">
                               <input type="number" class="form-control" >
@@ -62,7 +63,7 @@
 
                   <aw-wizard-step stepTitle="Time">
                     <ng-template awWizardStepSymbol><b>3</b></ng-template>
-                    <div class="mb-3 row">
+                    <div class="mb-3 row mt-4">
                       <label for="example-time-input" class="col-md-2 col-form-label">Time</label>
                       <div class="col-md-10">
                           <input class="form-control" type="time" value="10:00:00" >
@@ -98,6 +99,9 @@
                     </div>
                     <ul class="list-inline wizard mb-0">
                       <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                      </li>
+                      <li class="next list-inline-item float-end">
+                        <a routerLink="/pages/mto/slaginspection" class="btn btn-primary">Next Process</a>
                       </li>
                     </ul>
                   </aw-wizard-step>

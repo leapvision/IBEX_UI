@@ -11,21 +11,23 @@
                   <aw-wizard-step stepTitle="Heat Number">
                     <ng-template awWizardStepSymbol><b>1</b></ng-template>
                     <form>
-                      <div class="row mb-4">
-                          <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Ready for Flux Mixing</label>
-                          <div class="col-sm-9">
+                      <div class="row mb-4 justify-content-center">
+                        <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Ready for Flux Mixing</label>
+                      </div>
+                      <div class="row mb-4 justify-content-center">
+                          <div class="col-sm-12">
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="card border border-primary card-body">
                                     <h3 class="card-title  text-center">MT-01-1001</h3>
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="card bg-success border border-success card-body">
                                     <h3 class="card-title text-white text-center">MT-01-1002</h3>
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="card border border-primary card-body">
                                     <h3 class="card-title text-center">MT-02-1003</h3>
                                   </div>
@@ -45,7 +47,7 @@
                   <aw-wizard-step stepTitle="Flux Adding (KG)">
                     <ng-template awWizardStepSymbol><b>2</b></ng-template>
                     <form>
-                      <div class="row mb-4">
+                      <div class="row mb-4 mt-4">
                           <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Quantity</label>
                           <div class="col-sm-9">
                               <input type="number" class="form-control" >
@@ -61,7 +63,7 @@
 
                   <aw-wizard-step stepTitle="N2 Degassing">
                     <ng-template awWizardStepSymbol><b>3</b></ng-template>
-                    <div class="mb-3 row">
+                    <div class="mb-3 row mt-4">
                       <label for="example-time-input" class="col-md-2 col-form-label">Start Time</label>
                       <div class="col-md-10">
                           <input class="form-control" type="time" value="10:00:00" >
@@ -103,8 +105,11 @@
                             </div>
                         </div>
                     </div>
-                    <ul class="list-inline wizard mb-0">
+                    <ul class="list-inline wizard mb-0 mt-4">
                       <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                      </li>
+                      <li class="next list-inline-item float-end">
+                        <a routerLink="/pages/mto/slagremoving" class="btn btn-primary">Next Process </a>
                       </li>
                     </ul>
                   </aw-wizard-step>
