@@ -11,21 +11,23 @@
                   <aw-wizard-step stepTitle="Heat Number(MWO)">
                     <ng-template awWizardStepSymbol><b>1</b></ng-template>
                     <form>
-                      <div class="row mb-4">
-                          <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Ready for Ingot Pouring</label>
-                          <div class="col-sm-9">
+                      <div class="row justify-content-center mt-4">
+                        <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Ready for Ingot Pouring</label>
+                      </div>
+                      <div class="row mb-4 justify-content-center">
+                          <div class="col-sm-12">
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="card border border-primary card-body">
                                     <h3 class="card-title  text-center">MW-01-1001</h3>
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="card bg-success border border-success card-body">
                                     <h3 class="card-title text-white text-center">MW-01-1002</h3>
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="card border border-primary card-body">
                                     <h3 class="card-title text-center">MW-02-1003</h3>
                                   </div>
@@ -46,8 +48,7 @@
                     <ng-template awWizardStepSymbol><b>2</b></ng-template>
                     
                     <form>
-                        
-                      <div class="row mb-4">
+                      <div class="row mb-4 mt-4">
                         <label for="horizontal-password-input" class="col-sm-3 col-form-label">Pouring Temperature(°C)</label>
                         <div class="col-sm-9">
                             <input type="number" class="form-control" >
@@ -90,7 +91,7 @@
 
                     <form>
                         
-                      <div class="row mb-4">
+                      <div class="row mb-4 mt-4">
                         <label for="horizontal-password-input" class="col-sm-3 col-form-label">No of Ingots Poured</label>
                         <div class="col-sm-9">
                             <input type="number" class="form-control" >
@@ -147,6 +148,9 @@
                     </div>
                     <ul class="list-inline wizard mb-0">
                       <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                      </li>
+                      <li class="next list-inline-item float-end">
+                        <a routerLink="/pages/mwo/visualinspection" class="btn btn-primary">Next Process</a>
                       </li>
                     </ul>
                   </aw-wizard-step>
