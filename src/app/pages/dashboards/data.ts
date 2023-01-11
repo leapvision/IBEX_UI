@@ -102,6 +102,7 @@ const barChart: ChartType = {
 const pieChart: ChartType = {
     tooltip: {
         trigger: 'item',
+        position: 'right',
         formatter: "{a} {b} : {c} KG <br/> Ibex Runners and Returns : 100 KG <br/> Rejection Ingots : 100 KG <br/> Welbow : 80 KG <br/> Others : 10 KG"
     },
     legend: {
