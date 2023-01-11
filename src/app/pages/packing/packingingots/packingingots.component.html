@@ -10,31 +10,31 @@
             
             <aw-wizard-step stepTitle="Add Heat Numbers">
               <ng-template awWizardStepSymbol><b>1</b></ng-template>
-              <div class="row mb-4 justify-content-center">
+              <div class="row mb-4 mt-4 justify-content-center">
                 <div class="col-12">
-                  
                     <div class="card border border-primary card-body">
                       <h3 class="card-title  text-center">Pallet Number - 1</h3>
                     </div>
-                  
                 </div>
               </div>
               <form>
-                <div class="row mb-4">
+                <div class="row justify-content-center mt-4">
                   <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Choose Heat Number 1</label>
-                    <div class="col-sm-9 align-items-center">
+                </div>
+                <div class="row mb-4">
+                    <div class="col-sm-12 align-items-center">
                       <div class="row align-items-center">
-                          <div class="col-sm-3">
+                          <div class="col-sm-4">
                             <div class="card border border-primary card-body">
                               <h3 class="card-title  text-center">IBEX-MW-01-1001-20122022</h3>
                             </div>
                           </div>
-                          <div class="col-sm-3">
+                          <div class="col-sm-4">
                             <div class="card bg-success border border-success card-body">
                               <h3 class="card-title text-white text-center">IBEX-MW-01-1002-12122022</h3>
                             </div>
                           </div>
-                          <div class="col-sm-3">
+                          <div class="col-sm-4">
                             <div class="card border border-primary card-body">
                               <h3 class="card-title text-center">IBEX-MW-02-1003-22122022</h3>
                             </div>
@@ -42,21 +42,23 @@
                       </div>
                   </div>
                 </div>
-                <div class="row mb-4">
+                <div class="row justify-content-center mt-4">
                   <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Choose Heat Number 2</label>
-                    <div class="col-sm-9 align-items-center">
+                </div>
+                <div class="row mb-4">
+                    <div class="col-sm-12 align-items-center">
                       <div class="row align-items-center">
-                          <div class="col-sm-3">
+                          <div class="col-sm-4">
                             <div class="card border border-primary card-body">
                               <h3 class="card-title  text-center">IBEX-MW-01-1001-20122022</h3>
                             </div>
                           </div>
-                          <div class="col-sm-3">
+                          <div class="col-sm-4">
                             <div class="card border border-primary card-body">
                               <h3 class="card-title text-center">IBEX-MW-01-1002-12122022</h3>
                             </div>
                           </div>
-                          <div class="col-sm-3">
+                          <div class="col-sm-4">
                             <div class="card bg-success border border-success card-body">
                               <h3 class="card-title text-white text-center">IBEX-MW-02-1003-22122022</h3>
                             </div>
@@ -66,7 +68,6 @@
                 </div>
               </form>
               <ul class="list-inline wizard mb-0">
-                
                 <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Next</button>
                 </li>
               </ul>
@@ -75,17 +76,14 @@
 
             <aw-wizard-step stepTitle="Ingot Final Inspection">
               <ng-template awWizardStepSymbol><b>2</b></ng-template>
-              <div class="row mb-4 justify-content-center">
+              <div class="row mb-4 justify-content-center mt-4">
                 <div class="col-12">
-                  
                     <div class="card border border-primary card-body">
                       <h3 class="card-title  text-center">Pallet Number - 1</h3>
                     </div>
-                  
                 </div>
               </div>
               <form>
-                
                 <div class="row mb-4">
                   <label for="horizontal-password-input" class="col-sm-3 col-form-label">Total weight with Pallet(KG)</label>
                   <div class="col-sm-9">
@@ -158,6 +156,9 @@
               </div>
               <ul class="list-inline wizard mb-0">
                 <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                </li>
+                <li class="next list-inline-item float-end">
+                  <a routerLink="/pages/packing/fas" class="btn btn-primary">Next Process</a>
                 </li>
               </ul>
             </aw-wizard-step>
