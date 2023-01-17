@@ -35,48 +35,65 @@
                     <form>
                         <div class="row mt-4">
                             <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Scrap Melting</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-6">
                                 <input type="number" class="form-control" >
+                            </div>
+                            <div class="col-sm-3">
+                              <input type="number" class="form-control" >
                             </div>
                         </div>
 
-                        <div class="row mb-4 text-center">
-                          <label for="horizontal-firstname-input" class="col-sm-12 col-form-label">Addition Details</label>
+                        <div class="row mb-4 mt-4 text-center">
+                          <label for="horizontal-firstname-input" class="col-sm-3 col-form-label"></label>
+                          <label for="horizontal-firstname-input" class="col-sm-6 col-form-label">Addition Details</label>
+                          <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Recommended Values</label>
                         </div>
                         <div class="row mb-4">
                             <label for="horizontal-email-input" class="col-sm-3 col-form-label">Be Grams</label>
-                            <div class="col-sm-9">
-                                <input type="number" class="form-control">
+                            <div class="col-sm-6">
+                              <input type="number" class="form-control" >
+                            </div>
+                            <div class="col-sm-3">
+                              <input type="number" class="form-control" value="10" [disabled]="true">
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label for="horizontal-password-input" class="col-sm-3 col-form-label">Pure Alu</label>
-                            <div class="col-sm-9">
-                                <input type="number" class="form-control" >
+                            <div class="col-sm-6">
+                              <input type="number" class="form-control" >
+                            </div>
+                            <div class="col-sm-3">
+                              <input type="number" class="form-control" value="15" [disabled]="true">
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label for="horizontal-password-input" class="col-sm-3 col-form-label">Zinc</label>
-                            <div class="col-sm-9">
-                                <input type="number" class="form-control" >
+                            <div class="col-sm-6">
+                              <input type="number" class="form-control" >
+                            </div>
+                            <div class="col-sm-3">
+                              <input type="number" class="form-control" value="1" [disabled]="true">
                             </div>
                         </div>
                         <div class="row mb-4">
                           <label for="horizontal-password-input" class="col-sm-3 col-form-label">Al Mn </label>
-                          <div class="col-sm-9">
-                              <input type="number" class="form-control" >
+                          <div class="col-sm-6">
+                            <input type="number" class="form-control" >
+                          </div>
+                          <div class="col-sm-3">
+                            <input type="number" class="form-control" value="100" [disabled]="true">
                           </div>
                       </div>
                       <div class="row mb-4">
                           <label for="horizontal-password-input" class="col-sm-3 col-form-label">Pure Mg</label>
-                          <div class="col-sm-9">
-                              <input type="number" class="form-control" >
+                          <div class="col-sm-6">
+                            <input type="number" class="form-control" >
                           </div>
-                      </div>
-                      
-                        
+                          <div class="col-sm-3">
+                            <input type="number" class="form-control" value="40" [disabled]="true">
+                          </div>
+                      </div>  
                     </form>
-      
                     <ul class="list-inline wizard mb-0">
                       <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
                       </li>
@@ -89,7 +106,16 @@
                     <ng-template awWizardStepSymbol><b>3</b></ng-template>
       
                     <form>
-                        
+                      
+                      <div class="row mt-4">
+                        <div class="col-12">
+                          <div>
+                            <form>
+                              <dropzone [message]="'Click to capture image'"  class="dropzone"></dropzone>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                       <div class="row mt-4">
                         <label for="horizontal-password-input" class="col-sm-3 col-form-label">Melting Temperature</label>
                         <div class="col-sm-9">

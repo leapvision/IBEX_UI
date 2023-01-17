@@ -8,6 +8,8 @@ import { WidgetModule } from '../../shared/widget/widget.module';
 
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ArchwizardModule } from 'angular-archwizard';
+import { DropzoneModule } from 'ngx-dropzone-wrapper';
+
 // import { SharedModule } from './saas/shared/shared.module'
 import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, NgbDatepickerModule, NgbTypeaheadModule, NgbPaginationModule, NgbPopoverModule, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap'
 import { SimplebarAngularModule } from 'simplebar-angular';
@@ -40,7 +42,8 @@ import { SlagInspectionComponent } from './slaginspection/slaginspection.compone
     NgbPaginationModule,
     ArchwizardModule,
     NgbPopoverModule,
-    NgbAccordionModule
+    NgbAccordionModule,
+    DropzoneModule
   ]
 })
 export class MtoModule { }
