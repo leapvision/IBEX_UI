@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardsRoutingModule } from './mwo-routing.module';
 import { UIModule } from '../../shared/ui/ui.module';
 import { WidgetModule } from '../../shared/widget/widget.module';
+import { DropzoneModule } from 'ngx-dropzone-wrapper';
 
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ArchwizardModule } from 'angular-archwizard';
@@ -44,7 +45,8 @@ import { PrintingComponent } from './printing/printing.component';
     NgbPaginationModule,
     ArchwizardModule,
     NgbPopoverModule,
-    NgbAccordionModule
+    NgbAccordionModule,
+    DropzoneModule
   ]
 })
 export class MwoModule { }
