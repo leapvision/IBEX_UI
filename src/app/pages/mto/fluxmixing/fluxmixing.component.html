@@ -8,7 +8,7 @@
                 <h4 class="card-title mb-4 text-center">Flux Mixing</h4>
                 <aw-wizard [navBarLayout]="'large-empty-symbols'">
                   
-                  <aw-wizard-step stepTitle="Heat Number">
+                  <aw-wizard-step stepTitle="Melt Number">
                     <ng-template awWizardStepSymbol><b>1</b></ng-template>
                     <form>
                       <div class="row mb-4 text-center">
@@ -48,11 +48,23 @@
                     <ng-template awWizardStepSymbol><b>2</b></ng-template>
                     <form>
                       <div class="row mb-4 mt-4">
-                          <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Quantity</label>
+                          <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Flux Type 0 Quantity</label>
                           <div class="col-sm-9">
                               <input type="number" class="form-control" >
                           </div>
                       </div>
+                      <div class="row mb-4 mt-4">
+                        <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Flux Type 5 Quantity</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="row mb-4 mt-4">
+                      <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Flux Type 12 Quantity</label>
+                      <div class="col-sm-9">
+                          <input type="number" class="form-control" >
+                      </div>
+                  </div>
                     </form>
                     <ul class="list-inline wizard mb-0">
                       
@@ -129,7 +141,7 @@
                         <th rowspan="1">Sl No</th>
                         <th rowspan="1">Flux Mixing Date</th>
                         <th rowspan="1">Shift & Time</th>
-                        <th rowspan="1">Heat Number</th>
+                        <th rowspan="1">Melt Number</th>
                         <th rowspan="1">Flux Adding Quantity (KG)</th>
                         <th colspan="2" class="text-center">N2 Degassing</th>
                       </tr>
