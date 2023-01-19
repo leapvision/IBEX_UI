@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DispatchComponent } from './dispatch/dispatch.component';
 import { FASComponent } from './fas/fas.component';
 import { FinalInspectionComponent } from './finalinspection/finalinspection.component';
 import { PackingIngotsComponent } from './packingingots/packingingots.component';
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
         path: 'certquality',
         component: CertQualityComponent
+    },
+    {
+        path: 'dispatch',
+        component: DispatchComponent
     },
 ];
 

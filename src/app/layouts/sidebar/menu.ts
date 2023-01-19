@@ -234,21 +234,21 @@ export const MENU: MenuItem[] = [
                 parentId: 37
             },
             {
-                id: 38,
+                id: 40,
                 label: 'FAS',
                 link: '/pages/packing/fas',
                 parentId: 37
             },
             {
-                id: 39,
+                id: 41,
                 label: 'Certificate of Quality',
                 link: '/pages/packing/certquality',
                 parentId: 37
             },
             {
-                id: 40,
+                id: 42,
                 label: 'Dispatch',
-                link: '/dashboard',
+                link: '/pages/packing/dispatch',
                 parentId: 37
             },
         ]

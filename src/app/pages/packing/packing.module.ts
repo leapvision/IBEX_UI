@@ -9,6 +9,7 @@ import { WidgetModule } from '../../shared/widget/widget.module';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ArchwizardModule } from 'angular-archwizard';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { DropzoneModule } from 'ngx-dropzone-wrapper';
 // import { SharedModule } from './saas/shared/shared.module'
 import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, NgbDatepickerModule, NgbTypeaheadModule, NgbPaginationModule, NgbPopoverModule, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap'
 import { SimplebarAngularModule } from 'simplebar-angular';
@@ -17,10 +18,11 @@ import { FinalInspectionComponent } from './finalinspection/finalinspection.comp
 import { PackingIngotsComponent } from './packingingots/packingingots.component';
 import { FASComponent } from './fas/fas.component';
 import { CertQualityComponent } from './quality/certquality.component';
+import { DispatchComponent } from './dispatch/dispatch.component';
 
 
 @NgModule({
-  declarations: [FinalInspectionComponent,PackingIngotsComponent,FASComponent, CertQualityComponent],
+  declarations: [FinalInspectionComponent,PackingIngotsComponent,FASComponent, CertQualityComponent, DispatchComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -41,7 +43,8 @@ import { CertQualityComponent } from './quality/certquality.component';
     ArchwizardModule,
     NgbPopoverModule,
     NgbAccordionModule,
-    NgSelectModule
+    NgSelectModule,
+    DropzoneModule
   ]
 })
 export class PackingModule { }
