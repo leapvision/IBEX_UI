@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FASComponent } from './fas/fas.component';
 import { FinalInspectionComponent } from './finalinspection/finalinspection.component';
 import { PackingIngotsComponent } from './packingingots/packingingots.component';
+import { CertQualityComponent } from './quality/certquality.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
     {
         path: 'fas',
         component: FASComponent
+    },
+    {
+        path: 'certquality',
+        component: CertQualityComponent
     },
 ];
 

@@ -16,10 +16,11 @@ import { SharedModule } from '../../shared/shared.module';
 import { FinalInspectionComponent } from './finalinspection/finalinspection.component';
 import { PackingIngotsComponent } from './packingingots/packingingots.component';
 import { FASComponent } from './fas/fas.component';
+import { CertQualityComponent } from './quality/certquality.component';
 
 
 @NgModule({
-  declarations: [FinalInspectionComponent,PackingIngotsComponent,FASComponent],
+  declarations: [FinalInspectionComponent,PackingIngotsComponent,FASComponent, CertQualityComponent],
   imports: [
     CommonModule,
     FormsModule,

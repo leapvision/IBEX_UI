@@ -241,6 +241,12 @@ export const MENU: MenuItem[] = [
             },
             {
                 id: 39,
+                label: 'Certificate of Quality',
+                link: '/pages/packing/certquality',
+                parentId: 37
+            },
+            {
+                id: 40,
                 label: 'Dispatch',
                 link: '/dashboard',
                 parentId: 37
