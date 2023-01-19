@@ -71,11 +71,11 @@ export class SupervisorLoginComponent implements OnInit {
   }
 
   showOperator(){
-    if(this.f.role.value == 'Operator'){
-      this.showOperatorFlag = !this.showOperatorFlag;
+    if(this.f.page.value.includes('Dashboard')){
+      this.showOperatorFlag = false;
     }
     else{
-      this.showOperatorFlag = false;
+      this.showOperatorFlag = true;
     }
     
   }

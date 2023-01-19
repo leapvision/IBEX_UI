@@ -8,16 +8,18 @@ import { WidgetModule } from '../../shared/widget/widget.module';
 
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ArchwizardModule } from 'angular-archwizard';
+import { NgSelectModule } from '@ng-select/ng-select';
 // import { SharedModule } from './saas/shared/shared.module'
 import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, NgbDatepickerModule, NgbTypeaheadModule, NgbPaginationModule, NgbPopoverModule, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap'
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { SharedModule } from '../../shared/shared.module';
 import { FinalInspectionComponent } from './finalinspection/finalinspection.component';
 import { PackingIngotsComponent } from './packingingots/packingingots.component';
+import { FASComponent } from './fas/fas.component';
 
 
 @NgModule({
-  declarations: [FinalInspectionComponent,PackingIngotsComponent],
+  declarations: [FinalInspectionComponent,PackingIngotsComponent,FASComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -37,7 +39,8 @@ import { PackingIngotsComponent } from './packingingots/packingingots.component'
     NgbPaginationModule,
     ArchwizardModule,
     NgbPopoverModule,
-    NgbAccordionModule
+    NgbAccordionModule,
+    NgSelectModule
   ]
 })
 export class PackingModule { }

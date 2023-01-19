@@ -1,0 +1,857 @@
+<div class="container-fluid">
+  <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-lg-12 align-items-center">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title mb-4 text-center">Packing List</h4>
+          <aw-wizard [navBarLayout]="'large-empty-symbols'">
+            
+            <aw-wizard-step stepTitle="Invoice Details">
+              <ng-template awWizardStepSymbol><b>1</b></ng-template>
+              <div class="row">
+                <div class="row mb-4">
+                  <label for="horizontal-password-input" class="col-sm-6 col-form-label">Select Invoice No</label>
+                  <div class="col-sm-6">
+                    <ng-select [items]="invoiceNumbers"></ng-select>
+                  </div>
+                </div>
+              </div>
+              <form>
+                <div class="row justify-content-center mt-4">
+                  <!-- <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Choose Heat Number 1</label> -->
+                </div>
+                <div class="row">
+                  <div class="row mb-4">
+                    <label for="horizontal-password-input" class="col-sm-6 col-form-label">Invoice Date</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" [disabled]="true" value="31-10-2022">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="row mb-4">
+                    <label for="horizontal-password-input" class="col-sm-6 col-form-label">Customer Reference</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" [disabled]="true" value="TIPL/0148/22-23">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="row mb-4">
+                    <label for="horizontal-password-input" class="col-sm-6 col-form-label">Consignee Name</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" [disabled]="true" value="TRISTAR INTERMEDIATED PVT LTD">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="row mb-4">
+                    <label for="horizontal-password-input" class="col-sm-6 col-form-label">Consignee Address</label>
+                    <div class="col-sm-6">
+                      <!-- <textarea name="message" rows="10" cols="30">SHED No C1 B-3201 To B-3203 G.I.D.C SARIGAM Gujarat-396155"</textarea> -->
+                      <input type="text" class="form-control" [disabled]="true" value="SHED No C1 B-3201 To B-3203 G.I.D.C SARIGAM Gujarat-396155">
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <ul class="list-inline wizard mb-0">
+                <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Next</button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+
+
+            <aw-wizard-step stepTitle="Shipping Details">
+              <ng-template awWizardStepSymbol><b>2</b></ng-template>
+             
+              <form>
+                
+                <div class="row mb-4">
+                  <label for="horizontal-password-input" class="col-sm-6 col-form-label">Container No</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control"value="">
+                  </div>
+                </div>
+                
+                <div class="row mb-4">
+                  <label for="horizontal-password-input" class="col-sm-6 col-form-label">Seal No</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control"  value="">
+                  </div>
+                </div>
+
+                <div class="row mb-4">
+                  <label for="horizontal-password-input" class="col-sm-6 col-form-label">Vehicle No</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control"  value="">
+                  </div>
+                </div>
+
+                
+              </form>
+
+              <ul class="list-inline wizard mb-0">
+                <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                </li>
+                <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Next</button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+
+            <aw-wizard-step stepTitle="Pallet Details">
+              <ng-template awWizardStepSymbol><b>3</b></ng-template>
+
+              <form>
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title mb-4 text-center">Packing List Summary</h4>
+
+                    <div class="table-responsive">
+                      <table class="table table-bordered mb-0 table-hover">
+                        <tbody class="table-bordered">
+                          <tr>
+                            <td>Total Gross Weight </td>
+                            <td>25305</td>
+                          </tr>
+                          <tr>
+                            <td>Total Net Weight </td>
+                            <td>25003</td>
+                          </tr>
+                          <tr>
+                            <td>Total Pallets</td>
+                            <td>25</td>
+                          </tr>
+                          <tr>
+                            <td>Total PCS</td>
+                            <td>3409 </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <form>
+                <div class="card">
+                  <div class="card-body">
+                    <!-- <h4 class="card-title text-center">Packing Report</h4> -->
+                    <div class="table-responsive">
+                      <table class="table mb-0 table-hover">
+                        <thead class="table-light">
+                          <tr>
+                            <th rowspan="1"></th>
+                            <th rowspan="1">Select</th>
+                            <th rowspan="1">Pallet Number</th>
+                            <th rowspan="1">Gross Weight(KG)</th>
+                            <th rowspan="1">Net Weight(KG)</th>
+                            <th rowspan="1">PCS</th>
+                            <th rowspan="1">Remarks</th>
+                          </tr>
+                        </thead>
+                        <tbody >
+                          <tr>
+                            <td align="center">
+                              <a class="expand-row" (click)="changeValue()">
+                                +
+                              </a>
+                            </td>
+                            <td><input type="checkbox" [checked]="false"></td>
+                            <td>1001</td>
+                            <td>1106</td>
+                            <td>1094</td>
+                            <td>150</td>
+                            <td> 
+                              <form>
+                                <div class="row mb-4 justify-content-center">
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                              </form>  
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center">
+                              <a class="expand-row" (click)="changeValue()">
+                                +
+                              </a>
+                            </td>
+                            <td><input type="checkbox" [checked]="true"></td>
+                            <td>1002</td>
+                            <td>1124</td>
+                            <td>1104</td>
+                            <td>155</td>
+                            <td> 
+                              <form>
+                                <div class="row mb-4 justify-content-center">
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                              </form>  
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center">
+                              <a class="expand-row" (click)="changeValue()">
+                                +
+                              </a>
+                            </td>
+                            <td><input type="checkbox" [checked]="false"></td>
+                            <td>1003</td>
+                            <td>1124</td>
+                            <td>1104</td>
+                            <td>155</td>
+                            <td> 
+                              <form>
+                                <div class="row mb-4 justify-content-center">
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                              </form>  
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center">
+                              <a class="expand-row" (click)="changeValue()">
+                                +
+                              </a>
+                            </td>
+                            <td><input type="checkbox" [checked]="false"></td>
+                            <td>1004</td>
+                            <td>1124</td>
+                            <td>1104</td>
+                            <td>155</td>
+                            <td> 
+                              <form>
+                                <div class="row mb-4 justify-content-center">
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                              </form>  
+                            </td>
+                          </tr>
+
+                          <tr *ngIf="!hideme[2]" class="sub-table no-bg">
+                            <td align="center"> </td>
+                            <td colspan="15" class="p-0">
+                              <div class="m-4">
+        
+                                <ngb-accordion #acc="ngbAccordion" activeIds="static-1" [closeOthers]="false">
+                                  <ngb-panel id="static-1">
+                                    <ng-template ngbPanelTitle class="text-black">
+                                      Packing Report
+                                    </ng-template>
+                                    <ng-template ngbPanelContent>
+                                      <table class="table mb-0 table-hover">
+                                        <thead class="table-light">
+                                          <tr>
+                                            <th rowspan="1"></th>
+                                            <th rowspan="1">Pallet Number</th>
+                                            <th rowspan="1">Final Heat Number</th>
+                                            <th rowspan="1">Number of Ingots</th>
+                                            <th rowspan="1">Manufacturing Date</th>
+                                            <th rowspan="1">Total Weight With Pallet</th>
+                                            <th rowspan="1">Pallet Weight</th>
+                                            <th rowspan="1">Ingot Weight</th>
+                                            <th rowspan="1" class="text-center">Remarks</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody >
+                                          <tr>
+                                            <td align="center">
+                                              <a class="expand-row" (click)="changeValue()">
+                                                +
+                                              </a>
+                                            </td>
+                                            <td>1</td>
+                                            <td>IBEX-MW-01-1001-221222</td>
+                                            <td>70</td>
+                                            <td>22/12/2022</td>
+                                            <td>962</td>
+                                            <td>12</td>
+                                            <td>950</td>
+                                            <td> 
+                                              <form>
+                                                <div class="row mb-4 justify-content-center">
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" value="">
+                                                    </div>
+                                                </div>
+                                              </form>  
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td>IBEX-MW-01-1002-221220</td>
+                                            <td>75</td>
+                                            <td>20/12/2022</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td> 
+                                              <form>
+                                                <div class="row mb-4 justify-content-center">
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" value="">
+                                                    </div>
+                                                </div>
+                                              </form>  
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </ng-template>
+                                  </ngb-panel>
+                                  
+                                </ngb-accordion>
+        
+        
+                                <!-- end accordion -->
+                            </div>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+          
+                  </div>
+                </div>
+              </form>
+              <ul class="list-inline wizard mb-0">
+                <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                </li>
+                <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Next</button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+
+
+            <aw-wizard-step stepTitle="Confirm">
+              <ng-template awWizardStepSymbol><b>4</b></ng-template>
+              <div class="row justify-content-center m-4">
+                <div class="col-12">
+                  <table class="table table-bordered mb-0 table-hover">
+                    <!-- <thead >
+                      <tr>
+                        <th rowspan="1"></th>
+                        <th rowspan="1"></th>
+                        <th rowspan="1"></th>
+                        <th rowspan="1"></th>
+                      </tr>
+                    </thead> -->
+                    <tbody class="table-bordered">
+                      <tr>
+                        <td>Invoice Number</td>
+                        <td>IEPL/1300/22-23</td>
+                        <td>Container No</td>
+                        <td>MSKU5678923</td>
+                      </tr>
+                      <tr>
+                        <td>Invoice Date</td>
+                        <td>22-12-2022</td>
+                        <td>Seal No</td>
+                        <td>7632</td>
+                      </tr>
+                      <tr>
+                        <td>Customer Ref</td>
+                        <td>TIPL/0148/22-23</td>
+                        <td>Vehicle No</td>
+                        <td>KA53B57392</td>
+                      </tr>
+                      <tr>
+                        <td>Shipping Date</td>
+                        <td>22-12-2022</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Shipper</td>
+                        <td>Ibex Engineering Pvt Ltd </td>
+                        <td>Consignee</td>
+                        <td>SHED No C1 B-3201 To B-3203 G.I.D.C SARIGAM Gujarat-396155</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <table class="table table-bordered mb-0 table-hover">
+                    <thead >
+                      <tr>
+                        <th rowspan="1">Item Description</th>
+                        <th rowspan="1">Pallets No</th>
+                        <th rowspan="1">Gross Weight(Kgs)</th>
+                        <th rowspan="1">Net Weight(Kgs)</th>
+                        <th rowspan="1">PCS</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-bordered">
+                      <tr>
+                        <td></td>
+                        <td>1</td>
+                        <td>1032</td>
+                        <td>1019</td>
+                        <td>140</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>2</td>
+                        <td>1032</td>
+                        <td>1019</td>
+                        <td>140</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>3</td>
+                        <td>1032</td>
+                        <td>1019</td>
+                        <td>140</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>4</td>
+                        <td>1032</td>
+                        <td>1019</td>
+                        <td>140</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>5</td>
+                        <td>1032</td>
+                        <td>1019</td>
+                        <td>140</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>6</td>
+                        <td>1032</td>
+                        <td>1019</td>
+                        <td>140</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>7</td>
+                        <td>1032</td>
+                        <td>1019</td>
+                        <td>140</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>8</td>
+                        <td>1032</td>
+                        <td>1019</td>
+                        <td>140</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>9</td>
+                        <td>1032</td>
+                        <td>1019</td>
+                        <td>140</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>10</td>
+                        <td>1032</td>
+                        <td>1019</td>
+                        <td>140</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <form>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-bordered mb-0 table-hover">
+                        <tbody class="table-bordered">
+                          <tr>
+                            <td>Total Gross Weight </td>
+                            <td>25305</td>
+                          </tr>
+                          <tr>
+                            <td>Total Net Weight </td>
+                            <td>25003</td>
+                          </tr>
+                          <tr>
+                            <td>Total Pallets</td>
+                            <td>25</td>
+                          </tr>
+                          <tr>
+                            <td>Total PCS</td>
+                            <td>3409 </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="row justify-content-center mb-4">
+                <div class="col-12 text-center">
+                  <button type="button" class="btn btn-ibex btn-lg w-md text-black">Confirm Packing List</button>
+                </div>
+                <!-- <div class="col-6 text-center">
+                  <button type="button" class="btn btn-ibex btn-lg w-md text-black">Download</button>
+                </div> -->
+              </div>
+              
+              
+              <ul class="list-inline wizard mb-0">
+                <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                </li>
+                <li class="next list-inline-item float-end">
+                  <a routerLink="/pages/packing/fas" class="btn btn-primary">Next Process</a>
+                </li>
+              </ul>
+            </aw-wizard-step>
+          </aw-wizard>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 align-items-center">
+      <div class="card">
+          <div class="card-body">
+            <h4 class="card-title text-center">Packing List Report</h4>
+            <div class="table-responsive">
+              <table class="table mb-0 table-hover">
+                <thead class="table-light">
+                  <tr>
+                    <th rowspan="1"></th>
+                    <th rowspan="1">Sl No</th>
+                    <th rowspan="1">Invoice Number</th>
+                    <th rowspan="1">Invoice Date</th>
+                    <th rowspan="1">Customer Ref</th>
+                    <th rowspan="1">Shipping Date</th>
+                    <th rowspan="1">Consignee</th>
+                    <th rowspan="1">Total Gross Weight</th>
+                    <th rowspan="1">Total Net Weight</th>
+                    <th rowspan="1">Total Pallets</th>
+                    <th rowspan="1">Total PCS</th>
+                    <th rowspan="1" class="text-center">View Remarks</th>
+                    <th rowspan="1">Download</th>
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr>
+                    <td align="center">
+                      <a class="expand-row" (click)="changeValue()">
+                        +
+                      </a>
+                    </td>
+                    <td>1001</td>
+                    <td>IEPL/1300/22-23</td>
+                    <td>22-12-2022</td>
+                    <td>TIPL/0148/22-23</td>
+                    <td>22/12/2022</td>
+                    <td>TRISTAR INTERMEDIATES PVT LTD</td>
+                    <td>50607</td>
+                    <td>50001</td>
+                    <td>50</td>
+                    <td>6852</td>
+                    <td class="text-center">
+                      <i class="mdi mdi-eye"></i>
+                    </td>
+                    <td  class="text-center">
+                      <i class="bx bx-download"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                      <a class="expand-row" (click)="changeValue()">
+                        +
+                      </a>
+                    </td>
+                    <td>1002</td>
+                    <td>IEPL/1300/22-23</td>
+                    <td>22-12-2022</td>
+                    <td>TIPL/0148/22-23</td>
+                    <td>22/12/2022</td>
+                    <td>TRISTAR INTERMEDIATES PVT LTD</td>
+                    <td>50607</td>
+                    <td>50001</td>
+                    <td>50</td>
+                    <td>6852</td>
+                    <td class="text-center">
+                      <i class="mdi mdi-eye"></i>
+                    </td>
+                    <td class="text-center">
+                      <i class="bx bx-download"></i>
+                    </td>
+                  </tr>
+
+
+                  <tr *ngIf="!hideme[2]" class="sub-table no-bg">
+                    <td align="center"> </td>
+                    <td colspan="15" class="p-0">
+                      <div class="m-4">
+
+                        <ngb-accordion #acc="ngbAccordion" activeIds="static-1" [closeOthers]="false">
+                          <ngb-panel id="static-1">
+                            <ng-template ngbPanelTitle class="text-black">
+                              Container 1 - MRKU089786756SH
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                              <div class="row justify-content-center">
+                                <div class="col-12">
+                                  <table class="table table-bordered mb-0 table-hover">
+                                    <thead >
+                                      <tr>
+                                        <th rowspan="1">Item Description</th>
+                                        <th rowspan="1">Pallets No</th>
+                                        <th rowspan="1">Gross Weight(Kgs)</th>
+                                        <th rowspan="1">Net Weight(Kgs)</th>
+                                        <th rowspan="1">PCS</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="table-bordered">
+                                      <tr>
+                                        <td></td>
+                                        <td>1</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>2</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>3</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>4</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>5</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>6</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>7</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>8</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>9</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>10</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              <form>
+                                <div class="card">
+                                  <div class="card-body">
+                                    <div class="table-responsive">
+                                      <table class="table table-bordered mb-0 table-hover">
+                                        <tbody class="table-bordered">
+                                          <tr>
+                                            <td>Total Gross Weight </td>
+                                            <td>25305</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Total Net Weight </td>
+                                            <td>25003</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Total Pallets</td>
+                                            <td>25</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Total PCS</td>
+                                            <td>3409 </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </ng-template>
+                          </ngb-panel>
+
+                          <ngb-panel id="static-2">
+                            <ng-template ngbPanelTitle class="text-black">
+                              Container 2 - MRKU089786756SH
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                              <div class="row justify-content-center">
+                                <div class="col-12">
+                                  <table class="table table-bordered mb-0 table-hover">
+                                    <thead >
+                                      <tr>
+                                        <th rowspan="1">Item Description</th>
+                                        <th rowspan="1">Pallets No</th>
+                                        <th rowspan="1">Gross Weight(Kgs)</th>
+                                        <th rowspan="1">Net Weight(Kgs)</th>
+                                        <th rowspan="1">PCS</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="table-bordered">
+                                      <tr>
+                                        <td></td>
+                                        <td>1</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>2</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>3</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>4</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>5</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>6</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>7</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>8</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>9</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td>10</td>
+                                        <td>1032</td>
+                                        <td>1019</td>
+                                        <td>140</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              <form>
+                                <div class="card">
+                                  <div class="card-body">
+                                    <div class="table-responsive">
+                                      <table class="table table-bordered mb-0 table-hover">
+                                        <tbody class="table-bordered">
+                                          <tr>
+                                            <td>Total Gross Weight </td>
+                                            <td>25305</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Total Net Weight </td>
+                                            <td>25003</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Total Pallets</td>
+                                            <td>25</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Total PCS</td>
+                                            <td>3409 </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </ng-template>
+                          </ngb-panel>
+                          
+                        </ngb-accordion>
+
+
+                        <!-- end accordion -->
+                    </div>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+  
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
