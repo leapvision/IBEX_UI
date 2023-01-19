@@ -37,9 +37,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required]],
-      role: ['',[Validators.required]]
+      email: ['admin@ibex.com', [Validators.required, Validators.email]],
+      password: ['123456', [Validators.required]]
     });
 
     this.processList = ['Scrap Purchase','Incoming Inspection','Storage of Raw Materials','Material Segmentation',
@@ -78,14 +77,12 @@ export class LoginComponent implements OnInit {
           .pipe(first())
           .subscribe(
             data => {
-              if(this.f.role.value == 'Admin'){
+              console.log(data);
+              if(data["username"].includes('admin')){
                 this.router.navigate(['/pages/panel/admin']);
               }
-              else if(this.f.role.value == 'Supervisor'){
-                this.router.navigate(['/pages/panel/supervisor']);
-              }
-              else if(this.f.role.value == 'Operator'){
-                this.router.navigate(['/pages/mto/loadingofrm']);
+              else if(data["username"].includes('supervisor')){
+                this.router.navigate(['/supervisorLogin']);
               }
             },
             error => {

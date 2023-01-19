@@ -11,10 +11,11 @@ import { LoginComponent } from './login/login.component';
 import { AuthRoutingModule } from './auth-routing';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { SupervisorLoginComponent } from './supervisorlogin/supervisorlogin.component';
 
 
 @NgModule({
-  declarations: [LoginComponent,  PasswordresetComponent],
+  declarations: [LoginComponent,  PasswordresetComponent, SupervisorLoginComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
