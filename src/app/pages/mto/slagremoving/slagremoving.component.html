@@ -1,0 +1,277 @@
+<div class="container-fluid">
+    <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-lg-12 align-items-center">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title mb-4 text-center">Slag Removal</h4>
+                <aw-wizard [navBarLayout]="'large-empty-symbols'">
+                  
+                  <aw-wizard-step stepTitle="Melt Number">
+                    <ng-template awWizardStepSymbol><b>1</b></ng-template>
+                    <form>
+                      <div class="row mb-4 text-center mt-4">
+                        <label for="horizontal-firstname-input" class="col-sm-12">Ready for Slag Removal</label>
+                      </div>
+                      <div class="row mb-4 justify-content-center">
+                          <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                  <div class="card bg-success border border-success card-body">
+                                    <h3 class="card-title text-white text-center">MT-01-1001</h3>
+                                  </div>
+                                </div>
+                                <div class="col-sm-4">
+                                  <div class="card border border-primary card-body">
+                                    <h3 class="card-title  text-center">MT-01-1002</h3>
+                                  </div>
+                                </div>
+                                <div class="col-sm-4">
+                                  <div class="card border border-primary card-body">
+                                    <h3 class="card-title text-center">MT-02-1003</h3>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </form>
+                    <ul class="list-inline wizard mb-0">
+                      <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Next</button>
+                      </li>
+                    </ul>
+                  </aw-wizard-step>
+
+
+                  <aw-wizard-step stepTitle="Slag Removal (KG)">
+                    <ng-template awWizardStepSymbol><b>2</b></ng-template>
+                    <form>
+                      <div class="row mb-4 mt-4">
+                          <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Quantity</label>
+                          <div class="col-sm-9">
+                              <input type="number" class="form-control" >
+                          </div>
+                      </div>
+                    </form>
+                    <ul class="list-inline wizard mb-0">
+                      <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                      </li>
+                      <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Next</button>
+                      </li>
+                    </ul>
+                  </aw-wizard-step>
+
+                  <aw-wizard-step stepTitle="Time">
+                    <ng-template awWizardStepSymbol><b>3</b></ng-template>
+                    <div class="mb-3 row mt-4">
+                      <label for="example-time-input" class="col-md-2 col-form-label">Time</label>
+                      <div class="col-md-10">
+                          <input class="form-control" type="time" value="10:00:00" >
+                      </div>
+                    </div>
+                    
+                    <ul class="list-inline wizard mb-0">
+                      <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                      </li>
+                      <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Next</button>
+                      </li>
+                    </ul>
+                  </aw-wizard-step>
+
+                  <aw-wizard-step stepTitle="Confirm">
+                    <ng-template awWizardStepSymbol>4</ng-template>
+                    <div class="row justify-content-center">
+                        <div class="col-xl col-sm-6">
+                            <div class="mt-3 mb-0 text-center">
+                                <div class="card bg-success border border-success card-body">
+                                  <h3 class="card-title text-white text-center">Melt Number - MT-01-1001</h3>
+                              </div>
+                                <div class="card bg-success border border-success card-body">
+                                    <h3 class="card-title text-white text-center">Slag Removal Quantity - 17KG</h3>
+                                </div>
+                                <div class="card bg-success border border-success card-body">
+                                    <h3 class="card-title text-white text-center">Time - 10:20</h3>
+                                </div>
+                                <button type="button" class="btn btn-ibex btn-lg w-md text-black">Confirm</button>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-inline wizard mb-0">
+                      <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                      </li>
+                      <li class="next list-inline-item float-end">
+                        <a routerLink="/pages/mto/slaginspection" class="btn btn-primary">Next Process</a>
+                      </li>
+                    </ul>
+                  </aw-wizard-step>
+                </aw-wizard>
+              </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="card">
+              <div class="card-body">
+                <h4 class="card-title text-center">Slag Removal Report</h4>
+                <div class="table-responsive">
+                  <table class="table mb-0 table-hover">
+                    <thead class="table-light">
+                      <tr>
+                        <th rowspan="1"></th>
+                        <th rowspan="1">Sl No</th>
+                        <th rowspan="1">Slag Removal Date</th>
+                        <th rowspan="1">Shift & Time</th>
+                        <th rowspan="1">Melt Number</th>
+                        <th rowspan="1">Slag Removal Quantity (KG)</th>
+                        <th colspan="2" class="text-center">Time</th>
+                      </tr>
+                    </thead>
+                    <tbody >
+                      
+                      <tr>
+                        <td align="center">
+                          <a class="expand-row" (click)="changeValue()">
+                            +
+                          </a>
+                        </td>
+                        <th scope="row">1</th>
+                        <td>22/12/2022</td>
+                        <td></td>
+                        <td>MT-01-1001</td>
+                        <td>17</td>
+                        <td>10:20</td>
+                      </tr>
+                      <tr>
+                        <td align="center">
+                          <a class="expand-row" (click)="changeValue()">
+                            +
+                          </a>
+                        </td>
+                        <th scope="row">2</th>
+                          <td>20/12/2022</td>
+                          <td></td>
+                          <td>MT-01-1002</td>
+                          <td>18</td>
+                          <td>10:50</td>
+                      </tr>
+                      <tr>
+                        <td align="center">
+                          <a class="expand-row" (click)="changeValue()">
+                            +
+                          </a>
+                        </td>
+                        <th scope="row">3</th>
+                          <td>10/12/2022</td>
+                          <td></td>
+                          <td>MT-02-1003</td>
+                          <td>15</td>
+                          <td>11:20</td>
+                      </tr>
+                      <tr *ngIf="!hideme[2]" class="sub-table no-bg">
+                        <td align="center"> </td>
+                        <td colspan="15" class="p-0">
+                          <div class="m-4">
+                            <ngb-accordion #acc="ngbAccordion" activeIds="static-1" [closeOthers]="false">
+                              <ngb-panel id="static-1">
+                                <ng-template ngbPanelTitle class="text-black">
+                                  Flux Mixing Report
+                                </ng-template>
+                                <ng-template ngbPanelContent>
+                                  <table class="table mb-0 table-hover">
+                                    <thead class="table-light">
+                                      <tr>
+                                        <th rowspan="1">Sl No</th>
+                                        <th rowspan="1">Flux Mixing Date</th>
+                                        <th rowspan="1">Shift & Time</th>
+                                        <th rowspan="1">Heat Number</th>
+                                        <th rowspan="1">Slag Removal Quantity (KG)</th>
+                                        <th colspan="2" class="text-center">N2 Degassing</th>
+                                      </tr>
+                                      <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Start Time </th>
+                                        <th>End Time </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody >
+                                      <tr>
+                                        <th scope="row">100</th>
+                                        <td>23/12/2022</td>
+                                        <td></td>
+                                        <td>MT-01-1001</td>
+                                        <td>470</td>
+                                        <td>10:00</td>
+                                        <td>12:00</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </ng-template>
+                              </ngb-panel>
+                              <ngb-panel id="static-2">
+                                <ng-template ngbPanelTitle class="text-black">
+                                  Melting Report
+                                </ng-template>
+                                <ng-template ngbPanelContent>
+                                  <table class="table mb-0 table-hover">
+                                    <thead class="table-light">
+                                      <tr>
+                                        <th rowspan="1">Sl No</th>
+                                        <th rowspan="1">Date</th>
+                                        <th rowspan="1">Shift & Time</th>
+                                        <th rowspan="1">Furnace No</th>
+                                        <th rowspan="1">Alloy Name</th>
+                                        <th rowspan="1">Scrap  (KG)</th>
+                                        <th colspan="5" class="text-center">Addition Details(KG)</th>
+                                        <th rowspan="1">Melting Temperature (°C)</th>
+                                      </tr>
+                                      <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Be Grams </th>
+                                        <th>Pure Alu </th>
+                                        <th>Zinc </th>
+                                        <th>Al Mn </th>                
+                                        <th>Pure Mg </th>
+                                        <th></th>
+                                      </tr>
+                                    </thead>
+                                    <tbody >
+                                      <tr>
+                                        <th scope="row">1001</th>
+                                        <td>21/12/2022</td>
+                                        <td></td>
+                                        <td>MT-01</td>
+                                        <td>AM50A</td>
+                                        <td>470</td>
+                                        <td>900</td>
+                                        <td>470</td>
+                                        <td>900</td>
+                                        <td>470</td>
+                                        <td>470</td>
+                                        <td>800</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </ng-template>
+                              </ngb-panel>
+                            </ngb-accordion>
+                            <!-- end accordion -->
+                        </div>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+      
+              </div>
+            </div>
+         </div>
+    </div>
+</div>
