@@ -27,7 +27,6 @@ export class ScrapInspectionComponent implements OnInit {
   hideme: boolean[] = [];
   tables$: Observable<Table[]>;
   total$: Observable<number>;
-  expand_row: boolean = false;
 
   @ViewChildren(AdvancedSortableDirective)
   headers: QueryList<AdvancedSortableDirective>;
@@ -49,7 +48,6 @@ export class ScrapInspectionComponent implements OnInit {
 
   changeValue(i) {
     this.hideme[i] = !this.hideme[i];
-    this.expand_row = !this.expand_row;
   }
 
   /**

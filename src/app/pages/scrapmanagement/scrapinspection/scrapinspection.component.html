@@ -68,8 +68,8 @@
                 <tr>
                   <td align="center">
                     <a class="expand-row" (click)="changeValue(i)">
-                      <span *ngIf="!expand_row">+</span>
-                      <span *ngIf="expand_row">-</span>
+                      <span *ngIf="hideme[i]">+</span>
+                      <span *ngIf="!hideme[i]">-</span>
                     </a>
                   </td>
                   <td>
