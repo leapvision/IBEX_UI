@@ -1,214 +1,336 @@
 <div class="container-fluid">
-    <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
-    <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Chemical Composition Check</h4>
-              <div class="row mb-md-2">
-                <div class="col-sm-12 col-md-6">
-                  <div class="dataTables_length" id="tickets-table_length"><label
-                      class="d-inline-flex align-items-center">Show
-                      <select name="tickets-table_length" aria-controls="tickets-table" name="pageSize"
-                        [(ngModel)]="service.pageSize" class="form-control form-control-sm mx-2">
-                        <option [ngValue]="10">10</option>
-                        <option [ngValue]="25">25</option>
-                        <option [ngValue]="50">50</option>
-                        <option [ngValue]="100">100</option>
-                      </select> entries</label></div>
-                </div>
-                <!-- Search -->
-                <div class="col-sm-12 col-md-6">
-                  <div id="tickets-table_filter" class="dataTables_filter text-md-end"><label
-                      class="d-inline-flex align-items-center">Search:
-                      <input type="text" name="searchTerm" class="form-control form-control-sm ms-2"
-                        aria-controls="tickets-table" [(ngModel)]="service.searchTerm"></label></div>
-                </div>
-                <!-- End search -->
-              </div>
-              <!-- Table -->
-              <div class="table-responsive">
-                <table id="basic-datatable"
-                  class="table table-bordered dt-responsive nowrap datatables no-footer dtr-inline">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th sortable="slNo" (sort)="onSort($event)">Sl No</th>
-                      <th sortable="date" (sort)="onSort($event)">Date</th>
-                      <th sortable="alloyName" (sort)="onSort($event)">Alloy Name</th>
-                      <th sortable="source" (sort)="onSort($event)">Source</th>
-                      <th sortable="weight" (sort)="onSort($event)">Weight</th>
-                    </tr>
-                  </thead>
-                  <tbody *ngFor="let table of tables$ | async;let i=index">
-                    <tr>
-                      <td align="center">
-                        <a class="expand-row" (click)="changeValue(i)">
-                          +
-                        </a>
-                      </td>
-                      <td>
-                        <ngb-highlight [result]="table.slNo" [term]="service.searchTerm"></ngb-highlight>
-                      </td>
-                      <td>
-                        <ngb-highlight [result]="table.date" [term]="service.searchTerm"></ngb-highlight>
-                      </td>
-                      <td>
-                        <ngb-highlight [result]="table.alloyName" [term]="service.searchTerm"></ngb-highlight>
-                      </td>
-                      <td>
-                        <ngb-highlight [result]="table.source" [term]="service.searchTerm"></ngb-highlight>
-                      </td>
-                      <td>
-                        <ngb-highlight [result]="table.weight" [term]="service.searchTerm"></ngb-highlight>
-                      </td>
-                     
-                    </tr>
-    
-                    <tr *ngIf="!hideme[i]" class="sub-table no-bg">
-                      <td align="center"> </td>
-                      <td colspan="15" class="p-0">
-                        <div class="row m-1">
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Al (%)</h3>
-                                    <p class="card-text text-white text-center">5.00</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Zn (%)</h3>
-                                    <p class="card-text text-white text-center">0.060</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-warning border border-warning card-body"
-                                    ngbPopover="Value out of range"
-                                    triggers="mouseenter:mouseleave">
-                                    <h3 class="card-title text-white text-center">Mn (%)</h3>
-                                    <p class="card-text text-white text-center">0.292</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Si (%)</h3>
-                                    <p class="card-text text-white text-center">0.018</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Fe (%)</h3>
-                                    <p class="card-text text-white text-center">0.0026</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Cu (%)</h3>
-                                    <p class="card-text text-white text-center"><0.0004</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Ni (%)</h3>
-                                    <p class="card-text text-white text-center">0.0010</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Be (%)</h3>
-                                    <p class="card-text text-white text-center">0.0006</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-danger border border-danger card-body">
-                                    <h3 class="card-title text-white text-center">Ca (%)</h3>
-                                    <p class="card-text text-white text-center">0.0018</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-danger border border-danger card-body">
-                                    <h3 class="card-title text-white text-center">Cd (%)</h3>
-                                    <p class="card-text text-white text-center">0.0001</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Ag (%)</h3>
-                                    <p class="card-text text-white text-center">0.0006</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">La (%)</h3>
-                                    <p class="card-text text-white text-center">0.0015</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Zr (%)</h3>
-                                    <p class="card-text text-white text-center">0.0015</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Na (%)</h3>
-                                    <p class="card-text text-white text-center">~0.0080</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">P (%)</h3>
-                                    <p class="card-text text-white text-center">0.0080</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Pb (%)</h3>
-                                    <p class="card-text text-white text-center">0.0040</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Sn (%)</h3>
-                                    <p class="card-text text-white text-center">0.011</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-sm-4">
-                                <div class="card bg-success border border-success card-body">
-                                    <h3 class="card-title text-white text-center">Mg (%)</h3>
-                                    <p class="card-text text-white text-center">94.6</p>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- End table -->
-              <div class="row justify-content-md-between align-items-md-center mt-2">
-                <div class="col-sm-12 col-md-5">
-                  <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
-                    {{service.startIndex}} to
-                    {{service.endIndex}} of {{service.totalRecords}}
-                    entries
-                  </div>
-                </div>
-                <!-- Pagination -->
-                <div class="col-sm-12 col-md-5">
-                  <div class="text-md-right float-md-end pagination-rounded">
-                    <ngb-pagination [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize">
-                    </ngb-pagination>
-                  </div>
-                </div>
-                <!-- End Pagination -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Chemical Composition Check</h4>
+          <div class="row mb-md-2">
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="tickets-table_length">
+                <label class="d-inline-flex align-items-center"
+                  >Show
+                  <select
+                    name="tickets-table_length"
+                    aria-controls="tickets-table"
+                    name="pageSize"
+                    [(ngModel)]="service.pageSize"
+                    class="form-control form-control-sm mx-2"
+                  >
+                    <option [ngValue]="10">10</option>
+                    <option [ngValue]="25">25</option>
+                    <option [ngValue]="50">50</option>
+                    <option [ngValue]="100">100</option>
+                  </select>
+                  entries</label
+                >
               </div>
             </div>
+            <!-- Search -->
+            <div class="col-sm-12 col-md-6">
+              <div
+                id="tickets-table_filter"
+                class="dataTables_filter text-md-end"
+              >
+                <label class="d-inline-flex align-items-center"
+                  >Search:
+                  <input
+                    type="text"
+                    name="searchTerm"
+                    class="form-control form-control-sm ms-2"
+                    aria-controls="tickets-table"
+                    [(ngModel)]="service.searchTerm"
+                /></label>
+              </div>
+            </div>
+            <!-- End search -->
+          </div>
+          <!-- Table -->
+          <div class="table-responsive">
+            <table
+              id="basic-datatable"
+              class="table table-bordered dt-responsive nowrap datatables no-footer dtr-inline"
+            >
+              <thead>
+                <tr>
+                  <th></th>
+                  <th sortable="slNo" (sort)="onSort($event)">Sl No</th>
+                  <th sortable="date" (sort)="onSort($event)">Date</th>
+                  <th sortable="alloyName" (sort)="onSort($event)">
+                    Alloy Name
+                  </th>
+                  <th sortable="source" (sort)="onSort($event)">Source</th>
+                  <th sortable="weight" (sort)="onSort($event)">Weight</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let table of tables$ | async; let i = index">
+                <tr>
+                  <td align="center">
+                    <a class="expand-row" (click)="changeValue(i)">
+                      <span *ngIf="hideme[i]">+</span>
+                      <span *ngIf="!hideme[i]">-</span>
+                    </a>
+                  </td>
+                  <td>
+                    <ngb-highlight
+                      [result]="table.slNo"
+                      [term]="service.searchTerm"
+                    ></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight
+                      [result]="table.date"
+                      [term]="service.searchTerm"
+                    ></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight
+                      [result]="table.alloyName"
+                      [term]="service.searchTerm"
+                    ></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight
+                      [result]="table.source"
+                      [term]="service.searchTerm"
+                    ></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight
+                      [result]="table.weight"
+                      [term]="service.searchTerm"
+                    ></ngb-highlight>
+                  </td>
+                </tr>
+
+                <tr *ngIf="!hideme[i]" class="sub-table no-bg">
+                  <td align="center"></td>
+                  <td colspan="15" class="p-0">
+                    <div class="row m-1">
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Al (%)
+                          </h3>
+                          <p class="card-text text-white text-center">5.00</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Zn (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.060</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-warning border border-warning card-body"
+                          ngbPopover="Value out of range"
+                          triggers="mouseenter:mouseleave"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Mn (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.292</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Si (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.018</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Fe (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.0026</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Cu (%)
+                          </h3>
+                          <p class="card-text text-white text-center">
+                            <0.0004
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Ni (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.0010</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Be (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.0006</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-danger border border-danger card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Ca (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.0018</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-danger border border-danger card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Cd (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.0001</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Ag (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.0006</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            La (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.0015</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Zr (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.0015</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Na (%)
+                          </h3>
+                          <p class="card-text text-white text-center">
+                            ~0.0080
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            P (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.0080</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Pb (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.0040</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Sn (%)
+                          </h3>
+                          <p class="card-text text-white text-center">0.011</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-4">
+                        <div
+                          class="card bg-success border border-success card-body"
+                        >
+                          <h3 class="card-title text-white text-center">
+                            Mg (%)
+                          </h3>
+                          <p class="card-text text-white text-center">94.6</p>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- End table -->
+          <div
+            class="row justify-content-md-between align-items-md-center mt-2"
+          >
+            <div class="col-sm-12 col-md-5">
+              <div
+                class="dataTables_info mb-2"
+                id="tickets-table_info"
+                role="status"
+                aria-live="polite"
+              >
+                Showing {{ service.startIndex }} to {{ service.endIndex }} of
+                {{ service.totalRecords }}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination
+                  [collectionSize]="total$ | async"
+                  [(page)]="service.page"
+                  [pageSize]="service.pageSize"
+                >
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
           </div>
         </div>
       </div>
+    </div>
+  </div>
 </div>
-
