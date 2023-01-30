@@ -1,13 +1,15 @@
+import { DispatchRoutingModule } from "./dispatch-routing.module";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { DashboardsRoutingModule } from "./scrapmanagement-routing.module";
 import { UIModule } from "../../shared/ui/ui.module";
 import { WidgetModule } from "../../shared/widget/widget.module";
 
 import { NgApexchartsModule } from "ng-apexcharts";
 import { ArchwizardModule } from "angular-archwizard";
+import { NgSelectModule } from "@ng-select/ng-select";
+import { DropzoneModule } from "ngx-dropzone-wrapper";
 // import { SharedModule } from './saas/shared/shared.module'
 import {
   NgbDropdownModule,
@@ -18,20 +20,21 @@ import {
   NgbTypeaheadModule,
   NgbPaginationModule,
   NgbPopoverModule,
+  NgbAccordionModule,
 } from "@ng-bootstrap/ng-bootstrap";
 import { SimplebarAngularModule } from "simplebar-angular";
-import { ScrapPurchaseComponent } from "./scrappurchase/scrappurchase.component";
 import { SharedModule } from "../../shared/shared.module";
-import { ScrapInspectionComponent } from "./scrapinspection/scrapinspection.component";
-import { NgSelectModule } from "@ng-select/ng-select";
+import { FASComponent } from "./fas/fas.component";
+import { CertQualityComponent } from "./quality/certquality.component";
+import { FinalDispatchComponent } from "./finaldispatch/finaldispatch.component";
 
 @NgModule({
-  declarations: [ScrapPurchaseComponent, ScrapInspectionComponent],
+  declarations: [FASComponent, CertQualityComponent, FinalDispatchComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    DashboardsRoutingModule,
+    DispatchRoutingModule,
     UIModule,
     NgbDropdownModule,
     NgbTooltipModule,
@@ -46,7 +49,9 @@ import { NgSelectModule } from "@ng-select/ng-select";
     NgbPaginationModule,
     ArchwizardModule,
     NgbPopoverModule,
+    NgbAccordionModule,
     NgSelectModule,
+    DropzoneModule,
   ],
 })
-export class ScrapManagementModule {}
+export class DispatchModule {}

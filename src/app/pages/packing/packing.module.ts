@@ -1,28 +1,34 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { PackingRoutingModule } from './packing-routing.module';
-import { UIModule } from '../../shared/ui/ui.module';
-import { WidgetModule } from '../../shared/widget/widget.module';
+import { PackingRoutingModule } from "./packing-routing.module";
+import { UIModule } from "../../shared/ui/ui.module";
+import { WidgetModule } from "../../shared/widget/widget.module";
 
-import { NgApexchartsModule } from 'ng-apexcharts';
-import { ArchwizardModule } from 'angular-archwizard';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { DropzoneModule } from 'ngx-dropzone-wrapper';
+import { NgApexchartsModule } from "ng-apexcharts";
+import { ArchwizardModule } from "angular-archwizard";
+import { NgSelectModule } from "@ng-select/ng-select";
+import { DropzoneModule } from "ngx-dropzone-wrapper";
 // import { SharedModule } from './saas/shared/shared.module'
-import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, NgbDatepickerModule, NgbTypeaheadModule, NgbPaginationModule, NgbPopoverModule, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap'
-import { SimplebarAngularModule } from 'simplebar-angular';
-import { SharedModule } from '../../shared/shared.module';
-import { FinalInspectionComponent } from './finalinspection/finalinspection.component';
-import { PackingIngotsComponent } from './packingingots/packingingots.component';
-import { FASComponent } from './fas/fas.component';
-import { CertQualityComponent } from './quality/certquality.component';
-import { DispatchComponent } from './dispatch/dispatch.component';
-
+import {
+  NgbDropdownModule,
+  NgbTooltipModule,
+  NgbNavModule,
+  NgbCarouselModule,
+  NgbDatepickerModule,
+  NgbTypeaheadModule,
+  NgbPaginationModule,
+  NgbPopoverModule,
+  NgbAccordionModule,
+} from "@ng-bootstrap/ng-bootstrap";
+import { SimplebarAngularModule } from "simplebar-angular";
+import { SharedModule } from "../../shared/shared.module";
+import { FinalInspectionComponent } from "./finalinspection/finalinspection.component";
+import { PackingIngotsComponent } from "./packingingots/packingingots.component";
 
 @NgModule({
-  declarations: [FinalInspectionComponent,PackingIngotsComponent,FASComponent, CertQualityComponent, DispatchComponent],
+  declarations: [FinalInspectionComponent, PackingIngotsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -44,7 +50,7 @@ import { DispatchComponent } from './dispatch/dispatch.component';
     NgbPopoverModule,
     NgbAccordionModule,
     NgSelectModule,
-    DropzoneModule
-  ]
+    DropzoneModule,
+  ],
 })
-export class PackingModule { }
+export class PackingModule {}

@@ -1,24 +1,24 @@
-import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
-import { DecimalPipe } from '@angular/common';
-import { Observable } from 'rxjs';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
+import { DecimalPipe } from "@angular/common";
+import { Observable } from "rxjs";
+import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 
+import { Table } from "./advanced.model";
 
-import { Table } from './advanced.model';
+import { tableData } from "./data";
 
-import { tableData } from './data';
-
-import { AdvancedService } from './advanced.service';
-import { AdvancedSortableDirective, SortEvent } from './advanced-sortable.directive';
+import { AdvancedService } from "./advanced.service";
+import {
+  AdvancedSortableDirective,
+  SortEvent,
+} from "./advanced-sortable.directive";
 @Component({
-  selector: 'app-scrapinspection',
-  templateUrl: './scrapinspection.component.html',
-  styleUrls: ['./scrapinspection.component.scss'],
-  providers: [AdvancedService, DecimalPipe]
-
+  selector: "app-scrapinspection",
+  templateUrl: "./scrapinspection.component.html",
+  styleUrls: ["./scrapinspection.component.scss"],
+  providers: [AdvancedService, DecimalPipe],
 })
 export class ScrapInspectionComponent implements OnInit {
-
   // bread crum data
   breadCrumbItems: Array<{}>;
   // Table data
@@ -27,8 +27,10 @@ export class ScrapInspectionComponent implements OnInit {
   hideme: boolean[] = [];
   tables$: Observable<Table[]>;
   total$: Observable<number>;
+  expand_row: boolean = false;
 
-  @ViewChildren(AdvancedSortableDirective) headers: QueryList<AdvancedSortableDirective>;
+  @ViewChildren(AdvancedSortableDirective)
+  headers: QueryList<AdvancedSortableDirective>;
   public isCollapsed = true;
 
   constructor(public service: AdvancedService) {
@@ -37,15 +39,18 @@ export class ScrapInspectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'Scrap Management' }, { label: 'Scrap Purchase', active: true }];
+    this.breadCrumbItems = [
+      { label: "Scrap Management" },
+      { label: "Inward Scrap", active: true },
+    ];
 
     this._fetchData();
   }
 
   changeValue(i) {
     this.hideme[i] = !this.hideme[i];
+    this.expand_row = !this.expand_row;
   }
-
 
   /**
    * fetches the table value
@@ -64,13 +69,12 @@ export class ScrapInspectionComponent implements OnInit {
    */
   onSort({ column, direction }: SortEvent) {
     // resetting other headers
-    this.headers.forEach(header => {
+    this.headers.forEach((header) => {
       if (header.sortable !== column) {
-        header.direction = '';
+        header.direction = "";
       }
     });
     this.service.sortColumn = column;
     this.service.sortDirection = direction;
   }
-
 }
