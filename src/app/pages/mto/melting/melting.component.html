@@ -203,105 +203,10 @@
         <div class="card-body">
           <h4 class="card-title text-center">Melting Report</h4>
           <div class="table-responsive">
-            <table class="table mb-0 table-hover">
-              <thead class="table-light">
-                <tr>
-                  <th rowspan="1">Sl No</th>
-                  <th rowspan="1">Date</th>
-                  <th rowspan="1">Shift & Time</th>
-                  <th rowspan="1">Melt Number</th>
-                  <th rowspan="1">Scrap (KG)</th>
-                  <th colspan="5" class="text-center">Addition Details(KG)</th>
-                  <th colspan="2">Melting Temperature</th>
-                </tr>
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th>Be (Grams)</th>
-                  <th>Pure Alu</th>
-                  <th>Zinc</th>
-                  <th>Al Mn</th>
-                  <th>Pure Mg</th>
-                  <th>Value (°C)</th>
-                  <th class="text-center">Image</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1001</th>
-                  <td>22/12/2022</td>
-                  <td></td>
-                  <td>MT-01-1001</td>
-                  <td>550</td>
-                  <td>50</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>700</td>
-                  <td>
-                    <img
-                      class="img-thumbnail"
-                      alt="200x200"
-                      width="150"
-                      src="assets/images/small/img-3.jpg"
-                      data-holder-rendered="true"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">1002</th>
-                  <td>20/12/2022</td>
-                  <td></td>
-                  <td>MT-01-1002</td>
-                  <td>550</td>
-                  <td>40</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>700</td>
-                  <td>
-                    <img
-                      class="img-thumbnail"
-                      alt="200x200"
-                      width="150"
-                      src="assets/images/small/img-3.jpg"
-                      data-holder-rendered="true"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">1003</th>
-                  <td>10/12/2022</td>
-                  <td></td>
-                  <td>MT-02-1003</td>
-                  <td>550</td>
-                  <td>35</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>700</td>
-                  <td>
-                    <img
-                      class="img-thumbnail"
-                      alt="200x200"
-                      width="150"
-                      src="assets/images/small/img-3.jpg"
-                      data-holder-rendered="true"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <app-mto-melting-table
+            <app-table
               [HeadingArray]="headingArray"
               [BodyArray]="bodyArray"
-            ></app-mto-melting-table>
+            ></app-table>
           </div>
         </div>
       </div>

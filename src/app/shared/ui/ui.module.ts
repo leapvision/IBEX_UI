@@ -10,11 +10,11 @@ import {
 } from "@ng-bootstrap/ng-bootstrap";
 
 import { PagetitleComponent } from "./pagetitle/pagetitle.component";
-import { MtoMeltingTableComponent } from "./table/mto-melting-table/mto-melting-table.component";
 import { LoaderComponent } from "./loader/loader.component";
+import { TableComponent } from "./table/table.component";
 
 @NgModule({
-  declarations: [PagetitleComponent, LoaderComponent, MtoMeltingTableComponent],
+  declarations: [PagetitleComponent, LoaderComponent, TableComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,6 +23,6 @@ import { LoaderComponent } from "./loader/loader.component";
     NgbTimepickerModule,
     NgbDropdownModule,
   ],
-  exports: [PagetitleComponent, LoaderComponent, MtoMeltingTableComponent],
+  exports: [PagetitleComponent, LoaderComponent, TableComponent],
 })
 export class UIModule {}
