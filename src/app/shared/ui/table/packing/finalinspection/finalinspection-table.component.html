@@ -1,0 +1,30 @@
+<table class="table mb-0 table-hover">
+  <thead class="table-light">
+    <tr *ngFor="let row of HeadingArray">
+      <th
+        *ngFor="let heading of row"
+        [attr.colspan]="heading.colspan"
+        [attr.rowspan]="heading.rowspan"
+        class="text-center"
+      >
+        {{ heading["heading"] }}
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr class="text-center" *ngFor="let row of BodyArray; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td *ngFor="let body of row">
+        {{ body.value }}
+        <form *ngIf="body.form">
+          <div class="row mb-4 justify-content-center">
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="" />
+            </div>
+          </div>
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>

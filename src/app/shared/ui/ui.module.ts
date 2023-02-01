@@ -13,6 +13,7 @@ import {
 import { PagetitleComponent } from "./pagetitle/pagetitle.component";
 import { LoaderComponent } from "./loader/loader.component";
 import { TableComponent } from "./table/table.component";
+import { FinalInspectionTableComponent } from "./table/packing/finalinspection/finalinspection-table.component";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TableComponent } from "./table/table.component";
     LoaderComponent,
     TableComponent,
     FluxMixingTableComponent,
+    FinalInspectionTableComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,7 @@ import { TableComponent } from "./table/table.component";
     LoaderComponent,
     TableComponent,
     FluxMixingTableComponent,
+    FinalInspectionTableComponent,
   ],
 })
 export class UIModule {}
