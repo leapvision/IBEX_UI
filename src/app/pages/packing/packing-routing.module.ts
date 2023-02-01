@@ -1,15 +1,11 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { FinalInspectionComponent } from "./finalinspection/finalinspection.component";
+import { FinalInspectionComponent } from "../mwo/finalinspection/finalinspection.component";
 import { PackingIngotsComponent } from "./packingingots/packingingots.component";
 
 const routes: Routes = [
   {
-    path: "finalinspection",
-    component: FinalInspectionComponent,
-  },
-  {
-    path: "packingingots",
+    path: "",
     component: PackingIngotsComponent,
   },
 ];

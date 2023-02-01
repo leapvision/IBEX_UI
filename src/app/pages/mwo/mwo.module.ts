@@ -1,31 +1,48 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { DashboardsRoutingModule } from './mwo-routing.module';
-import { UIModule } from '../../shared/ui/ui.module';
-import { WidgetModule } from '../../shared/widget/widget.module';
-import { DropzoneModule } from 'ngx-dropzone-wrapper';
+import { DashboardsRoutingModule } from "./mwo-routing.module";
+import { UIModule } from "../../shared/ui/ui.module";
+import { WidgetModule } from "../../shared/widget/widget.module";
+import { DropzoneModule } from "ngx-dropzone-wrapper";
 
-import { NgApexchartsModule } from 'ng-apexcharts';
-import { ArchwizardModule } from 'angular-archwizard';
+import { NgApexchartsModule } from "ng-apexcharts";
+import { ArchwizardModule } from "angular-archwizard";
 // import { SharedModule } from './saas/shared/shared.module'
-import { NgbDropdownModule, NgbTooltipModule, NgbNavModule, NgbCarouselModule, NgbDatepickerModule, NgbTypeaheadModule, NgbPaginationModule, NgbPopoverModule, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap'
-import { SimplebarAngularModule } from 'simplebar-angular';
-import { SharedModule } from '../../shared/shared.module';
-import { TransferToMwoComponent } from './transfertomwo/transfertomwo.component';
-import { SlagRemovalComponent } from './slagremoving/slagremoval.component';
-import { MWOInspectionComponent } from './mwoinspection/mwoinspection.component';
-import { IngotPouringComponent } from './ignotpouring/ingotpouring.component';
-import { VisualInspectionComponent } from './visualinspection/visualinspection.component';
-import { BuffingAndPolishingComponent } from './buffingandpolishing/buffingandpolishing.component';
-import { PrintingComponent } from './printing/printing.component';
-
-
+import {
+  NgbDropdownModule,
+  NgbTooltipModule,
+  NgbNavModule,
+  NgbCarouselModule,
+  NgbDatepickerModule,
+  NgbTypeaheadModule,
+  NgbPaginationModule,
+  NgbPopoverModule,
+  NgbAccordionModule,
+} from "@ng-bootstrap/ng-bootstrap";
+import { SimplebarAngularModule } from "simplebar-angular";
+import { SharedModule } from "../../shared/shared.module";
+import { TransferToMwoComponent } from "./transfertomwo/transfertomwo.component";
+import { SlagRemovalComponent } from "./slagremoving/slagremoval.component";
+import { MWOInspectionComponent } from "./mwoinspection/mwoinspection.component";
+import { IngotPouringComponent } from "./ignotpouring/ingotpouring.component";
+import { VisualInspectionComponent } from "./visualinspection/visualinspection.component";
+import { BuffingAndPolishingComponent } from "./buffingandpolishing/buffingandpolishing.component";
+import { PrintingComponent } from "./printing/printing.component";
+import { FinalInspectionComponent } from "./finalinspection/finalinspection.component";
 
 @NgModule({
-  declarations: [TransferToMwoComponent,SlagRemovalComponent,MWOInspectionComponent,IngotPouringComponent,VisualInspectionComponent,
-                BuffingAndPolishingComponent,PrintingComponent],
+  declarations: [
+    TransferToMwoComponent,
+    SlagRemovalComponent,
+    MWOInspectionComponent,
+    IngotPouringComponent,
+    VisualInspectionComponent,
+    BuffingAndPolishingComponent,
+    PrintingComponent,
+    FinalInspectionComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -46,7 +63,7 @@ import { PrintingComponent } from './printing/printing.component';
     ArchwizardModule,
     NgbPopoverModule,
     NgbAccordionModule,
-    DropzoneModule
-  ]
+    DropzoneModule,
+  ],
 })
-export class MwoModule { }
+export class MwoModule {}
