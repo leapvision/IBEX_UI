@@ -1,7 +1,17 @@
-import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  QueryList,
+  Input,
+} from "@angular/core";
 import { DecimalPipe } from "@angular/common";
 import { Observable } from "rxjs";
-import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
+import {
+  NgbActiveModal,
+  NgbDateStruct,
+  NgbModal,
+} from "@ng-bootstrap/ng-bootstrap";
 
 import {
   OrderSortableService,
@@ -31,7 +41,7 @@ export class LoadingOfRmComponent implements OnInit {
   model: NgbDateStruct;
   @ViewChildren(OrderSortableService) headers: QueryList<OrderSortableService>;
 
-  constructor(public service: OrderService) {
+  constructor(public service: OrderService, private modalService: NgbModal) {
     this.orders$ = service.orders$;
     this.total$ = service.total$;
   }
@@ -62,4 +72,46 @@ export class LoadingOfRmComponent implements OnInit {
     this.service.sortColumn = column;
     this.service.sortDirection = direction;
   }
+
+  open() {
+    const modalRef = this.modalService.open(NgbdModalContent);
+    modalRef.componentInstance.name = "World";
+  }
+}
+
+@Component({
+  selector: "ngbd-modal-content",
+  standalone: true,
+  template: `
+    <div class="modal-header">
+      <h4 class="modal-title">Detailed View</h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="activeModal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <!-- <p>Hello, {{ name }}!</p> -->
+      <p>
+        Addition details of the raw material loaded will be shown here for the
+        corresponding melt number.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        (click)="activeModal.close('Close click')"
+      >
+        Close
+      </button>
+    </div>
+  `,
+})
+export class NgbdModalContent {
+  // @Input() name;
+
+  constructor(public activeModal: NgbActiveModal) {}
 }
