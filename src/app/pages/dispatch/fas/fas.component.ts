@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { ModalComponent } from "src/app/shared/ui/modal/modal.component";
 
 @Component({
   selector: "app-fas",
@@ -12,7 +14,7 @@ export class FASComponent implements OnInit {
   breadCrumbItems: Array<{}>;
 
   invoiceNumbers = [];
-  constructor() {}
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.breadCrumbItems = [
@@ -29,5 +31,15 @@ export class FASComponent implements OnInit {
 
   changeValue() {
     this.hideme[2] = !this.hideme[2];
+  }
+
+  openModal() {
+    const modalRef = this.modalService.open(ModalComponent, {
+      centered: false,
+    });
+    modalRef.componentInstance.message = "Remarks";
+    modalRef.componentInstance.body = `
+      <div>This will be the body of the Modal</div>
+    `;
   }
 }

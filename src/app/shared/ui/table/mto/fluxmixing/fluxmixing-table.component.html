@@ -12,8 +12,8 @@
     </tr>
   </thead>
 
-  <tbody>
-    <tr class="text-center" *ngFor="let row of BodyArray; let i = index">
+  <tbody *ngFor="let row of BodyArray; let i = index">
+    <tr class="text-center">
       <td align="center">
         <a class="expand-row" (click)="changeValue()"> + </a>
       </td>

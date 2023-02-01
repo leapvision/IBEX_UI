@@ -86,6 +86,8 @@ export class MeltingComponent implements OnInit {
   headingArray = this.meltingService.getMeltingReport().heading;
   bodyArray = this.meltingService.getMeltingReport().body;
 
+  sourceTable = false;
+
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "MTO" },

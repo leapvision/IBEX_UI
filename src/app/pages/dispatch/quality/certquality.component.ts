@@ -1,5 +1,7 @@
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
+import { ModalComponent } from "src/app/shared/ui/modal/modal.component";
 
 @Component({
   selector: "app-certquality",
@@ -13,7 +15,7 @@ export class CertQualityComponent implements OnInit {
 
   invoiceNumbers = [];
   packingListNumbers = [];
-  constructor() {}
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.breadCrumbItems = [
@@ -31,5 +33,16 @@ export class CertQualityComponent implements OnInit {
 
   changeValue() {
     this.hideme[2] = !this.hideme[2];
+  }
+
+  openModal() {
+    const modalRef = this.modalService.open(ModalComponent, {
+      centered: false,
+      size: "lg",
+    });
+    modalRef.componentInstance.message = "Remarks";
+    modalRef.componentInstance.body = `
+      <div>This will be the body of the Modal</div>
+    `;
   }
 }

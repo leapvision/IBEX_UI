@@ -1,6 +1,7 @@
 <table class="table mb-0 table-hover">
   <thead class="table-light">
     <tr *ngFor="let row of HeadingArray">
+      <th *ngIf="source"></th>
       <th
         *ngFor="let heading of row"
         [attr.colspan]="heading.colspan"
@@ -12,8 +13,9 @@
     </tr>
   </thead>
 
-  <tbody>
-    <tr class="text-center" *ngFor="let row of BodyArray; let i = index">
+  <tbody *ngFor="let row of BodyArray; let i = index">
+    <tr class="text-center">
+      <td *ngIf="source">+</td>
       <th scope="row">{{ 1000 + i + 1 }}</th>
       <td *ngFor="let body of row">
         {{ body.value }}
@@ -26,6 +28,10 @@
           data-holder-rendered="true"
         />
       </td>
+    </tr>
+    <tr *ngIf="true" class="sub-table no-bg">
+      <td align="center"></td>
+      <td colspan="15" class="p-0"></td>
     </tr>
   </tbody>
 </table>
