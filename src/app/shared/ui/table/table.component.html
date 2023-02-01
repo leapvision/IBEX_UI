@@ -15,7 +15,7 @@
 
   <tbody *ngFor="let row of BodyArray; let i = index">
     <tr class="text-center">
-      <td *ngIf="source">+</td>
+      <td *ngIf="source" (click)="row.showParentReport = !row.showParentReport">+</td>
       <th scope="row">{{ 1000 + i + 1 }}</th>
       <td *ngFor="let body of row">
         {{ body.value }}
@@ -29,9 +29,31 @@
         />
       </td>
     </tr>
-    <tr *ngIf="true" class="sub-table no-bg">
+    <tr *ngIf="row.showParentReport" class="sub-table no-bg">
       <td align="center"></td>
-      <td colspan="15" class="p-0"></td>
+      <td colspan="15" class="p-0">
+        <div class="m-4">
+          <ngb-accordion
+            #acc="ngbAccordion"
+            activeIds="static-1"
+            [closeOthers]="false"
+          >
+            <ngb-panel id="static-{{i+1}}" *ngFor="let report of ParentReports; let i = index">
+              <ng-template ngbPanelTitle class="text-black">
+                {{report.name}}
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <app-table
+                  [HeadingArray]="report.heading"
+                  [BodyArray]="report.body"
+                  [source]="false"
+                ></app-table>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+          <!-- end accordion -->
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>

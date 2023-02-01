@@ -8,6 +8,7 @@ import {
   NgbDatepickerModule,
   NgbTimepickerModule,
   NgbDropdownModule,
+  NgbAccordionModule
 } from "@ng-bootstrap/ng-bootstrap";
 
 import { PagetitleComponent } from "./pagetitle/pagetitle.component";
@@ -21,7 +22,7 @@ import { FinalInspectionTableComponent } from "./table/packing/finalinspection/f
     LoaderComponent,
     TableComponent,
     FluxMixingTableComponent,
-    FinalInspectionTableComponent,
+    FinalInspectionTableComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +31,7 @@ import { FinalInspectionTableComponent } from "./table/packing/finalinspection/f
     NgbDatepickerModule,
     NgbTimepickerModule,
     NgbDropdownModule,
+    NgbAccordionModule
   ],
   exports: [
     PagetitleComponent,
