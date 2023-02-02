@@ -3,51 +3,47 @@ import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: "root",
 })
-export class MaterialLoadingService {
+export class SlagRemovingService {
   headingArray = [
     [
       { heading: "Sl No", rowspan: "1" },
-      { heading: "Date", rowspan: "1" },
+      { heading: "Slag Removal Date", rowspan: "1" },
+      { heading: "Shift & Time", rowspan: "1" },
       { heading: "Melt Number", rowspan: "1" },
-      { heading: "Sale Order No", rowspan: "1" },
-      { heading: "Alloy Name", rowspan: "1" },
-      { heading: "Load Weight", rowspan: "1" },
-      { heading: "Detailed View", rowspan: "1" },
+      { heading: "Slag Removal Quantity (KG)", rowspan: "1" },
+      { heading: "Time", colspan: "2" },
     ],
   ];
   bodyArray = [
     [
       { value: "22/12/2022" },
+      { value: "" },
       { value: "MT-01-1001" },
-      { value: "1" },
-      { value: "AM50A" },
-      { value: "550" },
-      { viewDetails: true },
+      { value: "17" },
+      { value: "10:20" },
       { showParentReport: false },
     ],
     [
       { value: "20/12/2022" },
+      { value: "" },
       { value: "MT-01-1002" },
-      { value: "2" },
-      { value: "AM50A" },
-      { value: "550" },
-      { viewDetails: true },
+      { value: "18" },
+      { value: "10:50" },
       { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
+      { value: "" },
       { value: "MT-01-1003" },
-      { value: "3" },
-      { value: "AM50A" },
-      { value: "550" },
-      { viewDetails: true },
+      { value: "15" },
+      { value: "11:20" },
       { showParentReport: false },
     ],
   ];
 
   constructor() {}
 
-  getMaterialLoadingReport() {
+  getSlagRemovingReport() {
     return { heading: this.headingArray, body: this.bodyArray };
   }
 }

@@ -1,32 +1,14 @@
-import {
-  Component,
-  OnInit,
-  ViewChildren,
-  QueryList,
-  Input,
-} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
-import { Observable } from "rxjs";
-import {
-  NgbActiveModal,
-  NgbDateStruct,
-  NgbModal,
-} from "@ng-bootstrap/ng-bootstrap";
-
-import {
-  OrderSortableService,
-  SortEvent,
-} from "./loadingofrm-sortable.directive";
-
-import { OrderService } from "./loadingofrm.service";
-import { Orders } from "./loadingofrm.model";
-import { ordersData } from "./data";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { ModalComponent } from "src/app/shared/ui/modal/modal.component";
+import { MaterialLoadingService } from "./loadingofrm.service";
 
 @Component({
   selector: "app-loadingofrm",
   templateUrl: "./loadingofrm.component.html",
   styleUrls: ["./loadingofrm.component.scss"],
-  providers: [OrderService, DecimalPipe],
+  providers: [DecimalPipe],
 })
 export class LoadingOfRmComponent implements OnInit {
   // breadcrumb items
@@ -34,17 +16,15 @@ export class LoadingOfRmComponent implements OnInit {
   productionOrderNumbers = [];
   vendors = [];
 
-  ordersData: Orders[];
+  constructor(
+    private modalService: NgbModal,
+    private materialLoadingService: MaterialLoadingService
+  ) {}
 
-  orders$: Observable<Orders[]>;
-  total$: Observable<number>;
-  model: NgbDateStruct;
-  @ViewChildren(OrderSortableService) headers: QueryList<OrderSortableService>;
-
-  constructor(public service: OrderService, private modalService: NgbModal) {
-    this.orders$ = service.orders$;
-    this.total$ = service.total$;
-  }
+  materialLoadingHeadingArray =
+    this.materialLoadingService.getMaterialLoadingReport().heading;
+  materialLoadingBodyArray =
+    this.materialLoadingService.getMaterialLoadingReport().body;
 
   ngOnInit(): void {
     this.breadCrumbItems = [
@@ -52,66 +32,17 @@ export class LoadingOfRmComponent implements OnInit {
       { label: "Loading of Raw Material", active: true },
     ];
 
-    this.ordersData = ordersData;
     this.productionOrderNumbers = ["1", "2", "3", "4", "5"];
     this.vendors = ["CMR", "Steel Line India", "Sunland"];
   }
 
-  /**
-   * Sort table data
-   * @param param0 sort the column
-   *
-   */
-  onSort({ column, direction }: SortEvent) {
-    // resetting other headers
-    this.headers.forEach((header) => {
-      if (header.sortable !== column) {
-        header.direction = "";
-      }
+  openModal() {
+    const modalRef = this.modalService.open(ModalComponent, {
+      centered: false,
     });
-    this.service.sortColumn = column;
-    this.service.sortDirection = direction;
+    modalRef.componentInstance.message = "Detailed View";
+    modalRef.componentInstance.body = `
+      <div>This will be the body of the Modal</div>
+    `;
   }
-
-  open() {
-    const modalRef = this.modalService.open(NgbdModalContent);
-    modalRef.componentInstance.name = "World";
-  }
-}
-
-@Component({
-  selector: "ngbd-modal-content",
-  standalone: true,
-  template: `
-    <div class="modal-header">
-      <h4 class="modal-title">Detailed View</h4>
-      <button
-        type="button"
-        class="btn-close"
-        aria-label="Close"
-        (click)="activeModal.dismiss('Cross click')"
-      ></button>
-    </div>
-    <div class="modal-body">
-      <!-- <p>Hello, {{ name }}!</p> -->
-      <p>
-        Addition details of the raw material loaded will be shown here for the
-        corresponding melt number.
-      </p>
-    </div>
-    <div class="modal-footer">
-      <button
-        type="button"
-        class="btn btn-outline-dark"
-        (click)="activeModal.close('Close click')"
-      >
-        Close
-      </button>
-    </div>
-  `,
-})
-export class NgbdModalContent {
-  // @Input() name;
-
-  constructor(public activeModal: NgbActiveModal) {}
 }

@@ -14,4 +14,8 @@ export class TableComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  collectionSize = 10;
+  page = 1;
+  pageSize = 3;
 }

@@ -8,14 +8,17 @@
         [attr.rowspan]="heading.rowspan"
         class="text-center"
       >
-        {{ heading["heading"] }}
+        {{ heading.heading }}
       </th>
     </tr>
   </thead>
 
   <tbody *ngFor="let row of BodyArray; let i = index">
     <tr class="text-center">
-      <td *ngIf="source" (click)="row.showParentReport = !row.showParentReport">+</td>
+      <td *ngIf="source" (click)="row.showParentReport = !row.showParentReport">
+        <span *ngIf="!row.showParentReport" class="btn-expand">+</span>
+        <span *ngIf="row.showParentReport" class="btn-expand">-</span>
+      </td>
       <th scope="row">{{ 1000 + i + 1 }}</th>
       <td *ngFor="let body of row">
         {{ body.value }}
@@ -27,6 +30,28 @@
           [attr.src]="body.img"
           data-holder-rendered="true"
         />
+        <i *ngIf="body.viewDetails" class="mdi mdi-eye"></i>
+        <div *ngIf="body.isButton" class="row justify-content-center">
+          <div class="col-xl-6 col-sm-12">
+            <button
+              type="button"
+              [ngClass]="
+                body.value === 'Moved to MWO'
+                  ? 'btn btn-success'
+                  : 'btn btn-warning'
+              "
+            >
+              {{ body.value }}
+            </button>
+          </div>
+        </div>
+        <form *ngIf="body.isForm">
+          <div class="row mb-4 justify-content-center">
+            <div class="col-sm-9">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+        </form>
       </td>
     </tr>
     <tr *ngIf="row.showParentReport" class="sub-table no-bg">
@@ -38,9 +63,12 @@
             activeIds="static-1"
             [closeOthers]="false"
           >
-            <ngb-panel id="static-{{i+1}}" *ngFor="let report of ParentReports; let i = index">
+            <ngb-panel
+              id="static-{{ i + 1 }}"
+              *ngFor="let report of ParentReports; let i = index"
+            >
               <ng-template ngbPanelTitle class="text-black">
-                {{report.name}}
+                {{ report.name }}
               </ng-template>
               <ng-template ngbPanelContent>
                 <app-table
@@ -57,3 +85,27 @@
     </tr>
   </tbody>
 </table>
+<div class="row justify-content-md-between align-items-md-center mt-2">
+  <div class="col-sm-12 col-md-5">
+    <div
+      class="dataTables_info mb-2"
+      id="tickets-table_info"
+      role="status"
+      aria-live="polite"
+    >
+      Showing 1 to 4 of 10 entries
+    </div>
+  </div>
+  <!-- Pagination -->
+  <div class="col-sm-12 col-md-5">
+    <div class="text-md-right float-md-end pagination-rounded">
+      <ngb-pagination
+        [collectionSize]="collectionSize"
+        [(page)]="page"
+        [pageSize]="pageSize"
+      >
+      </ngb-pagination>
+    </div>
+  </div>
+  <!-- End Pagination -->
+</div>

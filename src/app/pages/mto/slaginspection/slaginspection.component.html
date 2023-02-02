@@ -380,7 +380,7 @@
         <div class="card-body">
           <h4 class="card-title text-center">Slag Inspection Report</h4>
           <div class="table-responsive">
-            <table class="table mb-0 table-hover">
+            <!-- <table class="table mb-0 table-hover">
               <thead class="table-light">
                 <tr>
                   <th rowspan="1"></th>
@@ -1142,7 +1142,7 @@
                             Flux Mixing
                           </ng-template>
                           <ng-template ngbPanelContent>
-                            <!-- <table class="table mb-0 table-hover">
+                            <table class="table mb-0 table-hover">
                               <thead class="table-light">
                                 <tr>
                                   <th rowspan="1">Sl No</th>
@@ -1177,7 +1177,7 @@
                                   <td>12:00</td>
                                 </tr>
                               </tbody>
-                            </table> -->
+                            </table>
                             <app-fluxmixing-table
                               [HeadingArray]="fluxmixingHeadingArray"
                               [BodyArray]="fluxmixingBodyArray"
@@ -1189,7 +1189,7 @@
                             Melting Report
                           </ng-template>
                           <ng-template ngbPanelContent>
-                            <!-- <table class="table mb-0 table-hover">
+                            <table class="table mb-0 table-hover">
                                   <thead class="table-light">
                                     <tr>
                                       <th rowspan="1">Sl No</th>
@@ -1232,7 +1232,7 @@
                                       <td>800</td>
                                     </tr>
                                   </tbody>
-                                </table> -->
+                                </table>
                             <app-table
                               [HeadingArray]="meltingHeadingArray"
                               [BodyArray]="meltingBodyArray"
@@ -1240,13 +1240,17 @@
                           </ng-template>
                         </ngb-panel>
                       </ngb-accordion>
-
-                      <!-- end accordion -->
                     </div>
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
+            <app-table
+              [HeadingArray]="slaginspectionHeadingArray"
+              [BodyArray]="slaginspectionBodyArray"
+              [source]="true"
+              [ParentReports]="parentReports"
+            ></app-table>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { FluxMixingService } from "./../fluxmixing/fluxmixing.service";
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
 import { MeltingService } from "../melting/melting.service";
+import { SlagRemovingService } from "./slagremoving.service";
 
 @Component({
   selector: "app-slagremoving",
@@ -16,13 +17,34 @@ export class SlagRemovingComponent implements OnInit {
 
   constructor(
     private meltingService: MeltingService,
-    private fluxingService: FluxMixingService
+    private fluxingService: FluxMixingService,
+    private slagremovingService: SlagRemovingService
   ) {}
 
   meltingHeadingArray = this.meltingService.getMeltingReport().heading;
   meltingBodyArray = this.meltingService.getMeltingReport().body;
   fluxmixingHeadingArray = this.fluxingService.getFluxMixingReport().heading;
   fluxmixingBodyArray = this.fluxingService.getFluxMixingReport().body;
+  slagremovingHeadingArray =
+    this.slagremovingService.getSlagRemovingReport().heading;
+  slagremovingBodyArray = this.slagremovingService.getSlagRemovingReport().body;
+  parentReports: Array<{}> = [
+    {
+      name: "Flux Mixing",
+      heading: this.fluxmixingHeadingArray,
+      body: this.fluxmixingBodyArray,
+    },
+    {
+      name: "Melting",
+      heading: this.meltingHeadingArray,
+      body: this.meltingBodyArray,
+    },
+    {
+      name: "Material Loading",
+      heading: this.meltingHeadingArray,
+      body: this.meltingBodyArray,
+    },
+  ];
 
   ngOnInit(): void {
     this.breadCrumbItems = [

@@ -152,7 +152,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-12">
+    <!-- <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title text-center">Slag Removal Report</h4>
@@ -217,7 +217,7 @@
                             Flux Mixing Report
                           </ng-template>
                           <ng-template ngbPanelContent>
-                            <!-- <table class="table mb-0 table-hover">
+                            <table class="table mb-0 table-hover">
                               <thead class="table-light">
                                 <tr>
                                   <th rowspan="1">Sl No</th>
@@ -252,7 +252,7 @@
                                   <td>12:00</td>
                                 </tr>
                               </tbody>
-                            </table> -->
+                            </table> 
                             <app-fluxmixing-table
                               [HeadingArray]="fluxmixingHeadingArray"
                               [BodyArray]="fluxmixingBodyArray"
@@ -264,7 +264,7 @@
                             Melting Report
                           </ng-template>
                           <ng-template ngbPanelContent>
-                            <!-- <table class="table mb-0 table-hover">
+                            <table class="table mb-0 table-hover">
                               <thead class="table-light">
                                 <tr>
                                   <th rowspan="1">Sl No</th>
@@ -309,7 +309,7 @@
                                   <td>800</td>
                                 </tr>
                               </tbody>
-                            </table> -->
+                            </table>
                             <app-table
                               [HeadingArray]="meltingHeadingArray"
                               [BodyArray]="meltingBodyArray"
@@ -317,7 +317,6 @@
                           </ng-template>
                         </ngb-panel>
                       </ngb-accordion>
-                      <!-- end accordion -->
                     </div>
                   </td>
                 </tr>
@@ -326,6 +325,14 @@
           </div>
         </div>
       </div>
+    </div> -->
+    <div class="col-lg-12">
+      <app-table
+        [HeadingArray]="slagremovingHeadingArray"
+        [BodyArray]="slagremovingBodyArray"
+        [ParentReports]="parentReports"
+        [source]="true"
+      ></app-table>
     </div>
   </div>
 </div>

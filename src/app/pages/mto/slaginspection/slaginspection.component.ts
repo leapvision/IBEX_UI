@@ -2,6 +2,8 @@ import { MeltingService } from "./../melting/melting.service";
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
 import { FluxMixingService } from "../fluxmixing/fluxmixing.service";
+import { SlagRemovingService } from "../slagremoving/slagremoving.service";
+import { SlagInspectionService } from "./slaginspection.service";
 
 @Component({
   selector: "app-slaginspection",
@@ -15,13 +17,45 @@ export class SlagInspectionComponent implements OnInit {
 
   constructor(
     private meltingService: MeltingService,
-    private fluxingService: FluxMixingService
+    private fluxmixingService: FluxMixingService,
+    private slagremovingService: SlagRemovingService,
+    private slaginspectionService: SlagInspectionService
   ) {}
 
   meltingHeadingArray = this.meltingService.getMeltingReport().heading;
   meltingBodyArray = this.meltingService.getMeltingReport().body;
-  fluxmixingHeadingArray = this.fluxingService.getFluxMixingReport().heading;
-  fluxmixingBodyArray = this.fluxingService.getFluxMixingReport().body;
+  fluxmixingHeadingArray = this.fluxmixingService.getFluxMixingReport().heading;
+  fluxmixingBodyArray = this.fluxmixingService.getFluxMixingReport().body;
+  slagremovingHeadingArray =
+    this.slagremovingService.getSlagRemovingReport().heading;
+  slagremovingBodyArray = this.slagremovingService.getSlagRemovingReport().body;
+  slaginspectionHeadingArray =
+    this.slaginspectionService.getSlagInspectionReport().heading;
+  slaginspectionBodyArray =
+    this.slaginspectionService.getSlagInspectionReport().body;
+
+  parentReports: Array<{}> = [
+    {
+      name: "Slag Removal",
+      heading: this.slagremovingHeadingArray,
+      body: this.slagremovingBodyArray,
+    },
+    {
+      name: "Flux Mixing",
+      heading: this.fluxmixingHeadingArray,
+      body: this.fluxmixingBodyArray,
+    },
+    {
+      name: "Melting",
+      heading: this.meltingHeadingArray,
+      body: this.meltingBodyArray,
+    },
+    {
+      name: "Material Loading",
+      heading: this.meltingHeadingArray,
+      body: this.meltingBodyArray,
+    },
+  ];
 
   ngOnInit(): void {
     this.breadCrumbItems = [

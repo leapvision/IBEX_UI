@@ -1,4 +1,3 @@
-import { FluxMixingTableComponent } from "./table/mto/fluxmixing/fluxmixing-table.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
@@ -8,22 +7,16 @@ import {
   NgbDatepickerModule,
   NgbTimepickerModule,
   NgbDropdownModule,
-  NgbAccordionModule
+  NgbAccordionModule,
+  NgbPaginationModule,
 } from "@ng-bootstrap/ng-bootstrap";
 
 import { PagetitleComponent } from "./pagetitle/pagetitle.component";
 import { LoaderComponent } from "./loader/loader.component";
 import { TableComponent } from "./table/table.component";
-import { FinalInspectionTableComponent } from "./table/packing/finalinspection/finalinspection-table.component";
 
 @NgModule({
-  declarations: [
-    PagetitleComponent,
-    LoaderComponent,
-    TableComponent,
-    FluxMixingTableComponent,
-    FinalInspectionTableComponent
-  ],
+  declarations: [PagetitleComponent, LoaderComponent, TableComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -31,14 +24,9 @@ import { FinalInspectionTableComponent } from "./table/packing/finalinspection/f
     NgbDatepickerModule,
     NgbTimepickerModule,
     NgbDropdownModule,
-    NgbAccordionModule
+    NgbAccordionModule,
+    NgbPaginationModule,
   ],
-  exports: [
-    PagetitleComponent,
-    LoaderComponent,
-    TableComponent,
-    FluxMixingTableComponent,
-    FinalInspectionTableComponent,
-  ],
+  exports: [PagetitleComponent, LoaderComponent, TableComponent],
 })
 export class UIModule {}
