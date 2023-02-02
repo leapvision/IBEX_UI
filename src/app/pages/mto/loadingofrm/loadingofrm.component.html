@@ -37,7 +37,7 @@
                   <label
                     for="horizontal-password-input"
                     class="col-sm-3 col-form-label"
-                    >Select Sale Order No</label
+                    >Select Production Order No</label
                   >
                   <div class="col-sm-9">
                     <ng-select [items]="productionOrderNumbers"></ng-select>
@@ -54,6 +54,21 @@
                       type="text"
                       class="form-control"
                       value="AM50A"
+                      [disabled]="true"
+                    />
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label
+                    for="horizontal-firstname-input"
+                    class="col-sm-3 col-form-label"
+                    >Planned Quantity</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="5000KG"
                       [disabled]="true"
                     />
                   </div>
@@ -229,7 +244,7 @@
                   <label
                     for="horizontal-firstname-input"
                     class="col-sm-3 col-form-label"
-                    >Rejections Ingots</label
+                    >Rejections Ingots Quantity</label
                   >
                   <div class="col-sm-9">
                     <input
@@ -241,7 +256,7 @@
                   </div>
                 </div>
 
-                <h5 style="font-size: 0.8rem" class="mb-3 text-center">
+                <!-- <h5 style="font-size: 0.8rem" class="mb-3 text-center">
                   Rejection Ingots Breakup
                 </h5>
 
@@ -337,7 +352,7 @@
                       [disabled]="true"
                     />
                   </div>
-                </div>
+                </div> -->
                 <div class="row mb-4">
                   <label
                     for="horizontal-password-input"

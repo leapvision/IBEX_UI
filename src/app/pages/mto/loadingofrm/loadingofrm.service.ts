@@ -9,7 +9,7 @@ export class MaterialLoadingService {
       { heading: "Sl No", rowspan: "1" },
       { heading: "Date", rowspan: "1" },
       { heading: "Melt Number", rowspan: "1" },
-      { heading: "Sale Order No", rowspan: "1" },
+      { heading: "Production Order No", rowspan: "1" },
       { heading: "Alloy Name", rowspan: "1" },
       { heading: "Load Weight", rowspan: "1" },
       { heading: "Detailed View", rowspan: "1" },
