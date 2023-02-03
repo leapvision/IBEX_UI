@@ -85,41 +85,11 @@
         <div class="card-body">
           <h4 class="card-title text-center">Transfer to MWO Report</h4>
           <div class="table-responsive">
-            <table class="table mb-0 table-hover">
-              <thead class="table-light">
-                <tr>
-                  <th>Sl No</th>
-                  <th>Date</th>
-                  <th>Shift & Time</th>
-                  <th>Melt No</th>
-                  <th>Hold No</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1001</th>
-                  <td>22/12/2022</td>
-                  <td></td>
-                  <td>MT-01-1001</td>
-                  <td>MWO-01-1001</td>
-                </tr>
-                <tr>
-                  <th scope="row">1002</th>
-                  <td>20/12/2022</td>
-                  <td></td>
-                  <td>MT-01-1002</td>
-                  <td>MWO-01-1002</td>
-                </tr>
-                <tr>
-                  <th scope="row">1003</th>
-                  <td>10/12/2022</td>
-                  <td></td>
-                  <td>MT-02-1003</td>
-                  <td>MWO-02-1003</td>
-                </tr>
-              </tbody>
-            </table>
-            <app-table [HeadingArray]="headingArray"></app-table>
+            <app-table
+              [HeadingArray]="transfertomwoHeadingArray"
+              [BodyArray]="transfertomwoBodyArray"
+              [source]="false"
+            ></app-table>
           </div>
         </div>
       </div>

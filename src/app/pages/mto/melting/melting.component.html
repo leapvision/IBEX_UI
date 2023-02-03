@@ -204,9 +204,10 @@
           <h4 class="card-title text-center">Melting Report</h4>
           <div class="table-responsive">
             <app-table
-              [source]="sourceTable"
-              [HeadingArray]="headingArray"
-              [BodyArray]="bodyArray"
+              [HeadingArray]="meltingHeadingArray"
+              [BodyArray]="meltingBodyArray"
+              [ParentReports]="parentReports"
+              [source]="true"
             ></app-table>
           </div>
         </div>
