@@ -14,9 +14,15 @@ import {
 import { PagetitleComponent } from "./pagetitle/pagetitle.component";
 import { LoaderComponent } from "./loader/loader.component";
 import { TableComponent } from "./table/table.component";
+import { SpectroReportsComponent } from "./spectroreports/spectroreports.component";
 
 @NgModule({
-  declarations: [PagetitleComponent, LoaderComponent, TableComponent],
+  declarations: [
+    PagetitleComponent,
+    LoaderComponent,
+    TableComponent,
+    SpectroReportsComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -27,6 +33,11 @@ import { TableComponent } from "./table/table.component";
     NgbAccordionModule,
     NgbPaginationModule,
   ],
-  exports: [PagetitleComponent, LoaderComponent, TableComponent],
+  exports: [
+    PagetitleComponent,
+    LoaderComponent,
+    TableComponent,
+    SpectroReportsComponent,
+  ],
 })
 export class UIModule {}
