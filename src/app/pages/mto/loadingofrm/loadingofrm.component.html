@@ -37,7 +37,7 @@
                   <label
                     for="horizontal-password-input"
                     class="col-sm-3 col-form-label"
-                    >Select Sale Order No</label
+                    >Select Production Order No</label
                   >
                   <div class="col-sm-9">
                     <ng-select [items]="productionOrderNumbers"></ng-select>
@@ -54,6 +54,21 @@
                       type="text"
                       class="form-control"
                       value="AM50A"
+                      [disabled]="true"
+                    />
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label
+                    for="horizontal-firstname-input"
+                    class="col-sm-3 col-form-label"
+                    >Product Quantity</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="550KG"
                       [disabled]="true"
                     />
                   </div>
@@ -467,7 +482,7 @@
                 <div class="col-sm-6">
                   <div class="card bg-success border border-success card-body">
                     <h3 class="card-title text-white text-center">
-                      [1] Sale Order No - 1
+                      [1] Production Order No - 1
                     </h3>
                   </div>
                 </div>
@@ -581,7 +596,7 @@
                   <th>Sl No</th>
                   <th>Melt Number</th>
                   <th>Date</th>
-                  <th>Sale Order No</th>
+                  <th>Production Order No</th>
                   <th>Alloy Name</th>
                   <th>Load Weight</th>
                   <th class="text-center">Detailed View</th>
