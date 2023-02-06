@@ -12,6 +12,7 @@ export class TableComponent implements OnInit {
   @Input() BodyArray: string[] = [];
   @Input() ParentReports: string[] = [];
   @Input() source: boolean;
+  @Input() children: boolean;
 
   tableData: string[];
 

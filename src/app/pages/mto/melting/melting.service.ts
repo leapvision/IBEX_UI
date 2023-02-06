@@ -42,7 +42,7 @@ export class MeltingService {
       { value: "0" },
       { value: "700" },
       { img: "assets/images/small/img-3.jpg" },
-      { "showParentReport" : false }
+      { showParentReport: false },
     ],
     [
       { value: "20/12/2022" },
@@ -56,7 +56,7 @@ export class MeltingService {
       { value: "0" },
       { value: "700" },
       { img: "assets/images/small/img-3.jpg" },
-      { "showParentReport" : false }
+      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -70,7 +70,7 @@ export class MeltingService {
       { value: "0" },
       { value: "700" },
       { img: "assets/images/small/img-3.jpg" },
-      { "showParentReport" : false }
+      { showParentReport: false },
     ],
   ];
 
@@ -78,5 +78,9 @@ export class MeltingService {
 
   getMeltingReport() {
     return { heading: this.headingArray, body: this.bodyArray };
+  }
+
+  getMeltingReportForMeltingNumber(meltNumber: string) {
+    return { heading: this.headingArray[0], body: this.bodyArray[0] };
   }
 }

@@ -88,9 +88,13 @@ export class MeltingComponent implements OnInit {
   ) {}
 
   materialLoadingHeadingArray =
-    this.materialLoadingService.getMaterialLoadingReport().heading;
+    this.materialLoadingService.getMaterialLoadingReportForMeltNumber(
+      "meltNumber"
+    ).heading;
   materialLoadingBodyArray =
-    this.materialLoadingService.getMaterialLoadingReport().body;
+    this.materialLoadingService.getMaterialLoadingReportForMeltNumber(
+      "meltNumber"
+    ).body;
   meltingHeadingArray = this.meltingService.getMeltingReport().heading;
   meltingBodyArray = this.meltingService.getMeltingReport().body;
 
@@ -99,6 +103,7 @@ export class MeltingComponent implements OnInit {
       name: "Material Loading",
       heading: this.materialLoadingHeadingArray,
       body: this.materialLoadingBodyArray,
+      children: true,
     },
   ];
 
