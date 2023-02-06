@@ -62,4 +62,11 @@ export class SlagInspectionService {
   getSlagInspectionReport() {
     return { heading: this.headingArray, body: this.bodyArray };
   }
+
+  getSlagInspectionReportForMeltNumber(meltNumber: string) {
+    return {
+      heading: this.headingArray.slice(0, 1),
+      body: this.bodyArray.slice(0, 1),
+    };
+  }
 }

@@ -158,4 +158,11 @@ export class MwoInspectionService {
       samples: this.samplesArray,
     };
   }
+
+  getMwoInspectionReportForMeltNumber(meltNumber: string) {
+    return {
+      heading: this.headingArray.slice(0, 1),
+      body: this.bodyArray.slice(0, 1),
+    };
+  }
 }

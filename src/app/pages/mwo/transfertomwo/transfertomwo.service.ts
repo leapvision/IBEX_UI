@@ -42,4 +42,11 @@ export class TransferToMwoService {
   getTransferToMwoReport() {
     return { heading: this.headingArray, body: this.bodyArray };
   }
+
+  getTransferToMwoReportForMeltNumber(meltNumber: string) {
+    return {
+      heading: this.headingArray.slice(0, 1),
+      body: this.bodyArray.slice(0, 1),
+    };
+  }
 }

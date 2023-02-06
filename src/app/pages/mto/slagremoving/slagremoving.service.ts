@@ -46,4 +46,11 @@ export class SlagRemovingService {
   getSlagRemovingReport() {
     return { heading: this.headingArray, body: this.bodyArray };
   }
+
+  getSlagRemovingReportForMeltNumber(meltNumber: string) {
+    return {
+      heading: this.headingArray.slice(0, 1),
+      body: this.bodyArray.slice(0, 1),
+    };
+  }
 }

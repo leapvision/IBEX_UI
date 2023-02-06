@@ -74,4 +74,11 @@ export class FluxMixingService {
   getFluxMixingReport() {
     return { heading: this.headingArray, body: this.bodyArray };
   }
+
+  getFluxMixingReportForMeltNumber(meltNumber: string) {
+    return {
+      heading: this.headingArray.slice(0, 1),
+      body: this.bodyArray.slice(0, 1),
+    };
+  }
 }
