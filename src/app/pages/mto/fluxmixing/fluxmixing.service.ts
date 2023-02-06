@@ -6,7 +6,6 @@ import { Injectable } from "@angular/core";
 export class FluxMixingService {
   headingArray = [
     [
-      { heading: "", rowspan: "1" },
       { heading: "Sl No", rowspan: "1" },
       { heading: "Flux Mixing Date", rowspan: "1" },
       { heading: "Shift & Time", rowspan: "1" },
@@ -38,6 +37,7 @@ export class FluxMixingService {
       { value: "470" },
       { value: "70" },
       { value: "4" },
+      { value: "4" },
       { value: "10:00" },
       { value: "10:15" },
       { value: "700" },
@@ -50,6 +50,7 @@ export class FluxMixingService {
       { value: "170" },
       { value: "70" },
       { value: "4" },
+      { value: "4" },
       { value: "10:30" },
       { value: "10:45" },
       { value: "720" },
@@ -61,6 +62,7 @@ export class FluxMixingService {
       { value: "MT-01-1003" },
       { value: "10" },
       { value: "0" },
+      { value: "4" },
       { value: "4" },
       { value: "11:00" },
       { value: "11:15" },
@@ -77,7 +79,7 @@ export class FluxMixingService {
 
   getFluxMixingReportForMeltNumber(meltNumber: string) {
     return {
-      heading: this.headingArray.slice(0, 1),
+      heading: this.headingArray,
       body: this.bodyArray.slice(0, 1),
     };
   }

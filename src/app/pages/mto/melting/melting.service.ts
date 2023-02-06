@@ -81,6 +81,9 @@ export class MeltingService {
   }
 
   getMeltingReportForMeltingNumber(meltNumber: string) {
-    return { heading: this.headingArray[0], body: this.bodyArray[0] };
+    return {
+      heading: this.headingArray,
+      body: this.bodyArray.slice(0, 1),
+    };
   }
 }

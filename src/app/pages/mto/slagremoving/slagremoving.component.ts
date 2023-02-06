@@ -1,3 +1,4 @@
+import { MaterialLoadingService } from "./../loadingofrm/loadingofrm.service";
 import { FluxMixingService } from "./../fluxmixing/fluxmixing.service";
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
@@ -16,15 +17,28 @@ export class SlagRemovingComponent implements OnInit {
   breadCrumbItems: Array<{}>;
 
   constructor(
+    private materialLoadingService: MaterialLoadingService,
     private meltingService: MeltingService,
     private fluxingService: FluxMixingService,
     private slagremovingService: SlagRemovingService
   ) {}
 
-  meltingHeadingArray = this.meltingService.getMeltingReport().heading;
-  meltingBodyArray = this.meltingService.getMeltingReport().body;
-  fluxmixingHeadingArray = this.fluxingService.getFluxMixingReport().heading;
-  fluxmixingBodyArray = this.fluxingService.getFluxMixingReport().body;
+  materialLoadingHeadingArray =
+    this.materialLoadingService.getMaterialLoadingReportForMeltNumber(
+      "meltNumber"
+    ).heading;
+  materialLoadingBodyArray =
+    this.materialLoadingService.getMaterialLoadingReportForMeltNumber(
+      "meltNumber"
+    ).body;
+  meltingHeadingArray =
+    this.meltingService.getMeltingReportForMeltingNumber("meltNumber").heading;
+  meltingBodyArray =
+    this.meltingService.getMeltingReportForMeltingNumber("meltNumber").body;
+  fluxmixingHeadingArray =
+    this.fluxingService.getFluxMixingReportForMeltNumber("meltNumber").heading;
+  fluxmixingBodyArray =
+    this.fluxingService.getFluxMixingReportForMeltNumber("meltNumber").body;
   slagremovingHeadingArray =
     this.slagremovingService.getSlagRemovingReport().heading;
   slagremovingBodyArray = this.slagremovingService.getSlagRemovingReport().body;
@@ -33,16 +47,19 @@ export class SlagRemovingComponent implements OnInit {
       name: "Flux Mixing",
       heading: this.fluxmixingHeadingArray,
       body: this.fluxmixingBodyArray,
+      children: true,
     },
     {
       name: "Melting",
       heading: this.meltingHeadingArray,
       body: this.meltingBodyArray,
+      children: true,
     },
     {
       name: "Material Loading",
       heading: this.meltingHeadingArray,
       body: this.meltingBodyArray,
+      children: true,
     },
   ];
 
