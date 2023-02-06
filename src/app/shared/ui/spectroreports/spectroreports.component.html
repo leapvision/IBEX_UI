@@ -3,11 +3,17 @@
     <div
       class="card border card-body"
       [ngClass]="
-        sample.good ? 'bg-success border-success' : 'bg-danger border-danger'
+        sample.good
+          ? 'bg-success border-success'
+          : sample.ok
+          ? 'bg-warning border-warning'
+          : sample.bad
+          ? 'bg-danger border-danger'
+          : ''
       "
     >
       <h3 class="card-title text-white text-center">{{ sample.name }}</h3>
-      <p class="card-text text-white text-center">{sample.value}</p>
+      <p class="card-text text-white text-center">{{ sample.value }}</p>
     </div>
   </div>
 </div>

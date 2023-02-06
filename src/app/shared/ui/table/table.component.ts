@@ -17,5 +17,6 @@ export class TableComponent implements OnInit {
 
   collectionSize = 10;
   page = 1;
-  pageSize = 3;
+  pageSize = 10;
+  searchTerm = "IBEX";
 }

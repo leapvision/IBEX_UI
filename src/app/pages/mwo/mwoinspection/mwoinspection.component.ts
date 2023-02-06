@@ -33,6 +33,20 @@ export class MWOInspectionComponent implements OnInit {
     this.mwoinspectionService.getMwoInspectionReport().body;
   parentReports: Array<{}> = [
     {
+      spectroReports: true,
+      name: "Sample Spectro Reports",
+      samples: [
+        {
+          name: "Sample 2",
+          data: this.mwoinspectionService.samplesArray,
+        },
+        {
+          name: "Sample 1",
+          data: this.mwoinspectionService.samplesArray,
+        },
+      ],
+    },
+    {
       name: "Slag Removal",
       heading: this.slagremovingHeadingArray,
       body: this.slagremovingBodyArray,
