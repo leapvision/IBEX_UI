@@ -8,6 +8,7 @@
           aria-controls="tickets-table"
           name="pageSize"
           [(ngModel)]="pageSize"
+          (ngModelChange)="fetchRecords($event)"
           class="form-control form-control-sm mx-2"
         >
           <option [ngValue]="10">10</option>
@@ -29,6 +30,7 @@
           name="searchTerm"
           class="form-control form-control-sm ms-2"
           aria-controls="tickets-table"
+          placeholder="search"
           [(ngModel)]="searchTerm"
       /></label>
     </div>
@@ -50,7 +52,7 @@
     </tr>
   </thead>
 
-  <tbody *ngFor="let row of BodyArray; let i = index">
+  <tbody *ngFor="let row of tableData; let i = index">
     <tr class="text-center">
       <td *ngIf="source" (click)="row.showParentReport = !row.showParentReport">
         <span *ngIf="!row.showParentReport" class="btn-expand">+</span>
@@ -67,7 +69,11 @@
           [attr.src]="body.img"
           data-holder-rendered="true"
         />
-        <i *ngIf="body.viewDetails" class="mdi mdi-eye"></i>
+        <i
+          *ngIf="body.viewDetails"
+          class="mdi mdi-eye"
+          (click)="openModal()"
+        ></i>
         <div *ngIf="body.isButton" class="row justify-content-center">
           <div class="col-xl-6 col-sm-12">
             <button
@@ -146,16 +152,17 @@
       role="status"
       aria-live="polite"
     >
-      Showing 1 to 4 of 10 entries
+      Showing {{ startIndex }} to {{ endIndex }} of {{ totalRecords }} entries
     </div>
   </div>
   <!-- Pagination -->
   <div class="col-sm-12 col-md-5">
     <div class="text-md-right float-md-end pagination-rounded">
       <ngb-pagination
-        [collectionSize]="collectionSize"
+        [collectionSize]="totalRecords"
         [(page)]="page"
         [pageSize]="pageSize"
+        (pageChange)="paginate($event)"
       >
       </ngb-pagination>
     </div>
