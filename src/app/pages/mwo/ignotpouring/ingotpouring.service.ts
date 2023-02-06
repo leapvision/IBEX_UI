@@ -78,7 +78,7 @@ export class IgnotPouringService {
 
   getIngotPouringReportForMeltNumber(meltNumber: string) {
     return {
-      heading: this.headingArray.slice(0, 1),
+      heading: this.headingArray,
       body: this.bodyArray.slice(0, 1),
     };
   }

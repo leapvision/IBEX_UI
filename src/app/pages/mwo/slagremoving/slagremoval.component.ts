@@ -19,9 +19,11 @@ export class SlagRemovalComponent implements OnInit {
   ) {}
 
   transfertomwoHeadingArray =
-    this.transfertomwoService.getTransferToMwoReport().heading;
+    this.transfertomwoService.getTransferToMwoReportForMeltNumber("meltNumber")
+      .heading;
   transfertomwoBodyArray =
-    this.transfertomwoService.getTransferToMwoReport().body;
+    this.transfertomwoService.getTransferToMwoReportForMeltNumber("meltNumber")
+      .body;
   slagremovingHeadingArray =
     this.slagremovingService.getSlagRemovingReport().heading;
   slagremovingBodyArray = this.slagremovingService.getSlagRemovingReport().body;
@@ -30,6 +32,7 @@ export class SlagRemovalComponent implements OnInit {
       name: "Transfer to MWO",
       heading: this.transfertomwoHeadingArray,
       body: this.transfertomwoBodyArray,
+      children: true,
     },
   ];
 

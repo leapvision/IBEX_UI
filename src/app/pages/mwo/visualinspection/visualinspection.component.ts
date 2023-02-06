@@ -25,19 +25,29 @@ export class VisualInspectionComponent implements OnInit {
   ) {}
 
   transfertomwoHeadingArray =
-    this.transfertomwoService.getTransferToMwoReport().heading;
+    this.transfertomwoService.getTransferToMwoReportForMeltNumber("meltNumber")
+      .heading;
   transfertomwoBodyArray =
-    this.transfertomwoService.getTransferToMwoReport().body;
+    this.transfertomwoService.getTransferToMwoReportForMeltNumber("meltNumber")
+      .body;
   slagremovingHeadingArray =
-    this.slagremovingService.getSlagRemovingReport().heading;
-  slagremovingBodyArray = this.slagremovingService.getSlagRemovingReport().body;
+    this.slagremovingService.getSlagRemovingReportForMeltNumber("meltNumber")
+      .heading;
+  slagremovingBodyArray =
+    this.slagremovingService.getSlagRemovingReportForMeltNumber("meltNumber")
+      .body;
   mwoinspectionHeadingArray =
-    this.mwoinspectionService.getMwoInspectionReport().heading;
+    this.mwoinspectionService.getMwoInspectionReportForMeltNumber("meltNumber")
+      .heading;
   mwoinspectionBodyArray =
-    this.mwoinspectionService.getMwoInspectionReport().body;
+    this.mwoinspectionService.getMwoInspectionReportForMeltNumber("meltNumber")
+      .body;
   ingotpouringHeadingArray =
-    this.ingotpouringService.getIgnotPouringReport().heading;
-  ingotpouringBodyArray = this.ingotpouringService.getIgnotPouringReport().body;
+    this.ingotpouringService.getIngotPouringReportForMeltNumber("meltNumber")
+      .heading;
+  ingotpouringBodyArray =
+    this.ingotpouringService.getIngotPouringReportForMeltNumber("meltNumber")
+      .body;
   visualinspectionHeadingArray =
     this.visualinspectionService.getVisualInspectionReport().heading;
   visualinspectionBodyArray =
@@ -47,16 +57,19 @@ export class VisualInspectionComponent implements OnInit {
       name: "Ingot Pouring",
       heading: this.ingotpouringHeadingArray,
       body: this.ingotpouringBodyArray,
+      children: true,
     },
     {
       name: "Slag Removal",
       heading: this.slagremovingHeadingArray,
       body: this.slagremovingBodyArray,
+      children: true,
     },
     {
       name: "Transfer to MWO",
       heading: this.transfertomwoHeadingArray,
       body: this.transfertomwoBodyArray,
+      children: true,
     },
   ];
 
