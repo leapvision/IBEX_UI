@@ -1,5 +1,8 @@
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { FinalDispatchService } from "./finaldispatch.service";
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
+import { ModalComponent } from "src/app/shared/ui/modal/modal.component";
 
 @Component({
   selector: "app-finaldispatch",
@@ -12,7 +15,16 @@ export class FinalDispatchComponent implements OnInit {
   breadCrumbItems: Array<{}>;
   containerNumbers = [];
   invoiceNumbers = [];
-  constructor() {}
+
+  constructor(
+    private modalService: NgbModal,
+    private finaldispatchService: FinalDispatchService
+  ) {}
+
+  finalDispatchHeadingArray =
+    this.finaldispatchService.getFinalDispatchReport().heading;
+  finalDispatchBodyArray =
+    this.finaldispatchService.getFinalDispatchReport().body;
 
   ngOnInit(): void {
     this.breadCrumbItems = [
@@ -30,5 +42,16 @@ export class FinalDispatchComponent implements OnInit {
 
   changeValue() {
     this.hideme[2] = !this.hideme[2];
+  }
+
+  openModal() {
+    const modalRef = this.modalService.open(ModalComponent, {
+      centered: false,
+      size: "lg",
+    });
+    modalRef.componentInstance.message = "Remarks";
+    modalRef.componentInstance.body = `
+      <div>This will be the body of the Modal</div>
+    `;
   }
 }
