@@ -54,7 +54,7 @@
               <ng-template awWizardStepSymbol><b>2</b></ng-template>
 
               <div class="row justify-content-center mt-4">
-                <div class="row m-1">
+                <!-- <div class="row m-1">
                   <div class="col-lg-2 col-sm-4">
                     <div
                       class="card bg-success border border-success card-body"
@@ -197,6 +197,22 @@
                       <p class="card-text text-white text-center">94.6</p>
                     </div>
                   </div>
+                </div> -->
+                <div class="m-4">
+                  <ngb-accordion #acc="ngbAccordion">
+                    <ngb-panel
+                      *ngFor="let sample of inspectionSamples; let i = index"
+                    >
+                      <ng-template ngbPanelTitle class="text-black">
+                        Sample {{ i + 1 }}
+                      </ng-template>
+                      <ng-template ngbPanelContent>
+                        <app-spectroreports
+                          [SamplesArray]="sample"
+                        ></app-spectroreports>
+                      </ng-template>
+                    </ngb-panel>
+                  </ngb-accordion>
                 </div>
               </div>
 
