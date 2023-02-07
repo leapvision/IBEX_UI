@@ -53,12 +53,12 @@
   </thead>
 
   <tbody *ngFor="let row of tableData; let i = index">
-    <tr class="text-center">
+    <tr [ngClass]="centered ? 'text-center' : ''">
       <td *ngIf="source" (click)="row.showParentReport = !row.showParentReport">
         <span *ngIf="!row.showParentReport" class="btn-expand">+</span>
         <span *ngIf="row.showParentReport" class="btn-expand">-</span>
       </td>
-      <th scope="row">{{ 1000 + i + 1 }}</th>
+      <th *ngIf="!slno" scope="row">{{ 1000 + i + 1 }}</th>
       <td *ngFor="let body of row">
         {{ body.value }}
         <img
@@ -105,6 +105,11 @@
             </div>
           </div>
         </form>
+        <input
+          *ngIf="body.isCheckbox"
+          type="checkbox"
+          [checked]="body.checked"
+        />
       </td>
     </tr>
     <tr *ngIf="row.showParentReport" class="sub-table no-bg">

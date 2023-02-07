@@ -180,7 +180,7 @@
                     </h4>
 
                     <div class="table-responsive">
-                      <table class="table table-bordered mb-0 table-hover">
+                      <!-- <table class="table table-bordered mb-0 table-hover">
                         <tbody class="table-bordered">
                           <tr>
                             <td>Total Gross Weight</td>
@@ -199,7 +199,13 @@
                             <td>3409</td>
                           </tr>
                         </tbody>
-                      </table>
+                      </table> -->
+                      <app-table
+                        [BodyArray]="packinglistsummaryBodyArray"
+                        [children]="true"
+                        [slno]="true"
+                        [centered]="false"
+                      ></app-table>
                     </div>
                   </div>
                 </div>
@@ -209,7 +215,7 @@
                   <div class="card-body">
                     <!-- <h4 class="card-title text-center">Packing Report</h4> -->
                     <div class="table-responsive">
-                      <table class="table mb-0 table-hover">
+                      <!-- <table class="table mb-0 table-hover">
                         <thead class="table-light">
                           <tr>
                             <th rowspan="1"></th>
@@ -427,13 +433,19 @@
                                     </ng-template>
                                   </ngb-panel>
                                 </ngb-accordion>
-
-                                <!-- end accordion -->
                               </div>
                             </td>
                           </tr>
                         </tbody>
-                      </table>
+                      </table> -->
+                      <app-table
+                        [HeadingArray]="packinglistHeadingArray"
+                        [BodyArray]="packinglistBodyArray"
+                        [source]="true"
+                        [children]="true"
+                        [slno]="true"
+                        [centered]="true"
+                      ></app-table>
                     </div>
                   </div>
                 </div>

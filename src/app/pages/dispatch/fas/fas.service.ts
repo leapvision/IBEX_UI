@@ -54,6 +54,67 @@ export class FASService {
     ],
   ];
 
+  packinglistsummaryBodyArray = [
+    [{ value: "Total Gross Weight" }, { value: "25305" }],
+    [{ value: "Total Net Weight" }, { value: "25003" }],
+    [{ value: "Total Pallets" }, { value: "25" }],
+    [{ value: "Total PCS" }, { value: "3409" }],
+  ];
+
+  packinglistHeadingArray = [
+    [
+      { heading: "Select", rowspan: "1" },
+      { heading: "Pallet Number", rowspan: "1" },
+      { heading: "Gross Weight(KG)", rowspan: "1" },
+      { heading: "Net Weight(KG)", rowspan: "1" },
+      { heading: "PCS", rowspan: "1" },
+      { heading: "Remarks", rowspan: "1" },
+    ],
+  ];
+
+  packinglistBodyArray = [
+    [
+      { isCheckbox: true, checked: false },
+      { value: "1001" },
+      { value: "1106" },
+      { value: "1094" },
+      { value: "150" },
+      { isForm: true },
+    ],
+    [
+      { isCheckbox: true, checked: true },
+      { value: "1002" },
+      { value: "1124" },
+      { value: "1104" },
+      { value: "155" },
+      { isForm: true },
+    ],
+    [
+      { isCheckbox: true, checked: false },
+      { value: "1003" },
+      { value: "1124" },
+      { value: "1094" },
+      { value: "155" },
+      { isForm: true },
+    ],
+    [
+      { isCheckbox: true, checked: false },
+      { value: "1004" },
+      { value: "1106" },
+      { value: "1094" },
+      { value: "150" },
+      { isForm: true },
+    ],
+    [
+      { isCheckbox: true, checked: false },
+      { value: "1005" },
+      { value: "1106" },
+      { value: "1094" },
+      { value: "150" },
+      { isForm: true },
+    ],
+  ];
+
   constructor() {}
 
   getFASReport() {

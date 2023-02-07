@@ -33,6 +33,11 @@ export class FASComponent implements OnInit {
   fasHeadingArray = this.fasService.getFASReport().heading;
   fasBodyArray = this.fasService.getFASReport().body;
 
+  packinglistsummaryBodyArray = this.fasService.packinglistsummaryBodyArray;
+
+  packinglistHeadingArray = this.fasService.packinglistHeadingArray;
+  packinglistBodyArray = this.fasService.packinglistBodyArray;
+
   openModal() {
     const modalRef = this.modalService.open(ModalComponent, {
       centered: false,

@@ -13,6 +13,8 @@ export class TableComponent implements OnInit {
   @Input() ParentReports: string[] = [];
   @Input() source: boolean;
   @Input() children: boolean;
+  @Input() slno: boolean;
+  @Input() centered: boolean;
 
   tableData: string[];
 
