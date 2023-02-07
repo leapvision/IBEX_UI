@@ -13,7 +13,6 @@ import { VisualInspectionService } from "./visualinspection.service";
   providers: [DecimalPipe],
 })
 export class VisualInspectionComponent implements OnInit {
-  hideme: boolean[] = [false, false, true];
   breadCrumbItems: Array<{}>;
 
   constructor(
@@ -78,9 +77,5 @@ export class VisualInspectionComponent implements OnInit {
       { label: "MWO" },
       { label: "Visual Inspection", active: true },
     ];
-  }
-
-  changeValue() {
-    this.hideme[2] = !this.hideme[2];
   }
 }

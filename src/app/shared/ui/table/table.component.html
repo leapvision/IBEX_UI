@@ -84,6 +84,19 @@
             </button>
           </div>
         </div>
+        <div
+          *ngIf="body.isStatusButton"
+          class="card border card-body"
+          [ngClass]="
+            body.success
+              ? 'bg-success border-success'
+              : 'bg-warning border-warning'
+          "
+        >
+          <h3 class="card-title text-white text-center">
+            {{ body.innerText }}
+          </h3>
+        </div>
         <form *ngIf="body.isForm">
           <div class="row mb-4 justify-content-center">
             <div class="col-sm-9">
