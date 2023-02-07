@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
-import { FinalInspectionService } from "../finalinspection/finalinspection.service";
+import { FinalInspectionService } from "../../mwo/finalinspection/finalinspection.service";
 
 @Component({
   selector: "app-packingingots",

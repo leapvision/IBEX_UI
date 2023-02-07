@@ -212,26 +212,19 @@ export const MENU: MenuItem[] = [
         link: "/pages/mwo/printing",
         parentId: 30,
       },
+      {
+        id: 33,
+        label: "Final Inspection",
+        link: "/pages/mwo/finalinspection",
+        parentId: 30,
+      },
     ],
   },
   {
     id: 37,
     label: "PACKING",
     icon: "bx-package",
-    subItems: [
-      {
-        id: 38,
-        label: "Final Inspection",
-        link: "/pages/packing/finalinspection",
-        parentId: 37,
-      },
-      {
-        id: 39,
-        label: "Packing",
-        link: "/pages/packing/packingingots",
-        parentId: 37,
-      },
-    ],
+    link: "/pages/packing",
   },
   {
     id: 40,
