@@ -68,6 +68,8 @@
           width="150"
           [attr.src]="body.img"
           data-holder-rendered="true"
+          (click)="openModal(body.img)"
+          style="cursor: pointer"
         />
         <i
           *ngIf="body.viewDetails"
