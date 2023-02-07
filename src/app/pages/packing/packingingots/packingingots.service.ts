@@ -3,47 +3,55 @@ import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: "root",
 })
-export class SlagRemovingService {
+export class PackingService {
   headingArray = [
     [
       { heading: "Sl No", rowspan: "1" },
-      { heading: "Slag Removal Date", rowspan: "1" },
-      { heading: "Shift & Time", rowspan: "1" },
-      { heading: "Melt Number", rowspan: "1" },
-      { heading: "Slag Removal Quantity (KG)", rowspan: "1" },
-      { heading: "Time", colspan: "2" },
+      { heading: "Pallet Number", rowspan: "1" },
+      { heading: "Final Heat Number", rowspan: "1" },
+      { heading: "Number of Ingots", rowspan: "1" },
+      { heading: "Manufacturing Date", rowspan: "1" },
+      { heading: "Total Weight With Pallet", rowspan: "1" },
+      { heading: "Pallet Weight", rowspan: "1" },
+      { heading: "Ingot Weight", rowspan: "1" },
+      { heading: "Remarks", rowspan: "1" },
     ],
   ];
   bodyArray = [
     [
+      { value: "1" },
+      { value: "IBEX-MW-01-1001-221222" },
+      { value: "70" },
       { value: "22/12/2022" },
-      { value: "" },
-      { value: "MT-01-1001" },
-      { value: "17" },
-      { value: "10:20" },
+      { value: "962" },
+      { value: "12" },
+      { value: "950" },
+      { isForm: true },
       { showParentReport: false },
     ],
     [
-      { value: "20/12/2022" },
-      { value: "" },
-      { value: "MT-01-1002" },
-      { value: "18" },
-      { value: "10:50" },
-      { showParentReport: false },
-    ],
-    [
-      { value: "10/12/2022" },
-      { value: "" },
-      { value: "MT-01-1003" },
-      { value: "15" },
-      { value: "11:20" },
+      { value: "2" },
+      { value: "IBEX-MW-01-1001-221222" },
+      { value: "70" },
+      { value: "22/12/2022" },
+      { value: "962" },
+      { value: "12" },
+      { value: "950" },
+      { isForm: true },
       { showParentReport: false },
     ],
   ];
 
   constructor() {}
 
-  getSlagRemovingReport() {
+  getPackingReport() {
     return { heading: this.headingArray, body: this.bodyArray };
+  }
+
+  getPackingForHeatNumber(heatNumber: string) {
+    return {
+      heading: this.headingArray,
+      body: this.bodyArray.slice(0, 1),
+    };
   }
 }

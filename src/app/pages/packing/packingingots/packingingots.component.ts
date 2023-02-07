@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
 import { FinalInspectionService } from "../../mwo/finalinspection/finalinspection.service";
+import { PackingService } from "./packingingots.service";
 
 @Component({
   selector: "app-packingingots",
@@ -9,24 +10,17 @@ import { FinalInspectionService } from "../../mwo/finalinspection/finalinspectio
   providers: [DecimalPipe],
 })
 export class PackingIngotsComponent implements OnInit {
-  hideme: boolean[] = [false, false, true];
   breadCrumbItems: Array<{}>;
 
-  constructor(private fluxinspectionService: FinalInspectionService) {}
+  constructor(private packingService: PackingService) {}
 
-  fluxinspectionHeadingArray =
-    this.fluxinspectionService.getFinalInspectionReport().heading;
-  fluxinspectionBodyArray =
-    this.fluxinspectionService.getFinalInspectionReport().body;
+  packingHeadingArray = this.packingService.getPackingReport().heading;
+  packingBodyArray = this.packingService.getPackingReport().body;
 
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "Packing" },
       { label: "Ingots", active: true },
     ];
-  }
-
-  changeValue() {
-    this.hideme[2] = !this.hideme[2];
   }
 }
