@@ -1,3 +1,4 @@
+import { QualityService } from "./quality.service";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
@@ -15,7 +16,13 @@ export class CertQualityComponent implements OnInit {
 
   invoiceNumbers = [];
   packingListNumbers = [];
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private modalService: NgbModal,
+    private qualityService: QualityService
+  ) {}
+
+  qualityHeadingArray = this.qualityService.getQualityReport().heading;
+  qualityBodyArray = this.qualityService.getQualityReport().body;
 
   ngOnInit(): void {
     this.breadCrumbItems = [
