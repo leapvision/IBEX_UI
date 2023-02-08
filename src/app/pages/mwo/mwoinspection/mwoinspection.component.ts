@@ -72,6 +72,14 @@ export class MWOInspectionComponent implements OnInit {
     ];
   }
 
+  inspectionSamples = [
+    this.mwoinspectionService.samplesArray,
+    this.mwoinspectionService.samplesArray,
+    this.mwoinspectionService.samplesArray,
+    this.mwoinspectionService.samplesArray,
+    this.mwoinspectionService.samplesArray,
+  ];
+
   changeValue() {
     this.hideme[2] = !this.hideme[2];
   }
