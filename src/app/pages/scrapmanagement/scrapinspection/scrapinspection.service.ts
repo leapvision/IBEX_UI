@@ -3,56 +3,37 @@ import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: "root",
 })
-export class MwoInspectionService {
+export class ScrapInspectionService {
   headingArray = [
     [
       { heading: "Sl No", rowspan: "1" },
       { heading: "Date", rowspan: "1" },
-      { heading: "Hold Number", rowspan: "1" },
-      { heading: "Sample 1", rowspan: "1" },
-      { heading: "Sample 2", rowspan: "1" },
-      { heading: "Sample 3", rowspan: "1" },
-      { heading: "Sample 4", rowspan: "1" },
-      { heading: "Sample 5", rowspan: "1" },
-      { heading: "Action", rowspan: "1" },
-      { heading: "Remarks", rowspan: "1" },
+      { heading: "Alloy Name", rowspan: "1" },
+      { heading: "Source", rowspan: "1" },
+      { heading: "Weight(KG)", rowspan: "1" },
     ],
   ];
   bodyArray = [
     [
       { value: "22/12/2022" },
-      { value: "MW-01-1001" },
-      { value: "Done" },
-      { value: "Done" },
-      { value: "Done" },
-      { value: "Done" },
-      { value: "-" },
-      { isButton: true, innerText: "Moved to Ingot Pouring", success: true },
-      { isForm: true },
+      { value: "AM50A" },
+      { value: "Steel Line India" },
+      { value: "700" },
     ],
     [
-      { value: "22/12/2022" },
-      { value: "MW-01-1001" },
-      { value: "Done" },
-      { value: "-" },
-      { value: "-" },
-      { value: "-" },
-      { value: "-" },
-      { isButton: true, innerText: "Moved to Ingot Pouring", success: true },
-      { isForm: true },
+      { value: "20/12/2022" },
+      { value: "AM50A" },
+      { value: "CMR" },
+      { value: "500" },
     ],
     [
-      { value: "22/12/2022" },
-      { value: "MW-01-1001" },
-      { value: "Done" },
-      { value: "Done" },
-      { value: "-" },
-      { value: "-" },
-      { value: "-" },
-      { isButton: true, innerText: "Pending", success: false },
-      { isForm: true },
+      { value: "10/12/2022" },
+      { value: "AZ91D" },
+      { value: "Sunland" },
+      { value: "200" },
     ],
   ];
+
   samplesArray = [
     {
       name: "Al (%)",
@@ -148,18 +129,7 @@ export class MwoInspectionService {
 
   constructor() {}
 
-  getMwoInspectionReport() {
-    return {
-      heading: this.headingArray,
-      body: this.bodyArray,
-      samples: this.samplesArray,
-    };
-  }
-
-  getMwoInspectionReportForMeltNumber(meltNumber: string) {
-    return {
-      heading: this.headingArray,
-      body: this.bodyArray.slice(0, 1),
-    };
+  getScrapInspectionReport() {
+    return { heading: this.headingArray, body: this.bodyArray };
   }
 }

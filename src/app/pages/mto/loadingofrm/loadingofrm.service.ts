@@ -23,7 +23,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "20/12/2022" },
@@ -32,7 +31,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -41,7 +39,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -50,7 +47,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -59,7 +55,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -68,7 +63,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -77,7 +71,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -86,7 +79,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -95,7 +87,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -104,7 +95,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -113,7 +103,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -122,7 +111,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -131,7 +119,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -140,7 +127,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -149,7 +135,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -158,7 +143,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -167,7 +151,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -176,7 +159,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -185,7 +167,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -194,7 +175,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -203,7 +183,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -212,7 +191,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -221,7 +199,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -230,7 +207,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -239,7 +215,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -248,7 +223,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -257,7 +231,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -266,7 +239,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -275,7 +247,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -284,7 +255,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -293,7 +263,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -302,7 +271,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -311,7 +279,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -320,7 +287,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -329,7 +295,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -338,7 +303,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -347,7 +311,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -356,7 +319,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -365,7 +327,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -374,7 +335,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -383,7 +343,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -392,7 +351,6 @@ export class MaterialLoadingService {
       { value: "AM50A" },
       { value: "550" },
       { viewDetails: true },
-      { showParentReport: false },
     ],
   ];
 

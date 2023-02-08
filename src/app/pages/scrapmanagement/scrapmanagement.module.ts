@@ -8,7 +8,6 @@ import { WidgetModule } from "../../shared/widget/widget.module";
 
 import { NgApexchartsModule } from "ng-apexcharts";
 import { ArchwizardModule } from "angular-archwizard";
-// import { SharedModule } from './saas/shared/shared.module'
 import {
   NgbDropdownModule,
   NgbTooltipModule,

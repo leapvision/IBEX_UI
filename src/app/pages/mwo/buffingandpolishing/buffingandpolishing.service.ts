@@ -35,7 +35,6 @@ export class BuffingAndPolishingService {
       { value: "5" },
       { isStatusButton: true, innerText: "Complete", success: true },
       { isStatusButton: true, innerText: "Complete", success: true },
-      { showParentReport: false },
     ],
     [
       { value: "IBEX-MW-01-1002-221220" },
@@ -47,7 +46,6 @@ export class BuffingAndPolishingService {
       { value: "5" },
       { isStatusButton: true, innerText: "Complete", success: true },
       { isStatusButton: true, innerText: "Complete", success: true },
-      { showParentReport: false },
     ],
     [
       { value: "IBEX-MW-01-1003-221210" },
@@ -59,7 +57,6 @@ export class BuffingAndPolishingService {
       { value: "0" },
       { isStatusButton: true, innerText: "Pending", success: false },
       { isStatusButton: true, innerText: "Pending", success: false },
-      { showParentReport: false },
     ],
   ];
 

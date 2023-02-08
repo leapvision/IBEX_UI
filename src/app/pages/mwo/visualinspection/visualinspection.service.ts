@@ -34,7 +34,6 @@ export class VisualInspectionService {
       { value: "5" },
       { value: "5" },
       { isForm: true },
-      { showParentReport: false },
     ],
     [
       { value: "IBEX-MW-01-1002-221220" },
@@ -45,7 +44,6 @@ export class VisualInspectionService {
       { value: "0" },
       { value: "0" },
       { isForm: true },
-      { showParentReport: false },
     ],
     [
       { value: "IBEX-MW-02-1003-221210" },
@@ -56,7 +54,6 @@ export class VisualInspectionService {
       { value: "5" },
       { value: "5" },
       { isForm: true },
-      { showParentReport: false },
     ],
   ];
 

@@ -29,7 +29,6 @@ export class SlagInspectionService {
       { value: "-" },
       { isButton: true, innerText: "Moved to MWO", success: true },
       { isForm: true },
-      { showParentReport: false },
     ],
     [
       { value: "20/12/2022" },
@@ -41,7 +40,6 @@ export class SlagInspectionService {
       { value: "-" },
       { isButton: true, innerText: "Moved to MWO", success: true },
       { isForm: true },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -53,7 +51,6 @@ export class SlagInspectionService {
       { value: "-" },
       { isButton: true, innerText: "Pending", success: false },
       { isForm: true },
-      { showParentReport: false },
     ],
   ];
 

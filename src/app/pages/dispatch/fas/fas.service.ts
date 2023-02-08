@@ -35,7 +35,6 @@ export class FASService {
       { value: "6852" },
       { viewDetails: true },
       { download: true },
-      { showParentReport: false },
     ],
     [
       { value: "IEPL/1300/22-23" },
@@ -50,7 +49,6 @@ export class FASService {
       { value: "6852" },
       { viewDetails: true },
       { download: true },
-      { showParentReport: false },
     ],
   ];
 

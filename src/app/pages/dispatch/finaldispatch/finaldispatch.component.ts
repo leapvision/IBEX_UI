@@ -11,7 +11,6 @@ import { ModalComponent } from "src/app/shared/ui/modal/modal.component";
   providers: [DecimalPipe],
 })
 export class FinalDispatchComponent implements OnInit {
-  hideme: boolean[] = [false, false, true];
   breadCrumbItems: Array<{}>;
   containerNumbers = [];
   invoiceNumbers = [];
@@ -38,10 +37,6 @@ export class FinalDispatchComponent implements OnInit {
       "IEPL/0151/22-23",
       "IEPL/0152/22-23",
     ];
-  }
-
-  changeValue() {
-    this.hideme[2] = !this.hideme[2];
   }
 
   openModal() {

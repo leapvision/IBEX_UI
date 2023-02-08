@@ -370,9 +370,6 @@
                     Previous
                   </button>
                 </li>
-                <!-- <li class="next list-inline-item float-end">
-                        <a routerLink="/pages/mwo/mwoinspection" class="btn btn-primary">Next Process </a>
-                      </li> -->
               </ul>
             </aw-wizard-step>
           </aw-wizard>
@@ -384,99 +381,6 @@
         <div class="card-body">
           <h4 class="card-title text-center">Dispatch Report</h4>
           <div class="table-responsive">
-            <!-- <table class="table mb-0 table-hover">
-              <thead class="table-light">
-                <tr>
-                  <!-- <th rowspan="1"></th>
-                  <th rowspan="1">Sl No</th>
-                  <th rowspan="1">Invoice No</th>
-                  <th rowspan="1">Container No</th>
-                  <th rowspan="1">Seal No</th>
-                  <th rowspan="1">Vehicle No</th>
-                  <th rowspan="1">Empty Container Image</th>
-                  <th rowspan="1">Loading Container Image</th>
-                  <th rowspan="1">Fully Loaded Container Image</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>IEPL/0148/22-23</td>
-                  <td>MRUK34546SH</td>
-                  <td>4575</td>
-                  <td>KA53B65397</td>
-                  <td class="text-center">
-                    <i class="mdi mdi-eye"></i>
-                  </td>
-                  <td class="text-center">
-                    <i class="mdi mdi-eye"></i>
-                  </td>
-                  <td class="text-center">
-                    <i class="mdi mdi-eye"></i>
-                  </td>
-                </tr>
-                <tr>
-                  
-                  <th scope="row">2</th>
-                  <td>IEPL/0148/22-23</td>
-                  <td>MRUK34546SH</td>
-                  <td>4575</td>
-                  <td>KA53B65397</td>
-                  <td class="text-center">
-                    <i class="mdi mdi-eye"></i>
-                  </td>
-                  <td class="text-center">
-                    <i class="mdi mdi-eye"></i>
-                  </td>
-                  <td class="text-center">
-                    <i class="mdi mdi-eye"></i>
-                  </td>
-                </tr>
-                <tr *ngIf="!hideme[2]" class="sub-table no-bg">
-                  <td align="center"></td>
-                  <td colspan="15" class="p-0">
-                    <div class="m-4">
-                      <ngb-accordion
-                        #acc="ngbAccordion"
-                        activeIds="static-1"
-                        [closeOthers]="false"
-                      >
-                        <ngb-panel id="static-1">
-                          <ng-template ngbPanelTitle class="text-black">
-                            Transfer to MWO Report
-                          </ng-template>
-                          <ng-template ngbPanelContent>
-                            <table class="table mb-0 table-hover">
-                              <thead class="table-light">
-                                <tr>
-                                  <th rowspan="1">Sl No</th>
-                                  <th rowspan="1">Date</th>
-                                  <th rowspan="1">Furnace No</th>
-                                  <th rowspan="1">Shift & Time</th>
-                                  <th rowspan="1">Alloy Name</th>
-                                  <th rowspan="1">Hold Number(MTO)</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">1001</th>
-                                  <td>10/12/2022</td>
-                                  <td>MW-01</td>
-                                  <td></td>
-                                  <td>AM50A</td>
-                                  <td>MT-01-1003</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </ng-template>
-                        </ngb-panel>
-                      </ngb-accordion>
-
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table> -->
             <app-table
               [HeadingArray]="finalDispatchHeadingArray"
               [BodyArray]="finalDispatchBodyArray"

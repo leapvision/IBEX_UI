@@ -27,7 +27,6 @@ export class PackingService {
       { value: "12" },
       { value: "950" },
       { isForm: true },
-      { showParentReport: false },
     ],
     [
       { value: "2" },
@@ -38,7 +37,6 @@ export class PackingService {
       { value: "12" },
       { value: "950" },
       { isForm: true },
-      { showParentReport: false },
     ],
   ];
 

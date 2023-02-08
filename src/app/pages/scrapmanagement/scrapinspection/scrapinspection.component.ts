@@ -1,78 +1,49 @@
+import { ScrapInspectionService } from "./scrapinspection.service";
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
-import { Observable } from "rxjs";
-import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 
-import { Table } from "./advanced.model";
-
-import { tableData } from "./data";
-
-import { AdvancedService } from "./advanced.service";
-import {
-  AdvancedSortableDirective,
-  SortEvent,
-} from "./advanced-sortable.directive";
 @Component({
   selector: "app-scrapinspection",
   templateUrl: "./scrapinspection.component.html",
   styleUrls: ["./scrapinspection.component.scss"],
-  providers: [AdvancedService, DecimalPipe],
+  providers: [DecimalPipe],
 })
 export class ScrapInspectionComponent implements OnInit {
   // bread crum data
   breadCrumbItems: Array<{}>;
-  // Table data
-  tableData: Table[];
-  public selected: any;
-  hideme: boolean[] = [];
-  tables$: Observable<Table[]>;
-  total$: Observable<number>;
 
-  @ViewChildren(AdvancedSortableDirective)
-  headers: QueryList<AdvancedSortableDirective>;
+  hideme: boolean[] = [];
+
   public isCollapsed = true;
 
-  constructor(public service: AdvancedService) {
-    this.tables$ = service.tables$;
-    this.total$ = service.total$;
-  }
+  constructor(private scrapinspectionService: ScrapInspectionService) {}
+
+  scrapinspectionHeadingArray =
+    this.scrapinspectionService.getScrapInspectionReport().heading;
+  scrapinspectionBodyArray =
+    this.scrapinspectionService.getScrapInspectionReport().body;
+
+  parentReports: Array<{}> = [
+    {
+      spectroReports: true,
+      name: "Sample Spectro Reports",
+      samples: [
+        {
+          name: "Sample 1",
+          data: this.scrapinspectionService.samplesArray,
+        },
+      ],
+    },
+  ];
 
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "Scrap Management" },
       { label: "Inward Scrap", active: true },
     ];
-
-    this._fetchData();
   }
 
   changeValue(i) {
     this.hideme[i] = !this.hideme[i];
-  }
-
-  /**
-   * fetches the table value
-   */
-  _fetchData() {
-    this.tableData = tableData;
-    for (let i = 0; i <= this.tableData.length; i++) {
-      this.hideme.push(true);
-    }
-  }
-
-  /**
-   * Sort table data
-   * @param param0 sort the column
-   *
-   */
-  onSort({ column, direction }: SortEvent) {
-    // resetting other headers
-    this.headers.forEach((header) => {
-      if (header.sortable !== column) {
-        header.direction = "";
-      }
-    });
-    this.service.sortColumn = column;
-    this.service.sortDirection = direction;
   }
 }

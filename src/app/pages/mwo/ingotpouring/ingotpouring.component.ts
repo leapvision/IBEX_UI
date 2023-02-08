@@ -12,7 +12,6 @@ import { TransferToMwoService } from "../transfertomwo/transfertomwo.service";
   providers: [DecimalPipe],
 })
 export class IngotPouringComponent implements OnInit {
-  hideme: boolean[] = [false, false, true];
   breadCrumbItems: Array<{}>;
 
   constructor(
@@ -63,9 +62,5 @@ export class IngotPouringComponent implements OnInit {
       { label: "MWO" },
       { label: "Ignot Pouring", active: true },
     ];
-  }
-
-  changeValue() {
-    this.hideme[2] = !this.hideme[2];
   }
 }

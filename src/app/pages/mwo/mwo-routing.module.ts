@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { BuffingAndPolishingComponent } from "./buffingandpolishing/buffingandpolishing.component";
 import { FinalInspectionComponent } from "./finalinspection/finalinspection.component";
-import { IngotPouringComponent } from "./ignotpouring/ingotpouring.component";
+import { IngotPouringComponent } from "./ingotpouring/ingotpouring.component";
 import { MWOInspectionComponent } from "./mwoinspection/mwoinspection.component";
 import { PrintingComponent } from "./printing/printing.component";
 import { SlagRemovalComponent } from "./slagremoving/slagremoval.component";

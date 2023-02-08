@@ -13,7 +13,6 @@ import { SlagInspectionService } from "./slaginspection.service";
   providers: [DecimalPipe],
 })
 export class SlagInspectionComponent implements OnInit {
-  hideme: boolean[] = [false, false, true];
   breadCrumbItems: Array<{}>;
 
   constructor(
@@ -92,9 +91,5 @@ export class SlagInspectionComponent implements OnInit {
       { label: "MTO" },
       { label: "Composition Check", active: true },
     ];
-  }
-
-  changeValue() {
-    this.hideme[2] = !this.hideme[2];
   }
 }

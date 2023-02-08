@@ -25,7 +25,6 @@ export class FinalDispatchService {
       { viewDetails: true },
       { viewDetails: true },
       { viewDetails: true },
-      { showParentReport: false },
     ],
     [
       { value: "IEPL/1300/22-23" },
@@ -35,7 +34,6 @@ export class FinalDispatchService {
       { viewDetails: true },
       { viewDetails: true },
       { viewDetails: true },
-      { showParentReport: false },
     ],
   ];
 

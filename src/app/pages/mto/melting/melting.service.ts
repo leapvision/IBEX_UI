@@ -42,7 +42,6 @@ export class MeltingService {
       { value: "0" },
       { value: "700" },
       { img: "assets/images/small/img-3.jpg" },
-      { showParentReport: false },
     ],
     [
       { value: "20/12/2022" },
@@ -56,7 +55,6 @@ export class MeltingService {
       { value: "0" },
       { value: "700" },
       { img: "assets/images/small/img-3.jpg" },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -70,7 +68,6 @@ export class MeltingService {
       { value: "0" },
       { value: "700" },
       { img: "assets/images/small/img-3.jpg" },
-      { showParentReport: false },
     ],
   ];
 

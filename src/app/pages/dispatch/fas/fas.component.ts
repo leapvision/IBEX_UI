@@ -11,7 +11,6 @@ import { FASService } from "./fas.service";
   providers: [DecimalPipe],
 })
 export class FASComponent implements OnInit {
-  hideme: boolean[] = [false, false, true];
   breadCrumbItems: Array<{}>;
 
   invoiceNumbers = [];
@@ -46,9 +45,5 @@ export class FASComponent implements OnInit {
     modalRef.componentInstance.body = `
       <div>This will be the body of the Modal</div>
     `;
-  }
-
-  changeValue() {
-    this.hideme[2] = !this.hideme[2];
   }
 }

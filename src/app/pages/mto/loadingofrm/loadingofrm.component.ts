@@ -9,7 +9,6 @@ import { MaterialLoadingService } from "./loadingofrm.service";
   providers: [DecimalPipe],
 })
 export class LoadingOfRmComponent implements OnInit {
-  // breadcrumb items
   breadCrumbItems: Array<{}>;
   productionOrderNumbers = [];
   vendors = [];
