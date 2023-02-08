@@ -10,8 +10,10 @@
             <aw-wizard-step stepTitle="Final Heat Number">
               <ng-template awWizardStepSymbol><b>1</b></ng-template>
               <form>
-                <div class="row mb-4 text-center mt-3">
-                  <label for="horizontal-firstname-input" class="col-sm-12"
+                <div class="row justify-content-center mt-4">
+                  <label
+                    for="horizontal-firstname-input"
+                    class="col-sm-3 col-form-label"
                     >Ready for Final Inspection</label
                   >
                 </div>
@@ -71,21 +73,6 @@
                     />
                   </div>
                 </div>
-                <div class="row mb-4 mt-4">
-                  <label
-                    for="horizontal-password-input"
-                    class="col-sm-3 col-form-label"
-                    >Total No of Printed Ingots Quantity</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      type="number"
-                      class="form-control"
-                      value="70"
-                      [disabled]="true"
-                    />
-                  </div>
-                </div>
 
                 <div class="row mb-4">
                   <label
@@ -97,32 +84,12 @@
                     <input type="number" class="form-control" />
                   </div>
                 </div>
-                <div class="row mb-4">
-                  <label
-                    for="horizontal-password-input"
-                    class="col-sm-3 col-form-label"
-                    >No of Ok Printed Ingots Quantity</label
-                  >
-                  <div class="col-sm-9">
-                    <input type="number" class="form-control" />
-                  </div>
-                </div>
 
                 <div class="row mb-4">
                   <label
                     for="horizontal-password-input"
                     class="col-sm-3 col-form-label"
-                    >No of Not Ok Printed Ingots</label
-                  >
-                  <div class="col-sm-9">
-                    <input class="form-control" type="number" />
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <label
-                    for="horizontal-password-input"
-                    class="col-sm-3 col-form-label"
-                    >No of Not Ok Printed Ingots Quantity</label
+                    >No of not Ok Printed Ingots</label
                   >
                   <div class="col-sm-9">
                     <input class="form-control" type="number" />
@@ -176,13 +143,6 @@
                       class="card bg-success border border-success card-body"
                     >
                       <h3 class="card-title text-white text-center">
-                        No of Printed Ingots Quantity- 70
-                      </h3>
-                    </div>
-                    <div
-                      class="card bg-success border border-success card-body"
-                    >
-                      <h3 class="card-title text-white text-center">
                         No of Ok Printed Ingots - 0
                       </h3>
                     </div>
@@ -190,21 +150,7 @@
                       class="card bg-success border border-success card-body"
                     >
                       <h3 class="card-title text-white text-center">
-                        No of Ok Printed Ingots Quantity 0
-                      </h3>
-                    </div>
-                    <div
-                      class="card bg-success border border-success card-body"
-                    >
-                      <h3 class="card-title text-white text-center">
                         No of Not Ok Printed Ingots - 0
-                      </h3>
-                    </div>
-                    <div
-                      class="card bg-success border border-success card-body"
-                    >
-                      <h3 class="card-title text-white text-center">
-                        No of Not Ok Printed Ingots Quantity- 0
                       </h3>
                     </div>
                     <div
@@ -232,7 +178,9 @@
                   </button>
                 </li>
                 <li class="next list-inline-item float-end">
-                  <a routerLink="/pages/packing" class="btn btn-primary"
+                  <a
+                    routerLink="/pages/packing/packingingots"
+                    class="btn btn-primary"
                     >Next Process</a
                   >
                 </li>
@@ -247,86 +195,12 @@
         <div class="card-body">
           <h4 class="card-title text-center">Final Inspection Report</h4>
           <div class="table-responsive">
-            <table class="table mb-0 table-hover">
-              <thead class="table-light">
-                <tr>
-                  <th rowspan="1">Sl No</th>
-                  <th rowspan="1">Final Heat Number</th>
-                  <th colspan="6" class="text-center">Status</th>
-                  <th rowspan="1" class="text-center">Remarks</th>
-                </tr>
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th>Total Printed Ingots</th>
-                  <th>Total Printed Ingots Quantity</th>
-                  <th>Ok Printed Ingots</th>
-                  <th>Ok Printed Ingots Quantity</th>
-                  <th>Not Ok Printed Ingots</th>
-                  <th>Not Ok Printed Ingots Quantity</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>IBEX-MW-01-1001-221222</td>
-                  <td>70</td>
-                  <td>70</td>
-                  <td>70</td>
-                  <td>70</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>
-                    <form>
-                      <div class="row mb-4 justify-content-center">
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" value="" />
-                        </div>
-                      </div>
-                    </form>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>IBEX-MW-01-1002-221220</td>
-                  <td>75</td>
-                  <td>75</td>
-                  <td>75</td>
-                  <td>75</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>
-                    <form>
-                      <div class="row mb-4 justify-content-center">
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" value="" />
-                        </div>
-                      </div>
-                    </form>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>IBEX-MW-02-1003-221210</td>
-                  <td>70</td>
-                  <td>70</td>
-                  <td>70</td>
-                  <td>70</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>
-                    <form>
-                      <div class="row mb-4 justify-content-center">
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" value="" />
-                        </div>
-                      </div>
-                    </form>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <app-table
+              [HeadingArray]="finalInspectionHeadingArray"
+              [BodyArray]="finalInspectionBodyArray"
+              [ParentReports]="parentReports"
+              [source]="true"
+            ></app-table>
           </div>
         </div>
       </div>

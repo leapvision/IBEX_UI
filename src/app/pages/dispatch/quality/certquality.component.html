@@ -187,7 +187,7 @@
         <div class="card-body">
           <h4 class="card-title text-center">Certificate of Quality</h4>
           <div class="table-responsive">
-            <table class="table mb-0 table-hover">
+            <!-- <table class="table mb-0 table-hover">
               <thead class="table-light">
                 <tr>
                   <th rowspan="1"></th>
@@ -217,7 +217,7 @@
                   <td>1001</td>
                   <td>MRKU09876SH</td>
                   <td class="text-center">
-                    <i class="mdi mdi-eye"></i>
+                    <i class="mdi mdi-eye" (click)="openModal()"></i>
                   </td>
                   <td class="text-center">
                     <i class="bx bx-download"></i>
@@ -236,7 +236,7 @@
                   <td>1001</td>
                   <td>MRKU09876SH</td>
                   <td class="text-center">
-                    <i class="mdi mdi-eye"></i>
+                    <i class="mdi mdi-eye" (click)="openModal()"></i>
                   </td>
                   <td class="text-center">
                     <i class="bx bx-download"></i>
@@ -506,13 +506,16 @@
                           </ng-template>
                         </ngb-panel>
                       </ngb-accordion>
-
-                      <!-- end accordion -->
                     </div>
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
+            <app-table
+              [HeadingArray]="qualityHeadingArray"
+              [BodyArray]="qualityBodyArray"
+              [source]="false"
+            ></app-table>
           </div>
         </div>
       </div>

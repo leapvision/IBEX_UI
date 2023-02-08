@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h4 class="modal-title text-center">{{ message }}</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="dismissModal()"
+  ></button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-6 text-center" [innerHTML]="body"></div>
+  </div>
+</div>

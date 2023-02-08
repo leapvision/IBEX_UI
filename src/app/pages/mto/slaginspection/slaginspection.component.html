@@ -5,14 +5,16 @@
     <div class="col-lg-12 align-items-center">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title mb-4 text-center">MTO Composition Check</h4>
+          <h4 class="card-title mb-4 text-center">Composition Check</h4>
           <aw-wizard [navBarLayout]="'large-empty-symbols'">
             <aw-wizard-step stepTitle="Melt Number">
               <ng-template awWizardStepSymbol><b>1</b></ng-template>
               <form>
-                <div class="row mb-4 text-center mt-3">
-                  <label for="horizontal-firstname-input" class="col-sm-12"
-                    >Ready to Move To MWO</label
+                <div class="row mb-4 justify-content-center">
+                  <label
+                    for="horizontal-firstname-input"
+                    class="col-sm-3 col-form-label"
+                    >Ready to Move to MWO</label
                   >
                 </div>
                 <div class="row mb-4 justify-content-center">
@@ -52,7 +54,7 @@
               <ng-template awWizardStepSymbol><b>2</b></ng-template>
 
               <div class="row justify-content-center mt-4">
-                <div class="row m-1">
+                <!-- <div class="row m-1">
                   <div class="col-lg-2 col-sm-4">
                     <div
                       class="card bg-success border border-success card-body"
@@ -195,6 +197,22 @@
                       <p class="card-text text-white text-center">94.6</p>
                     </div>
                   </div>
+                </div> -->
+                <div class="m-4">
+                  <ngb-accordion #acc="ngbAccordion">
+                    <ngb-panel
+                      *ngFor="let sample of inspectionSamples; let i = index"
+                    >
+                      <ng-template ngbPanelTitle class="text-black">
+                        Sample {{ i + 1 }}
+                      </ng-template>
+                      <ng-template ngbPanelContent>
+                        <app-spectroreports
+                          [SamplesArray]="sample"
+                        ></app-spectroreports>
+                      </ng-template>
+                    </ngb-panel>
+                  </ngb-accordion>
                 </div>
               </div>
 
@@ -376,9 +394,9 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title text-center">MTO Inspection Report</h4>
+          <h4 class="card-title text-center">Slag Inspection Report</h4>
           <div class="table-responsive">
-            <table class="table mb-0 table-hover">
+            <!-- <table class="table mb-0 table-hover">
               <thead class="table-light">
                 <tr>
                   <th rowspan="1"></th>
@@ -1176,6 +1194,10 @@
                                 </tr>
                               </tbody>
                             </table>
+                            <app-fluxmixing-table
+                              [HeadingArray]="fluxmixingHeadingArray"
+                              [BodyArray]="fluxmixingBodyArray"
+                            ></app-fluxmixing-table>
                           </ng-template>
                         </ngb-panel>
                         <ngb-panel id="static-4">
@@ -1184,61 +1206,67 @@
                           </ng-template>
                           <ng-template ngbPanelContent>
                             <table class="table mb-0 table-hover">
-                              <thead class="table-light">
-                                <tr>
-                                  <th rowspan="1">Sl No</th>
-                                  <th rowspan="1">Date</th>
-                                  <th rowspan="1">Shift & Time</th>
-                                  <th rowspan="1">Furnace No</th>
-                                  <th rowspan="1">Alloy Name</th>
-                                  <th rowspan="1">Scrap (KG)</th>
-                                  <th colspan="5" class="text-center">
-                                    Addition Details(KG)
-                                  </th>
-                                  <th rowspan="1">Melting Temperature (°C)</th>
-                                </tr>
-                                <tr>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th>Be Grams</th>
-                                  <th>Pure Alu</th>
-                                  <th>Zinc</th>
-                                  <th>Al Mn</th>
-                                  <th>Pure Mg</th>
-                                  <th></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">1001</th>
-                                  <td>21/12/2022</td>
-                                  <td></td>
-                                  <td>MT-01</td>
-                                  <td>AM50A</td>
-                                  <td>470</td>
-                                  <td>900</td>
-                                  <td>470</td>
-                                  <td>900</td>
-                                  <td>470</td>
-                                  <td>470</td>
-                                  <td>800</td>
-                                </tr>
-                              </tbody>
-                            </table>
+                                  <thead class="table-light">
+                                    <tr>
+                                      <th rowspan="1">Sl No</th>
+                                      <th rowspan="1">Date</th>
+                                      <th rowspan="1">Shift & Time</th>
+                                      <th rowspan="1">Furnace No</th>
+                                      <th rowspan="1">Alloy Name</th>
+                                      <th rowspan="1">Scrap  (KG)</th>
+                                      <th colspan="5" class="text-center">Addition Details(KG)</th>
+                                      <th rowspan="1">Melting Temperature (°C)</th>
+                                    </tr>
+                                    <tr>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th>Be Grams </th>
+                                      <th>Pure Alu </th>
+                                      <th>Zinc </th>
+                                      <th>Al Mn </th>                
+                                      <th>Pure Mg </th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody >
+                                    <tr>
+                                      <th scope="row">1001</th>
+                                      <td>21/12/2022</td>
+                                      <td></td>
+                                      <td>MT-01</td>
+                                      <td>AM50A</td>
+                                      <td>470</td>
+                                      <td>900</td>
+                                      <td>470</td>
+                                      <td>900</td>
+                                      <td>470</td>
+                                      <td>470</td>
+                                      <td>800</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                            <app-table
+                              [HeadingArray]="meltingHeadingArray"
+                              [BodyArray]="meltingBodyArray"
+                            ></app-table>
                           </ng-template>
                         </ngb-panel>
                       </ngb-accordion>
-
-                      <!-- end accordion -->
                     </div>
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
+            <app-table
+              [HeadingArray]="slaginspectionHeadingArray"
+              [BodyArray]="slaginspectionBodyArray"
+              [source]="true"
+              [ParentReports]="parentReports"
+            ></app-table>
           </div>
         </div>
       </div>

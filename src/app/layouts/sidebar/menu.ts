@@ -213,7 +213,7 @@ export const MENU: MenuItem[] = [
         parentId: 30,
       },
       {
-        id: 32,
+        id: 33,
         label: "Final Inspection",
         link: "/pages/mwo/finalinspection",
         parentId: 30,

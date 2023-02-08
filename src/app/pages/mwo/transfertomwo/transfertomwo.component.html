@@ -9,27 +9,21 @@
           <aw-wizard [navBarLayout]="'large-empty-symbols'">
             <aw-wizard-step stepTitle="Melt Number">
               <ng-template awWizardStepSymbol><b>1</b></ng-template>
-              <div class="row mb-4 justify-content-center">
-                <div class="col-sm-12">
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <div
-                        class="card bg-success border border-success card-body"
-                      >
-                        <h3 class="card-title text-white text-center">
-                          MT-01-1001
-                        </h3>
-                      </div>
+              <div class="row mt-3 justify-content-center">
+                <div class="col-xl col-sm-6">
+                  <div class="mt-3 mb-0 text-center">
+                    <div
+                      class="card bg-success border border-success card-body"
+                    >
+                      <h3 class="card-title text-white text-center">
+                        MT-01-1001
+                      </h3>
                     </div>
-                    <div class="col-sm-4">
-                      <div class="card border border-primary card-body">
-                        <h3 class="card-title text-center">MT-01-1002</h3>
-                      </div>
+                    <div class="card border border-primary card-body">
+                      <h3 class="card-title text-center">MT-01-1002</h3>
                     </div>
-                    <div class="col-sm-4">
-                      <div class="card border border-primary card-body">
-                        <h3 class="card-title text-center">MT-02-1003</h3>
-                      </div>
+                    <div class="card border border-primary card-body">
+                      <h3 class="card-title text-center">MT-02-1003</h3>
                     </div>
                   </div>
                 </div>
@@ -91,40 +85,11 @@
         <div class="card-body">
           <h4 class="card-title text-center">Transfer to MWO Report</h4>
           <div class="table-responsive">
-            <table class="table mb-0 table-hover">
-              <thead class="table-light">
-                <tr>
-                  <th>Sl No</th>
-                  <th>Date</th>
-                  <th>Shift & Time</th>
-                  <th>Melt No</th>
-                  <th>Hold No</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1001</th>
-                  <td>22/12/2022</td>
-                  <td></td>
-                  <td>MT-01-1001</td>
-                  <td>MWO-01-1001</td>
-                </tr>
-                <tr>
-                  <th scope="row">1002</th>
-                  <td>20/12/2022</td>
-                  <td></td>
-                  <td>MT-01-1002</td>
-                  <td>MWO-01-1002</td>
-                </tr>
-                <tr>
-                  <th scope="row">1003</th>
-                  <td>10/12/2022</td>
-                  <td></td>
-                  <td>MT-02-1003</td>
-                  <td>MWO-02-1003</td>
-                </tr>
-              </tbody>
-            </table>
+            <app-table
+              [HeadingArray]="transfertomwoHeadingArray"
+              [BodyArray]="transfertomwoBodyArray"
+              [source]="false"
+            ></app-table>
           </div>
         </div>
       </div>

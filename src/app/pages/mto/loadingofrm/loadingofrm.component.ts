@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
+import { MaterialLoadingService } from "./loadingofrm.service";
 
 @Component({
   selector: "app-loadingofrm",
@@ -13,7 +14,12 @@ export class LoadingOfRmComponent implements OnInit {
   productionOrderNumbers = [];
   vendors = [];
 
-  constructor() {}
+  constructor(private materialLoadingService: MaterialLoadingService) {}
+
+  materialLoadingHeadingArray =
+    this.materialLoadingService.getMaterialLoadingReport().heading;
+  materialLoadingBodyArray =
+    this.materialLoadingService.getMaterialLoadingReport().body;
 
   ngOnInit(): void {
     this.breadCrumbItems = [
