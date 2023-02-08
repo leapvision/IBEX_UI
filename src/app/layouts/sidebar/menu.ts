@@ -88,8 +88,10 @@ export const MENU: MenuItem[] = [
     ],
   },
   {
-    id: 8,
-    isLayout: true,
+    id: 390,
+    label: "SETTINGS",
+    icon: "bx-cog",
+    link: "/pages/settings",
   },
   {
     id: 9,

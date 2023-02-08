@@ -11,7 +11,6 @@ import { FluxMixingService } from "./fluxmixing.service";
   providers: [DecimalPipe],
 })
 export class FluxMixingComponent implements OnInit {
-  hideme: boolean[] = [false, false, true];
   breadCrumbItems: Array<{}>;
 
   constructor(
@@ -54,9 +53,5 @@ export class FluxMixingComponent implements OnInit {
       { label: "MTO" },
       { label: "Flux Mixing", active: true },
     ];
-  }
-
-  changeValue() {
-    this.hideme[2] = !this.hideme[2];
   }
 }

@@ -64,10 +64,10 @@ export class TableComponent implements OnInit {
     // modalRef.componentInstance.body = `
     //   <div>This will be the body of the Modal</div>
     // `;
-    modalRef.componentInstance.body = `<img
+    modalRef.componentInstance.body = `<div class="text-center"><img
     alt="expanded"
     width="800"
     src=${imgSrc}
-  />`;
+  /></div>`;
   }
 }
