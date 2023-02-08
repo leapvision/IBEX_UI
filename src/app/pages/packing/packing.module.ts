@@ -24,11 +24,10 @@ import {
 } from "@ng-bootstrap/ng-bootstrap";
 import { SimplebarAngularModule } from "simplebar-angular";
 import { SharedModule } from "../../shared/shared.module";
-import { FinalInspectionComponent } from "../mwo/finalinspection/finalinspection.component";
 import { PackingIngotsComponent } from "./packingingots/packingingots.component";
 
 @NgModule({
-  declarations: [FinalInspectionComponent, PackingIngotsComponent],
+  declarations: [PackingIngotsComponent],
   imports: [
     CommonModule,
     FormsModule,
