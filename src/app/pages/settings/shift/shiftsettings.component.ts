@@ -8,7 +8,13 @@ import { DecimalPipe } from "@angular/common";
   providers: [DecimalPipe],
 })
 export class ShiftSettingsComponent implements OnInit {
+  breadCrumbItems: Array<{}>;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.breadCrumbItems = [
+      { label: "Settings" },
+      { label: "Shift", active: true },
+    ];
+  }
 }

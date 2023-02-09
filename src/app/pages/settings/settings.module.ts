@@ -1,3 +1,7 @@
+import { ShiftSettingsComponent } from "./shift/shiftsettings.component";
+import { LineSettingsComponent } from "./line/linesettings.component";
+import { MwoFurnaceSettingsComponent } from "./mwofurnace/mwofurnacesettings.component";
+import { MtoFurnaceSettingsComponent } from "./mtofurnace/mtofurnacesettings.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -24,7 +28,13 @@ import { SettingsComponent } from "./ibexsettings/ibexsettings.component";
 import { SettingsRoutingModule } from "./settings-routing.module";
 
 @NgModule({
-  declarations: [SettingsComponent],
+  declarations: [
+    SettingsComponent,
+    MtoFurnaceSettingsComponent,
+    MwoFurnaceSettingsComponent,
+    LineSettingsComponent,
+    ShiftSettingsComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,

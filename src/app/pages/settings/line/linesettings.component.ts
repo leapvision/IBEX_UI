@@ -8,7 +8,13 @@ import { DecimalPipe } from "@angular/common";
   providers: [DecimalPipe],
 })
 export class LineSettingsComponent implements OnInit {
+  breadCrumbItems: Array<{}>;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.breadCrumbItems = [
+      { label: "Settings" },
+      { label: "Line", active: true },
+    ];
+  }
 }

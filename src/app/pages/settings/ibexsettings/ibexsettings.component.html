@@ -1,213 +1,214 @@
-<h1>General Settings Page</h1>
+<div class="container-fluid">
+  <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="mb-4">Metrics</h4>
 
-<div class="row">
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="mb-4">Metrics</h4>
-
-        <!-- <form
-          class="row row-cols-lg-auto align-items-end justify-content-between"
-        >
-          <div class="col-12">
-            <label for="temperature">Temperature</label>
-            <select class="form-select" id="temperature">
-              <option selected>Choose...</option>
-              <option value="1">°C</option>
-              <option value="2">°F</option>
-              <option value="3">K</option>
-            </select>
-          </div>
-
-          <div class="col-12">
-            <label for="weight">Weight</label>
-            <select class="form-select" id="weight">
-              <option selected>Choose...</option>
-              <option value="1">KG</option>
-              <option value="2">Grams</option>
-            </select>
-          </div>
-
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary w-md">Save</button>
-          </div>
-        </form> -->
-
-        <!-- <form
-          class="row row-cols-lg-auto align-items-end justify-content-between mt-4"
-        >
-          <div>
-            <label class="d-block mb-3">Temperature</label>
-
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="celsius"
-                value="option1"
-              />
-              <label class="form-check-label" for="celsius">°C</label>
+          <!-- <form
+            class="row row-cols-lg-auto align-items-end justify-content-between"
+          >
+            <div class="col-12">
+              <label for="temperature">Temperature</label>
+              <select class="form-select" id="temperature">
+                <option selected>Choose...</option>
+                <option value="1">°C</option>
+                <option value="2">°F</option>
+                <option value="3">K</option>
+              </select>
             </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="fahrenheit"
-                value="option2"
-              />
-              <label class="form-check-label" for="fahrenheit">F</label>
+  
+            <div class="col-12">
+              <label for="weight">Weight</label>
+              <select class="form-select" id="weight">
+                <option selected>Choose...</option>
+                <option value="1">KG</option>
+                <option value="2">Grams</option>
+              </select>
             </div>
-          </div>
-
-          <div>
-            <label class="d-block mb-3">Weight</label>
-
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="kilograms"
-                value="option1"
-              />
-              <label class="form-check-label" for="kilograms">KG</label>
+  
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary w-md">Save</button>
             </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="grams"
-                value="option2"
-              />
-              <label class="form-check-label" for="grams">Grams</label>
-            </div>
-          </div>
+          </form> -->
 
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary w-md">Save</button>
-          </div>
-        </form> -->
-
-        <!-- <form
-          class="row row-cols-lg-auto align-items-end justify-content-between"
-        >
-          <div class="col-12">
-            <h5 class="font-size-15 mb-3">Temperature</h5>
-
+          <!-- <form
+            class="row row-cols-lg-auto align-items-end justify-content-between mt-4"
+          >
             <div>
-              <div class="btn-group btn-group-example" role="group">
-                <button type="button" class="btn btn-primary w-sm">°C</button>
-                <button type="button" class="btn btn-outline-primary w-sm">
-                  F
-                </button>
+              <label class="d-block mb-3">Temperature</label>
+  
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="celsius"
+                  value="option1"
+                />
+                <label class="form-check-label" for="celsius">°C</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="fahrenheit"
+                  value="option2"
+                />
+                <label class="form-check-label" for="fahrenheit">F</label>
               </div>
             </div>
-          </div>
-
-          <div class="col-12">
-            <h5 class="font-size-15 mb-3">Weight</h5>
-
+  
             <div>
-              <div class="btn-group btn-group-example" role="group">
-                <button type="button" class="btn btn-primary w-sm">KG</button>
-                <button type="button" class="btn btn-outline-primary w-sm">
-                  Grams
-                </button>
+              <label class="d-block mb-3">Weight</label>
+  
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="kilograms"
+                  value="option1"
+                />
+                <label class="form-check-label" for="kilograms">KG</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="grams"
+                  value="option2"
+                />
+                <label class="form-check-label" for="grams">Grams</label>
               </div>
             </div>
-          </div>
-
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary w-md">Save</button>
-          </div>
-        </form> -->
-
-        <form
-          class="row row-cols-lg-auto align-items-end justify-content-between"
-        >
-          <div class="col-12">
-            <h5 class="font-size-15 mb-3">Temperature</h5>
-            <div
-              class="btn-group"
-              role="group"
-              aria-label="Basic radio toggle button group"
-            >
-              <input
-                type="radio"
-                class="btn-check"
-                name="temperature"
-                id="celsius"
-                autocomplete="off"
-                checked
-              />
-              <label
-                class="btn btn-outline-primary"
-                style="padding: 8px 48px"
-                for="celsius"
-                >°C</label
-              >
-
-              <input
-                type="radio"
-                class="btn-check"
-                name="temperature"
-                id="fahrenheit"
-                autocomplete="off"
-              />
-              <label
-                class="btn btn-outline-primary"
-                style="padding: 8px 48px"
-                for="fahrenheit"
-                >F</label
-              >
+  
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary w-md">Save</button>
             </div>
-          </div>
+          </form> -->
 
-          <div class="col-12">
-            <h5 class="font-size-15 mb-3">Weight</h5>
-            <div
-              class="btn-group"
-              role="group"
-              aria-label="Basic radio toggle button group"
-            >
-              <input
-                type="radio"
-                class="btn-check"
-                name="weight"
-                id="kg"
-                autocomplete="off"
-                checked
-              />
-              <label
-                class="btn btn-outline-primary"
-                style="padding: 8px 48px"
-                for="kg"
-                >KG</label
-              >
-
-              <input
-                type="radio"
-                class="btn-check"
-                name="weight"
-                id="pounds"
-                autocomplete="off"
-              />
-              <label
-                class="btn btn-outline-primary"
-                style="padding: 8px 48px"
-                for="pounds"
-                >Pounds</label
-              >
+          <!-- <form
+            class="row row-cols-lg-auto align-items-end justify-content-between"
+          >
+            <div class="col-12">
+              <h5 class="font-size-15 mb-3">Temperature</h5>
+  
+              <div>
+                <div class="btn-group btn-group-example" role="group">
+                  <button type="button" class="btn btn-primary w-sm">°C</button>
+                  <button type="button" class="btn btn-outline-primary w-sm">
+                    F
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
+  
+            <div class="col-12">
+              <h5 class="font-size-15 mb-3">Weight</h5>
+  
+              <div>
+                <div class="btn-group btn-group-example" role="group">
+                  <button type="button" class="btn btn-primary w-sm">KG</button>
+                  <button type="button" class="btn btn-outline-primary w-sm">
+                    Grams
+                  </button>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary w-md">Save</button>
+            </div>
+          </form> -->
 
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary w-md">Save</button>
-          </div>
-        </form>
+          <form
+            class="row row-cols-lg-auto align-items-end justify-content-between"
+          >
+            <div class="col-12">
+              <h5 class="font-size-15 mb-3">Temperature</h5>
+              <div
+                class="btn-group"
+                role="group"
+                aria-label="Basic radio toggle button group"
+              >
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="temperature"
+                  id="celsius"
+                  autocomplete="off"
+                  checked
+                />
+                <label
+                  class="btn btn-outline-primary"
+                  style="padding: 8px 48px"
+                  for="celsius"
+                  >°C</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="temperature"
+                  id="fahrenheit"
+                  autocomplete="off"
+                />
+                <label
+                  class="btn btn-outline-primary"
+                  style="padding: 8px 48px"
+                  for="fahrenheit"
+                  >F</label
+                >
+              </div>
+            </div>
+
+            <div class="col-12">
+              <h5 class="font-size-15 mb-3">Weight</h5>
+              <div
+                class="btn-group"
+                role="group"
+                aria-label="Basic radio toggle button group"
+              >
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="weight"
+                  id="kg"
+                  autocomplete="off"
+                  checked
+                />
+                <label
+                  class="btn btn-outline-primary"
+                  style="padding: 8px 48px"
+                  for="kg"
+                  >KG</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="weight"
+                  id="pounds"
+                  autocomplete="off"
+                />
+                <label
+                  class="btn btn-outline-primary"
+                  style="padding: 8px 48px"
+                  for="pounds"
+                  >Pounds</label
+                >
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary w-md">Save</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

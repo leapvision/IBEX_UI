@@ -1,266 +1,384 @@
 <!-- <app-loader></app-loader> -->
 <div class="container-fluid">
-    <!-- start page title -->
-    <div class="row">
-        <div class="col-12">
-            <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Supervisor Management</h4>
-                <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <!-- <li class="breadcrumb-item active">Welcome to Dashboard</li> -->
-                    </ol>
-                </div>
-            </div>
+  <!-- start page title -->
+  <div class="row">
+    <div class="col-12">
+      <div
+        class="page-title-box d-flex align-items-center justify-content-between"
+      >
+        <h4 class="mb-0 font-size-18">Supervisor Management</h4>
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <!-- <li class="breadcrumb-item active">Welcome to Dashboard</li> -->
+          </ol>
         </div>
+      </div>
     </div>
-    <!-- end page title-->
+  </div>
+  <!-- end page title-->
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table align-middle  table-nowrap table-hover">
-                    <thead class="table-light">
-                      <tr>
-                        <th scope="col" style="width: 70px;">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Line</th>
-                        <th scope="col">Shift</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="avatar-xs">
-                            <span class="avatar-title rounded-circle">
-                              S
-                            </span>
-                          </div>
-                         
-                        </td>
-                        <td>
-                          <h5 class="font-size-14 mb-1"><a href="javascript: void(0);" class="text-dark">Supervisor 1</a>
-                          </h5>
-                          <!-- <p class="text-muted mb-0">{{data.position}}</p> -->
-                        </td>
-                        <td>Supervisor1@ibex.com</td>
-                        <td>
-                            Supervisor
-                        </td>
-                        <td>
-                          <div>
-                            <a href="javascript: void(0);" class="badge badge-soft-primary font-size-13 m-1">Line 1</a>
-                            <a href="javascript: void(0);" class="badge badge-soft-primary font-size-13 m-1">Line 2</a>
-                          </div>
-                        </td>
-                        <td><span class="badge badge-soft-primary font-size-13">Shift 2</span></td>
-                        <td><span class="badge bg-success font-size-13">Active</span></td>
-                        <td>
-                            <ul class="list-unstyled hstack gap-1 mb-0">
-                                <!-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap table-hover">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col" style="width: 70px">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Line</th>
+                  <th scope="col">Shift</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="avatar-xs">
+                      <span class="avatar-title rounded-circle"> S </span>
+                    </div>
+                  </td>
+                  <td>
+                    <h5 class="font-size-14 mb-1">
+                      <a href="javascript: void(0);" class="text-dark"
+                        >Supervisor 1</a
+                      >
+                    </h5>
+                    <!-- <p class="text-muted mb-0">{{data.position}}</p> -->
+                  </td>
+                  <td>Supervisor1@ibex.com</td>
+                  <td>Supervisor</td>
+                  <td>
+                    <div>
+                      <a
+                        href="javascript: void(0);"
+                        class="badge badge-soft-success font-size-13 m-1"
+                        >Line 1</a
+                      >
+                      <a
+                        href="javascript: void(0);"
+                        class="badge badge-soft-success font-size-13 m-1"
+                        >Line 2</a
+                      >
+                    </div>
+                  </td>
+                  <td>
+                    <span class="badge badge-soft-danger font-size-13"
+                      >Shift 2</span
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-success font-size-13">Active</span>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled hstack gap-1 mb-0">
+                      <!-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
                                     <a routerLink="/jobs/details" class="btn btn-sm btn-soft-primary"><i class="mdi mdi-eye-outline"></i></a>
                                 </li> -->
-                                <li data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                    <a href="javascript:void(0);" class="btn btn-soft-info" ><i class="mdi mdi-pencil-outline"></i></a>
-                                </li>
-                                <li data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                    <a href="javascript:void(0);" data-bs-toggle="modal" class="btn btn-soft-danger"><i class="mdi mdi-delete-outline"></i></a>
-                                </li>
-                            </ul>
-                        </td>
-                      </tr>
+                      <li
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Edit"
+                      >
+                        <a href="javascript:void(0);" class="btn btn-soft-info"
+                          ><i class="mdi mdi-pencil-outline"></i
+                        ></a>
+                      </li>
+                      <li
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Delete"
+                      >
+                        <a
+                          href="javascript:void(0);"
+                          data-bs-toggle="modal"
+                          class="btn btn-soft-danger"
+                          ><i class="mdi mdi-delete-outline"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
 
-                      <tr>
-                        <td>
-                          <div class="avatar-xs">
-                            <span class="avatar-title rounded-circle">
-                              S
-                            </span>
-                          </div>
-                         
-                        </td>
-                        <td>
-                          <h5 class="font-size-14 mb-1"><a href="javascript: void(0);" class="text-dark">Supervisor 2</a>
-                          </h5>
-                          <!-- <p class="text-muted mb-0">{{data.position}}</p> -->
-                        </td>
-                        <td>Supervisor2@ibex.com</td>
-                        <td>
-                            Supervisor
-                        </td>
-                        <td>
-                          <div>
-                            <a href="javascript: void(0);" class="badge badge-soft-primary font-size-13 m-1">Line 2</a>
-                          </div>
-                        </td>
-                        <td><span class="badge badge-soft-primary font-size-13">Shift 1</span></td>
-                        <td><span class="badge bg-success font-size-13">Active</span></td>
-                        <td>
-                            <ul class="list-unstyled hstack gap-1 mb-0">
-                                <!-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                <tr>
+                  <td>
+                    <div class="avatar-xs">
+                      <span class="avatar-title rounded-circle"> S </span>
+                    </div>
+                  </td>
+                  <td>
+                    <h5 class="font-size-14 mb-1">
+                      <a href="javascript: void(0);" class="text-dark"
+                        >Supervisor 2</a
+                      >
+                    </h5>
+                    <!-- <p class="text-muted mb-0">{{data.position}}</p> -->
+                  </td>
+                  <td>Supervisor2@ibex.com</td>
+                  <td>Supervisor</td>
+                  <td>
+                    <div>
+                      <a
+                        href="javascript: void(0);"
+                        class="badge badge-soft-success font-size-13 m-1"
+                        >Line 2</a
+                      >
+                    </div>
+                  </td>
+                  <td>
+                    <span class="badge badge-soft-success font-size-13"
+                      >Shift 1</span
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-success font-size-13">Active</span>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled hstack gap-1 mb-0">
+                      <!-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
                                     <a routerLink="/jobs/details" class="btn btn-sm btn-soft-primary"><i class="mdi mdi-eye-outline"></i></a>
                                 </li> -->
-                                <li data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                    <a href="javascript:void(0);" class="btn  btn-soft-info" ><i class="mdi mdi-pencil-outline"></i></a>
-                                </li>
-                                <li data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                    <a href="javascript:void(0);" data-bs-toggle="modal" class="btn  btn-soft-danger"><i class="mdi mdi-delete-outline"></i></a>
-                                </li>
-                            </ul>
-                        </td>
+                      <li
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Edit"
+                      >
+                        <a href="javascript:void(0);" class="btn btn-soft-info"
+                          ><i class="mdi mdi-pencil-outline"></i
+                        ></a>
+                      </li>
+                      <li
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Delete"
+                      >
+                        <a
+                          href="javascript:void(0);"
+                          data-bs-toggle="modal"
+                          class="btn btn-soft-danger"
+                          ><i class="mdi mdi-delete-outline"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
 
-                      </tr>
-
-                      <tr>
-                        <td>
-                          <div class="avatar-xs">
-                            <span class="avatar-title rounded-circle">
-                              S
-                            </span>
-                          </div>
-                         
-                        </td>
-                        <td>
-                          <h5 class="font-size-14 mb-1"><a href="javascript: void(0);" class="text-dark">Supervisor 3</a>
-                          </h5>
-                          <!-- <p class="text-muted mb-0">{{data.position}}</p> -->
-                        </td>
-                        <td>Supervisor3@ibex.com</td>
-                        <td>
-                            Supervisor
-                        </td>
-                        <td>
-                          <div>
-                            <a href="javascript: void(0);" class="badge badge-soft-primary font-size-13 m-1">Line 1</a>
-                          </div>
-                        </td>
-                        <td><span class="badge badge-soft-primary font-size-13">Shift 3</span></td>
-                        <td><span class="badge bg-danger font-size-13">Inactive</span></td>
-                        <td>
-                            <ul class="list-unstyled hstack gap-1 mb-0">
-                                <!-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                <tr>
+                  <td>
+                    <div class="avatar-xs">
+                      <span class="avatar-title rounded-circle"> S </span>
+                    </div>
+                  </td>
+                  <td>
+                    <h5 class="font-size-14 mb-1">
+                      <a href="javascript: void(0);" class="text-dark"
+                        >Supervisor 3</a
+                      >
+                    </h5>
+                    <!-- <p class="text-muted mb-0">{{data.position}}</p> -->
+                  </td>
+                  <td>Supervisor3@ibex.com</td>
+                  <td>Supervisor</td>
+                  <td>
+                    <div>
+                      <a
+                        href="javascript: void(0);"
+                        class="badge badge-soft-success font-size-13 m-1"
+                        >Line 1</a
+                      >
+                    </div>
+                  </td>
+                  <td>
+                    <span class="badge badge-soft-danger font-size-13"
+                      >Shift 3</span
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-danger font-size-13">Inactive</span>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled hstack gap-1 mb-0">
+                      <!-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
                                     <a routerLink="/jobs/details" class="btn btn-sm btn-soft-primary"><i class="mdi mdi-eye-outline"></i></a>
                                 </li> -->
-                                <li data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                    <a href="javascript:void(0);" class="btn btn-soft-info" ><i class="mdi mdi-pencil-outline"></i></a>
-                                </li>
-                                <li data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                    <a href="javascript:void(0);" data-bs-toggle="modal" class="btn btn-soft-danger"><i class="mdi mdi-delete-outline"></i></a>
-                                </li>
-                            </ul>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+                      <li
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Edit"
+                      >
+                        <a href="javascript:void(0);" class="btn btn-soft-info"
+                          ><i class="mdi mdi-pencil-outline"></i
+                        ></a>
+                      </li>
+                      <li
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Delete"
+                      >
+                        <a
+                          href="javascript:void(0);"
+                          data-bs-toggle="modal"
+                          class="btn btn-soft-danger"
+                          ><i class="mdi mdi-delete-outline"></i
+                        ></a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-
-        <div class="col-lg-12">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title mb-4 text-center">Add Supervisors</h4>
-                <aw-wizard [navBarLayout]="'large-empty-symbols'">
-                  <aw-wizard-step stepTitle="Contact Details">
-                    <ng-template awWizardStepSymbol>1</ng-template>
-                    <div class="row mt-3">
-                      <div class="col-12">
-                        <div class="row mb-3">
-                          <label class="col-md-3 col-form-label">Name</label>
-                          <div class="col-md-9">
-                            <input class="form-control" name="txtFirstNameBilling" type="text" id="txtFirstNameBilling">
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                          <label class="col-md-3 col-form-label">Email ID</label>
-                          <div class="col-md-9">
-                            <input class="form-control" name="txtLastNameBilling" type="email" id="txtLastNameBilling">
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-md-3 col-form-label" for="ddlCreditCardType">Role</label>
-                            <div class="col-md-9">
-                                <select id="ddlCreditCardType" name="ddlCreditCardType" class="form-control">
-                                    <option value="">--Please Select--</option>
-                                    <option value="AE">Supervisor</option>
-                                </select>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                    <ul class="list-inline wizard mb-0">
-                      <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Next</button>
-                      </li>
-                    </ul>
-                  </aw-wizard-step>
-      
-                  <aw-wizard-step stepTitle="Line Details">
-                    <ng-template awWizardStepSymbol>2</ng-template>
-      
-                    <div class="row mt-3">
-                      <div class="col-12">
-                        <div class="row">
-                          <label class="col-md-3 col-form-label" for="ddlCreditCardType">Shift</label>
-                          <div class="col-md-9">
-                            <select id="ddlCreditCardType" name="ddlCreditCardType" class="form-control">
-                              <option value="">--Please Select--</option>
-                              <option value="AE">Shift 1</option>
-                              <option value="VI">Shift 2</option>
-                              <option value="MC">Shift 3</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="row mt-3 mb-3">
-                            <label class="col-md-3 col-form-label" for="ddlCreditCardType">Line</label>
-                            <div class="col-md-9">
-                              <select id="ddlCreditCardType" name="ddlCreditCardType" class="form-control">
-                                <option value="">--Please Select--</option>
-                                <option value="AE">Line 1</option>
-                                <option value="VI">Line 2</option>
-                              </select>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-      
-                    <ul class="list-inline wizard mb-0">
-                      <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
-                      </li>
-                      <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Confirm</button>
-                      </li>
-                    </ul>
-                  </aw-wizard-step>
-      
-                  <aw-wizard-step stepTitle="Confirm Detail">
-                    <ng-template awWizardStepSymbol>3</ng-template>
-                    <div class="row justify-content-center">
-                      <div class="col-lg-6">
-                        <div class="text-center">
-                          <div class="mb-4">
-                            <i class="mdi mdi-check-circle-outline text-success display-4"></i>
-                          </div>
-                          <div>
-                            <h5>Confirm Detail</h5>
-                            <p class="text-muted">Supervisor Added</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <ul class="list-inline wizard mb-0">
-                      <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Add Supervisor</button>
-                      </li>
-                    </ul>
-                  </aw-wizard-step>
-                </aw-wizard>
-              </div>
-            </div>
-        </div>
+      </div>
     </div>
 
-</div> <!-- container-fluid -->
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title mb-4 text-center">Add Supervisors</h4>
+          <aw-wizard [navBarLayout]="'large-empty-symbols'">
+            <aw-wizard-step stepTitle="Contact Details">
+              <ng-template awWizardStepSymbol>1</ng-template>
+              <div class="row mt-3">
+                <div class="col-12">
+                  <div class="row mb-3">
+                    <label class="col-md-3 col-form-label">Name</label>
+                    <div class="col-md-9">
+                      <input
+                        class="form-control"
+                        name="txtFirstNameBilling"
+                        type="text"
+                        id="txtFirstNameBilling"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label class="col-md-3 col-form-label">Email ID</label>
+                    <div class="col-md-9">
+                      <input
+                        class="form-control"
+                        name="txtLastNameBilling"
+                        type="email"
+                        id="txtLastNameBilling"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label
+                      class="col-md-3 col-form-label"
+                      for="ddlCreditCardType"
+                      >Role</label
+                    >
+                    <div class="col-md-9">
+                      <select
+                        id="ddlCreditCardType"
+                        name="ddlCreditCardType"
+                        class="form-control"
+                      >
+                        <option value="">--Please Select--</option>
+                        <option value="AE">Supervisor</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline wizard mb-0">
+                <li class="next list-inline-item float-end">
+                  <button class="btn btn-primary" awNextStep>Next</button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+
+            <aw-wizard-step stepTitle="Line Details">
+              <ng-template awWizardStepSymbol>2</ng-template>
+
+              <div class="row mt-3">
+                <div class="col-12">
+                  <div class="row">
+                    <label
+                      class="col-md-3 col-form-label"
+                      for="ddlCreditCardType"
+                      >Shift</label
+                    >
+                    <div class="col-md-9">
+                      <select
+                        id="ddlCreditCardType"
+                        name="ddlCreditCardType"
+                        class="form-control"
+                      >
+                        <option value="">--Please Select--</option>
+                        <option value="shift1">Shift 1</option>
+                        <option value="shift2">Shift 2</option>
+                        <option value="shift3">Shift 3</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-3 mb-3">
+                    <label
+                      class="col-md-3 col-form-label"
+                      for="ddlCreditCardType"
+                      >Line</label
+                    >
+                    <div class="col-md-9">
+                      <select
+                        id="ddlCreditCardType"
+                        name="ddlCreditCardType"
+                        class="form-control"
+                      >
+                        <option value="">--Please Select--</option>
+                        <option value="line1">Line 1</option>
+                        <option value="line2">Line 2</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="list-inline wizard mb-0">
+                <li class="previous list-inline-item">
+                  <button class="btn btn-primary" awPreviousStep>
+                    Previous
+                  </button>
+                </li>
+                <li class="next list-inline-item float-end">
+                  <button class="btn btn-primary" awNextStep>Confirm</button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+
+            <aw-wizard-step stepTitle="Confirm Detail">
+              <ng-template awWizardStepSymbol>3</ng-template>
+              <div class="row justify-content-center">
+                <div class="col-lg-6">
+                  <div class="text-center">
+                    <div class="mb-4">
+                      <i
+                        class="mdi mdi-check-circle-outline text-success display-4"
+                      ></i>
+                    </div>
+                    <div>
+                      <h5>Confirm Detail</h5>
+                      <p class="text-muted">Supervisor Added</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline wizard mb-0">
+                <li class="previous list-inline-item">
+                  <button class="btn btn-primary" awPreviousStep>
+                    Add Supervisor
+                  </button>
+                </li>
+              </ul>
+            </aw-wizard-step>
+          </aw-wizard>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- container-fluid -->
