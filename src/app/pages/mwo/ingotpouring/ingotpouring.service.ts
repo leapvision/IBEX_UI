@@ -24,7 +24,7 @@ export class IgnotPouringService {
       { heading: "Time" },
       { heading: "Quantity(KG)" },
       { heading: "No of Ingots Poured" },
-      { heading: "Ingot Weight" },
+      { heading: "Ingot Weight(KG)" },
       { heading: "" },
     ],
   ];
