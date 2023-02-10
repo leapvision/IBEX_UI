@@ -176,29 +176,25 @@
                       Packing List Summary
                     </h4>
 
-                    <div class="table-responsive">
-                      <app-table
-                        [BodyArray]="packinglistsummaryBodyArray"
-                        [children]="true"
-                        [slno]="true"
-                        [centered]="true"
-                      ></app-table>
-                    </div>
+                    <app-table
+                      [BodyArray]="packinglistsummaryBodyArray"
+                      [children]="true"
+                      [slno]="true"
+                      [centered]="true"
+                    ></app-table>
                   </div>
                 </div>
               </form>
               <form>
                 <div class="card">
                   <div class="card-body">
-                    <div class="table-responsive">
-                      <app-table
-                        [HeadingArray]="packinglistHeadingArray"
-                        [BodyArray]="packinglistBodyArray"
-                        [source]="true"
-                        [children]="true"
-                        [slno]="true"
-                      ></app-table>
-                    </div>
+                    <app-table
+                      [HeadingArray]="packinglistHeadingArray"
+                      [BodyArray]="packinglistBodyArray"
+                      [source]="true"
+                      [children]="true"
+                      [slno]="true"
+                    ></app-table>
                   </div>
                 </div>
               </form>
@@ -406,13 +402,12 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title text-center">Packing List Report</h4>
-          <div class="table-responsive">
-            <app-table
-              [HeadingArray]="fasHeadingArray"
-              [BodyArray]="fasBodyArray"
-              [source]="false"
-            ></app-table>
-          </div>
+
+          <app-table
+            [HeadingArray]="fasHeadingArray"
+            [BodyArray]="fasBodyArray"
+            [source]="false"
+          ></app-table>
         </div>
       </div>
     </div>

@@ -408,15 +408,14 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title text-center">Slag Removal Report</h4>
-          <div class="table-responsive">
-            <app-table
-              [HeadingArray]="slagremovingHeadingArray"
-              [BodyArray]="slagremovingBodyArray"
-              [ParentReports]="parentReports"
-              [source]="true"
-            >
-            </app-table>
-          </div>
+
+          <app-table
+            [HeadingArray]="slagremovingHeadingArray"
+            [BodyArray]="slagremovingBodyArray"
+            [ParentReports]="parentReports"
+            [source]="true"
+          >
+          </app-table>
         </div>
       </div>
     </div>

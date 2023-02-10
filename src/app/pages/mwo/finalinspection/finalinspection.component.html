@@ -194,14 +194,13 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title text-center">Final Inspection Report</h4>
-          <div class="table-responsive">
-            <app-table
-              [HeadingArray]="finalInspectionHeadingArray"
-              [BodyArray]="finalInspectionBodyArray"
-              [ParentReports]="parentReports"
-              [source]="true"
-            ></app-table>
-          </div>
+
+          <app-table
+            [HeadingArray]="finalInspectionHeadingArray"
+            [BodyArray]="finalInspectionBodyArray"
+            [ParentReports]="parentReports"
+            [source]="true"
+          ></app-table>
         </div>
       </div>
     </div>

@@ -20,7 +20,7 @@
       >
     </div>
   </div>
-  <!-- Search -->
+
   <div class="col-sm-12 col-md-6">
     <div id="tickets-table_filter" class="dataTables_filter text-md-end">
       <label class="d-inline-flex align-items-center"
@@ -35,136 +35,145 @@
       /></label>
     </div>
   </div>
-  <!-- End search -->
 </div>
-<table class="table mb-0 table-hover">
-  <thead class="table-light">
-    <tr *ngFor="let row of HeadingArray">
-      <th *ngIf="source"></th>
-      <th
-        *ngFor="let heading of row"
-        [attr.colspan]="heading.colspan"
-        [attr.rowspan]="heading.rowspan"
-        class="text-center"
-      >
-        {{ heading.heading }}
-      </th>
-    </tr>
-  </thead>
-
-  <tbody *ngFor="let row of tableData; let i = index">
-    <tr [ngClass]="!centered ? 'centered' : ''">
-      <td *ngIf="source" (click)="row.showParentReport = !row.showParentReport">
-        <span *ngIf="!row.showParentReport" class="btn-expand">+</span>
-        <span *ngIf="row.showParentReport" class="btn-expand">-</span>
-      </td>
-      <th *ngIf="!slno" scope="row">{{ 1000 + i + 1 }}</th>
-      <td *ngFor="let body of row">
-        {{ body.value }}
-        <img
-          *ngIf="body.img"
-          class="img-thumbnail"
-          alt="200x200"
-          width="150"
-          [attr.src]="body.img"
-          data-holder-rendered="true"
-          (click)="openModal({ image: true, src: body.img })"
-          style="cursor: pointer"
-        />
-        <i
-          *ngIf="body.viewDetails"
-          class="mdi mdi-eye"
-          (click)="openModal({detail: true, value: 'This will be the body of the Modal'})"
-        ></i>
-        <i *ngIf="body.download" class="bx bx-download"></i>
-        <div *ngIf="body.isButton" class="row justify-content-center">
-          <div class="col-xl-6 col-sm-12">
-            <button
-              type="button"
-              [ngClass]="body.success ? 'btn btn-success' : 'btn btn-warning'"
-            >
-              {{ body.innerText }}
-            </button>
-          </div>
-        </div>
-        <div
-          *ngIf="body.isStatusButton"
-          class="card border card-body"
-          [ngClass]="
-            body.success
-              ? 'bg-success border-success'
-              : 'bg-warning border-warning'
-          "
+<div class="table-responsive">
+  <table class="table mb-0 table-hover">
+    <thead class="table-light">
+      <tr *ngFor="let row of HeadingArray">
+        <th *ngIf="source"></th>
+        <th
+          *ngFor="let heading of row"
+          [attr.colspan]="heading.colspan"
+          [attr.rowspan]="heading.rowspan"
+          class="text-center"
         >
-          <h3 class="card-title text-white text-center">
-            {{ body.innerText }}
-          </h3>
-        </div>
-        <form *ngIf="body.isForm">
-          <div class="row mb-4 justify-content-center">
-            <div class="col-sm-9">
-              <input type="text" class="form-control" />
+          {{ heading.heading }}
+        </th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let row of tableData; let i = index">
+      <tr [ngClass]="!centered ? 'centered' : ''">
+        <td
+          *ngIf="source"
+          (click)="row.showParentReport = !row.showParentReport"
+        >
+          <span *ngIf="!row.showParentReport" class="btn-expand">+</span>
+          <span *ngIf="row.showParentReport" class="btn-expand">-</span>
+        </td>
+        <th *ngIf="!slno" scope="row">{{ 1000 + i + 1 }}</th>
+        <td *ngFor="let body of row">
+          {{ body.value }}
+          <img
+            *ngIf="body.img"
+            class="img-thumbnail"
+            alt="200x200"
+            width="150"
+            [attr.src]="body.img"
+            data-holder-rendered="true"
+            (click)="openModal({ image: true, src: body.img })"
+            style="cursor: pointer"
+          />
+          <i
+            *ngIf="body.viewDetails"
+            class="mdi mdi-eye"
+            (click)="
+              openModal({
+                detail: true,
+                value: 'This will be the body of the Modal'
+              })
+            "
+          ></i>
+          <i *ngIf="body.download" class="bx bx-download"></i>
+          <div *ngIf="body.isButton" class="row justify-content-center">
+            <div class="col-xl-6 col-sm-12">
+              <button
+                type="button"
+                [ngClass]="body.success ? 'btn btn-success' : 'btn btn-warning'"
+              >
+                {{ body.innerText }}
+              </button>
             </div>
           </div>
-        </form>
-        <input
-          *ngIf="body.isCheckbox"
-          type="checkbox"
-          [checked]="body.checked"
-        />
-      </td>
-    </tr>
-    <tr *ngIf="row.showParentReport" class="sub-table no-bg">
-      <td align="center"></td>
-      <td colspan="15" class="p-0">
-        <div class="m-4">
-          <ngb-accordion
-            #acc="ngbAccordion"
-            activeIds="static-1"
-            [closeOthers]="false"
+          <div
+            *ngIf="body.isStatusButton"
+            class="card border card-body"
+            [ngClass]="
+              body.success
+                ? 'bg-success border-success'
+                : 'bg-warning border-warning'
+            "
           >
-            <ngb-panel
-              id="static-{{ i + 1 }}"
-              *ngFor="let report of ParentReports; let i = index"
+            <h3 class="card-title text-white text-center">
+              {{ body.innerText }}
+            </h3>
+          </div>
+          <form *ngIf="body.isForm">
+            <div class="row mb-4 justify-content-center">
+              <div class="col-sm-9">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </form>
+          <input
+            *ngIf="body.isCheckbox"
+            type="checkbox"
+            [checked]="body.checked"
+          />
+        </td>
+      </tr>
+      <tr *ngIf="row.showParentReport" class="sub-table no-bg">
+        <td align="center"></td>
+        <td colspan="15" class="p-0">
+          <div class="m-4">
+            <ngb-accordion
+              #acc="ngbAccordion"
+              activeIds="static-1"
+              [closeOthers]="false"
             >
-              <ng-template ngbPanelTitle class="text-black">
-                {{ report.name }}
-              </ng-template>
-              <ng-template *ngIf="report.spectroReports" ngbPanelContent>
-                <ngb-accordion
-                  #acc="ngbAccordion"
-                  activeIds="static-1-1"
-                  [closeOthers]="false"
-                >
-                  <ngb-panel
-                    id="static-{{ i + 1 }}-{{ j + 1 }}"
-                    *ngFor="let sample of report.samples; let j = index"
+              <ngb-panel
+                id="static-{{ i + 1 }}"
+                *ngFor="let report of ParentReports; let i = index"
+              >
+                <ng-template ngbPanelTitle class="text-black">
+                  {{ report.name }}
+                </ng-template>
+                <ng-template *ngIf="report.spectroReports" ngbPanelContent>
+                  <ngb-accordion
+                    #acc="ngbAccordion"
+                    activeIds="static-1-1"
+                    [closeOthers]="false"
                   >
-                    <ng-template ngbPanelTitle class="text-black">
-                      {{ sample.name }}
-                    </ng-template>
-                    <ng-template ngbPanelContent>
-                      <app-spectroreports
-                        [SamplesArray]="sample.data"
-                      ></app-spectroreports>
-                    </ng-template>
-                  </ngb-panel> </ngb-accordion
-              ></ng-template>
-              <ng-template ngbPanelContent>
-                <app-table
-                  [HeadingArray]="report.heading"
-                  [BodyArray]="report.body"
-                  [source]="false"
-                  [children]="report.children"
-                ></app-table>
-              </ng-template>
-            </ngb-panel>
-          </ngb-accordion>
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+                    <ngb-panel
+                      id="static-{{ i + 1 }}-{{ j + 1 }}"
+                      *ngFor="let sample of report.samples; let j = index"
+                    >
+                      <ng-template ngbPanelTitle class="text-black">
+                        {{ sample.name }}
+                      </ng-template>
+                      <ng-template ngbPanelContent>
+                        <app-spectroreports
+                          [SamplesArray]="sample.data"
+                        ></app-spectroreports>
+                      </ng-template>
+                    </ngb-panel> </ngb-accordion
+                ></ng-template>
+                <ng-template ngbPanelContent>
+                  <app-table
+                    [HeadingArray]="report.heading"
+                    [BodyArray]="report.body"
+                    [source]="false"
+                    [children]="report.children"
+                  ></app-table>
+                </ng-template>
+              </ngb-panel>
+            </ngb-accordion>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div
   *ngIf="!children"
   class="row justify-content-md-between align-items-md-center mt-2"
@@ -179,7 +188,7 @@
       Showing {{ startIndex }} to {{ endIndex }} of {{ totalRecords }} entries
     </div>
   </div>
-  <!-- Pagination -->
+
   <div class="col-sm-12 col-md-5">
     <div class="text-md-right float-md-end pagination-rounded">
       <ngb-pagination
@@ -191,5 +200,4 @@
       </ngb-pagination>
     </div>
   </div>
-  <!-- End Pagination -->
 </div>
