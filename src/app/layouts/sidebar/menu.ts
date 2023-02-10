@@ -8,51 +8,20 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 200,
-    label: "PANEL",
-    icon: "bx-home-circle",
+    label: "DASHBOARD",
+    icon: "bx-bar-chart-alt",
     subItems: [
       {
         id: 300,
         label: "Admin",
-        link: "/pages/panel/admin",
+        link: "/pages/dashboard/admin",
         parentId: 200,
       },
       {
         id: 400,
         label: "Supervisor",
-        link: "/pages/panel/supervisor",
+        link: "/pages/dashboard/supervisor",
         parentId: 200,
-      },
-    ],
-  },
-  {
-    id: 2,
-    label: "DASHBOARDS",
-    icon: "bx-bar-chart-alt",
-    subItems: [
-      {
-        id: 3,
-        label: "Scrap Management",
-        link: "/dashboard",
-        parentId: 2,
-      },
-      {
-        id: 4,
-        label: "MTO",
-        link: "/pages/dashboards/mto",
-        parentId: 2,
-      },
-      {
-        id: 5,
-        label: "MWO",
-        link: "/dashboard",
-        parentId: 2,
-      },
-      {
-        id: 6,
-        label: "Packing",
-        link: "/dashboard",
-        parentId: 2,
       },
     ],
   },
