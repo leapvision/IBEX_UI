@@ -1,32 +1,40 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { NgbNavModule, NgbDropdownModule, NgbModalModule, NgbTooltipModule , NgbCollapseModule, NgbDatepickerModule, NgbAccordionModule} from '@ng-bootstrap/ng-bootstrap';
-import { NgApexchartsModule } from 'ng-apexcharts';
-import { FullCalendarModule } from '@fullcalendar/angular';
-import { SimplebarAngularModule } from 'simplebar-angular';
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
-import interactionPlugin from '@fullcalendar/interaction'; // a plugin
-import { LightboxModule } from 'ngx-lightbox';
+import {
+  NgbNavModule,
+  NgbDropdownModule,
+  NgbModalModule,
+  NgbTooltipModule,
+  NgbCollapseModule,
+  NgbDatepickerModule,
+  NgbAccordionModule,
+} from "@ng-bootstrap/ng-bootstrap";
+import { NgApexchartsModule } from "ng-apexcharts";
+import { FullCalendarModule } from "@fullcalendar/angular";
+import { SimplebarAngularModule } from "simplebar-angular";
+import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin
+import interactionPlugin from "@fullcalendar/interaction"; // a plugin
+import { LightboxModule } from "ngx-lightbox";
 
-import { WidgetModule } from '../shared/widget/widget.module';
-import { UIModule } from '../shared/ui/ui.module';
+import { WidgetModule } from "../shared/widget/widget.module";
+import { UIModule } from "../shared/ui/ui.module";
 
 // Emoji Picker
-import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { PickerModule } from "@ctrl/ngx-emoji-mart";
 
-import { PagesRoutingModule } from './pages-routing.module';
+import { PagesRoutingModule } from "./pages-routing.module";
 
-import { DashboardsModule } from './dashboards/dashboards.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ReportsComponent } from './reports/reports.component';
-import { ProfileComponent } from './profile/profile.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ReportsComponent } from "./reports/reports.component";
+import { ProfileComponent } from "./profile/profile.component";
 
-import { NgSelectModule } from '@ng-select/ng-select';
-FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+import { NgSelectModule } from "@ng-select/ng-select";
+FullCalendarModule.registerPlugins([
+  // register FullCalendar plugins
   dayGridPlugin,
-  interactionPlugin
+  interactionPlugin,
 ]);
 
 @NgModule({
@@ -39,7 +47,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     PagesRoutingModule,
     NgApexchartsModule,
     ReactiveFormsModule,
-    DashboardsModule,
     HttpClientModule,
     UIModule,
     WidgetModule,
@@ -52,7 +59,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     PickerModule,
     NgbDatepickerModule,
     NgbAccordionModule,
-    NgSelectModule
+    NgSelectModule,
   ],
 })
-export class PagesModule { }
+export class PagesModule {}

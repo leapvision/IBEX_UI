@@ -10,11 +10,6 @@ const routes: Routes = [
   { path: "reports", component: ReportsComponent },
   { path: "profile", component: ProfileComponent },
   {
-    path: "dashboards",
-    loadChildren: () =>
-      import("./dashboards/dashboards.module").then((m) => m.DashboardsModule),
-  },
-  {
     path: "scrapmanagement",
     loadChildren: () =>
       import("./scrapmanagement/scrapmanagement.module").then(
@@ -40,9 +35,9 @@ const routes: Routes = [
       import("./dispatch/dispatch.module").then((m) => m.DispatchModule),
   },
   {
-    path: "panel",
+    path: "dashboard",
     loadChildren: () =>
-      import("./panel/panel.module").then((m) => m.PanelModule),
+      import("./dashboard/dashboard.module").then((m) => m.DashboardsModule),
   },
   {
     path: "usermanagement",
