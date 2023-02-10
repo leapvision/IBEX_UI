@@ -119,14 +119,13 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title text-center">Printing Report</h4>
-          <div class="table-responsive">
-            <app-table
-              [HeadingArray]="printingHeadingArray"
-              [BodyArray]="printingBodyArray"
-              [ParentReports]="parentReports"
-              [source]="true"
-            ></app-table>
-          </div>
+
+          <app-table
+            [HeadingArray]="printingHeadingArray"
+            [BodyArray]="printingBodyArray"
+            [ParentReports]="parentReports"
+            [source]="true"
+          ></app-table>
         </div>
       </div>
     </div>

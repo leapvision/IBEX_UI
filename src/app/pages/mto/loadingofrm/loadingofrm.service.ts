@@ -11,7 +11,7 @@ export class MaterialLoadingService {
       { heading: "Melt Number", rowspan: "1" },
       { heading: "Production Order No", rowspan: "1" },
       { heading: "Alloy Name", rowspan: "1" },
-      { heading: "Load Weight", rowspan: "1" },
+      { heading: "Load Weight(KG)", rowspan: "1" },
       { heading: "Detailed View", rowspan: "1" },
     ],
   ];

@@ -176,30 +176,25 @@
                       Packing List Summary
                     </h4>
 
-                    <div class="table-responsive">
-                      <app-table
-                        [BodyArray]="packinglistsummaryBodyArray"
-                        [children]="true"
-                        [slno]="true"
-                        [centered]="false"
-                      ></app-table>
-                    </div>
+                    <app-table
+                      [BodyArray]="packinglistsummaryBodyArray"
+                      [children]="true"
+                      [slno]="true"
+                      [centered]="true"
+                    ></app-table>
                   </div>
                 </div>
               </form>
               <form>
                 <div class="card">
                   <div class="card-body">
-                    <div class="table-responsive">
-                      <app-table
-                        [HeadingArray]="packinglistHeadingArray"
-                        [BodyArray]="packinglistBodyArray"
-                        [source]="true"
-                        [children]="true"
-                        [slno]="true"
-                        [centered]="true"
-                      ></app-table>
-                    </div>
+                    <app-table
+                      [HeadingArray]="packinglistHeadingArray"
+                      [BodyArray]="packinglistBodyArray"
+                      [source]="true"
+                      [children]="true"
+                      [slno]="true"
+                    ></app-table>
                   </div>
                 </div>
               </form>
@@ -265,8 +260,8 @@
                       <tr>
                         <th rowspan="1">Item Description</th>
                         <th rowspan="1">Pallets No</th>
-                        <th rowspan="1">Gross Weight(Kgs)</th>
-                        <th rowspan="1">Net Weight(Kgs)</th>
+                        <th rowspan="1">Gross Weight(KG)</th>
+                        <th rowspan="1">Net Weight(KG)</th>
                         <th rowspan="1">PCS</th>
                       </tr>
                     </thead>
@@ -352,11 +347,11 @@
                       <table class="table table-bordered mb-0 table-hover">
                         <tbody class="table-bordered">
                           <tr>
-                            <td>Total Gross Weight</td>
+                            <td>Total Gross Weight(KG)</td>
                             <td>25305</td>
                           </tr>
                           <tr>
-                            <td>Total Net Weight</td>
+                            <td>Total Net Weight(KG)</td>
                             <td>25003</td>
                           </tr>
                           <tr>
@@ -392,7 +387,7 @@
                 </li>
                 <li class="next list-inline-item float-end">
                   <a
-                    routerLink="/pages/packing/certquality"
+                    routerLink="/pages/dispatch/certquality"
                     class="btn btn-primary"
                     >Next Process</a
                   >
@@ -407,13 +402,12 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title text-center">Packing List Report</h4>
-          <div class="table-responsive">
-            <app-table
-              [HeadingArray]="fasHeadingArray"
-              [BodyArray]="fasBodyArray"
-              [source]="false"
-            ></app-table>
-          </div>
+
+          <app-table
+            [HeadingArray]="fasHeadingArray"
+            [BodyArray]="fasBodyArray"
+            [source]="false"
+          ></app-table>
         </div>
       </div>
     </div>

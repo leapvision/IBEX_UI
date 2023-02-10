@@ -56,13 +56,13 @@
                     <label
                       for="horizontal-email-input"
                       class="col-sm-3 col-form-label"
-                      >Weight</label
+                      >Weight(KG)</label
                     >
                     <div class="col-sm-9">
                       <input
                         type="text"
                         class="form-control"
-                        value="700KG"
+                        value="700"
                         [disabled]="true"
                       />
                     </div>
@@ -172,13 +172,11 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title text-center">Inward Scrap Report</h4>
-          <div class="table-responsive">
-            <app-table
-              [HeadingArray]="scrappurchaseHeadingArray"
-              [BodyArray]="scrappurchaseBodyArray"
-              [source]="false"
-            ></app-table>
-          </div>
+          <app-table
+            [HeadingArray]="scrappurchaseHeadingArray"
+            [BodyArray]="scrappurchaseBodyArray"
+            [source]="false"
+          ></app-table>
         </div>
       </div>
     </div>

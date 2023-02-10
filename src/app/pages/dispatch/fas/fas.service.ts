@@ -13,8 +13,8 @@ export class FASService {
       { heading: "Cust Ref Date", rowspan: "1" },
       { heading: "Shipping Date", rowspan: "1" },
       { heading: "Consignee", rowspan: "1" },
-      { heading: "Total Gross Weight", rowspan: "1" },
-      { heading: "Total Net Weight", rowspan: "1" },
+      { heading: "Total Gross Weight (KG)", rowspan: "1" },
+      { heading: "Total Net Weight (KG)", rowspan: "1" },
       { heading: "Total Pallets", rowspan: "1" },
       { heading: "Total PCS", rowspan: "1" },
       { heading: "View Remarks", rowspan: "1" },
@@ -53,8 +53,8 @@ export class FASService {
   ];
 
   packinglistsummaryBodyArray = [
-    [{ value: "Total Gross Weight" }, { value: "25305" }],
-    [{ value: "Total Net Weight" }, { value: "25003" }],
+    [{ value: "Total Gross Weight(KG)" }, { value: "25305" }],
+    [{ value: "Total Net Weight(KG)" }, { value: "25003" }],
     [{ value: "Total Pallets" }, { value: "25" }],
     [{ value: "Total PCS" }, { value: "3409" }],
   ];

@@ -11,9 +11,9 @@ export class PackingService {
       { heading: "Final Heat Number", rowspan: "1" },
       { heading: "Number of Ingots", rowspan: "1" },
       { heading: "Manufacturing Date", rowspan: "1" },
-      { heading: "Total Weight With Pallet", rowspan: "1" },
-      { heading: "Pallet Weight", rowspan: "1" },
-      { heading: "Ingot Weight", rowspan: "1" },
+      { heading: "Total Weight With Pallet (KG)", rowspan: "1" },
+      { heading: "Pallet Weight (KG)", rowspan: "1" },
+      { heading: "Ingot Weight (KG)", rowspan: "1" },
       { heading: "Remarks", rowspan: "1" },
     ],
   ];

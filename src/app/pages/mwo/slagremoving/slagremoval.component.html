@@ -79,7 +79,7 @@
                   <label
                     for="horizontal-email-input"
                     class="col-sm-3 col-form-label"
-                    >Be (grams)</label
+                    >Be(Grams)</label
                   >
                   <div class="col-sm-3">
                     <input
@@ -100,7 +100,7 @@
                   <label
                     for="horizontal-password-input"
                     class="col-sm-3 col-form-label"
-                    >Pure Alu (kg)</label
+                    >Pure Alu(KG)</label
                   >
                   <div class="col-sm-3">
                     <input
@@ -121,7 +121,7 @@
                   <label
                     for="horizontal-password-input"
                     class="col-sm-3 col-form-label"
-                    >Zinc (kg)</label
+                    >Zinc(KG)</label
                   >
                   <div class="col-sm-3">
                     <input
@@ -150,7 +150,7 @@
                   <label
                     for="horizontal-password-input"
                     class="col-sm-3 col-form-label"
-                    >Al Mn (kg)
+                    >Al Mn(KG)
                   </label>
                   <div class="col-sm-3">
                     <input
@@ -179,7 +179,7 @@
                   <label
                     for="horizontal-password-input"
                     class="col-sm-3 col-form-label"
-                    >Pure Mg (kg)</label
+                    >Pure Mg(KG)</label
                   >
                   <div class="col-sm-3">
                     <input
@@ -241,7 +241,7 @@
                   <label
                     for="horizontal-password-input"
                     class="col-sm-3 col-form-label"
-                    >Tapping Temperature</label
+                    >Tapping Temperature(°C)</label
                   >
                   <div class="col-sm-9">
                     <input type="number" class="form-control" />
@@ -403,15 +403,14 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title text-center">Slag Removal Report</h4>
-          <div class="table-responsive">
-            <app-table
-              [HeadingArray]="slagremovingHeadingArray"
-              [BodyArray]="slagremovingBodyArray"
-              [ParentReports]="parentReports"
-              [source]="true"
-            >
-            </app-table>
-          </div>
+
+          <app-table
+            [HeadingArray]="slagremovingHeadingArray"
+            [BodyArray]="slagremovingBodyArray"
+            [ParentReports]="parentReports"
+            [source]="true"
+          >
+          </app-table>
         </div>
       </div>
     </div>

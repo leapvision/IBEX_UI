@@ -6,15 +6,14 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Chemical Composition Check</h4>
-          <div class="table-responsive">
-            <app-table
-              [HeadingArray]="scrapinspectionHeadingArray"
-              [BodyArray]="scrapinspectionBodyArray"
-              [ParentReports]="parentReports"
-              [source]="true"
-            >
-            </app-table>
-          </div>
+
+          <app-table
+            [HeadingArray]="scrapinspectionHeadingArray"
+            [BodyArray]="scrapinspectionBodyArray"
+            [ParentReports]="parentReports"
+            [source]="true"
+          >
+          </app-table>
         </div>
       </div>
     </div>
