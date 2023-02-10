@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
-import { IgnotPouringService } from "../ignotpouring/ingotpouring.service";
+import { IgnotPouringService } from "../ingotpouring/ingotpouring.service";
 import { MwoInspectionService } from "../mwoinspection/mwoinspection.service";
 import { SlagRemovingService } from "../slagremoving/slagremoving.service";
 import { TransferToMwoService } from "../transfertomwo/transfertomwo.service";

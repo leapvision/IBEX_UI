@@ -11,7 +11,6 @@ import { TransferToMwoService } from "./transfertomwo.service";
   providers: [DecimalPipe],
 })
 export class TransferToMwoComponent implements OnInit {
-  // breadcrumb items
   breadCrumbItems: Array<{}>;
   constructor(private transfertomwoService: TransferToMwoService) {}
 

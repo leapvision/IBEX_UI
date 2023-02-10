@@ -55,19 +55,28 @@ export class TableComponent implements OnInit {
     this.tableData = this.BodyArray.slice(this.startIndex - 1, this.endIndex);
   }
 
-  openModal(imgSrc?: string) {
+  openModal(body) {
     const modalRef = this.modalService.open(ModalComponent, {
       centered: false,
       size: "xl",
     });
+
     modalRef.componentInstance.message = "Detailed View";
-    // modalRef.componentInstance.body = `
-    //   <div>This will be the body of the Modal</div>
-    // `;
-    modalRef.componentInstance.body = `<img
+
+    if (body.image) {
+      modalRef.componentInstance.body = `<div class="text-center"><img
     alt="expanded"
     width="800"
-    src=${imgSrc}
-  />`;
+    src=${body.src}
+  /></div>`;
+    } else if (body.detail) {
+      modalRef.componentInstance.body = `
+      <div class="text-center">This will be the body of the Modal</div>
+    `;
+    } else {
+      modalRef.componentInstance.body = `
+      <div>Nothing to display</div>
+    `;
+    }
   }
 }

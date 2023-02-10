@@ -2,7 +2,7 @@ import { FinalInspectionService } from "./finalinspection.service";
 import { Component, OnInit } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
 import { BuffingAndPolishingService } from "../buffingandpolishing/buffingandpolishing.service";
-import { IgnotPouringService } from "../ignotpouring/ingotpouring.service";
+import { IgnotPouringService } from "../ingotpouring/ingotpouring.service";
 import { MwoInspectionService } from "../mwoinspection/mwoinspection.service";
 import { PrintingService } from "../printing/printing.service";
 import { SlagRemovingService } from "../slagremoving/slagremoving.service";

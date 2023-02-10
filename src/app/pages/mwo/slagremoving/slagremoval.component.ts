@@ -10,7 +10,6 @@ import { SlagRemovingService } from "./slagremoving.service";
   providers: [DecimalPipe],
 })
 export class SlagRemovalComponent implements OnInit {
-  hideme: boolean[] = [false, false, true];
   breadCrumbItems: Array<{}>;
 
   constructor(
@@ -41,9 +40,5 @@ export class SlagRemovalComponent implements OnInit {
       { label: "MWO" },
       { label: "Slag Removing", active: true },
     ];
-  }
-
-  changeValue() {
-    this.hideme[2] = !this.hideme[2];
   }
 }

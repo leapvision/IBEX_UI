@@ -88,8 +88,41 @@ export const MENU: MenuItem[] = [
     ],
   },
   {
-    id: 8,
-    isLayout: true,
+    id: 390,
+    label: "SETTINGS",
+    icon: "bx-cog",
+    subItems: [
+      {
+        id: 1,
+        label: "General",
+        link: "/pages/settings/general",
+        parentId: 390,
+      },
+      {
+        id: 2,
+        label: "MTO Furnace (Melting)",
+        link: "/pages/settings/mtofurnace",
+        parentId: 390,
+      },
+      {
+        id: 3,
+        label: "MWO Furnace (Holding)",
+        link: "/pages/settings/mwofurnace",
+        parentId: 390,
+      },
+      {
+        id: 4,
+        label: "Line",
+        link: "/pages/settings/line",
+        parentId: 390,
+      },
+      {
+        id: 5,
+        label: "Shift",
+        link: "/pages/settings/shift",
+        parentId: 390,
+      },
+    ],
   },
   {
     id: 9,

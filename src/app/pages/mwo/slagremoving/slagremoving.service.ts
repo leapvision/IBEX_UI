@@ -10,12 +10,10 @@ export class SlagRemovingService {
       { heading: "Slag Removal Date", rowspan: "1" },
       { heading: "Shift & Time", rowspan: "1" },
       { heading: "Hold Number", rowspan: "1" },
-      { heading: "Scrap (KG)", rowspan: "1" },
       { heading: "Addition Details(KG)", colspan: "5" },
       { heading: "Metal Tapping to MWO", colspan: "4" },
     ],
     [
-      { heading: "" },
       { heading: "" },
       { heading: "" },
       { heading: "" },
@@ -39,7 +37,6 @@ export class SlagRemovingService {
       { heading: "" },
       { heading: "" },
       { heading: "" },
-      { heading: "" },
       { heading: "Value(°C)" },
       { heading: "Image" },
       { heading: "" },
@@ -49,7 +46,7 @@ export class SlagRemovingService {
   bodyArray = [
     [
       { value: "22/12/2022" },
-      { value: "" },
+      { value: "10:15" },
       { value: "MW-01-1001" },
       { value: "0" },
       { value: "0" },
@@ -60,11 +57,10 @@ export class SlagRemovingService {
       { img: "assets/images/small/img-3.jpg" },
       { value: "9:00" },
       { value: "550" },
-      { showParentReport: false },
     ],
     [
       { value: "20/12/2022" },
-      { value: "" },
+      { value: "10:00" },
       { value: "MW-01-1002" },
       { value: "0" },
       { value: "0" },
@@ -75,11 +71,10 @@ export class SlagRemovingService {
       { img: "assets/images/small/img-3.jpg" },
       { value: "11:00" },
       { value: "550" },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
-      { value: "" },
+      { value: "10:20" },
       { value: "MW-01-1003" },
       { value: "0" },
       { value: "0" },
@@ -90,7 +85,6 @@ export class SlagRemovingService {
       { img: "assets/images/small/img-3.jpg" },
       { value: "10:00" },
       { value: "550" },
-      { showParentReport: false },
     ],
   ];
 

@@ -29,7 +29,6 @@ export class MwoInspectionService {
       { value: "-" },
       { isButton: true, innerText: "Moved to Ingot Pouring", success: true },
       { isForm: true },
-      { showParentReport: false },
     ],
     [
       { value: "22/12/2022" },
@@ -41,7 +40,6 @@ export class MwoInspectionService {
       { value: "-" },
       { isButton: true, innerText: "Moved to Ingot Pouring", success: true },
       { isForm: true },
-      { showParentReport: false },
     ],
     [
       { value: "22/12/2022" },
@@ -53,7 +51,6 @@ export class MwoInspectionService {
       { value: "-" },
       { isButton: true, innerText: "Pending", success: false },
       { isForm: true },
-      { showParentReport: false },
     ],
   ];
   samplesArray = [

@@ -33,7 +33,6 @@ export class PrintingService {
       { value: "5" },
       { value: "5" },
       { isStatusButton: true, innerText: "Printing Complete", success: true },
-      { showParentReport: false },
     ],
     [
       { value: "IBEX-MW-01-1002-221220" },
@@ -44,7 +43,6 @@ export class PrintingService {
       { value: "5" },
       { value: "5" },
       { isStatusButton: true, innerText: "Printing Complete", success: true },
-      { showParentReport: false },
     ],
     [
       { value: "IBEX-MW-01-1003-221210" },
@@ -55,7 +53,6 @@ export class PrintingService {
       { value: "0" },
       { value: "0" },
       { isStatusButton: true, innerText: "Pending", success: false },
-      { showParentReport: false },
     ],
   ];
 

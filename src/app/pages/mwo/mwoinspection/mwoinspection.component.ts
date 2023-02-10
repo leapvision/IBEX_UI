@@ -11,7 +11,6 @@ import { MwoInspectionService } from "./mwoinspection.service";
   providers: [DecimalPipe],
 })
 export class MWOInspectionComponent implements OnInit {
-  hideme: boolean[] = [false, false, true];
   breadCrumbItems: Array<{}>;
 
   constructor(
@@ -79,8 +78,4 @@ export class MWOInspectionComponent implements OnInit {
     this.mwoinspectionService.samplesArray,
     this.mwoinspectionService.samplesArray,
   ];
-
-  changeValue() {
-    this.hideme[2] = !this.hideme[2];
-  }
 }

@@ -29,7 +29,6 @@ export class QualityService {
       { value: "MRKU09876SH" },
       { viewDetails: true },
       { download: true },
-      { showParentReport: false },
     ],
     [
       { value: "IEPL/1300/22-23" },
@@ -41,7 +40,6 @@ export class QualityService {
       { value: "MRKU09876SH" },
       { viewDetails: true },
       { download: true },
-      { showParentReport: false },
     ],
   ];
 

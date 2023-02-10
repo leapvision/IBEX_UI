@@ -1,4 +1,4 @@
-import { QualityService } from "./quality.service";
+import { QualityService } from "./certquality.service";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
@@ -11,7 +11,6 @@ import { ModalComponent } from "src/app/shared/ui/modal/modal.component";
   providers: [DecimalPipe],
 })
 export class CertQualityComponent implements OnInit {
-  hideme: boolean[] = [false, false, true];
   breadCrumbItems: Array<{}>;
 
   invoiceNumbers = [];
@@ -36,10 +35,6 @@ export class CertQualityComponent implements OnInit {
       "IEPL/0152/22-23",
     ];
     this.packingListNumbers = ["1001(MRKU986754SH)", "1002(MRKU986754SH)"];
-  }
-
-  changeValue() {
-    this.hideme[2] = !this.hideme[2];
   }
 
   openModal() {

@@ -21,7 +21,6 @@ export class SlagRemovingService {
       { value: "MT-01-1001" },
       { value: "17" },
       { value: "10:20" },
-      { showParentReport: false },
     ],
     [
       { value: "20/12/2022" },
@@ -29,7 +28,6 @@ export class SlagRemovingService {
       { value: "MT-01-1002" },
       { value: "18" },
       { value: "10:50" },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -37,7 +35,6 @@ export class SlagRemovingService {
       { value: "MT-01-1003" },
       { value: "15" },
       { value: "11:20" },
-      { showParentReport: false },
     ],
   ];
 

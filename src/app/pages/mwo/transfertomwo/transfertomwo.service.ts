@@ -19,21 +19,18 @@ export class TransferToMwoService {
       { value: "" },
       { value: "MT-01-1001" },
       { value: "MWO-01-1001" },
-      { showParentReport: false },
     ],
     [
       { value: "20/12/2022" },
       { value: "" },
       { value: "MT-01-1002" },
       { value: "MWO-01-1002" },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
       { value: "" },
       { value: "MT-01-1003" },
       { value: "MWO-01-1003" },
-      { showParentReport: false },
     ],
   ];
 

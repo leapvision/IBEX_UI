@@ -40,7 +40,6 @@ export class IgnotPouringService {
       { value: "75" },
       { value: "547" },
       { value: "IBEX-MW-01-1001-221222" },
-      { showParentReport: false },
     ],
     [
       { value: "20/12/2022" },
@@ -53,7 +52,6 @@ export class IgnotPouringService {
       { value: "70" },
       { value: "540" },
       { value: "IBEX-MW-01-1002-221220" },
-      { showParentReport: false },
     ],
     [
       { value: "10/12/2022" },
@@ -66,7 +64,6 @@ export class IgnotPouringService {
       { value: "70" },
       { value: "540" },
       { value: "IBEX-MW-01-1002-221220" },
-      { showParentReport: false },
     ],
   ];
 

@@ -22,9 +22,7 @@
                 </div>
               </div>
               <form>
-                <div class="row justify-content-center mt-4">
-                  <!-- <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Choose Heat Number 1</label> -->
-                </div>
+                <div class="row justify-content-center mt-4"></div>
                 <div class="row">
                   <div class="row mb-4">
                     <label
@@ -101,7 +99,6 @@
                       >Consignee Address</label
                     >
                     <div class="col-sm-6">
-                      <!-- <textarea name="message" rows="10" cols="30">SHED No C1 B-3201 To B-3203 G.I.D.C SARIGAM Gujarat-396155"</textarea> -->
                       <input
                         type="text"
                         class="form-control"
@@ -180,26 +177,6 @@
                     </h4>
 
                     <div class="table-responsive">
-                      <!-- <table class="table table-bordered mb-0 table-hover">
-                        <tbody class="table-bordered">
-                          <tr>
-                            <td>Total Gross Weight</td>
-                            <td>25305</td>
-                          </tr>
-                          <tr>
-                            <td>Total Net Weight</td>
-                            <td>25003</td>
-                          </tr>
-                          <tr>
-                            <td>Total Pallets</td>
-                            <td>25</td>
-                          </tr>
-                          <tr>
-                            <td>Total PCS</td>
-                            <td>3409</td>
-                          </tr>
-                        </tbody>
-                      </table> -->
                       <app-table
                         [BodyArray]="packinglistsummaryBodyArray"
                         [children]="true"
@@ -213,231 +190,7 @@
               <form>
                 <div class="card">
                   <div class="card-body">
-                    <!-- <h4 class="card-title text-center">Packing Report</h4> -->
                     <div class="table-responsive">
-                      <!-- <table class="table mb-0 table-hover">
-                        <thead class="table-light">
-                          <tr>
-                            <th rowspan="1"></th>
-                            <th rowspan="1">Select</th>
-                            <th rowspan="1">Pallet Number</th>
-                            <th rowspan="1">Gross Weight(KG)</th>
-                            <th rowspan="1">Net Weight(KG)</th>
-                            <th rowspan="1">PCS</th>
-                            <th rowspan="1">Remarks</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td align="center">
-                              <a class="expand-row" (click)="changeValue()">
-                                +
-                              </a>
-                            </td>
-                            <td><input type="checkbox" [checked]="false" /></td>
-                            <td>1001</td>
-                            <td>1106</td>
-                            <td>1094</td>
-                            <td>150</td>
-                            <td>
-                              <form>
-                                <div class="row mb-4 justify-content-center">
-                                  <div class="col-sm-9">
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      value=""
-                                    />
-                                  </div>
-                                </div>
-                              </form>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td align="center">
-                              <a class="expand-row" (click)="changeValue()">
-                                +
-                              </a>
-                            </td>
-                            <td><input type="checkbox" [checked]="true" /></td>
-                            <td>1002</td>
-                            <td>1124</td>
-                            <td>1104</td>
-                            <td>155</td>
-                            <td>
-                              <form>
-                                <div class="row mb-4 justify-content-center">
-                                  <div class="col-sm-9">
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      value=""
-                                    />
-                                  </div>
-                                </div>
-                              </form>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td align="center">
-                              <a class="expand-row" (click)="changeValue()">
-                                +
-                              </a>
-                            </td>
-                            <td><input type="checkbox" [checked]="false" /></td>
-                            <td>1003</td>
-                            <td>1124</td>
-                            <td>1104</td>
-                            <td>155</td>
-                            <td>
-                              <form>
-                                <div class="row mb-4 justify-content-center">
-                                  <div class="col-sm-9">
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      value=""
-                                    />
-                                  </div>
-                                </div>
-                              </form>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td align="center">
-                              <a class="expand-row" (click)="changeValue()">
-                                +
-                              </a>
-                            </td>
-                            <td><input type="checkbox" [checked]="false" /></td>
-                            <td>1004</td>
-                            <td>1124</td>
-                            <td>1104</td>
-                            <td>155</td>
-                            <td>
-                              <form>
-                                <div class="row mb-4 justify-content-center">
-                                  <div class="col-sm-9">
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      value=""
-                                    />
-                                  </div>
-                                </div>
-                              </form>
-                            </td>
-                          </tr>
-
-                          <tr *ngIf="!hideme[2]" class="sub-table no-bg">
-                            <td align="center"></td>
-                            <td colspan="15" class="p-0">
-                              <div class="m-4">
-                                <ngb-accordion
-                                  #acc="ngbAccordion"
-                                  activeIds="static-1"
-                                  [closeOthers]="false"
-                                >
-                                  <ngb-panel id="static-1">
-                                    <ng-template
-                                      ngbPanelTitle
-                                      class="text-black"
-                                    >
-                                      Packing Report
-                                    </ng-template>
-                                    <ng-template ngbPanelContent>
-                                      <table class="table mb-0 table-hover">
-                                        <thead class="table-light">
-                                          <tr>
-                                            <th rowspan="1"></th>
-                                            <th rowspan="1">Pallet Number</th>
-                                            <th rowspan="1">
-                                              Final Heat Number
-                                            </th>
-                                            <th rowspan="1">
-                                              Number of Ingots
-                                            </th>
-                                            <th rowspan="1">
-                                              Manufacturing Date
-                                            </th>
-                                            <th rowspan="1">
-                                              Total Weight With Pallet
-                                            </th>
-                                            <th rowspan="1">Pallet Weight</th>
-                                            <th rowspan="1">Ingot Weight</th>
-                                            <th rowspan="1" class="text-center">
-                                              Remarks
-                                            </th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td align="center">
-                                              <a
-                                                class="expand-row"
-                                                (click)="changeValue()"
-                                              >
-                                                +
-                                              </a>
-                                            </td>
-                                            <td>1</td>
-                                            <td>IBEX-MW-01-1001-221222</td>
-                                            <td>70</td>
-                                            <td>22/12/2022</td>
-                                            <td>962</td>
-                                            <td>12</td>
-                                            <td>950</td>
-                                            <td>
-                                              <form>
-                                                <div
-                                                  class="row mb-4 justify-content-center"
-                                                >
-                                                  <div class="col-sm-9">
-                                                    <input
-                                                      type="text"
-                                                      class="form-control"
-                                                      value=""
-                                                    />
-                                                  </div>
-                                                </div>
-                                              </form>
-                                            </td>
-                                          </tr>
-                                          <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td>IBEX-MW-01-1002-221220</td>
-                                            <td>75</td>
-                                            <td>20/12/2022</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                              <form>
-                                                <div
-                                                  class="row mb-4 justify-content-center"
-                                                >
-                                                  <div class="col-sm-9">
-                                                    <input
-                                                      type="text"
-                                                      class="form-control"
-                                                      value=""
-                                                    />
-                                                  </div>
-                                                </div>
-                                              </form>
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </ng-template>
-                                  </ngb-panel>
-                                </ngb-accordion>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table> -->
                       <app-table
                         [HeadingArray]="packinglistHeadingArray"
                         [BodyArray]="packinglistBodyArray"
@@ -467,14 +220,6 @@
               <div class="row justify-content-center m-4">
                 <div class="col-12">
                   <table class="table table-bordered mb-0 table-hover">
-                    <!-- <thead >
-                      <tr>
-                        <th rowspan="1"></th>
-                        <th rowspan="1"></th>
-                        <th rowspan="1"></th>
-                        <th rowspan="1"></th>
-                      </tr>
-                    </thead> -->
                     <tbody class="table-bordered">
                       <tr>
                         <td>Invoice Number</td>
@@ -637,9 +382,6 @@
                     Confirm Packing List
                   </button>
                 </div>
-                <!-- <div class="col-6 text-center">
-                  <button type="button" class="btn btn-ibex btn-lg w-md text-black">Download</button>
-                </div> -->
               </div>
 
               <ul class="list-inline wizard mb-0">
