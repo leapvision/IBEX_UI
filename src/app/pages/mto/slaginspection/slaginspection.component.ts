@@ -86,6 +86,8 @@ export class SlagInspectionComponent implements OnInit {
     this.slaginspectionService.samplesArray,
   ];
 
+  samplesArray = this.slaginspectionService.samplesArray;
+
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "MTO" },
