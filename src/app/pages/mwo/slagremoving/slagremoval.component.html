@@ -10,10 +10,8 @@
             <aw-wizard-step stepTitle="Hold Number">
               <ng-template awWizardStepSymbol><b>1</b></ng-template>
               <form>
-                <div class="row justify-content-center">
-                  <label
-                    for="horizontal-firstname-input"
-                    class="col-sm-3 col-form-label"
+                <div class="row mb-4 text-center mt-4">
+                  <label for="horizontal-firstname-input" class="col-sm-12"
                     >Ready for Slag Removal</label
                   >
                 </div>
@@ -189,7 +187,7 @@
                       [disabled]="true"
                     />
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm-3" style="position: relative">
                     <input type="number" class="form-control" value="0" />
                   </div>
                   <div class="col-sm-3">
@@ -212,7 +210,10 @@
                     Previous
                   </button>
                 </li>
-                <li class="list-inline-item" style="margin-left: 37rem">
+                <li
+                  class="list-inline-item"
+                  style="position: absolute; right: 390px"
+                >
                   <button class="btn btn-primary">Request to SAP</button>
                 </li>
                 <li class="next list-inline-item float-end">
