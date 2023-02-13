@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { emailSentBarChart, monthlyEarningChart } from "./data";
-import { ChartType } from "./admin.model";
+import { emailSentBarChart, monthlyEarningChart, lineBarChart } from "./data";
+import { ChartType, EChartType } from "./admin.model";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { EventService } from "../../../core/services/event.service";
 
@@ -16,6 +16,7 @@ export class AdminDashboardComponent implements OnInit {
 
   emailSentBarChart: ChartType;
   monthlyEarningChart: ChartType;
+  lineBarChart: EChartType;
   transactions: Array<[]>;
   // statData: Array<[]>;
 
@@ -24,18 +25,24 @@ export class AdminDashboardComponent implements OnInit {
   statData = [
     {
       icon: "bx bx-copy-alt",
-      title: "Total Ingots Weight",
-      value: "400KG",
+      title: "Total Scrap Weight",
+      value: "8157KG",
     },
     {
       icon: "bx bx-archive-in",
-      title: "Total Final Heat Numbers",
-      value: "200",
+      title: "Total RM Weight",
+      value: "7921KG",
+    },
+
+    {
+      icon: "bx bx-purchase-tag-alt",
+      title: "Yield %",
+      value: "97.1%",
     },
     {
       icon: "bx bx-purchase-tag-alt",
-      title: "Total Dispatched Weight",
-      value: "1000KG",
+      title: "Number of Melts",
+      value: "15",
     },
   ];
 
@@ -81,6 +88,7 @@ export class AdminDashboardComponent implements OnInit {
    * Fetches the data
    */
   private fetchData() {
+    this.lineBarChart = lineBarChart;
     this.emailSentBarChart = emailSentBarChart;
     this.monthlyEarningChart = monthlyEarningChart;
 
