@@ -180,7 +180,7 @@ const rejectionlineBarChart: LineBarChartType = {
       saveAsImage: { title: "Download Image" },
     },
   },
-  color: ["#34c38f", "#f46a6a"],
+  color: ["#f46a6a", "#556EE6"],
   legend: {
     data: ["Rejection Weight", "Rejection Rate (%)"],
     textStyle: { color: "#8791af" },
@@ -217,8 +217,8 @@ const rejectionlineBarChart: LineBarChartType = {
       type: "value",
       name: "Quantity",
       min: 0,
-      max: 100,
-      interval: 20,
+      max: 10,
+      interval: 1,
       axisLine: {
         lineStyle: {
           color: "#8791af",
@@ -235,10 +235,10 @@ const rejectionlineBarChart: LineBarChartType = {
     },
     {
       type: "value",
-      name: "Rate",
+      name: "Rejection %",
       min: 0,
-      max: 100,
-      interval: 10,
+      max: 10,
+      interval: 1,
       axisLine: {
         lineStyle: {
           color: "#8791af",
@@ -258,20 +258,14 @@ const rejectionlineBarChart: LineBarChartType = {
     {
       name: "Rejection Weight",
       type: "bar",
-      data: [
-        74.24, 78.25, 73.28, 75.55, 76.25, 78.33, 80.12, 70.15, 78.22, 80.14,
-        71.14, 72.32,
-      ],
+      data: [1.8, 1.9, 2.5, 2.3, 1.85, 2.2, 2.45, 2.1, 1.9, 1.99, 2.3, 2.05],
     },
 
     {
       name: "Rejection Rate (%)",
       type: "line",
       yAxisIndex: 1,
-      data: [
-        95.95, 95.84, 95.79, 95.61, 95.32, 95.0, 95.84, 95.78, 95.14, 95.89,
-        95.12, 95.63,
-      ],
+      data: [1.5, 1.8, 4.5, 4.8, 1.35, 3.2, 3.8, 2.8, 3.3, 4.4, 5, 2.2],
     },
   ],
 };
@@ -305,6 +299,57 @@ const pieChart: PieChartType = {
         { value: 23.28, name: "Rejected Ingots" },
         { value: 23.25, name: "Flux" },
         { value: 0.069, name: "Addition Details" },
+      ],
+      itemStyle: {
+        emphasis: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: "rgba(0, 0, 0, 0.5)",
+        },
+      },
+    },
+  ],
+  color: ["#556ee6", "#f1b44c", "#f46a6a", "#50a5f1", "#34c38f"],
+};
+
+// Rejection PieChart
+const rejectionpieChart: PieChartType = {
+  tooltip: {
+    trigger: "item",
+    formatter: "{a} <br/>{b} : {c} ({d}%)",
+  },
+  legend: {
+    orient: "horizontal",
+    left: "left",
+    data: [
+      "Unfilling",
+      "Cold lap",
+      "Black Mark",
+      "Buffing improper",
+      "Composition Not Ok",
+      "Bubbles",
+      "Slag Forming on Surface area",
+      "Dent & Damage",
+      "Others",
+    ],
+    textStyle: { color: "#8791af" },
+  },
+  series: [
+    {
+      name: "Quantity(Tons)",
+      type: "pie",
+      radius: "55%",
+      center: ["50%", "60%"],
+      data: [
+        { value: 2.5, name: "Unfilling" },
+        { value: 2.6, name: "Cold lap" },
+        { value: 2.8, name: "Black Mark" },
+        { value: 2.5, name: "Buffing improper" },
+        { value: 1.9, name: "Composition Not Ok" },
+        { value: 1.6, name: "Bubbles" },
+        { value: 1, name: "Slag Forming on Surface area" },
+        { value: 1.85, name: "Dent & Damage" },
+        { value: 2.69, name: "Others" },
       ],
       itemStyle: {
         emphasis: {
@@ -356,6 +401,72 @@ const emailSentBarChart: ChartType = {
     },
     {
       name: "Welbow",
+      data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+    },
+  ],
+  xaxis: {
+    categories: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+  },
+  colors: ["#556ee6", "#f1b44c", "#64bc43", "#FF0000"],
+  legend: {
+    position: "bottom",
+  },
+  fill: {
+    opacity: 1,
+  },
+};
+
+// Rejection EmailSentBarChart
+const rejectionemailSentBarChart: ChartType = {
+  chart: {
+    height: 340,
+    type: "bar",
+    stacked: true,
+    toolbar: {
+      show: false,
+    },
+    zoom: {
+      enabled: true,
+    },
+  },
+  plotOptions: {
+    bar: {
+      horizontal: false,
+      columnWidth: "15%",
+      endingShape: "rounded",
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  series: [
+    {
+      name: "Composition Check (MTO)",
+      data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48],
+    },
+    {
+      name: "Composition Check (MWO)",
+      data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+    },
+    {
+      name: "Visual Inspection (MWO)",
+      data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+    },
+    {
+      name: "Final Inspection (MWO)",
       data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
     },
   ],
@@ -993,6 +1104,7 @@ const statData = [
 
 export {
   emailSentBarChart,
+  rejectionemailSentBarChart,
   monthlyEarningChart,
   transactions,
   statData,
@@ -1003,4 +1115,5 @@ export {
   additionbreakuplinewithDataChart,
   yieldlinewithDataChart,
   rejectionlineBarChart,
+  rejectionpieChart,
 };

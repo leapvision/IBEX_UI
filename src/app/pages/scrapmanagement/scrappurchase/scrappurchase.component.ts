@@ -13,6 +13,8 @@ export class ScrapPurchaseComponent implements OnInit {
 
   grnNumbers = [];
 
+  selectValue: string[];
+
   constructor(private scrappurchaseService: ScrapPurchaseService) {}
 
   scrappurchaseHeadingArray =
@@ -26,5 +28,7 @@ export class ScrapPurchaseComponent implements OnInit {
       { label: "Inward Scrap", active: true },
     ];
     this.grnNumbers = ["1", "2", "3", "4", "5"];
+
+    this.selectValue = ["Reason 1", "Reason 2", "Reason 3"];
   }
 }

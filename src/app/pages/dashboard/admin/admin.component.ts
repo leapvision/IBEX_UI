@@ -8,9 +8,11 @@ import {
 } from "@angular/core";
 import {
   emailSentBarChart,
+  rejectionemailSentBarChart,
   monthlyEarningChart,
   lineBarChart,
   pieChart,
+  rejectionpieChart,
   additionbreakupgaugeChart,
   yieldgaugeChart,
   additionbreakuplinewithDataChart,
@@ -43,6 +45,7 @@ export class AdminDashboardComponent implements OnInit {
   isVisible: string;
 
   emailSentBarChart: ChartType;
+  rejectionemailSentBarChart: ChartType;
   monthlyEarningChart: ChartType;
   lineBarChart: LineBarChartType;
   rejectionlineBarChart: LineBarChartType;
@@ -51,6 +54,7 @@ export class AdminDashboardComponent implements OnInit {
   additionbreakuplinewithDataChart: LineWithDataChartType;
   yieldlinewithDataChart: LineWithDataChartType;
   pieChart: PieChartType;
+  rejectionpieChart: PieChartType;
   transactions: Array<[]>;
   // statData: Array<[]>;
 
@@ -105,7 +109,12 @@ export class AdminDashboardComponent implements OnInit {
     {
       icon: "bx bx-purchase-tag-alt",
       title: "Rejection Quantity (Tons)",
-      value: "8",
+      value: "26.1",
+    },
+    {
+      icon: "bx bx-purchase-tag-alt",
+      title: "Rejection Ingots",
+      value: "3250",
     },
   ];
 
@@ -157,11 +166,13 @@ export class AdminDashboardComponent implements OnInit {
     this.lineBarChart = lineBarChart;
     this.rejectionlineBarChart = rejectionlineBarChart;
     this.pieChart = pieChart;
+    this.rejectionpieChart = rejectionpieChart;
     this.additionbreakupgaugeChart = additionbreakupgaugeChart;
     this.yieldgaugeChart = yieldgaugeChart;
     this.additionbreakuplinewithDataChart = additionbreakuplinewithDataChart;
     this.yieldlinewithDataChart = yieldlinewithDataChart;
     this.emailSentBarChart = emailSentBarChart;
+    this.rejectionemailSentBarChart = rejectionemailSentBarChart;
     this.monthlyEarningChart = monthlyEarningChart;
 
     this.isActive = "year";

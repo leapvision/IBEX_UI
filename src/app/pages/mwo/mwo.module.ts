@@ -31,6 +31,7 @@ import { VisualInspectionComponent } from "./visualinspection/visualinspection.c
 import { BuffingAndPolishingComponent } from "./buffingandpolishing/buffingandpolishing.component";
 import { PrintingComponent } from "./printing/printing.component";
 import { FinalInspectionComponent } from "./finalinspection/finalinspection.component";
+import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { FinalInspectionComponent } from "./finalinspection/finalinspection.comp
     NgbPopoverModule,
     NgbAccordionModule,
     DropzoneModule,
+    NgSelectModule,
   ],
 })
 export class MwoModule {}

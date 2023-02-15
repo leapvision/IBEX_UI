@@ -18,6 +18,8 @@ import { VisualInspectionService } from "../visualinspection/visualinspection.se
 export class FinalInspectionComponent implements OnInit {
   breadCrumbItems: Array<{}>;
 
+  selectValue: string[];
+
   constructor(
     private transfertomwoService: TransferToMwoService,
     private slagremovingService: SlagRemovingService,
@@ -120,5 +122,7 @@ export class FinalInspectionComponent implements OnInit {
       { label: "MWO" },
       { label: "Final Inspection", active: true },
     ];
+
+    this.selectValue = ["Reason 1", "Reason 2", "Reason 3"];
   }
 }

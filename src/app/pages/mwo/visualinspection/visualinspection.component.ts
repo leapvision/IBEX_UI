@@ -15,6 +15,8 @@ import { VisualInspectionService } from "./visualinspection.service";
 export class VisualInspectionComponent implements OnInit {
   breadCrumbItems: Array<{}>;
 
+  selectValue: string[];
+
   constructor(
     private transfertomwoService: TransferToMwoService,
     private slagremovingService: SlagRemovingService,
@@ -77,5 +79,7 @@ export class VisualInspectionComponent implements OnInit {
       { label: "MWO" },
       { label: "Visual Inspection", active: true },
     ];
+
+    this.selectValue = ["Reason 1", "Reason 2", "Reason 3"];
   }
 }

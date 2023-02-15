@@ -14,7 +14,7 @@ export const MENU: MenuItem[] = [
       {
         id: 300,
         label: "Admin",
-        link: "/pages/dashboard/admin",
+        link: "/pages/dashboard/admin/graph",
         parentId: 200,
       },
       {

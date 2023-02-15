@@ -29,6 +29,7 @@ import { NgbDatepickerModule } from "@ng-bootstrap/ng-bootstrap";
     ReactiveFormsModule,
     DashboardsRoutingModule,
     UIModule,
+    AdminModule,
     NgbDropdownModule,
     NgbTooltipModule,
     NgbNavModule,

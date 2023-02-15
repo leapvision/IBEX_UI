@@ -40,5 +40,6 @@ import { GraphViewComponent } from "./graphview/graphview.component";
       echarts: () => import("echarts"),
     }),
   ],
+  exports: [TableViewComponent, GraphViewComponent],
 })
 export class AdminModule {}

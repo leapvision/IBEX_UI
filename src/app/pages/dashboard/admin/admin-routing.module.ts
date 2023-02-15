@@ -8,14 +8,16 @@ const routes: Routes = [
   {
     path: "",
     component: AdminDashboardComponent,
-  },
-  {
-    path: "table",
-    component: TableViewComponent,
-  },
-  {
-    path: "graph",
-    component: GraphViewComponent,
+    children: [
+      {
+        path: "table",
+        component: TableViewComponent,
+      },
+      {
+        path: "graph",
+        component: GraphViewComponent,
+      },
+    ],
   },
 ];
 
