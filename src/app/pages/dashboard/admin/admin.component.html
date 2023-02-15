@@ -1050,42 +1050,22 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-4">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title text-center">
-                    CMR Average Yield % Gauge
-                  </h4>
-                  <div
-                    echarts
-                    [options]="yieldgaugeChart"
-                    class="demo-chart"
-                  ></div>
-                </div>
-              </div>
+            <div *ngFor="let stat of rejectionData" class="col-lg-6">
+              <app-stat
+                [title]="stat.title"
+                [value]="stat.value"
+                [icon]="stat.icon"
+              ></app-stat>
             </div>
-            <div class="col-lg-8">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title text-center">Yield % - CMR Breakup</h4>
-                  <apx-chart
-                    class="apex-charts"
-                    dir="ltr"
-                    [series]="yieldlinewithDataChart.series"
-                    [chart]="yieldlinewithDataChart.chart"
-                    [colors]="yieldlinewithDataChart.colors"
-                    [stroke]="yieldlinewithDataChart.stroke"
-                    [dataLabels]="yieldlinewithDataChart.dataLabels"
-                    [title]="yieldlinewithDataChart.title"
-                    [responsive]="yieldlinewithDataChart.responsive"
-                    [legend]="yieldlinewithDataChart.legend"
-                    [xaxis]="yieldlinewithDataChart.xaxis"
-                    [yaxis]="yieldlinewithDataChart.yaxis"
-                    [stroke]="yieldlinewithDataChart.stroke"
-                    [markers]="yieldlinewithDataChart.markers"
-                  >
-                  </apx-chart>
-                </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div
+                  echarts
+                  [options]="rejectionlineBarChart"
+                  class="demo-chart"
+                ></div>
               </div>
             </div>
           </div>

@@ -144,6 +144,138 @@ const lineBarChart: LineBarChartType = {
   ],
 };
 
+// Rejection LineBarChart
+const rejectionlineBarChart: LineBarChartType = {
+  // Setup grid
+  grid: {
+    zlevel: 0,
+    x: 80,
+    x2: 50,
+    y: 30,
+    y2: 30,
+    borderWidth: 0,
+    backgroundColor: "rgba(0,0,0,0)",
+    borderColor: "rgba(0,0,0,0)",
+  },
+  tooltip: {
+    trigger: "axis",
+    axisPointer: {
+      type: "cross",
+      crossStyle: {
+        color: "#999",
+      },
+    },
+  },
+  toolbox: {
+    orient: "center",
+    left: 0,
+    top: 50,
+    feature: {
+      dataView: { readOnly: false, title: "Data View" },
+      magicType: {
+        type: ["line", "bar"],
+        title: { line: "For line chart", bar: "For bar chart" },
+      },
+      restore: { title: "restore" },
+      saveAsImage: { title: "Download Image" },
+    },
+  },
+  color: ["#34c38f", "#f46a6a"],
+  legend: {
+    data: ["Rejection Weight", "Rejection Rate (%)"],
+    textStyle: { color: "#8791af" },
+  },
+  xAxis: [
+    {
+      type: "category",
+      data: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      axisPointer: {
+        type: "shadow",
+      },
+      axisLine: {
+        lineStyle: {
+          color: "#8791af",
+        },
+      },
+    },
+  ],
+  yAxis: [
+    {
+      type: "value",
+      name: "Quantity",
+      min: 0,
+      max: 100,
+      interval: 20,
+      axisLine: {
+        lineStyle: {
+          color: "#8791af",
+        },
+      },
+      splitLine: {
+        lineStyle: {
+          color: "rgba(166, 176, 207, 0.1)",
+        },
+      },
+      axisLabel: {
+        formatter: "{value} tons",
+      },
+    },
+    {
+      type: "value",
+      name: "Rate",
+      min: 0,
+      max: 100,
+      interval: 10,
+      axisLine: {
+        lineStyle: {
+          color: "#8791af",
+        },
+      },
+      splitLine: {
+        lineStyle: {
+          color: "rgba(166, 176, 207, 0.1)",
+        },
+      },
+      axisLabel: {
+        formatter: "{value} %",
+      },
+    },
+  ],
+  series: [
+    {
+      name: "Rejection Weight",
+      type: "bar",
+      data: [
+        74.24, 78.25, 73.28, 75.55, 76.25, 78.33, 80.12, 70.15, 78.22, 80.14,
+        71.14, 72.32,
+      ],
+    },
+
+    {
+      name: "Rejection Rate (%)",
+      type: "line",
+      yAxisIndex: 1,
+      data: [
+        95.95, 95.84, 95.79, 95.61, 95.32, 95.0, 95.84, 95.78, 95.14, 95.89,
+        95.12, 95.63,
+      ],
+    },
+  ],
+};
+
 const pieChart: PieChartType = {
   tooltip: {
     trigger: "item",
@@ -870,4 +1002,5 @@ export {
   yieldgaugeChart,
   additionbreakuplinewithDataChart,
   yieldlinewithDataChart,
+  rejectionlineBarChart,
 };

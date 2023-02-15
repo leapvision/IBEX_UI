@@ -15,6 +15,7 @@ import {
   yieldgaugeChart,
   additionbreakuplinewithDataChart,
   yieldlinewithDataChart,
+  rejectionlineBarChart,
 } from "./data";
 import {
   ChartType,
@@ -44,6 +45,7 @@ export class AdminDashboardComponent implements OnInit {
   emailSentBarChart: ChartType;
   monthlyEarningChart: ChartType;
   lineBarChart: LineBarChartType;
+  rejectionlineBarChart: LineBarChartType;
   additionbreakupgaugeChart: GaugeChartType;
   yieldgaugeChart: GaugeChartType;
   additionbreakuplinewithDataChart: LineWithDataChartType;
@@ -94,6 +96,19 @@ export class AdminDashboardComponent implements OnInit {
     },
   ];
 
+  rejectionData = [
+    {
+      icon: "bx bx-purchase-tag-alt",
+      title: "Rejection Rate",
+      value: "2.9%",
+    },
+    {
+      icon: "bx bx-purchase-tag-alt",
+      title: "Rejection Quantity (Tons)",
+      value: "8",
+    },
+  ];
+
   @ViewChild("content") content;
   constructor(
     private modalService: NgbModal,
@@ -140,6 +155,7 @@ export class AdminDashboardComponent implements OnInit {
    */
   private fetchData() {
     this.lineBarChart = lineBarChart;
+    this.rejectionlineBarChart = rejectionlineBarChart;
     this.pieChart = pieChart;
     this.additionbreakupgaugeChart = additionbreakupgaugeChart;
     this.yieldgaugeChart = yieldgaugeChart;
