@@ -229,7 +229,87 @@
     <div class="title">
       <h4 class="font-size-18">Admin Panel</h4>
     </div>
-    <div class="row">
+
+    <div class="row justify-content-between mb-4">
+      <div class="col-lg-3">
+        <div class="row">
+          <label>View</label>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="view"
+              id="table"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-dark"
+              style="padding: 8px 48px"
+              for="table"
+              >Table</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="view"
+              id="graph"
+              autocomplete="off"
+              checked
+            />
+            <label
+              class="btn btn-outline-dark"
+              style="padding: 8px 48px"
+              for="graph"
+              >Graph</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <label>Custom Date Range</label>
+
+        <ng-template #t let-date let-focused="focused">
+          <span
+            class="custom-day"
+            [class.focused]="focused"
+            [class.range]="isRange(date)"
+            [class.faded]="isHovered(date) || isInside(date)"
+            (mouseenter)="hoveredDate = date"
+            (mouseleave)="hoveredDate = null"
+          >
+            {{ date.day }}
+          </span>
+        </ng-template>
+
+        <input
+          type="text"
+          class="form-control date"
+          (click)="hidden = !hidden"
+          name="daterange"
+          autocomplete="off"
+          [(ngModel)]="selected"
+        />
+
+        <ngb-datepicker
+          #dp
+          (dateSelect)="onDateSelection($event)"
+          [displayMonths]="2"
+          [dayTemplate]="t"
+          outsideDays="hidden"
+          [hidden]="hidden"
+          class="datepicker"
+        >
+        </ngb-datepicker>
+      </div>
+    </div>
+
+    <div class="row mb-4">
       <div class="mb-2 col-md-3" id="alloy">
         <label for="alloy">Choose Alloy</label>
         <div class="d-flex flex-wrap gap-3">
@@ -246,7 +326,7 @@
               autocomplete="off"
               checked
             />
-            <label class="btn btn-outline-dark" for="allalloy">All</label>
+            <label class="btn btn-outline-dark" for p-="allalloy">All</label>
 
             <input
               type="radio"
@@ -351,11 +431,22 @@
             <label class="btn btn-outline-secondary" for="shift2"
               >Shift 2</label
             >
+            <input
+              type="radio"
+              class="btn-check"
+              name="shift"
+              id="shift3"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="shift3"
+              >Shift 3</label
+            >
           </div>
         </div>
       </div>
-      <div class="mb-2 col-md-3" id="shift">
-        <label for="shift">Choose Shift</label>
+
+      <div class="mb-2 col-md-3" id="time">
+        <label for="shift">Time</label>
         <div class="d-flex flex-wrap gap-3">
           <div
             class="btn-group"
@@ -365,147 +456,51 @@
             <input
               type="radio"
               class="btn-check"
-              name="shift"
-              id="allshift"
+              name="time"
+              id="day"
               autocomplete="off"
               checked
             />
-            <label class="btn btn-outline-dark" for="allshift">All</label>
+            <label class="btn btn-outline-dark" for="day">Day</label>
             <input
               type="radio"
               class="btn-check"
-              name="shift"
-              id="shift1"
+              name="time"
+              id="week"
               autocomplete="off"
             />
-            <label class="btn btn-outline-secondary" for="shift1"
-              >Shift 1</label
-            >
+            <label class="btn btn-outline-secondary" for="week">Week</label>
             <input
               type="radio"
               class="btn-check"
-              name="shift"
-              id="shift2"
+              name="time"
+              id="month"
               autocomplete="off"
             />
-            <label class="btn btn-outline-secondary" for="shift2"
-              >Shift 2</label
-            >
+            <label class="btn btn-outline-secondary" for="month">Month</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="time"
+              id="year"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="year">Year</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="time"
+              id="alltime"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="alltime">All</label>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- end page title-->
 
   <div class="row">
-    <!-- <div class="col-xl-4"> -->
-    <!-- <div class="card overflow-hidden">
-        <!-- <div class="bg-primary bg-soft">
-          <div class="row">
-            <div class="col-7">
-              <div class="text-primary p-3">
-                <h5 class="text-primary">Welcome Back !</h5>
-                <p>Admin</p>
-              </div>
-            </div>
-            <!-- <div class="col-5 align-self-end">
-                            <img src="assets/images/profile-img.png" alt="" class="img-fluid">
-                        </div> 
-          </div>
-        </div>
-        <div class="card-body pt-0">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="pt-4">
-                <div class="row">
-                  <div class="col-4">
-                    <h5 class="font-size-15">Supervisors</h5>
-                    <p class="mb-0">
-                      <span class="text-success font-weight-bold mr-2">2</span>
-                      <span class="text-muted">/10</span>
-                    </p>
-                  </div>
-                  <div class="col-4">
-                    <h5 class="font-size-15">Operators</h5>
-                    <p class="mb-0">
-                      <span class="text-success font-weight-bold mr-2">10</span
-                      ><span class="text-muted">/20</span>
-                    </p>
-                  </div>
-                  <div class="col-4">
-                    <h5 class="font-size-15">Quality</h5>
-                    <p class="mb-0">
-                      <span class="text-success font-weight-bold mr-2">1</span
-                      ><span class="text-muted">/5</span>
-                    </p>
-                  </div>
-                </div>
-
-                <div class="row mt-4">
-                  <div class="col-4">
-                    <a
-                      routerLink="/pages/usermanagement/supervisor"
-                      class="btn btn-primary btn-sm"
-                      >View/Add <i class="mdi mdi-arrow-right ms-1"></i
-                    ></a>
-                  </div>
-                  <div class="col-4">
-                    <a
-                      routerLink="/pages/usermanagement/operator"
-                      class="btn btn-primary btn-sm"
-                      >View/Add <i class="mdi mdi-arrow-right ms-1"></i
-                    ></a>
-                  </div>
-                  <div class="col-4">
-                    <a
-                      routerLink="/pages/usermanagement/quality"
-                      class="btn btn-primary btn-sm"
-                      >View/Add <i class="mdi mdi-arrow-right ms-1"></i
-                    ></a>
-                  </div>
-                </div>
-                <!-- <div class="mt-4">
-                                    <a href="" class="btn btn-primary btn-sm">View Profile <i
-                                            class="mdi mdi-arrow-right ms-1"></i></a>
-                                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title mb-4">Monthly Ingot Target</h4>
-          <div class="row">
-            <div class="col-sm-6">
-              <p class="text-muted">This month</p>
-              <h3>34,252 Ingots</h3>
-              <p class="text-muted">
-                <span class="text-success mr-2">
-                  22% <i class="mdi mdi-arrow-up"></i>
-                </span>
-                From previous period
-              </p>
-            </div>
-            <div class="col-sm-6">
-              <apx-chart
-                dir="ltr"
-                class="apex-charts"
-                [series]="monthlyEarningChart.series"
-                [chart]="monthlyEarningChart.chart"
-                [legend]="monthlyEarningChart.legend"
-                [colors]="monthlyEarningChart.colors"
-                [labels]="monthlyEarningChart.labels"
-                [stroke]="monthlyEarningChart.stroke"
-                [plotOptions]="monthlyEarningChart.plotOptions"
-              >
-              </apx-chart>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    <!-- </div> -->
     <div class="col-xl-12">
       <div class="row">
         <div *ngFor="let stat of statData" class="col-md-3">
@@ -521,7 +516,7 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Mixed Line-Bar chart</h4>
+            <h4 class="card-title text-center">Production Chart</h4>
             <div echarts [options]="lineBarChart" class="demo-chart"></div>
           </div>
         </div>
@@ -641,6 +636,462 @@
           </div>
         </div>
       </ng-template>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Scrap Analysis</h3>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-body p-0">
+                  <h4 class="card-title text-center">
+                    Scrap Weight - 900 Tons
+                  </h4>
+                  <div echarts [options]="pieChart" class="demo-chart"></div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-lg-8">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title text-center">Scrap - Vendor Breakup</h4>
+        
+                  <apx-chart
+                    dir="ltr"
+                    class="apex-charts"
+                    [chart]="emailSentBarChart.chart"
+                    [series]="emailSentBarChart.series"
+                    [legend]="emailSentBarChart.legend"
+                    [colors]="emailSentBarChart.colors"
+                    [fill]="emailSentBarChart.fill"
+                    [dataLabels]="emailSentBarChart.dataLabels"
+                    [xaxis]="emailSentBarChart.xaxis"
+                    [plotOptions]="emailSentBarChart.plotOptions"
+                  >
+                  </apx-chart>
+                </div>
+              </div>
+            </div> -->
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title text-center">Addition Breakup</h4>
+
+                  <apx-chart
+                    dir="ltr"
+                    class="apex-charts"
+                    [chart]="emailSentBarChart.chart"
+                    [series]="emailSentBarChart.series"
+                    [legend]="emailSentBarChart.legend"
+                    [colors]="emailSentBarChart.colors"
+                    [fill]="emailSentBarChart.fill"
+                    [dataLabels]="emailSentBarChart.dataLabels"
+                    [xaxis]="emailSentBarChart.xaxis"
+                    [plotOptions]="emailSentBarChart.plotOptions"
+                  >
+                  </apx-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title text-center">Addition Details Analysis</h3>
+          <div class="row mb-4">
+            <label>Choose Additive</label>
+            <div
+              class="btn-group"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <!-- <input
+                type="radio"
+                class="btn-check"
+                name="additive"
+                id="all"
+                autocomplete="off"
+                checked
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="all"
+                >All</label
+              > -->
+              <input
+                type="radio"
+                class="btn-check"
+                name="additive"
+                id="be"
+                autocomplete="off"
+                checked
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="be"
+                >Be (Grams)</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="additive"
+                id="al"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="al"
+                >Pure Al (KG)</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="additive"
+                id="zinc"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="zinc"
+                >Zinc (KG)</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="additive"
+                id="almn"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="almn"
+                >Al Mn (KG)</label
+              >
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="additive"
+                id="mg"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="mg"
+                >Pure Mg (KG)</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title text-center">
+                    Beryllium (Be) Consumption Gauge
+                  </h4>
+                  <div
+                    echarts
+                    [options]="additionbreakupgaugeChart"
+                    class="demo-chart"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title text-center">
+                    Beryllium (Be) Consumption Breakup
+                  </h4>
+                  <apx-chart
+                    class="apex-charts"
+                    dir="ltr"
+                    [series]="additionbreakuplinewithDataChart.series"
+                    [chart]="additionbreakuplinewithDataChart.chart"
+                    [colors]="additionbreakuplinewithDataChart.colors"
+                    [stroke]="additionbreakuplinewithDataChart.stroke"
+                    [dataLabels]="additionbreakuplinewithDataChart.dataLabels"
+                    [title]="additionbreakuplinewithDataChart.title"
+                    [responsive]="additionbreakuplinewithDataChart.responsive"
+                    [legend]="additionbreakuplinewithDataChart.legend"
+                    [xaxis]="additionbreakuplinewithDataChart.xaxis"
+                    [yaxis]="additionbreakuplinewithDataChart.yaxis"
+                    [stroke]="additionbreakuplinewithDataChart.stroke"
+                    [markers]="additionbreakuplinewithDataChart.markers"
+                  >
+                  </apx-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title text-center">Yield Analysis</h3>
+          <div class="row mb-4">
+            <label>Choose Vendor</label>
+            <div
+              class="btn-group"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <input
+                type="radio"
+                class="btn-check"
+                name="vendor"
+                id="all"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="all"
+                >All</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="vendor"
+                id="cmr"
+                autocomplete="off"
+                checked
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="cmr"
+                >CMR</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="vendor"
+                id="steellineindia"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="steellineindia"
+                >Steel Line India</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="vendor"
+                id="sunland"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="sunland"
+                >Sunland</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="additive"
+                id="welbow"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="welbow"
+                >Welbow</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title text-center">
+                    CMR Average Yield % Gauge
+                  </h4>
+                  <div
+                    echarts
+                    [options]="yieldgaugeChart"
+                    class="demo-chart"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title text-center">Yield % - CMR Breakup</h4>
+                  <apx-chart
+                    class="apex-charts"
+                    dir="ltr"
+                    [series]="yieldlinewithDataChart.series"
+                    [chart]="yieldlinewithDataChart.chart"
+                    [colors]="yieldlinewithDataChart.colors"
+                    [stroke]="yieldlinewithDataChart.stroke"
+                    [dataLabels]="yieldlinewithDataChart.dataLabels"
+                    [title]="yieldlinewithDataChart.title"
+                    [responsive]="yieldlinewithDataChart.responsive"
+                    [legend]="yieldlinewithDataChart.legend"
+                    [xaxis]="yieldlinewithDataChart.xaxis"
+                    [yaxis]="yieldlinewithDataChart.yaxis"
+                    [stroke]="yieldlinewithDataChart.stroke"
+                    [markers]="yieldlinewithDataChart.markers"
+                  >
+                  </apx-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title text-center">Rejections Analysis</h3>
+          <div class="row mb-4">
+            <label>Choose Vendor</label>
+            <div
+              class="btn-group"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <input
+                type="radio"
+                class="btn-check"
+                name="vendor"
+                id="all"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="all"
+                >All</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="vendor"
+                id="cmr"
+                autocomplete="off"
+                checked
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="cmr"
+                >CMR</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="vendor"
+                id="steellineindia"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="steellineindia"
+                >Steel Line India</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="vendor"
+                id="sunland"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="sunland"
+                >Sunland</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="additive"
+                id="welbow"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="welbow"
+                >Welbow</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title text-center">
+                    CMR Average Yield % Gauge
+                  </h4>
+                  <div
+                    echarts
+                    [options]="yieldgaugeChart"
+                    class="demo-chart"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title text-center">Yield % - CMR Breakup</h4>
+                  <apx-chart
+                    class="apex-charts"
+                    dir="ltr"
+                    [series]="yieldlinewithDataChart.series"
+                    [chart]="yieldlinewithDataChart.chart"
+                    [colors]="yieldlinewithDataChart.colors"
+                    [stroke]="yieldlinewithDataChart.stroke"
+                    [dataLabels]="yieldlinewithDataChart.dataLabels"
+                    [title]="yieldlinewithDataChart.title"
+                    [responsive]="yieldlinewithDataChart.responsive"
+                    [legend]="yieldlinewithDataChart.legend"
+                    [xaxis]="yieldlinewithDataChart.xaxis"
+                    [yaxis]="yieldlinewithDataChart.yaxis"
+                    [stroke]="yieldlinewithDataChart.stroke"
+                    [markers]="yieldlinewithDataChart.markers"
+                  >
+                  </apx-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

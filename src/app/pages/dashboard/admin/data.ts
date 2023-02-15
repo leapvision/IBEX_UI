@@ -187,70 +187,70 @@ const pieChart: PieChartType = {
 };
 
 // Scrap
-// const emailSentBarChart: ChartType = {
-//   chart: {
-//     height: 340,
-//     type: "bar",
-//     stacked: true,
-//     toolbar: {
-//       show: false,
-//     },
-//     zoom: {
-//       enabled: true,
-//     },
-//   },
-//   plotOptions: {
-//     bar: {
-//       horizontal: false,
-//       columnWidth: "15%",
-//       endingShape: "rounded",
-//     },
-//   },
-//   dataLabels: {
-//     enabled: false,
-//   },
-//   series: [
-//     {
-//       name: "CMR",
-//       data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48],
-//     },
-//     {
-//       name: "Steel Line India",
-//       data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
-//     },
-//     {
-//       name: "Sunland",
-//       data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
-//     },
-//     {
-//       name: "Welbow",
-//       data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
-//     },
-//   ],
-//   xaxis: {
-//     categories: [
-//       "Jan",
-//       "Feb",
-//       "Mar",
-//       "Apr",
-//       "May",
-//       "Jun",
-//       "Jul",
-//       "Aug",
-//       "Sep",
-//       "Oct",
-//       "Nov",
-//       "Dec",
-//     ],
-//   },
-//   colors: ["#556ee6", "#f1b44c", "#64bc43", "#FF0000"],
-//   legend: {
-//     position: "bottom",
-//   },
-//   fill: {
-//     opacity: 1,
-//   },
-// };
+const emailSentBarChart: ChartType = {
+  chart: {
+    height: 340,
+    type: "bar",
+    stacked: true,
+    toolbar: {
+      show: false,
+    },
+    zoom: {
+      enabled: true,
+    },
+  },
+  plotOptions: {
+    bar: {
+      horizontal: false,
+      columnWidth: "15%",
+      endingShape: "rounded",
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  series: [
+    {
+      name: "CMR",
+      data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48],
+    },
+    {
+      name: "Steel Line India",
+      data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+    },
+    {
+      name: "Sunland",
+      data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+    },
+    {
+      name: "Welbow",
+      data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+    },
+  ],
+  xaxis: {
+    categories: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+  },
+  colors: ["#556ee6", "#f1b44c", "#64bc43", "#FF0000"],
+  legend: {
+    position: "bottom",
+  },
+  fill: {
+    opacity: 1,
+  },
+};
 
 // Ibex Runners & Returns
 // const emailSentBarChart: ChartType = {
@@ -431,58 +431,58 @@ const pieChart: PieChartType = {
 // };
 
 // Addition Details
-const emailSentBarChart: ChartType = {
-  chart: {
-    height: 340,
-    type: "bar",
-    stacked: true,
-    toolbar: {
-      show: false,
-    },
-    zoom: {
-      enabled: true,
-    },
-  },
-  plotOptions: {
-    bar: {
-      horizontal: false,
-      columnWidth: "15%",
-      endingShape: "rounded",
-    },
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  series: [
-    {
-      name: "Total Addition",
-      data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48],
-    },
-  ],
-  xaxis: {
-    categories: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
-  },
-  colors: ["#556ee6"],
-  legend: {
-    position: "bottom",
-  },
-  fill: {
-    opacity: 1,
-  },
-};
+// const emailSentBarChart: ChartType = {
+//   chart: {
+//     height: 340,
+//     type: "bar",
+//     stacked: true,
+//     toolbar: {
+//       show: false,
+//     },
+//     zoom: {
+//       enabled: true,
+//     },
+//   },
+//   plotOptions: {
+//     bar: {
+//       horizontal: false,
+//       columnWidth: "15%",
+//       endingShape: "rounded",
+//     },
+//   },
+//   dataLabels: {
+//     enabled: false,
+//   },
+//   series: [
+//     {
+//       name: "Total Addition",
+//       data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48],
+//     },
+//   ],
+//   xaxis: {
+//     categories: [
+//       "Jan",
+//       "Feb",
+//       "Mar",
+//       "Apr",
+//       "May",
+//       "Jun",
+//       "Jul",
+//       "Aug",
+//       "Sep",
+//       "Oct",
+//       "Nov",
+//       "Dec",
+//     ],
+//   },
+//   colors: ["#556ee6"],
+//   legend: {
+//     position: "bottom",
+//   },
+//   fill: {
+//     opacity: 1,
+//   },
+// };
 
 const monthlyEarningChart: ChartType = {
   chart: {
