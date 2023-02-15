@@ -12,7 +12,7 @@ export interface ChartType {
   labels?: any;
 }
 
-export interface EChartType {
+export interface LineBarChartType {
   xAxis?: any;
   yAxis?: any;
   series?: any;
@@ -23,4 +23,58 @@ export interface EChartType {
   animationEasing?: any;
   dataZoom?: any;
   toolbox?: any;
+}
+
+export interface PieChartType {
+  xAxis?: any;
+  yAxis?: any;
+  series?: any;
+  color?: any;
+  tooltip?: any;
+  grid?: any;
+  legend?: any;
+  animationEasing?: any;
+  dataZoom?: any;
+  toolbox?: any;
+}
+
+export interface GaugeChartType {
+  xAxis?: any;
+  yAxis?: any;
+  series?: any;
+  color?: any;
+  tooltip?: any;
+  grid?: any;
+  legend?: any;
+  animationEasing?: any;
+  dataZoom?: any;
+  toolbox?: any;
+}
+
+// Chart data
+export interface LineWithDataChartType {
+  chart?: any;
+  plotOptions?: any;
+  colors?: any;
+  series?: any;
+  stroke?: any;
+  fill?: any;
+  labels?: any;
+  markers?: any;
+  legend?: any;
+  xaxis?: any;
+  yaxis?: any;
+  tooltip?: any;
+  grid?: any;
+  datasets?: any;
+  options?: any;
+  toolbar?: any;
+  type?: any;
+  height?: any;
+  dataLabels?: any;
+  sparkline?: any;
+  responsive?: any;
+  states?: any;
+  title?: any;
+  subtitle?: any;
 }

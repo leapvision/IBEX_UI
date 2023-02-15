@@ -1,8 +1,35 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { emailSentBarChart, monthlyEarningChart, lineBarChart } from "./data";
-import { ChartType, EChartType } from "./admin.model";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Input,
+  Output,
+  EventEmitter,
+} from "@angular/core";
+import {
+  emailSentBarChart,
+  monthlyEarningChart,
+  lineBarChart,
+  pieChart,
+  additionbreakupgaugeChart,
+  yieldgaugeChart,
+  additionbreakuplinewithDataChart,
+  yieldlinewithDataChart,
+} from "./data";
+import {
+  ChartType,
+  LineBarChartType,
+  PieChartType,
+  GaugeChartType,
+  LineWithDataChartType,
+} from "./admin.model";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { EventService } from "../../../core/services/event.service";
+import {
+  NgbDate,
+  NgbCalendar,
+  NgbDateStruct,
+} from "@ng-bootstrap/ng-bootstrap";
 
 import { ConfigService } from "../../../core/services/config.service";
 
@@ -16,22 +43,43 @@ export class AdminDashboardComponent implements OnInit {
 
   emailSentBarChart: ChartType;
   monthlyEarningChart: ChartType;
-  lineBarChart: EChartType;
+  lineBarChart: LineBarChartType;
+  additionbreakupgaugeChart: GaugeChartType;
+  yieldgaugeChart: GaugeChartType;
+  additionbreakuplinewithDataChart: LineWithDataChartType;
+  yieldlinewithDataChart: LineWithDataChartType;
+  pieChart: PieChartType;
   transactions: Array<[]>;
   // statData: Array<[]>;
 
+  hoveredDate: NgbDate;
+  fromNGDate: NgbDate;
+  toNGDate: NgbDate;
+
+  @Input() fromDate: Date;
+  @Input() toDate: Date;
+  @Output() dateRangeSelected: EventEmitter<{}> = new EventEmitter();
+
+  @ViewChild("dp", { static: true }) datePicker: any;
+
+  model: NgbDateStruct;
+  date: { year: number; month: number };
+
   isActive: string;
+
+  hidden: boolean;
+  selected: any;
 
   statData = [
     {
       icon: "bx bx-copy-alt",
       title: "Total Scrap Weight",
-      value: "8157KG",
+      value: "900 Tons",
     },
     {
       icon: "bx bx-archive-in",
       title: "Total RM Weight",
-      value: "7921KG",
+      value: "873.9 Tons",
     },
 
     {
@@ -50,7 +98,8 @@ export class AdminDashboardComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private configService: ConfigService,
-    private eventService: EventService
+    private eventService: EventService,
+    private calendar: NgbCalendar
   ) {}
 
   ngOnInit() {
@@ -76,6 +125,8 @@ export class AdminDashboardComponent implements OnInit {
      * Fetches the data
      */
     this.fetchData();
+
+    this.hidden = true;
   }
 
   ngAfterViewInit() {
@@ -89,6 +140,11 @@ export class AdminDashboardComponent implements OnInit {
    */
   private fetchData() {
     this.lineBarChart = lineBarChart;
+    this.pieChart = pieChart;
+    this.additionbreakupgaugeChart = additionbreakupgaugeChart;
+    this.yieldgaugeChart = yieldgaugeChart;
+    this.additionbreakuplinewithDataChart = additionbreakuplinewithDataChart;
+    this.yieldlinewithDataChart = yieldlinewithDataChart;
     this.emailSentBarChart = emailSentBarChart;
     this.monthlyEarningChart = monthlyEarningChart;
 
@@ -227,5 +283,77 @@ export class AdminDashboardComponent implements OnInit {
    */
   changeLayout(layout: string) {
     this.eventService.broadcast("changeLayout", layout);
+  }
+
+  /**
+   * on date selected
+   * @param date date object
+   */
+  onDateSelection(date: NgbDate) {
+    if (!this.fromDate && !this.toDate) {
+      this.fromNGDate = date;
+      this.fromDate = new Date(date.year, date.month - 1, date.day);
+      this.selected = "";
+    } else if (this.fromDate && !this.toDate && date.after(this.fromNGDate)) {
+      this.toNGDate = date;
+      this.toDate = new Date(date.year, date.month - 1, date.day);
+      this.hidden = true;
+      this.selected =
+        this.fromDate.toLocaleDateString() +
+        "-" +
+        this.toDate.toLocaleDateString();
+      this.dateRangeSelected.emit({
+        fromDate: this.fromDate,
+        toDate: this.toDate,
+      });
+
+      this.fromDate = null;
+      this.toDate = null;
+      this.fromNGDate = null;
+      this.toNGDate = null;
+    } else {
+      this.fromNGDate = date;
+      this.fromDate = new Date(date.year, date.month - 1, date.day);
+      this.selected = "";
+    }
+  }
+  /**
+   * Is hovered over date
+   * @param date date obj
+   */
+  isHovered(date: NgbDate) {
+    return (
+      this.fromNGDate &&
+      !this.toNGDate &&
+      this.hoveredDate &&
+      date.after(this.fromNGDate) &&
+      date.before(this.hoveredDate)
+    );
+  }
+
+  /**
+   * @param date date obj
+   */
+  isInside(date: NgbDate) {
+    return date.after(this.fromNGDate) && date.before(this.toNGDate);
+  }
+
+  /**
+   * @param date date obj
+   */
+  isRange(date: NgbDate) {
+    return (
+      date.equals(this.fromNGDate) ||
+      date.equals(this.toNGDate) ||
+      this.isInside(date) ||
+      this.isHovered(date)
+    );
+  }
+
+  /**
+   * Select the today
+   */
+  selectToday() {
+    this.model = this.calendar.getToday();
   }
 }

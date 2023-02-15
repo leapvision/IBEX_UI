@@ -1,7 +1,12 @@
-import { ChartType } from "./admin.model";
-import { EChartType } from "./admin.model";
+import {
+  ChartType,
+  LineBarChartType,
+  PieChartType,
+  GaugeChartType,
+  LineWithDataChartType,
+} from "./admin.model";
 
-const lineBarChart: EChartType = {
+const lineBarChart: LineBarChartType = {
   // Setup grid
   grid: {
     zlevel: 0,
@@ -38,7 +43,7 @@ const lineBarChart: EChartType = {
   },
   color: ["#34c38f", "#556ee6", "#f46a6a"],
   legend: {
-    data: ["Scrap Weight", "RM Weight", "Yield"],
+    data: ["Scrap Weight", "RM Weight", "Yield (%)"],
     textStyle: { color: "#8791af" },
   },
   xAxis: [
@@ -91,7 +96,7 @@ const lineBarChart: EChartType = {
     },
     {
       type: "value",
-      name: "Yield %",
+      name: "Yield",
       min: 0,
       max: 100,
       interval: 10,
@@ -128,7 +133,7 @@ const lineBarChart: EChartType = {
       ],
     },
     {
-      name: "Yield",
+      name: "Yield (%)",
       type: "line",
       yAxisIndex: 1,
       data: [
@@ -139,6 +144,293 @@ const lineBarChart: EChartType = {
   ],
 };
 
+const pieChart: PieChartType = {
+  tooltip: {
+    trigger: "item",
+    formatter: "{a} <br/>{b} : {c} ({d}%)",
+  },
+  legend: {
+    orient: "horizontal",
+    left: "left",
+    data: [
+      "Scrap",
+      "Ibex Runners & Returns",
+      "Rejected Ingots",
+      "Flux",
+      "Addition Details",
+    ],
+    textStyle: { color: "#8791af" },
+  },
+  series: [
+    {
+      name: "Quantity(Tons)",
+      type: "pie",
+      radius: "55%",
+      center: ["50%", "60%"],
+      data: [
+        { value: 798.6, name: "Scrap" },
+        { value: 77.01, name: "Ibex Runners & Returns" },
+        { value: 23.28, name: "Rejected Ingots" },
+        { value: 23.25, name: "Flux" },
+        { value: 0.069, name: "Addition Details" },
+      ],
+      itemStyle: {
+        emphasis: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: "rgba(0, 0, 0, 0.5)",
+        },
+      },
+    },
+  ],
+  color: ["#556ee6", "#f1b44c", "#f46a6a", "#50a5f1", "#34c38f"],
+};
+
+// Scrap
+// const emailSentBarChart: ChartType = {
+//   chart: {
+//     height: 340,
+//     type: "bar",
+//     stacked: true,
+//     toolbar: {
+//       show: false,
+//     },
+//     zoom: {
+//       enabled: true,
+//     },
+//   },
+//   plotOptions: {
+//     bar: {
+//       horizontal: false,
+//       columnWidth: "15%",
+//       endingShape: "rounded",
+//     },
+//   },
+//   dataLabels: {
+//     enabled: false,
+//   },
+//   series: [
+//     {
+//       name: "CMR",
+//       data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48],
+//     },
+//     {
+//       name: "Steel Line India",
+//       data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+//     },
+//     {
+//       name: "Sunland",
+//       data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+//     },
+//     {
+//       name: "Welbow",
+//       data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+//     },
+//   ],
+//   xaxis: {
+//     categories: [
+//       "Jan",
+//       "Feb",
+//       "Mar",
+//       "Apr",
+//       "May",
+//       "Jun",
+//       "Jul",
+//       "Aug",
+//       "Sep",
+//       "Oct",
+//       "Nov",
+//       "Dec",
+//     ],
+//   },
+//   colors: ["#556ee6", "#f1b44c", "#64bc43", "#FF0000"],
+//   legend: {
+//     position: "bottom",
+//   },
+//   fill: {
+//     opacity: 1,
+//   },
+// };
+
+// Ibex Runners & Returns
+// const emailSentBarChart: ChartType = {
+//   chart: {
+//     height: 340,
+//     type: "bar",
+//     stacked: true,
+//     toolbar: {
+//       show: false,
+//     },
+//     zoom: {
+//       enabled: true,
+//     },
+//   },
+//   plotOptions: {
+//     bar: {
+//       horizontal: false,
+//       columnWidth: "15%",
+//       endingShape: "rounded",
+//     },
+//   },
+//   dataLabels: {
+//     enabled: false,
+//   },
+//   series: [
+//     {
+//       name: "Ibex Runners & Returns",
+//       data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48],
+//     },
+//   ],
+//   xaxis: {
+//     categories: [
+//       "Jan",
+//       "Feb",
+//       "Mar",
+//       "Apr",
+//       "May",
+//       "Jun",
+//       "Jul",
+//       "Aug",
+//       "Sep",
+//       "Oct",
+//       "Nov",
+//       "Dec",
+//     ],
+//   },
+//   colors: ["#FFC653"],
+//   legend: {
+//     position: "bottom",
+//   },
+//   fill: {
+//     opacity: 1,
+//   },
+// };
+
+// Rejection Ingots
+// const emailSentBarChart: ChartType = {
+//   chart: {
+//     height: 340,
+//     type: "bar",
+//     stacked: true,
+//     toolbar: {
+//       show: false,
+//     },
+//     zoom: {
+//       enabled: true,
+//     },
+//   },
+//   plotOptions: {
+//     bar: {
+//       horizontal: false,
+//       columnWidth: "15%",
+//       endingShape: "rounded",
+//     },
+//   },
+//   dataLabels: {
+//     enabled: false,
+//   },
+//   series: [
+//     {
+//       name: "AM50A",
+//       data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48],
+//     },
+//     {
+//       name: "AZ91D",
+//       data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+//     },
+//     {
+//       name: "MG9010",
+//       data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+//     },
+//   ],
+//   xaxis: {
+//     categories: [
+//       "Jan",
+//       "Feb",
+//       "Mar",
+//       "Apr",
+//       "May",
+//       "Jun",
+//       "Jul",
+//       "Aug",
+//       "Sep",
+//       "Oct",
+//       "Nov",
+//       "Dec",
+//     ],
+//   },
+//   colors: ["#556ee6", "#f1b44c", "#64bc43"],
+//   legend: {
+//     position: "bottom",
+//   },
+//   fill: {
+//     opacity: 1,
+//   },
+// };
+
+// Flux
+// const emailSentBarChart: ChartType = {
+//   chart: {
+//     height: 340,
+//     type: "bar",
+//     stacked: true,
+//     toolbar: {
+//       show: false,
+//     },
+//     zoom: {
+//       enabled: true,
+//     },
+//   },
+//   plotOptions: {
+//     bar: {
+//       horizontal: false,
+//       columnWidth: "15%",
+//       endingShape: "rounded",
+//     },
+//   },
+//   dataLabels: {
+//     enabled: false,
+//   },
+//   series: [
+//     {
+//       name: "Flux 0",
+//       data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48],
+//     },
+//     {
+//       name: "Flux 5",
+//       data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+//     },
+//     {
+//       name: "Flux 12",
+//       data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
+//     },
+//   ],
+//   xaxis: {
+//     categories: [
+//       "Jan",
+//       "Feb",
+//       "Mar",
+//       "Apr",
+//       "May",
+//       "Jun",
+//       "Jul",
+//       "Aug",
+//       "Sep",
+//       "Oct",
+//       "Nov",
+//       "Dec",
+//     ],
+//   },
+//   colors: ["#556ee6", "#f1b44c", "#64bc43"],
+//   legend: {
+//     position: "bottom",
+//   },
+//   fill: {
+//     opacity: 1,
+//   },
+// };
+
+// Addition Details
 const emailSentBarChart: ChartType = {
   chart: {
     height: 340,
@@ -163,12 +455,8 @@ const emailSentBarChart: ChartType = {
   },
   series: [
     {
-      name: "Line 1",
+      name: "Total Addition",
       data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48],
-    },
-    {
-      name: "Line 2",
-      data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22],
     },
   ],
   xaxis: {
@@ -187,7 +475,7 @@ const emailSentBarChart: ChartType = {
       "Dec",
     ],
   },
-  colors: ["#556ee6", "#f1b44c"],
+  colors: ["#556ee6"],
   legend: {
     position: "bottom",
   },
@@ -240,6 +528,260 @@ const monthlyEarningChart: ChartType = {
   },
   series: [82],
   labels: ["Ingots"],
+};
+
+// Addition Breakup GaugeChart
+const additionbreakupgaugeChart: GaugeChartType = {
+  tooltip: {
+    formatter: "{a} <br/>{b} : {c}%",
+  },
+  toolbox: {
+    feature: {
+      // restore: { title: "Refresh" },
+      saveAsImage: { title: "Download Image" },
+    },
+  },
+  series: [
+    {
+      name: "Additives Gauge",
+      type: "gauge",
+      min: 0,
+      max: 1000,
+      detail: { formatter: "{value}" },
+      axisLine: {
+        lineStyle: {
+          color: [
+            [0.2, "#34c38f"],
+            [0.8, "#556ee6"],
+            [1, "#f46a6a"],
+          ],
+          width: 15,
+        },
+      },
+      data: [{ value: 630, name: "Quantity (KG)" }],
+    },
+  ],
+};
+
+// Yield Analysis GaugeChart
+const yieldgaugeChart: GaugeChartType = {
+  tooltip: {
+    formatter: "{a} <br/>{b} : {c}%",
+  },
+  toolbox: {
+    feature: {
+      // restore: { title: "Refresh" },
+      saveAsImage: { title: "Download Image" },
+    },
+  },
+  series: [
+    {
+      name: "Yield Analysis Gauge",
+      type: "gauge",
+      min: 0,
+      max: 100,
+      detail: { formatter: "{value}%" },
+      axisLine: {
+        lineStyle: {
+          color: [
+            [0.2, "#f46a6a"],
+            [0.8, "#f1b44c"],
+            [1, "#34c38f"],
+          ],
+          width: 15,
+        },
+      },
+      data: [{ value: 88.12, name: "Yield %" }],
+    },
+  ],
+};
+
+// Addition Breakup LineWithDataChart
+const additionbreakuplinewithDataChart: LineWithDataChartType = {
+  chart: {
+    height: 380,
+    type: "line",
+    zoom: {
+      enabled: false,
+    },
+    toolbar: {
+      show: false,
+    },
+  },
+  colors: ["#556ee6", "#34c38f"],
+  dataLabels: {
+    enabled: true,
+  },
+  stroke: {
+    width: [3, 3],
+    curve: "straight",
+  },
+  series: [
+    {
+      name: "Quantity (KG)",
+      data: [26, 24, 32, 36, 33, 31, 33, 32, 36, 33, 31, 33],
+    },
+  ],
+
+  grid: {
+    row: {
+      colors: ["transparent", "transparent"], // takes an array which will be repeated on columns
+      opacity: 0.2,
+    },
+    borderColor: "#f1f1f1",
+  },
+  markers: {
+    style: "inverted",
+    size: 6,
+  },
+  xaxis: {
+    categories: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    title: {
+      text: "Month",
+    },
+  },
+  yaxis: {
+    title: {
+      text: "Quantity (KG)",
+    },
+    min: 0,
+    max: 50,
+  },
+  legend: {
+    position: "top",
+    horizontalAlign: "right",
+    floating: true,
+    offsetY: -25,
+    offsetX: -5,
+  },
+  responsive: [
+    {
+      breakpoint: 600,
+      options: {
+        chart: {
+          toolbar: {
+            show: false,
+          },
+        },
+        legend: {
+          show: false,
+        },
+      },
+    },
+  ],
+};
+
+// Yield Analysis LineWithDataChart
+const yieldlinewithDataChart: LineWithDataChartType = {
+  chart: {
+    height: 380,
+    type: "line",
+    zoom: {
+      enabled: false,
+    },
+    toolbar: {
+      show: false,
+    },
+  },
+  colors: ["#CF5A5A", "#556ee6"],
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    width: [3, 3],
+    curve: "straight",
+  },
+  series: [
+    {
+      name: "Avg Yield",
+      data: [82, 72, 78, 86, 95, 86, 79, 69, 89, 97, 71, 81],
+    },
+    {
+      name: "CMR",
+      data: [85, 86, 78, 96, 75, 96, 89, 79, 99, 97, 91, 81],
+    },
+    // {
+    //   name: "Sunland",
+    //   data: [26, 24, 32, 36, 33, 31, 33, 32, 36, 33, 31, 33],
+    // },
+    // {
+    //   name: "Welbow",
+    //   data: [26, 24, 32, 36, 33, 31, 33, 32, 36, 33, 31, 33],
+    // },
+  ],
+
+  grid: {
+    row: {
+      colors: ["transparent", "transparent"], // takes an array which will be repeated on columns
+      opacity: 0.2,
+    },
+    borderColor: "#f1f1f1",
+  },
+  markers: {
+    style: "inverted",
+    size: 6,
+  },
+  xaxis: {
+    categories: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    title: {
+      text: "Month",
+    },
+  },
+  yaxis: {
+    title: {
+      text: "Quantity (KG)",
+    },
+    min: 0,
+    max: 100,
+  },
+  legend: {
+    position: "top",
+    horizontalAlign: "right",
+    floating: true,
+    offsetY: -25,
+    offsetX: -5,
+  },
+  responsive: [
+    {
+      breakpoint: 600,
+      options: {
+        chart: {
+          toolbar: {
+            show: false,
+          },
+        },
+        legend: {
+          show: false,
+        },
+      },
+    },
+  ],
 };
 
 const transactions = [
@@ -323,4 +865,9 @@ export {
   transactions,
   statData,
   lineBarChart,
+  pieChart,
+  additionbreakupgaugeChart,
+  yieldgaugeChart,
+  additionbreakuplinewithDataChart,
+  yieldlinewithDataChart,
 };

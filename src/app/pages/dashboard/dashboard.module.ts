@@ -18,6 +18,7 @@ import { SimplebarAngularModule } from "simplebar-angular";
 import { NgxEchartsModule } from "ngx-echarts";
 import { AdminDashboardComponent } from "./admin/admin.component";
 import { SupervisorDashboardComponent } from "./supervisor/supervisor.component";
+import { NgbDatepickerModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [AdminDashboardComponent, SupervisorDashboardComponent],
@@ -34,6 +35,7 @@ import { SupervisorDashboardComponent } from "./supervisor/supervisor.component"
     WidgetModule,
     NgApexchartsModule,
     SimplebarAngularModule,
+    NgbDatepickerModule,
     NgxEchartsModule.forRoot({
       echarts: () => import("echarts"),
     }),
