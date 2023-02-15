@@ -1,11 +1,11 @@
-import { AdminModule } from "./admin/admin.module";
+import { TableViewComponent } from "./tableview/tableview.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { DashboardsRoutingModule } from "./dashboard-routing.module";
-import { UIModule } from "../../shared/ui/ui.module";
-import { WidgetModule } from "../../shared/widget/widget.module";
+import { AdminRoutingModule } from "./admin-routing.module";
+import { UIModule } from "../../../shared/ui/ui.module";
+import { WidgetModule } from "../../../shared/widget/widget.module";
 
 import { NgApexchartsModule } from "ng-apexcharts";
 import {
@@ -17,17 +17,16 @@ import {
 import { SimplebarAngularModule } from "simplebar-angular";
 
 import { NgxEchartsModule } from "ngx-echarts";
-import { AdminDashboardComponent } from "./admin/admin.component";
-import { SupervisorDashboardComponent } from "./supervisor/supervisor.component";
 import { NgbDatepickerModule } from "@ng-bootstrap/ng-bootstrap";
+import { GraphViewComponent } from "./graphview/graphview.component";
 
 @NgModule({
-  declarations: [AdminDashboardComponent, SupervisorDashboardComponent],
+  declarations: [TableViewComponent, GraphViewComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    DashboardsRoutingModule,
+    AdminRoutingModule,
     UIModule,
     NgbDropdownModule,
     NgbTooltipModule,
@@ -42,4 +41,4 @@ import { NgbDatepickerModule } from "@ng-bootstrap/ng-bootstrap";
     }),
   ],
 })
-export class DashboardsModule {}
+export class AdminModule {}

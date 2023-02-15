@@ -6,7 +6,8 @@ import { Routes, RouterModule } from "@angular/router";
 const routes: Routes = [
   {
     path: "admin",
-    component: AdminDashboardComponent,
+    loadChildren: () =>
+      import("./admin/admin.module").then((m) => m.AdminModule),
   },
   {
     path: "supervisor",
