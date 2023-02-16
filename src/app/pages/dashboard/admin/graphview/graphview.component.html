@@ -19,7 +19,12 @@
             <div class="card">
               <div class="card-body p-0">
                 <h4 class="card-title text-center">Scrap Weight - 900 Tons</h4>
-                <div echarts [options]="pieChart" class="demo-chart"></div>
+                <div
+                  echarts
+                  [options]="pieChart"
+                  (chartClick)="onScrapPieChartClick($event)"
+                  class="demo-chart"
+                ></div>
               </div>
             </div>
           </div>
@@ -176,6 +181,7 @@
                 <div
                   echarts
                   [options]="additionbreakupgaugeChart"
+                  [autoResize]="true"
                   class="demo-chart"
                 ></div>
               </div>
@@ -345,7 +351,7 @@
         <h3 class="card-title text-center">Rejections Analysis</h3>
 
         <div class="row">
-          <div *ngFor="let stat of rejectionData" class="col-lg-4">
+          <div *ngFor="let stat of rejectionData" class="col-lg-4 col-md-4">
             <app-stat
               [title]="stat.title"
               [value]="stat.value"
@@ -379,6 +385,8 @@
                       <div
                         echarts
                         [options]="rejectionpieChart"
+                        [autoResize]="true"
+                        (chartClick)="onRejectionPieChartClick($event)"
                         class="demo-chart"
                       ></div>
                     </div>

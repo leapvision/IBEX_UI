@@ -273,6 +273,7 @@ const rejectionlineBarChart: LineBarChartType = {
 const pieChart: PieChartType = {
   tooltip: {
     trigger: "item",
+    position: "right",
     formatter: "{a} <br/>{b} : {c} ({d}%)",
   },
   legend: {
@@ -300,8 +301,8 @@ const pieChart: PieChartType = {
         { value: 23.25, name: "Flux" },
         { value: 0.069, name: "Addition Details" },
       ],
-      itemStyle: {
-        emphasis: {
+      emphasis: {
+        itemstyle: {
           shadowBlur: 10,
           shadowOffsetX: 0,
           shadowColor: "rgba(0, 0, 0, 0.5)",
@@ -315,6 +316,7 @@ const pieChart: PieChartType = {
 // Rejection PieChart
 const rejectionpieChart: PieChartType = {
   tooltip: {
+    position: "right",
     trigger: "item",
     formatter: "{a} <br/>{b} : {c} ({d}%)",
   },
@@ -351,8 +353,8 @@ const rejectionpieChart: PieChartType = {
         { value: 1.85, name: "Dent & Damage" },
         { value: 2.69, name: "Others" },
       ],
-      itemStyle: {
-        emphasis: {
+      emphasis: {
+        itemstyle: {
           shadowBlur: 10,
           shadowOffsetX: 0,
           shadowColor: "rgba(0, 0, 0, 0.5)",
@@ -777,6 +779,7 @@ const monthlyEarningChart: ChartType = {
 const additionbreakupgaugeChart: GaugeChartType = {
   tooltip: {
     formatter: "{a} <br/>{b} : {c}%",
+    position: "right",
   },
   toolbox: {
     feature: {
@@ -790,7 +793,8 @@ const additionbreakupgaugeChart: GaugeChartType = {
       type: "gauge",
       min: 0,
       max: 1000,
-      detail: { formatter: "{value}" },
+      detail: { formatter: "{value}", fontSize: 20 },
+      center: ["50%", "50%"],
       axisLine: {
         lineStyle: {
           color: [
@@ -801,7 +805,15 @@ const additionbreakupgaugeChart: GaugeChartType = {
           width: 15,
         },
       },
+
       data: [{ value: 630, name: "Quantity (KG)" }],
+      axisLabel: {
+        fontSize: 10,
+        distance: -40,
+      },
+      title: {
+        fontSize: 16,
+      },
     },
   ],
 };

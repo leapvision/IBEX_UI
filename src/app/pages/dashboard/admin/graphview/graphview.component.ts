@@ -383,4 +383,16 @@ export class GraphViewComponent implements OnInit {
   selectToday() {
     this.model = this.calendar.getToday();
   }
+
+  onRejectionPieChartClick(event) {
+    console.log(
+      `You clicked ${event.data.name}, with rejection quantity ${event.data.value} tons`
+    );
+  }
+
+  onScrapPieChartClick(event) {
+    console.log(
+      `You clicked ${event.data.name}, with quantity ${event.data.value} tons`
+    );
+  }
 }
