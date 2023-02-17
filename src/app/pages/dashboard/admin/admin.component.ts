@@ -35,6 +35,7 @@ import {
 } from "@ng-bootstrap/ng-bootstrap";
 
 import { ConfigService } from "../../../core/services/config.service";
+import { AdminService } from "./admin.service";
 
 @Component({
   selector: "app-default",
@@ -123,7 +124,8 @@ export class AdminDashboardComponent implements OnInit {
     private modalService: NgbModal,
     private configService: ConfigService,
     private eventService: EventService,
-    private calendar: NgbCalendar
+    private calendar: NgbCalendar,
+    private adminService: AdminService
   ) {}
 
   ngOnInit() {
@@ -152,6 +154,9 @@ export class AdminDashboardComponent implements OnInit {
 
     this.hidden = true;
   }
+
+  currentStatusHeadingArray = this.adminService.getCurrentStatus().heading;
+  currentStatusBodyArray = this.adminService.getCurrentStatus().body;
 
   ngAfterViewInit() {
     // setTimeout(() => {
