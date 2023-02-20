@@ -1,4 +1,6 @@
+import { ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Subscription, timer } from "rxjs";
+import Swal from "sweetalert2";
 import {
   Component,
   OnInit,
@@ -36,6 +38,12 @@ export class TopbarComponent implements OnInit, OnDestroy {
   rxTime = new Date();
   subscription: Subscription;
 
+  isStartedShift: boolean = false;
+  closeResult: string;
+
+  showOperators: boolean = true;
+  operatorList: Array<string>;
+
   constructor(
     @Inject(DOCUMENT) private document: any,
     private router: Router,
@@ -43,7 +51,8 @@ export class TopbarComponent implements OnInit, OnDestroy {
     private authFackservice: AuthfakeauthenticationService,
     public languageService: LanguageService,
     public translate: TranslateService,
-    public _cookiesService: CookieService
+    public _cookiesService: CookieService,
+    private modalService: NgbModal
   ) {}
 
   listLang = [
@@ -73,6 +82,13 @@ export class TopbarComponent implements OnInit, OnDestroy {
     } else {
       this.flagvalue = val.map((element) => element.flag);
     }
+
+    this.operatorList = [
+      "Operator 1",
+      "Operator 2",
+      "Operator 3",
+      "Operator 4",
+    ];
 
     // Using RxJS Timer
     this.subscription = timer(0, 1000)
@@ -155,6 +171,81 @@ export class TopbarComponent implements OnInit, OnDestroy {
         this.document.msExitFullscreen();
       }
     }
+  }
+
+  cancel() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger ms-2",
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        confirmButtonText: "Yes",
+        cancelButtonText: "No, cancel!",
+        showCancelButton: true,
+      })
+      .then((result) => {
+        if (result.value) {
+          swalWithBootstrapButtons.fire(
+            "Shift Ended!",
+            "Your shift details has been recorded",
+            "success"
+          );
+          this.onEndShift();
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your shift is still going on!",
+            "error"
+          );
+        }
+      });
+  }
+
+  open(content) {
+    this.modalService
+      .open(content, { ariaLabelledBy: "modal-basic-title" })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return "by pressing ESC";
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return "by clicking on a backdrop";
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+  onStartShift() {
+    this.isStartedShift = !this.isStartedShift;
+  }
+
+  onEndShift() {
+    this.isStartedShift = !this.isStartedShift;
+  }
+
+  onConfirm() {
+    this.modalService.dismissAll();
+    this.onStartShift();
   }
 
   ngOnDestroy(): void {
