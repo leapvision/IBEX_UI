@@ -334,6 +334,17 @@
             <li [ngbNavItem]="20">
               <a ngbNavLink>
                 <span class="d-block d-sm-none"
+                  ><i class="far fa-envelope"></i
+                ></span>
+                <span class="d-none d-sm-block">Certificate of Quality</span>
+              </a>
+              <ng-template ngbNavContent>
+                <ng-template [ngTemplateOutlet]="QualityReport"></ng-template>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="21">
+              <a ngbNavLink>
+                <span class="d-block d-sm-none"
                   ><i class="fas fa-cog"></i
                 ></span>
                 <span class="d-none d-sm-block">Final Dispatch</span>
@@ -353,7 +364,7 @@
 </div>
 
 <ng-template #ScrapPurchase>
-  <div class="table-responsive">
+  <!-- <div class="table-responsive">
     <table class="table mb-0 table-hover">
       <thead class="table-light">
         <tr>
@@ -376,11 +387,16 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div> -->
+  <app-table
+    [HeadingArray]="scrappurchaseHeadingArray"
+    [BodyArray]="scrappurchaseBodyArray"
+    [children]="true"
+  ></app-table>
 </ng-template>
 
 <ng-template #ScrapInspection>
-  <div class="table-responsive">
+  <!-- <div class="table-responsive">
     <table class="table mb-0 table-hover">
       <thead class="table-light">
         <tr>
@@ -526,7 +542,14 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div> -->
+  <app-table
+    [HeadingArray]="scrapinspectionHeadingArray"
+    [BodyArray]="scrapinspectionBodyArray"
+    [ParentReports]="scrapinspectionparentReports"
+    [children]="true"
+    [source]="true"
+  ></app-table>
 </ng-template>
 
 <ng-template #MTOMaterialLoading>
@@ -1478,10 +1501,18 @@
   ></app-table>
 </ng-template>
 
+<ng-template #QualityReport>
+  <app-table
+    [HeadingArray]="qualityHeadingArray"
+    [BodyArray]="qualityBodyArray"
+    [children]="true"
+  ></app-table>
+</ng-template>
+
 <ng-template #FinalDispatchReport>
   <app-table
-    [HeadingArray]="fasHeadingArray"
-    [BodyArray]="fasBodyArray"
+    [HeadingArray]="finaldispatchHeadingArray"
+    [BodyArray]="finaldispatchBodyArray"
     [children]="true"
   ></app-table>
 </ng-template>

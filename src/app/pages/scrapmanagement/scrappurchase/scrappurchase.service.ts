@@ -47,4 +47,7 @@ export class ScrapPurchaseService {
   getScrapPurchaseReport() {
     return { heading: this.headingArray, body: this.bodyArray };
   }
+  getScrapPurchaseReportForNumber() {
+    return { heading: this.headingArray, body: this.bodyArray.slice(0, 1) };
+  }
 }

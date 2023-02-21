@@ -1,3 +1,5 @@
+import { ScrapInspectionService } from "./../scrapmanagement/scrapinspection/scrapinspection.service";
+import { ScrapPurchaseService } from "./../scrapmanagement/scrappurchase/scrappurchase.service";
 import { PackingService } from "./../packing/packingingots/packingingots.service";
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
@@ -13,6 +15,7 @@ import { PrintingService } from "../mwo/printing/printing.service";
 import { FinalInspectionService } from "../mwo/finalinspection/finalinspection.service";
 import { FASService } from "../dispatch/fas/fas.service";
 import { FinalDispatchService } from "../dispatch/finaldispatch/finaldispatch.service";
+import { QualityService } from "../dispatch/quality/certquality.service";
 
 @Component({
   selector: "app-reports",
@@ -28,6 +31,8 @@ export class ReportsComponent implements OnInit {
   heatNumbers = [];
 
   constructor(
+    private scrappurchaseService: ScrapPurchaseService,
+    private scrapinspectionService: ScrapInspectionService,
     private materialloadingService: MaterialLoadingService,
     private meltingService: MeltingService,
     private fluxmixingService: FluxMixingService,
@@ -40,8 +45,31 @@ export class ReportsComponent implements OnInit {
     private finalinspectionService: FinalInspectionService,
     private packingService: PackingService,
     private fasService: FASService,
+    private qualityService: QualityService,
     private dispatchService: FinalDispatchService
   ) {}
+
+  scrappurchaseHeadingArray =
+    this.scrappurchaseService.getScrapPurchaseReportForNumber().heading;
+  scrappurchaseBodyArray =
+    this.scrappurchaseService.getScrapPurchaseReportForNumber().body;
+  scrapinspectionHeadingArray =
+    this.scrapinspectionService.getScrapInspectionReportForNumber().heading;
+  scrapinspectionBodyArray =
+    this.scrapinspectionService.getScrapInspectionReportForNumber().body;
+
+  scrapinspectionparentReports: Array<{}> = [
+    {
+      spectroReports: true,
+      name: "Sample Spectro Reports",
+      samples: [
+        {
+          name: "Sample 1",
+          data: this.scrapinspectionService.samplesArray,
+        },
+      ],
+    },
+  ];
 
   mlHeadingArray =
     this.materialloadingService.getMaterialLoadingReportForMeltNumber(
@@ -108,6 +136,14 @@ export class ReportsComponent implements OnInit {
   fasHeadingArray =
     this.fasService.getFASForInvoiceNumber("heatnumber").heading;
   fasBodyArray = this.fasService.getFASForInvoiceNumber("heatnumber").body;
+  qualityHeadingArray =
+    this.qualityService.getQualityForInvoiceNumber("heatnumber").heading;
+  qualityBodyArray =
+    this.qualityService.getQualityForInvoiceNumber("heatnumber").body;
+  finaldispatchHeadingArray =
+    this.dispatchService.getFinalDispatchForInvoiceNumber("number").heading;
+  finaldispatchBodyArray =
+    this.dispatchService.getFinalDispatchForInvoiceNumber("number").body;
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: "Reports" }];

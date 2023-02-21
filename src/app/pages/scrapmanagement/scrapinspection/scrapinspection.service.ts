@@ -132,4 +132,7 @@ export class ScrapInspectionService {
   getScrapInspectionReport() {
     return { heading: this.headingArray, body: this.bodyArray };
   }
+  getScrapInspectionReportForNumber() {
+    return { heading: this.headingArray, body: this.bodyArray.slice(0, 1) };
+  }
 }
