@@ -7,6 +7,8 @@ import {
   EventEmitter,
 } from "@angular/core";
 import {
+  scrapvendorBreakupChart,
+  rejectedingotsBreakupChart,
   rejectionemailSentBarChart,
   monthlyEarningChart,
   lineBarChart,
@@ -17,30 +19,36 @@ import {
   additionbreakuplinewithDataChart,
   yieldlinewithDataChart,
   rejectionlineBarChart,
-} from "./data";
+  fluxBreakupChart,
+  ibexrunnersreturnsBreakupChart,
+  additiondetailsBreakupChart,
+} from "../data";
 import {
   ChartType,
   LineBarChartType,
   PieChartType,
   GaugeChartType,
   LineWithDataChartType,
-} from "./supervisor.model";
+} from "../supervisor.model";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { EventService } from "../../../core/services/event.service";
+import { EventService } from "../../../../core/services/event.service";
 import {
   NgbDate,
   NgbCalendar,
   NgbDateStruct,
 } from "@ng-bootstrap/ng-bootstrap";
 
-import { ConfigService } from "../../../core/services/config.service";
+import { ConfigService } from "../../../../core/services/config.service";
 
 @Component({
-  selector: "app-supervisor",
-  templateUrl: "./supervisor.component.html",
-  styleUrls: ["./supervisor.component.scss"],
+  selector: "app-graphview",
+  templateUrl: "./graphview.component.html",
+  styleUrls: ["./graphview.component.scss"],
 })
-export class SupervisorDashboardComponent implements OnInit {
+export class GraphViewComponent implements OnInit {
+  scrapAnalysisData: ChartType;
+  scrapAnalysisName: string;
+
   isVisible: string;
 
   emailSentBarChart: ChartType;
@@ -170,15 +178,47 @@ export class SupervisorDashboardComponent implements OnInit {
     this.yieldgaugeChart = yieldgaugeChart;
     this.additionbreakuplinewithDataChart = additionbreakuplinewithDataChart;
     this.yieldlinewithDataChart = yieldlinewithDataChart;
-
     this.rejectionemailSentBarChart = rejectionemailSentBarChart;
     this.monthlyEarningChart = monthlyEarningChart;
+    this.scrapAnalysisData = scrapvendorBreakupChart;
+    this.scrapAnalysisName = "Scrap - Vendor Breakup";
 
     this.isActive = "year";
     this.configService.getConfig().subscribe((data) => {
       this.transactions = data.transactions;
       // this.statData = data.statData;
     });
+  }
+
+  private fetchScrapAnalysisData(type: string) {
+    if (type == "scrap") {
+      this.scrapAnalysisData = scrapvendorBreakupChart;
+    }
+    switch (type) {
+      case "scrap":
+        this.scrapAnalysisName = "Scrap - Vendor Breakup";
+        this.scrapAnalysisData = scrapvendorBreakupChart;
+        break;
+      case "ibexrunners & returns":
+        this.scrapAnalysisName = "Ibex Runners & Returns Breakup";
+        this.scrapAnalysisData = ibexrunnersreturnsBreakupChart;
+        break;
+      case "flux":
+        this.scrapAnalysisName = "Flux Breakup";
+        this.scrapAnalysisData = fluxBreakupChart;
+        break;
+      case "rejectedingots":
+        this.scrapAnalysisName = "Rejected Ingots Breakup";
+        this.scrapAnalysisData = rejectedingotsBreakupChart;
+        break;
+      case "additiondetails":
+        this.scrapAnalysisName = "Addition Details Breakup";
+        this.scrapAnalysisData = additiondetailsBreakupChart;
+        break;
+      default:
+        this.scrapAnalysisName = "Scrap - Vendor Breakup";
+        this.scrapAnalysisData = scrapvendorBreakupChart;
+    }
   }
 
   openModal() {
@@ -381,5 +421,19 @@ export class SupervisorDashboardComponent implements OnInit {
    */
   selectToday() {
     this.model = this.calendar.getToday();
+  }
+
+  onRejectionPieChartClick(event) {
+    console.log(
+      `You clicked ${event.data.name}, with rejection quantity ${event.data.value} tons`
+    );
+  }
+
+  onScrapPieChartClick(event) {
+    // console.log(
+    //   `You clicked ${event.data.name}, with quantity ${event.data.value} tons`
+    // );
+    // console.log(event.data.name.toLowerCase().replace(" ", ""));
+    this.fetchScrapAnalysisData(event.data.name.toLowerCase().replace(" ", ""));
   }
 }

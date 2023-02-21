@@ -20,7 +20,13 @@ export const MENU: MenuItem[] = [
       {
         id: 400,
         label: "Supervisor",
-        link: "/pages/dashboard/supervisor",
+        link: "/pages/dashboard/supervisor/graph",
+        parentId: 200,
+      },
+      {
+        id: 401,
+        label: "Quality",
+        link: "/pages/dashboard/quality",
         parentId: 200,
       },
     ],

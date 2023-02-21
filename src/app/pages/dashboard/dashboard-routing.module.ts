@@ -1,5 +1,3 @@
-import { SupervisorDashboardComponent } from "./supervisor/supervisor.component";
-import { AdminDashboardComponent } from "./admin/admin.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
@@ -11,7 +9,8 @@ const routes: Routes = [
   },
   {
     path: "supervisor",
-    component: SupervisorDashboardComponent,
+    loadChildren: () =>
+      import("./supervisor/supervisor.module").then((m) => m.SupervisorModule),
   },
 ];
 

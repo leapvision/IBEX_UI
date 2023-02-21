@@ -1,0 +1,426 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title text-center">Production Chart</h4>
+        <div echarts [options]="lineBarChart" class="demo-chart"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center mb-4">Scrap Analysis</h3>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body p-0">
+                <h4 class="card-title text-center">Scrap Weight - 900 Tons</h4>
+                <div
+                  echarts
+                  [options]="pieChart"
+                  (chartClick)="onScrapPieChartClick($event)"
+                  class="demo-chart"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title text-center">{{ scrapAnalysisName }}</h4>
+
+                <apx-chart
+                  dir="ltr"
+                  class="apex-charts"
+                  [chart]="scrapAnalysisData.chart"
+                  [series]="scrapAnalysisData.series"
+                  [legend]="scrapAnalysisData.legend"
+                  [colors]="scrapAnalysisData.colors"
+                  [fill]="scrapAnalysisData.fill"
+                  [dataLabels]="scrapAnalysisData.dataLabels"
+                  [xaxis]="scrapAnalysisData.xaxis"
+                  [plotOptions]="scrapAnalysisData.plotOptions"
+                >
+                </apx-chart>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-lg-8">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title text-center">Addition Breakup</h4>
+
+                  <apx-chart
+                    dir="ltr"
+                    class="apex-charts"
+                    [chart]="emailSentBarChart.chart"
+                    [series]="emailSentBarChart.series"
+                    [legend]="emailSentBarChart.legend"
+                    [colors]="emailSentBarChart.colors"
+                    [fill]="emailSentBarChart.fill"
+                    [dataLabels]="emailSentBarChart.dataLabels"
+                    [xaxis]="emailSentBarChart.xaxis"
+                    [plotOptions]="emailSentBarChart.plotOptions"
+                  >
+                  </apx-chart>
+                </div>
+              </div>
+            </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Addition Details Analysis</h3>
+        <div class="row mb-4">
+          <label>Choose Additive</label>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <!-- <input
+                type="radio"
+                class="btn-check"
+                name="additive"
+                id="all"
+                autocomplete="off"
+                checked
+              />
+              <label
+                class="btn btn-outline-primary"
+                style="padding: 8px 48px"
+                for="all"
+                >All</label
+              > -->
+            <input
+              type="radio"
+              class="btn-check"
+              name="additive"
+              id="be"
+              autocomplete="off"
+              checked
+            />
+            <label
+              class="btn btn-outline-primary"
+              style="padding: 8px 48px"
+              for="be"
+              >Be (Grams)</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="additive"
+              id="al"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary"
+              style="padding: 8px 48px"
+              for="al"
+              >Pure Al (KG)</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="additive"
+              id="zinc"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary"
+              style="padding: 8px 48px"
+              for="zinc"
+              >Zinc (KG)</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="additive"
+              id="almn"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary"
+              style="padding: 8px 48px"
+              for="almn"
+              >Al Mn (KG)</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="additive"
+              id="mg"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary"
+              style="padding: 8px 48px"
+              for="mg"
+              >Pure Mg (KG)</label
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title text-center">
+                  Beryllium (Be) Consumption Gauge
+                </h4>
+                <div
+                  echarts
+                  [options]="additionbreakupgaugeChart"
+                  [autoResize]="true"
+                  class="demo-chart"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title text-center">
+                  Beryllium (Be) Consumption Breakup
+                </h4>
+                <apx-chart
+                  class="apex-charts"
+                  dir="ltr"
+                  [series]="additionbreakuplinewithDataChart.series"
+                  [chart]="additionbreakuplinewithDataChart.chart"
+                  [colors]="additionbreakuplinewithDataChart.colors"
+                  [stroke]="additionbreakuplinewithDataChart.stroke"
+                  [dataLabels]="additionbreakuplinewithDataChart.dataLabels"
+                  [title]="additionbreakuplinewithDataChart.title"
+                  [responsive]="additionbreakuplinewithDataChart.responsive"
+                  [legend]="additionbreakuplinewithDataChart.legend"
+                  [xaxis]="additionbreakuplinewithDataChart.xaxis"
+                  [yaxis]="additionbreakuplinewithDataChart.yaxis"
+                  [stroke]="additionbreakuplinewithDataChart.stroke"
+                  [markers]="additionbreakuplinewithDataChart.markers"
+                >
+                </apx-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Yield Analysis</h3>
+        <div class="row mb-4">
+          <label>Choose Vendor</label>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="vendor"
+              id="all"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary"
+              style="padding: 8px 48px"
+              for="all"
+              >All</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="vendor"
+              id="cmr"
+              autocomplete="off"
+              checked
+            />
+            <label
+              class="btn btn-outline-primary"
+              style="padding: 8px 48px"
+              for="cmr"
+              >CMR</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="vendor"
+              id="steellineindia"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary"
+              style="padding: 8px 48px"
+              for="steellineindia"
+              >Steel Line India</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="vendor"
+              id="sunland"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary"
+              style="padding: 8px 48px"
+              for="sunland"
+              >Sunland</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="vendor"
+              id="welbow"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-primary"
+              style="padding: 8px 48px"
+              for="welbow"
+              >Welbow</label
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title text-center">
+                  CMR Average Yield % Gauge
+                </h4>
+                <div
+                  echarts
+                  [options]="yieldgaugeChart"
+                  class="demo-chart"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title text-center">Yield % - CMR Breakup</h4>
+                <apx-chart
+                  class="apex-charts"
+                  dir="ltr"
+                  [series]="yieldlinewithDataChart.series"
+                  [chart]="yieldlinewithDataChart.chart"
+                  [colors]="yieldlinewithDataChart.colors"
+                  [stroke]="yieldlinewithDataChart.stroke"
+                  [dataLabels]="yieldlinewithDataChart.dataLabels"
+                  [title]="yieldlinewithDataChart.title"
+                  [responsive]="yieldlinewithDataChart.responsive"
+                  [legend]="yieldlinewithDataChart.legend"
+                  [xaxis]="yieldlinewithDataChart.xaxis"
+                  [yaxis]="yieldlinewithDataChart.yaxis"
+                  [stroke]="yieldlinewithDataChart.stroke"
+                  [markers]="yieldlinewithDataChart.markers"
+                >
+                </apx-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Rejections Analysis</h3>
+
+        <div class="row">
+          <div *ngFor="let stat of rejectionData" class="col-lg-4 col-md-4">
+            <app-stat
+              [title]="stat.title"
+              [value]="stat.value"
+              [icon]="stat.icon"
+            ></app-stat>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <div
+                echarts
+                [options]="rejectionlineBarChart"
+                class="demo-chart"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title text-center mb-4">
+                Rejection Root Cause Analysis
+              </h3>
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="card">
+                    <div class="card-body p-0">
+                      <h4 class="card-title text-center">Rejection Reasons</h4>
+                      <div
+                        echarts
+                        [options]="rejectionpieChart"
+                        [autoResize]="true"
+                        (chartClick)="onRejectionPieChartClick($event)"
+                        class="demo-chart"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-8">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title text-center">
+                        Stage Wise Rejection Root Cause Breakup
+                      </h4>
+
+                      <apx-chart
+                        dir="ltr"
+                        class="apex-charts"
+                        [chart]="rejectionemailSentBarChart.chart"
+                        [series]="rejectionemailSentBarChart.series"
+                        [legend]="rejectionemailSentBarChart.legend"
+                        [colors]="rejectionemailSentBarChart.colors"
+                        [fill]="rejectionemailSentBarChart.fill"
+                        [dataLabels]="rejectionemailSentBarChart.dataLabels"
+                        [xaxis]="rejectionemailSentBarChart.xaxis"
+                        [plotOptions]="rejectionemailSentBarChart.plotOptions"
+                      >
+                      </apx-chart>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

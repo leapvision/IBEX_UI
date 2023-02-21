@@ -1,130 +1,633 @@
 <app-loader></app-loader>
 <div class="container-fluid">
-    <!-- start page title -->
-    <div class="row">
-        <div class="col-12">
-            <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Supervisor Panel</h4>
-                <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <!-- <li class="breadcrumb-item active">Welcome to Dashboard</li> -->
-                    </ol>
+  <!-- <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="media">
+                <div class="me-3">
+                  <i class="bx bxs-user-circle fa-5x"></i>
                 </div>
+                <div class="media-body align-self-center">
+                  <div class="text-muted">
+                    <p class="mb-2">Welcome Back!</p>
+                    <h5 class="mb-1">Admin</h5>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <div class="col-lg-4 align-self-center">
+              <div class="text-lg-center mt-4 mt-lg-0">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="pt-4">
+                      <div class="row">
+                        <div class="col-4">
+                          <h5 class="font-size-15">Supervisors</h5>
+                          <p class="mb-0">
+                            <span class="text-success font-weight-bold mr-2"
+                              >2</span
+                            >
+                            <span class="text-muted">/10</span>
+                          </p>
+                        </div>
+                        <div class="col-4">
+                          <h5 class="font-size-15">Operators</h5>
+                          <p class="mb-0">
+                            <span class="text-success font-weight-bold mr-2"
+                              >10</span
+                            ><span class="text-muted">/20</span>
+                          </p>
+                        </div>
+                        <div class="col-4">
+                          <h5 class="font-size-15">Quality</h5>
+                          <p class="mb-0">
+                            <span class="text-success font-weight-bold mr-2"
+                              >1</span
+                            ><span class="text-muted">/5</span>
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="row mt-4">
+                        <div class="col-4">
+                          <a
+                            routerLink="/pages/usermanagement/supervisor"
+                            class="btn btn-primary btn-sm"
+                            >View/Add <i class="mdi mdi-arrow-right ms-1"></i
+                          ></a>
+                        </div>
+                        <div class="col-4">
+                          <a
+                            routerLink="/pages/usermanagement/operator"
+                            class="btn btn-primary btn-sm"
+                            >View/Add <i class="mdi mdi-arrow-right ms-1"></i
+                          ></a>
+                        </div>
+                        <div class="col-4">
+                          <a
+                            routerLink="/pages/usermanagement/quality"
+                            class="btn btn-primary btn-sm"
+                            >View/Add <i class="mdi mdi-arrow-right ms-1"></i
+                          ></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <div>
+                      <p class="text-muted text-truncate mb-2">
+                        Total Projects
+                      </p>
+                      <h5 class="mb-0">48</h5>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div>
+                      <p class="text-muted text-truncate mb-2">Projects</p>
+                      <h5 class="mb-0">40</h5>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div>
+                      <p class="text-muted text-truncate mb-2">Clients</p>
+                      <h5 class="mb-0">18</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 d-none d-lg-block">
+              <div class="clearfix mt-4 mt-lg-0">
+                <div class="dropdown float-end" ngbDropdown>
+                  <button
+                    class="btn btn-primary dropdown-toggle"
+                    type="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    ngbDropdownToggle
+                  >
+                    <i class="bx bxs-cog align-middle mr-1"></i> Setting
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                    <a class="dropdown-item" href="javascript: void(0);"
+                      >Action</a
+                    >
+                    <a class="dropdown-item" href="javascript: void(0);"
+                      >Another action</a
+                    >
+                    <a class="dropdown-item" href="javascript: void(0);"
+                      >Something else</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- end page title-->
+  </div> -->
 
-    <div class="row">
-        <div class="col-xl-4">
-            <div class="card overflow-hidden">
-                <div class="bg-primary bg-soft">
-                    <div class="row">
-                        <div class="col-7">
-                            <div class="text-primary p-3">
-                                <h5 class="text-primary">Welcome Back !</h5>
-                                <p>Admin</p>
-                            </div>
-                        </div>
-                        <!-- <div class="col-5 align-self-end">
-                            <img src="assets/images/profile-img.png" alt="" class="img-fluid">
-                        </div> -->
-                    </div>
-                </div>
-                <div class="card-body pt-0">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="pt-4">
-
-                                <div class="row">
-                                    <div class="col-6">
-                                        <h5 class="font-size-15">Operators</h5>
-                                        <p class="mb-0"><span class="text-success font-weight-bold mr-2">6</span><span class="text-muted">/20</span></p>
-                                    </div>
-                                </div>
-
-                                <div class="row mt-4">
-                                    <div class="col-12">
-                                        <a href="" class="btn btn-primary btn-sm">View/Add <i
-                                            class="mdi mdi-arrow-right ms-1"></i></a>
-                                    </div>
-                                </div>
-                                <!-- <div class="mt-4">
-                                    <a href="" class="btn btn-primary btn-sm">View Profile <i
-                                            class="mdi mdi-arrow-right ms-1"></i></a>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4">Monthly Ingot Target</h4>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p class="text-muted">This month</p>
-                            <h3>14,422 Ingots</h3>
-                            <p class="text-muted"><span class="text-success mr-2"> 12% <i class="mdi mdi-arrow-up"></i>
-                                </span> From
-                                previous period </p>
-
-                            
-                        </div>
-                        <div class="col-sm-6">
-
-                            <apx-chart dir="ltr" class="apex-charts" [series]="monthlyEarningChart.series"
-                                [chart]="monthlyEarningChart.chart" [legend]="monthlyEarningChart.legend"
-                                [colors]="monthlyEarningChart.colors" [labels]="monthlyEarningChart.labels"
-                                [stroke]="monthlyEarningChart.stroke" [plotOptions]="monthlyEarningChart.plotOptions">
-                            </apx-chart>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-8">
-            <div class="row">
-                <div *ngFor="let stat of statData" class="col-md-4">
-                    <app-stat [title]="stat.title" [value]="stat.value" [icon]="stat.icon"></app-stat>
-                </div>
-            </div>
-            <!-- end row -->
-
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-sm-flex flex-wrap">
-                        <h4 class="card-title mb-4">Total Mg Ingot Produced</h4>
-                        <div class="ms-auto">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="javascript: void(0);"
-                                        [ngClass]="{'active': isActive === 'week'}" (click)="weeklyreport()">Week</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="javascript: void(0);" (click)="monthlyreport()"
-                                        [ngClass]="{'active': isActive === 'month'}">Month</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="javascript: void(0);" (click)="yearlyreport()"
-                                        [ngClass]="{'active': isActive === 'year'}">Year</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <apx-chart dir="ltr" class="apex-charts" [chart]="emailSentBarChart.chart"
-                        [series]="emailSentBarChart.series" [legend]="emailSentBarChart.legend"
-                        [colors]="emailSentBarChart.colors" [fill]="emailSentBarChart.fill"
-                        [dataLabels]="emailSentBarChart.dataLabels" [xaxis]="emailSentBarChart.xaxis"
-                        [plotOptions]="emailSentBarChart.plotOptions">
-                    </apx-chart>
-                </div>
-            </div>
-        </div>
+  <div class="row">
+    <div class="title">
+      <h4 class="font-size-18">Admin Panel</h4>
     </div>
-    <!-- end row -->
 
     <!-- <div class="row">
+      <div class="col-12">
+        <div
+          class="page-title-box d-flex align-items-center justify-content-between"
+        >
+          <h3 class="mb-0 font-size-18">CURRENT STATUS</h3>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="bg-primary bg-soft p-1">
+              <h4 class="text-center">LINE 1</h4>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <h4 class="text-center">Users</h4>
+                <div class="text-center">
+                  <h5>PRODUCTION</h5>
+                  <button class="btn btn-success p-1">Supervisor 1</button>
+                  <p>+4 Operators</p>
+                  <button class="btn btn-success p-1">Supervisor 2</button>
+                  <p>+8 Operators</p>
+                </div>
+                <div class="text-center">
+                  <h5>QUALITY</h5>
+                  <button class="btn btn-success p-1">Quality Manager 1</button>
+                  <p>+4 Testers</p>
+                  <button class="btn btn-success p-1">Quality Manager 3</button>
+                  <p>+8 Testers</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <h4 class="text-center">Shift</h4>
+                <hr />
+                <p class="text-center">Shift 2</p>
+                <hr />
+                <hr />
+                <p class="text-center">Shift 1</p>
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <p class="text-center">Shift 2</p>
+                <hr />
+                <hr />
+                <p class="text-center">Shift 3</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="bg-primary bg-soft p-1">
+              <h4 class="text-center">LINE 2</h4>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <h4 class="text-center">Users</h4>
+                <div class="text-center">
+                  <h5>PRODUCTION</h5>
+                  <button class="btn btn-success p-1">Supervisor 3</button>
+                  <p>+4 Operators</p>
+                </div>
+                <div class="text-center">
+                  <h5>QUALITY</h5>
+                  <button class="btn btn-success p-1">Quality Manager 1</button>
+                  <p>+4 Testers</p>
+                  <button class="btn btn-success p-1">Quality Manager 2</button>
+                  <p>+8 Testers</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <h4 class="text-center">Shift</h4>
+                <hr />
+                <p class="text-center">Shift 3</p>
+
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <p class="text-center">Shift 2</p>
+                <hr />
+                <hr />
+                <p class="text-center">Shift 1</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="row">
+      <h5 class="text-center">Current Status</h5>
+      <div class="table-reponsive col-lg-6">
+        <table class="table table-hover">
+          <thead class="table-light">
+            <tr>
+              <th class="text-center" colspan="5">Line 1</th>
+            </tr>
+            <tr>
+              <th class="text-center">Sl No</th>
+              <th class="text-center">Team</th>
+              <th class="text-center">Shift</th>
+              <th class="text-center">Start</th>
+              <th class="text-center">End</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr rowspan="2" class="text-center">
+              <td>1</td>
+              <td rowspan="2">
+                <div class="d-flex justify-content-center">
+                  <h6>Production -</h6>
+                  <span>Supervisor 1</span>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <h6>Quality -</h6>
+                  <span>Quality Manager 1</span>
+                </div>
+              </td>
+              <td rowspan="2">
+                <div class="d-flex justify-content-center">
+                  <span>Shift 1</span>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <span>Shift 2</span>
+                </div>
+              </td>
+              <td>10:15</td>
+              <td>11:15</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+
+    <!-- <div class="row">
+      <h5 class="text-center">Current Status</h5>
+      <app-table
+        [HeadingArray]="currentStatusHeadingArray"
+        [BodyArray]="currentStatusBodyArray"
+        [slno]="true"
+        [children]="true"
+      ></app-table>
+    </div> -->
+
+    <div class="row justify-content-between mb-4">
+      <div class="col-lg-3">
+        <div class="row">
+          <label>View</label>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="view"
+              id="table"
+              autocomplete="off"
+            />
+            <a
+              class="btn btn-outline-dark"
+              style="padding: 8px 48px"
+              for="table"
+              routerLink="table"
+              routerLinkActive="checked"
+              >Table</a
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="view"
+              id="graph"
+              autocomplete="off"
+            />
+            <a
+              class="btn btn-outline-dark"
+              style="padding: 8px 48px"
+              for="graph"
+              routerLink="graph"
+              routerLinkActive="checked"
+              >Graph</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <label>Custom Date Range</label>
+
+        <ng-template #t let-date let-focused="focused">
+          <span
+            class="custom-day"
+            [class.focused]="focused"
+            [class.range]="isRange(date)"
+            [class.faded]="isHovered(date) || isInside(date)"
+            (mouseenter)="hoveredDate = date"
+            (mouseleave)="hoveredDate = null"
+          >
+            {{ date.day }}
+          </span>
+        </ng-template>
+
+        <input
+          type="text"
+          class="form-control date"
+          (click)="hidden = !hidden"
+          name="daterange"
+          autocomplete="off"
+          [(ngModel)]="selected"
+        />
+
+        <ngb-datepicker
+          #dp
+          (dateSelect)="onDateSelection($event)"
+          [displayMonths]="2"
+          [dayTemplate]="t"
+          outsideDays="hidden"
+          [hidden]="hidden"
+          class="datepicker"
+        >
+        </ngb-datepicker>
+      </div>
+    </div>
+
+    <div class="row mb-4 justify-content-between">
+      <div class="mb-2 col-md-6" style="max-width: fit-content" id="alloy">
+        <label for="alloy">Choose Alloy</label>
+        <div class="d-flex flex-wrap gap-3">
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="alloy"
+              id="allalloy"
+              autocomplete="off"
+              checked
+            />
+            <label class="btn btn-outline-dark" for="allalloy">All</label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="alloy"
+              id="am50a"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="am50a">AM50A</label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="alloy"
+              id="az91d"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="az91d">AZ91D</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="alloy"
+              id="mg9010"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="mg9010">MG9010</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-2 col-md-6" style="max-width: fit-content" id="line">
+        <label for="line">Choose Line</label>
+        <div class="d-flex flex-wrap gap-3">
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="line"
+              id="allline"
+              autocomplete="off"
+              checked
+            />
+            <label class="btn btn-outline-dark" for="allline">All</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="line"
+              id="line1"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="line1">Line 1</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="line"
+              id="line2"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="line2">Line 2</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-2 col-md-6" style="max-width: fit-content" id="shift">
+        <label for="shift">Choose Shift</label>
+        <div class="d-flex flex-wrap gap-3">
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="shift"
+              id="allshift"
+              autocomplete="off"
+              checked
+            />
+            <label class="btn btn-outline-dark" for="allshift">All</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="shift"
+              id="shift1"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="shift1"
+              >Shift 1</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="shift"
+              id="shift2"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="shift2"
+              >Shift 2</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="shift"
+              id="shift3"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="shift3"
+              >Shift 3</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-2 col-md-6" style="max-width: fit-content" id="time">
+        <label for="shift">Time</label>
+        <div class="d-flex flex-wrap gap-3">
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="time"
+              id="day"
+              autocomplete="off"
+              checked
+            />
+            <label class="btn btn-outline-dark" for="day">Day</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="time"
+              id="week"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="week">Week</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="time"
+              id="month"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="month">Month</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="time"
+              id="year"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="year">Year</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="time"
+              id="alltime"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="alltime">All</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="row">
+        <div *ngFor="let stat of statData" class="col-md-3">
+          <app-stat
+            [title]="stat.title"
+            [value]="stat.value"
+            [icon]="stat.icon"
+          ></app-stat>
+        </div>
+      </div>
+      <!-- end row -->
+
+      <!-- <div class="card">
+        <div class="card-body">
+          <div class="d-sm-flex flex-wrap">
+            <h4 class="card-title mb-4">Total Mg Ingot Produced</h4>
+            <div class="ms-auto">
+              <ul class="nav nav-pills">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="javascript: void(0);"
+                    [ngClass]="{ active: isActive === 'week' }"
+                    (click)="weeklyreport()"
+                    >Week</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="javascript: void(0);"
+                    (click)="monthlyreport()"
+                    [ngClass]="{ active: isActive === 'month' }"
+                    >Month</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="javascript: void(0);"
+                    (click)="yearlyreport()"
+                    [ngClass]="{ active: isActive === 'year' }"
+                    >Year</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <apx-chart
+            dir="ltr"
+            class="apex-charts"
+            [chart]="emailSentBarChart.chart"
+            [series]="emailSentBarChart.series"
+            [legend]="emailSentBarChart.legend"
+            [colors]="emailSentBarChart.colors"
+            [fill]="emailSentBarChart.fill"
+            [dataLabels]="emailSentBarChart.dataLabels"
+            [xaxis]="emailSentBarChart.xaxis"
+            [plotOptions]="emailSentBarChart.plotOptions"
+          >
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+  </div> -->
+      <!-- end row -->
+
+      <!-- <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
@@ -134,39 +637,10 @@
             </div>
         </div>
     </div> -->
-</div> <!-- container-fluid -->
-
-<ng-template #content let-modal>
-    <div class="modal-header border-bottom-0">
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"> </button>
+      <!-- </div> -->
+      <!-- container-fluid -->
     </div>
-    <div class="modal-body">
-        <div class="text-center mb-4">
-            <div class="avatar-md mx-auto mb-4">
-                <div class="avatar-title bg-light rounded-circle text-primary h1">
-                    <i class="mdi mdi-email-open"></i>
-                </div>
-            </div>
+  </div>
 
-            <div class="row justify-content-center">
-                <div class="col-xl-10">
-                    <h4 class="text-primary">Subscribe !</h4>
-                    <p class="text-muted font-size-14 mb-4">Subscribe our newletter and get notification to stay update.
-                    </p>
-
-                    <div class="input-group bg-light rounded">
-                        <input type="email" class="form-control bg-transparent border-0"
-                            placeholder="Enter Email address" aria-label="Recipient's username"
-                            aria-describedby="button-addon2">
-
-                        <button class="btn btn-primary" type="button" id="button-addon2">
-                            <i class="bx bxs-paper-plane"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</ng-template>
+  <router-outlet></router-outlet>
+</div>
