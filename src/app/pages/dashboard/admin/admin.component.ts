@@ -7,7 +7,6 @@ import {
   EventEmitter,
 } from "@angular/core";
 import {
-  emailSentBarChart,
   rejectionemailSentBarChart,
   monthlyEarningChart,
   lineBarChart,
@@ -176,7 +175,7 @@ export class AdminDashboardComponent implements OnInit {
     this.yieldgaugeChart = yieldgaugeChart;
     this.additionbreakuplinewithDataChart = additionbreakuplinewithDataChart;
     this.yieldlinewithDataChart = yieldlinewithDataChart;
-    this.emailSentBarChart = emailSentBarChart;
+
     this.rejectionemailSentBarChart = rejectionemailSentBarChart;
     this.monthlyEarningChart = monthlyEarningChart;
 

@@ -7,7 +7,8 @@ import {
   EventEmitter,
 } from "@angular/core";
 import {
-  emailSentBarChart,
+  scrapvendorBreakupChart,
+  rejectedingotsBreakupChart,
   rejectionemailSentBarChart,
   monthlyEarningChart,
   lineBarChart,
@@ -18,6 +19,9 @@ import {
   additionbreakuplinewithDataChart,
   yieldlinewithDataChart,
   rejectionlineBarChart,
+  fluxBreakupChart,
+  ibexrunnersreturnsBreakupChart,
+  additiondetailsBreakupChart,
 } from "../data";
 import {
   ChartType,
@@ -42,6 +46,9 @@ import { ConfigService } from "../../../../core/services/config.service";
   styleUrls: ["./graphview.component.scss"],
 })
 export class GraphViewComponent implements OnInit {
+  scrapAnalysisData: ChartType;
+  scrapAnalysisName: string;
+
   isVisible: string;
 
   emailSentBarChart: ChartType;
@@ -171,15 +178,47 @@ export class GraphViewComponent implements OnInit {
     this.yieldgaugeChart = yieldgaugeChart;
     this.additionbreakuplinewithDataChart = additionbreakuplinewithDataChart;
     this.yieldlinewithDataChart = yieldlinewithDataChart;
-    this.emailSentBarChart = emailSentBarChart;
     this.rejectionemailSentBarChart = rejectionemailSentBarChart;
     this.monthlyEarningChart = monthlyEarningChart;
+    this.scrapAnalysisData = scrapvendorBreakupChart;
+    this.scrapAnalysisName = "Scrap - Vendor Breakup";
 
     this.isActive = "year";
     this.configService.getConfig().subscribe((data) => {
       this.transactions = data.transactions;
       // this.statData = data.statData;
     });
+  }
+
+  private fetchScrapAnalysisData(type: string) {
+    if (type == "scrap") {
+      this.scrapAnalysisData = scrapvendorBreakupChart;
+    }
+    switch (type) {
+      case "scrap":
+        this.scrapAnalysisName = "Scrap - Vendor Breakup";
+        this.scrapAnalysisData = scrapvendorBreakupChart;
+        break;
+      case "ibexrunners & returns":
+        this.scrapAnalysisName = "Ibex Runners & Returns Breakup";
+        this.scrapAnalysisData = ibexrunnersreturnsBreakupChart;
+        break;
+      case "flux":
+        this.scrapAnalysisName = "Flux Breakup";
+        this.scrapAnalysisData = fluxBreakupChart;
+        break;
+      case "rejectedingots":
+        this.scrapAnalysisName = "Rejected Ingots Breakup";
+        this.scrapAnalysisData = rejectedingotsBreakupChart;
+        break;
+      case "additiondetails":
+        this.scrapAnalysisName = "Addition Details Breakup";
+        this.scrapAnalysisData = additiondetailsBreakupChart;
+        break;
+      default:
+        this.scrapAnalysisName = "Scrap - Vendor Breakup";
+        this.scrapAnalysisData = scrapvendorBreakupChart;
+    }
   }
 
   openModal() {
@@ -391,8 +430,10 @@ export class GraphViewComponent implements OnInit {
   }
 
   onScrapPieChartClick(event) {
-    console.log(
-      `You clicked ${event.data.name}, with quantity ${event.data.value} tons`
-    );
+    // console.log(
+    //   `You clicked ${event.data.name}, with quantity ${event.data.value} tons`
+    // );
+    // console.log(event.data.name.toLowerCase().replace(" ", ""));
+    this.fetchScrapAnalysisData(event.data.name.toLowerCase().replace(" ", ""));
   }
 }

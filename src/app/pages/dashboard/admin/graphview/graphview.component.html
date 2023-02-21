@@ -31,19 +31,19 @@
           <div class="col-lg-8">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title text-center">Scrap - Vendor Breakup</h4>
+                <h4 class="card-title text-center">{{ scrapAnalysisName }}</h4>
 
                 <apx-chart
                   dir="ltr"
                   class="apex-charts"
-                  [chart]="emailSentBarChart.chart"
-                  [series]="emailSentBarChart.series"
-                  [legend]="emailSentBarChart.legend"
-                  [colors]="emailSentBarChart.colors"
-                  [fill]="emailSentBarChart.fill"
-                  [dataLabels]="emailSentBarChart.dataLabels"
-                  [xaxis]="emailSentBarChart.xaxis"
-                  [plotOptions]="emailSentBarChart.plotOptions"
+                  [chart]="scrapAnalysisData.chart"
+                  [series]="scrapAnalysisData.series"
+                  [legend]="scrapAnalysisData.legend"
+                  [colors]="scrapAnalysisData.colors"
+                  [fill]="scrapAnalysisData.fill"
+                  [dataLabels]="scrapAnalysisData.dataLabels"
+                  [xaxis]="scrapAnalysisData.xaxis"
+                  [plotOptions]="scrapAnalysisData.plotOptions"
                 >
                 </apx-chart>
               </div>
