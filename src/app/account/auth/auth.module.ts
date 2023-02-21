@@ -1,21 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
-import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgbAlertModule } from "@ng-bootstrap/ng-bootstrap";
+import { CarouselModule } from "ngx-owl-carousel-o";
 
-import { UIModule } from '../../shared/ui/ui.module';
-import { LoginComponent } from './login/login.component';
+import { UIModule } from "../../shared/ui/ui.module";
+import { LoginComponent } from "./login/login.component";
 
-import { AuthRoutingModule } from './auth-routing';
-import { PasswordresetComponent } from './passwordreset/passwordreset.component';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { SupervisorLoginComponent } from './supervisorlogin/supervisorlogin.component';
-
+import { AuthRoutingModule } from "./auth-routing.module";
+import { PasswordresetComponent } from "./passwordreset/passwordreset.component";
+import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
-  declarations: [LoginComponent,  PasswordresetComponent, SupervisorLoginComponent],
+  declarations: [LoginComponent, PasswordresetComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -24,7 +22,7 @@ import { SupervisorLoginComponent } from './supervisorlogin/supervisorlogin.comp
     UIModule,
     AuthRoutingModule,
     CarouselModule,
-    NgSelectModule
-  ]
+    NgSelectModule,
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}

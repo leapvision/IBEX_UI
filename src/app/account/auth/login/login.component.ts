@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
 
   processList;
 
-  // set the currenr year
+  show: boolean = false;
+
+  // set the current year
   year: number = new Date().getFullYear();
 
   // tslint:disable-next-line: max-line-length
@@ -105,10 +107,10 @@ export class LoginComponent implements OnInit {
           .subscribe(
             (data) => {
               console.log(data);
-              if (data["username"].includes("admin")) {
-                this.router.navigate(["/pages/dashboard/admin"]);
-              } else if (data["username"].includes("supervisor")) {
-                this.router.navigate(["/supervisorLogin"]);
+              if (data["email"] === "admin@ibex.com") {
+                this.router.navigate(["/pages/dashboard/admin/graph"]);
+              } else if (data["email"] === "supervisor@ibex.com") {
+                this.router.navigate(["/pages/dashboard/supervisor"]);
               }
             },
             (error) => {
@@ -125,5 +127,9 @@ export class LoginComponent implements OnInit {
     } else {
       this.showOperatorFlag = false;
     }
+  }
+
+  showpassword() {
+    this.show = !this.show;
   }
 }
