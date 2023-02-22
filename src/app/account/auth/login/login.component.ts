@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import {
+  FormControl,
+  FormGroup,
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
@@ -12,6 +14,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { first } from "rxjs/operators";
 
 import { environment } from "../../../../environments/environment";
+import { AuthService } from "src/app/core/services/auth/auth.service";
 
 @Component({
   selector: "app-login",
@@ -23,6 +26,8 @@ import { environment } from "../../../../environments/environment";
  * Login component
  */
 export class LoginComponent implements OnInit {
+  responseData: any;
+
   loginForm: UntypedFormGroup;
   submitted = false;
   error = "";
@@ -39,41 +44,56 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private route: ActivatedRoute,
+    // private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private authFackservice: AuthfakeauthenticationService
-  ) {}
+    private authFackservice: AuthfakeauthenticationService,
+    private authService: AuthService
+  ) {
+    localStorage.removeItem("ibexUserData");
+  }
+
+  Login = new FormGroup({
+    email: new FormControl("", Validators.required),
+    password: new FormControl("", Validators.required),
+  });
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: ["admin@ibex.com", [Validators.required, Validators.email]],
-      password: ["123456", [Validators.required]],
+    this.Login = this.formBuilder.group({
+      email: ["ibex_admin@gmail.com", [Validators.required, Validators.email]],
+      password: ["adminadmin", [Validators.required]],
     });
 
-    this.processList = [
-      "Scrap Purchase",
-      "Incoming Inspection",
-      "Storage of Raw Materials",
-      "Material Segmentation",
-      "MTO - Material Loading",
-      "MTO - Melting",
-      "MTO - Flux Mixing",
-      "MTO - Slag Removal",
-      "MTO - Composition Check",
-      "Transfer to MWO",
-      "MWO - Slag Removal",
-      "MWO - Composition Check",
-      "MWO - Ingots Pouring",
-      "MWO - Visual Inspection",
-      "Buffing/Polishing",
-      "Heat Number Printing",
-    ];
     // reset login status
     // this.authenticationService.logout();
     // get return url from route parameters or default to '/'
     // tslint:disable-next-line: no-string-literal
-    this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
+    // this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
+  }
+
+  onSubmitLogIn() {
+    if (this.Login.valid) {
+      console.log(this.Login.value.email.split("@")[0]);
+      let userFormData = {
+        // "username" : this.Login.get('email').value,
+        username: this.Login.value.email.split("@")[0],
+        password: this.Login.value.password,
+      };
+      console.log(userFormData);
+      this.authService.proceedLogin(userFormData).subscribe((result) => {
+        if (result != null) {
+          this.responseData = result;
+          console.log(this.responseData);
+          const userData = {
+            access_token: this.responseData.access,
+            refresh_token: this.responseData.refresh,
+            role: this.responseData.groups?.name,
+          };
+          localStorage.setItem("ibexUserData", JSON.stringify(userData));
+          this.router.navigate(["/pages/dashboard/admin/graph"]);
+        }
+      });
+    }
   }
 
   // convenience getter for easy access to form fields

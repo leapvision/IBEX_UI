@@ -1,3 +1,4 @@
+import { TokenInterceptorService } from "./core/services/auth/token-interceptor.service";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
@@ -65,6 +66,11 @@ export function createTranslateLoader(http: HttpClient): any {
   ],
   bootstrap: [AppComponent],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     {
@@ -72,6 +78,7 @@ export function createTranslateLoader(http: HttpClient): any {
       useClass: FakeBackendInterceptor,
       multi: true,
     },
+
     // LoaderService,
     // { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorService, multi: true },
   ],

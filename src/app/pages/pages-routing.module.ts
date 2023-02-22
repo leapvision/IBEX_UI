@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { AuthGuard } from "../core/guards/auth/auth.guard";
 import { ProfileComponent } from "./profile/profile.component";
 
 import { ReportsComponent } from "./reports/reports.component";
@@ -50,6 +51,7 @@ const routes: Routes = [
     path: "settings",
     loadChildren: () =>
       import("./settings/settings.module").then((m) => m.SettingsModule),
+    canActivate: [AuthGuard],
   },
 ];
 
