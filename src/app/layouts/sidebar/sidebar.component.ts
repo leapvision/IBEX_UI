@@ -1,4 +1,5 @@
-import { SideBarMenuService } from "./sidebarmenu.service";
+// import { SideBarMenuService } from "./sidebarmenu.service";
+import { MENU } from "./menu";
 import {
   Component,
   OnInit,
@@ -44,7 +45,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
     private router: Router,
     public translate: TranslateService,
     private http: HttpClient,
-    private sidebarmenuService: SideBarMenuService,
+    // private sidebarmenuService: SideBarMenuService,
     private authService: AuthService
   ) {
     router.events.forEach((event) => {
@@ -56,6 +57,8 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngOnInit() {
+    this.currentUserRole = this.authService.getRole();
+
     this.initialize();
     this._scrollElement();
   }
@@ -163,10 +166,11 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
    * Initialize
    */
   initialize(): void {
-    this.currentUserRole = this.authService.getRole();
-    this.menuItems = this.sidebarmenuService.getMenuByRole(
-      this.currentUserRole
-    );
+    // this.currentUserRole = this.authService.getRole();
+    // this.menuItems = this.sidebarmenuService.getMenuByRole(
+    //   this.currentUserRole
+    // );
+    this.menuItems = MENU;
   }
 
   /**
