@@ -12,6 +12,11 @@ const routes: Routes = [
     loadChildren: () =>
       import("./supervisor/supervisor.module").then((m) => m.SupervisorModule),
   },
+  {
+    path: "quality",
+    loadChildren: () =>
+      import("./quality/quality.module").then((m) => m.QualityModule),
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,31 @@
+<div class="row mb-4">
+  <h4 class="title text-center">
+    Monthly Mg Recycling Plant Production Report - All Alloys
+  </h4>
+  <div class="col-lg-12">
+    <app-table
+      [HeadingArray]="headingArray"
+      [BodyArray]="bodyArray"
+      [children]="true"
+      [centered]="false"
+      [slno]="true"
+    ></app-table>
+  </div>
+</div>
+
+<div class="row">
+  <h4 class="title text-center">
+    Today's Mg Recycling Plant Production Report - All Alloys
+  </h4>
+  <div class="col-lg-12">
+    <app-table
+      [HeadingArray]="dayheadingArray"
+      [BodyArray]="daybodyArray"
+      [children]="true"
+      [centered]="false"
+      [slno]="true"
+    ></app-table>
+  </div>
+
+  <button (click)="export()">Export PDF</button>
+</div>
