@@ -6,11 +6,11 @@ import { PackingIngotsComponent } from "./packingingots/packingingots.component"
 
 const routes: Routes = [
   {
-    path: "",
+    path: "packingingots",
     component: PackingIngotsComponent,
     canActivate: [AuthGuard, RoleGuard],
     data: {
-      role: ["ibex_admin"],
+      role: ["ibex_admin", "ibex_quality"],
     },
   },
 ];
