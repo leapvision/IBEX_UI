@@ -1,5 +1,5 @@
+<app-loader></app-loader>
 <div class="container-fluid">
-
   <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
   <div class="row">
@@ -10,12 +10,9 @@
             <div class="col-7">
               <div class="text-primary p-3">
                 <h5 class="text-primary">Welcome Back !</h5>
-                <p>Supervisor 1</p>
+                <p>{{ profileData?.username }}</p>
               </div>
             </div>
-            <!-- <div class="col-5 align-self-end">
-              <img src="assets/images/profile-img.png" alt="" class="img-fluid">
-            </div> -->
           </div>
         </div>
         <div class="card-body pt-0">
@@ -23,24 +20,29 @@
             <div class="col-sm-4">
               <div class="avatar-md profile-user-wid mb-4">
                 <div class="avatar-title rounded-circle bg-light text-primary">
-                    <i class="bx bx-md bxs-user"></i>
+                  <i class="bx bx-md bxs-user"></i>
                 </div>
               </div>
-              <h5 class="font-size-15 text-truncate">Supervisor 1</h5>
-              <p class="text-muted mb-0 text-truncate">Supervisor</p>
+              <h5 class="font-size-15 text-truncate">
+                {{ profileData?.username }}
+              </h5>
+              <p class="text-muted mb-0 text-truncate">
+                {{ profileData?.role }}
+              </p>
             </div>
 
             <div class="col-sm-8">
               <div class="pt-4">
-
                 <div class="row">
                   <div class="col-6">
-                    <h5 class="font-size-15">2</h5>
-                    <p class="text-muted mb-0">Lines</p>
+                    <h5 class="font-size-15">Line</h5>
+                    <p class="text-muted mb-0">{{ profileData?.line }}</p>
                   </div>
                   <div class="col-6">
-                    <h5 class="font-size-15">Last Login </h5>
-                    <p class="text-muted mb-0">20/12/2022 10:10:48 AM</p>
+                    <h5 class="font-size-15">Last Login</h5>
+                    <p class="text-muted mb-0">
+                      {{ profileData?.last_login | date : "medium" }}
+                    </p>
                   </div>
                 </div>
                 <!-- <div class="mt-4">
@@ -63,15 +65,15 @@
               <tbody>
                 <tr>
                   <th scope="row">Full Name :</th>
-                  <td>Supervisor 1</td>
+                  <td>{{ profileData?.fullname }}</td>
                 </tr>
                 <tr>
                   <th scope="row">E-mail :</th>
-                  <td>supervisor1@ibex.com</td>
+                  <td>{{ profileData?.email }}</td>
                 </tr>
                 <tr>
-                  <th scope="row"> Contact Number:</th>
-                  <td>+91-8304524673</td>
+                  <th scope="row">Contact Number:</th>
+                  <td>{{ profileData?.contact_number }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Location :</th>
@@ -83,7 +85,6 @@
         </div>
       </div>
       <!-- end card -->
-
     </div>
 
     <div class="col-xl-6">
@@ -102,7 +103,11 @@
                   </div>
                   <div class="flex-grow-1">
                     <div>
-                      <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark">Assigned Operator 1 to Line 1</a></h5>
+                      <h5 class="font-size-15">
+                        <a href="javascript: void(0);" class="text-dark"
+                          >Assigned Operator 1 to Line 1</a
+                        >
+                      </h5>
                       <span class="text-primary">20/12/2022 10:12:48 AM</span>
                     </div>
                   </div>
@@ -118,7 +123,11 @@
                   </div>
                   <div class="flex-grow-1">
                     <div>
-                      <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark">Assigned Operator 2 to Line 1</a></h5>
+                      <h5 class="font-size-15">
+                        <a href="javascript: void(0);" class="text-dark"
+                          >Assigned Operator 2 to Line 1</a
+                        >
+                      </h5>
                       <span class="text-primary">20/12/2022 9:30:13 AM</span>
                     </div>
                   </div>
@@ -134,7 +143,11 @@
                   </div>
                   <div class="flex-grow-1">
                     <div>
-                      <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark">Login </a></h5>
+                      <h5 class="font-size-15">
+                        <a href="javascript: void(0);" class="text-dark"
+                          >Login
+                        </a>
+                      </h5>
                       <span class="text-primary">20/12/2022 9:00:43 AM</span>
                     </div>
                   </div>
@@ -142,7 +155,6 @@
               </li>
             </ul>
           </div>
-
         </div>
       </div>
     </div>

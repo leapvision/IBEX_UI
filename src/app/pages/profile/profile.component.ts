@@ -12,21 +12,27 @@ export class ProfileComponent implements OnInit {
   breadCrumbItems: Array<{}>;
 
   responseData: any;
+  profileData: any = {};
 
   hideme: boolean[] = [false, false, true];
+  userID = JSON.parse(localStorage.getItem("ibexUserData"))?.user_id || "";
 
-  constructor(private profileService: ProfileService) {
-    let userID =
-      JSON.parse(localStorage.getItem("ibexUserData"))?.user_id || "";
-  }
+  constructor(private profileService: ProfileService) {}
 
   ngOnInit(): void {
-    let userID =
-      JSON.parse(localStorage.getItem("ibexUserData"))?.user_id || "";
-    this.profileService.getProfile(userID).subscribe((result) => {
+    this.profileService.getProfile(this.userID).subscribe((result) => {
       if (result != null) {
         this.responseData = result;
         console.log(this.responseData);
+        this.profileData = {
+          username: this.responseData?.Data?.username,
+          role: this.responseData?.Data?.groups[0]?.name,
+          line: 2,
+          last_login: this.responseData?.Data?.last_login,
+          fullname: `${this.responseData?.Data?.first_name} ${this.responseData?.Data?.last_name}`,
+          email: this.responseData?.Data?.email,
+          contact_number: `+91-${this.responseData?.Data?.contact_number}`,
+        };
       }
     });
   }
