@@ -1,5 +1,6 @@
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
+@import "ngx-toastr/toastr-bs5-alert";
 
 /* You can add global styles to this file, and also import other style files */
 .modal-holder {
@@ -40,4 +41,19 @@
 
 .centered {
   text-align: center;
+}
+
+.toast-top-center {
+  top: 12px;
+  margin: 0 auto;
+  left: 50%;
+  margin-left: -150px;
+}
+
+.toast-message {
+  color: white;
+}
+
+#toast-container > .toast-success {
+  background-image: url(./assets/images/success-check-mark.png) !important;
 }

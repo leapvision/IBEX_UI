@@ -1,6 +1,9 @@
 import { TokenInterceptorService } from "./core/services/auth/token-interceptor.service";
-import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
+import { ToastrModule } from "ngx-toastr";
+import { BrowserModule } from "@angular/platform-browser";
+
 import { NgModule } from "@angular/core";
 import {
   HttpClientModule,
@@ -63,6 +66,12 @@ export function createTranslateLoader(http: HttpClient): any {
     NgbTooltipModule,
     ScrollToModule.forRoot(),
     NgbModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: "toast-top-center",
+      preventDuplicates: true,
+      messageClass: "toast-message",
+    }),
   ],
   bootstrap: [AppComponent],
   providers: [

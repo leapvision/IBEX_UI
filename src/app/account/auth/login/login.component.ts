@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.Login = this.formBuilder.group({
       email: ["ibex_admin@gmail.com", [Validators.required, Validators.email]],
-      password: ["adminadmin", [Validators.required]],
+      password: ["ibex_adminibex_admin", [Validators.required]],
     });
 
     // reset login status
@@ -85,9 +85,11 @@ export class LoginComponent implements OnInit {
           this.responseData = result;
           console.log(this.responseData);
           const userData = {
-            access_token: this.responseData.access,
-            refresh_token: this.responseData.refresh,
-            role: this.responseData.groups?.name,
+            access_token: this.responseData.Data.accessToken,
+            refresh_token: this.responseData.Data.refreshToken,
+            role: `ibex_${this.responseData.Data.role.name}`,
+            username: this.responseData.Data.username,
+            user_id: this.responseData.Data.user_id,
           };
           localStorage.setItem("ibexUserData", JSON.stringify(userData));
           this.router.navigate(["/pages/dashboard/admin/graph"]);

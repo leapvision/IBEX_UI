@@ -18,6 +18,7 @@ import { CookieService } from "ngx-cookie-service";
 import { LanguageService } from "../../core/services/language.service";
 import { TranslateService } from "@ngx-translate/core";
 import { share, map } from "rxjs/operators";
+import { AuthService } from "src/app/core/services/auth/auth.service";
 
 @Component({
   selector: "app-topbar",
@@ -44,15 +45,18 @@ export class TopbarComponent implements OnInit, OnDestroy {
   showOperators: boolean = true;
   operatorList: Array<string>;
 
+  currentUser: string;
+
   constructor(
     @Inject(DOCUMENT) private document: any,
     private router: Router,
-    private authService: AuthenticationService,
+    // private authService: AuthenticationService,
     private authFackservice: AuthfakeauthenticationService,
     public languageService: LanguageService,
     public translate: TranslateService,
     public _cookiesService: CookieService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private authService: AuthService
   ) {}
 
   listLang = [
@@ -69,6 +73,8 @@ export class TopbarComponent implements OnInit, OnDestroy {
   @Output() mobileMenuButtonClicked = new EventEmitter();
 
   ngOnInit() {
+    this.currentUser = this.authService.getUserName();
+
     this.openMobileMenu = false;
     this.element = document.documentElement;
 
@@ -127,12 +133,7 @@ export class TopbarComponent implements OnInit, OnDestroy {
    * Logout the user
    */
   logout() {
-    if (environment.defaultauth === "firebase") {
-      this.authService.logout();
-    } else {
-      this.authFackservice.logout();
-    }
-    this.router.navigate(["/"]);
+    this.router.navigate([""]);
   }
 
   /**
