@@ -149,70 +149,135 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title mb-4 text-center">Add MWO Furnace</h4>
-          <aw-wizard [navBarLayout]="'large-empty-symbols'">
-            <aw-wizard-step stepTitle="Furnace Details">
-              <ng-template awWizardStepSymbol>1</ng-template>
-              <div class="row mt-3">
-                <div class="col-12">
-                  <div class="row mb-3">
-                    <label class="col-md-3 col-form-label">Name</label>
-                    <div class="col-md-9">
-                      <input
-                        class="form-control"
-                        name="txtFirstNameBilling"
-                        type="text"
-                        id="txtFirstNameBilling"
-                      />
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <label class="col-md-3 col-form-label"
-                      >Machine Code / ID</label
-                    >
-                    <div class="col-md-9">
-                      <input
-                        class="form-control"
-                        name="txtLastNameBilling"
-                        type="text"
-                        id="txtLastNameBilling"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <ul class="list-inline wizard mb-0">
-                <li class="next list-inline-item float-end">
-                  <button class="btn btn-primary" awNextStep>Next</button>
-                </li>
-              </ul>
-            </aw-wizard-step>
+          <form
+            [formGroup]="addMWOFurnaceForm"
+            (ngSubmit)="onAddMWOFurnaceFormSubmit()"
+          >
+            <aw-wizard [navBarLayout]="'large-empty-symbols'">
+              <!-- Step 1 -->
+              <aw-wizard-step
+                stepTitle="Furnace Details"
+                formGroupName="machineDetailsGroup"
+              >
+                <ng-template awWizardStepSymbol>1</ng-template>
 
-            <aw-wizard-step stepTitle="Confirm Detail">
-              <ng-template awWizardStepSymbol>2</ng-template>
-              <div class="row justify-content-center">
-                <div class="col-lg-6">
-                  <div class="text-center">
-                    <div class="mb-4">
-                      <i
-                        class="mdi mdi-check-circle-outline text-success display-4"
-                      ></i>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="row mb-3 form-group">
+                      <label class="col-md-3 col-form-label" for="machineName"
+                        >Name</label
+                      >
+                      <div class="col-md-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="machineName"
+                          formControlName="name"
+                        />
+                        <div
+                          *ngIf="
+                            form.machineDetailsGroup['controls'].name.invalid &&
+                            (form.machineDetailsGroup['controls'].name.dirty ||
+                              form.machineDetailsGroup['controls'].name.touched)
+                          "
+                        >
+                          <span
+                            *ngIf="
+                              form.machineDetailsGroup['controls'].name.errors
+                                .required
+                            "
+                            >Please enter machine name</span
+                          >
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h5>Confirm Detail</h5>
-                      <p class="text-muted">MWO Furnace Added</p>
+                    <div class="row mb-3 form-group">
+                      <label class="col-md-3 col-form-label" for="machineCode"
+                        >Machine Code / ID</label
+                      >
+                      <div class="col-md-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="machineCode"
+                          formControlName="code"
+                        />
+                        <div
+                          *ngIf="
+                            form.machineDetailsGroup['controls'].code.invalid &&
+                            (form.machineDetailsGroup['controls'].code.dirty ||
+                              form.machineDetailsGroup['controls'].code.touched)
+                          "
+                        >
+                          <span
+                            *ngIf="
+                              form.machineDetailsGroup['controls'].code.errors
+                                .required
+                            "
+                            >Please enter machine code</span
+                          >
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <ul class="list-inline wizard mb-0 text-center">
-                <li class="previous list-inline-item">
-                  <button class="btn btn-primary" awPreviousStep>
-                    Add MWO Furnace
-                  </button>
-                </li>
-              </ul>
-            </aw-wizard-step>
-          </aw-wizard>
+                <ul class="list-inline wizard mb-0">
+                  <li class="next list-inline-item float-end">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      awNextStep
+                      [disabled]="form.machineDetailsGroup.invalid"
+                    >
+                      Next
+                    </button>
+                  </li>
+                </ul>
+              </aw-wizard-step>
+
+              <!-- Step 2 -->
+              <aw-wizard-step stepTitle="Confirm Detail">
+                <ng-template awWizardStepSymbol>2</ng-template>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div
+                      class="card bg-success border border-success card-body"
+                    >
+                      <h3 class="card-title text-white text-center">
+                        {{
+                          "Machine Name - " +
+                            form.machineDetailsGroup.value["name"]
+                        }}
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div
+                      class="card bg-success border border-success card-body"
+                    >
+                      <h3 class="card-title text-white text-center">
+                        {{
+                          "Machine Code - " +
+                            form.machineDetailsGroup.value["code"]
+                        }}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <ul class="list-inline wizard mb-0 text-center">
+                  <li class="previous list-inline-item">
+                    <button
+                      type="submit"
+                      class="btn btn-ibex"
+                      [disabled]="form.machineDetailsGroup.invalid"
+                    >
+                      Add MWO Furnace
+                    </button>
+                  </li>
+                </ul>
+              </aw-wizard-step>
+            </aw-wizard>
+          </form>
         </div>
       </div>
     </div>
