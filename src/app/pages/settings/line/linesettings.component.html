@@ -157,102 +157,150 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title mb-4 text-center">Configure Line</h4>
-          <aw-wizard [navBarLayout]="'large-empty-symbols'">
-            <aw-wizard-step stepTitle="Line Details">
-              <ng-template awWizardStepSymbol>1</ng-template>
-              <div class="row mt-3">
-                <div class="col-12">
-                  <div class="row mb-3">
-                    <div class="row mb-2 text-center">
-                      <label for="horizontal-firstname-input" class="col-sm-12"
-                        >Line Number</label
+          <form
+            [formGroup]="configureLineForm"
+            (ngSubmit)="onConfigureLineFormSubmit()"
+          >
+            <aw-wizard [navBarLayout]="'large-empty-symbols'">
+              <!-- Step 1 -->
+              <aw-wizard-step
+                stepTitle="Line Details"
+                formGroupName="lineDetailsGroup"
+              >
+                <ng-template awWizardStepSymbol>1</ng-template>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="row mb-3">
+                      <div class="row mb-2 text-center">
+                        <label
+                          for="horizontal-firstname-input"
+                          class="col-sm-12"
+                          >Line Number</label
+                        >
+                      </div>
+                      <label class="col-md-3 col-form-label">Line No</label>
+                      <div class="col-md-9 mb-3">
+                        <ng-select
+                          placeholder="--Please Select--"
+                          formControlName="line_id"
+                          (ngModelChange)="updateFurnaces($event)"
+                        >
+                          <ng-option
+                            *ngFor="let line of lines"
+                            [value]="line.id"
+                            >{{ line.name }}</ng-option
+                          >
+                        </ng-select>
+                      </div>
+                      <div class="row mb-2 text-center">
+                        <label
+                          for="horizontal-firstname-input"
+                          class="col-sm-12"
+                          >Furnace Details</label
+                        >
+                      </div>
+                      <label class="col-md-3 col-form-label"
+                        >MTO Furnace No</label
                       >
-                    </div>
-                    <label class="col-md-3 col-form-label">Line No</label>
-                    <div class="col-md-9 mb-3">
-                      <select
-                        id="ddlCreditCardType"
-                        name="ddlCreditCardType"
-                        class="form-control"
+                      <div class="col-md-9 mb-3">
+                        <ng-select
+                          placeholder="--Please Select--"
+                          formControlName="mtofurnace_id"
+                        >
+                          <ng-option
+                            *ngFor="let furnace of mtoFurnaces"
+                            [value]="furnace.id"
+                            >{{ furnace.name }}</ng-option
+                          >
+                        </ng-select>
+                      </div>
+                      <label class="col-md-3 col-form-label"
+                        >MWO Furnace No</label
                       >
-                        <option value="">--Please Select--</option>
-                        <option value="line1">Line 1</option>
-                        <option value="line2">Line 2</option>
-                        <option value="line3">Line 3</option>
-                        <option value="line4">Line 4</option>
-                        <option value="line5">Line 5</option>
-                      </select>
-                    </div>
-                    <div class="row mb-2 text-center">
-                      <label for="horizontal-firstname-input" class="col-sm-12"
-                        >Furnace Details</label
-                      >
-                    </div>
-                    <label class="col-md-3 col-form-label"
-                      >MTO Furnace No</label
-                    >
-                    <div class="col-md-9 mb-3">
-                      <select
-                        id="ddlCreditCardType"
-                        name="ddlCreditCardType"
-                        class="form-control"
-                      >
-                        <option value="">--Please Select--</option>
-                        <option value="mt-01">MTO Furnace 1 (MT-01)</option>
-                        <option value="mt-02">MTO Furnace 2 (MT-02)</option>
-                      </select>
-                    </div>
-                    <label class="col-md-3 col-form-label"
-                      >MWO Furnace No</label
-                    >
-                    <div class="col-md-9 mb-3">
-                      <select
-                        id="ddlCreditCardType"
-                        name="ddlCreditCardType"
-                        class="form-control"
-                      >
-                        <option value="">--Please Select--</option>
-                        <option value="mw-01">MWO Furnace 1 (MW-01)</option>
-                        <option value="mw-02">MWO Furnace 2 (MW-02)</option>
-                      </select>
+                      <div class="col-md-9 mb-3">
+                        <ng-select
+                          placeholder="--Please Select--"
+                          formControlName="mwofurnace_id"
+                        >
+                          <ng-option
+                            *ngFor="let furnace of mwoFurnaces"
+                            [value]="furnace.id"
+                            >{{ furnace.name }}</ng-option
+                          >
+                        </ng-select>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <ul class="list-inline wizard mb-0">
-                <li class="next list-inline-item float-end">
-                  <button class="btn btn-primary" awNextStep>Next</button>
-                </li>
-              </ul>
-            </aw-wizard-step>
-
-            <aw-wizard-step stepTitle="Confirm Detail">
-              <ng-template awWizardStepSymbol>2</ng-template>
-              <div class="row justify-content-center">
-                <div class="col-lg-6">
-                  <div class="text-center">
-                    <div class="mb-4">
-                      <i
-                        class="mdi mdi-check-circle-outline text-success display-4"
-                      ></i>
+                <ul class="list-inline wizard mb-0">
+                  <li class="next list-inline-item float-end">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      awNextStep
+                      [disabled]="form.lineDetailsGroup.invalid"
+                    >
+                      Next
+                    </button>
+                  </li>
+                </ul>
+              </aw-wizard-step>
+              <!-- Step 2 -->
+              <aw-wizard-step stepTitle="Confirm Detail">
+                <ng-template awWizardStepSymbol>2</ng-template>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div
+                      class="card bg-success border border-success card-body"
+                    >
+                      <h3 class="card-title text-white text-center">
+                        {{
+                          "Line No - " + form.lineDetailsGroup.value["line_id"]
+                        }}
+                      </h3>
                     </div>
-                    <div>
-                      <h5>Confirm Detail</h5>
-                      <p class="text-muted">Line Added</p>
+                  </div>
+                  <div class="col-lg-6">
+                    <div
+                      class="card bg-success border border-success card-body"
+                    >
+                      <h3 class="card-title text-white text-center">
+                        {{
+                          "MTO Furnace Machine Code - " +
+                            form.lineDetailsGroup.value["mtofurnace_id"]
+                        }}
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div
+                      class="card bg-success border border-success card-body"
+                    >
+                      <h3 class="card-title text-white text-center">
+                        {{
+                          "MTO Furnace Machine Code - " +
+                            form.lineDetailsGroup.value["mwofurnace_id"]
+                        }}
+                      </h3>
                     </div>
                   </div>
                 </div>
-              </div>
-              <ul class="list-inline wizard mb-0 text-center">
-                <li class="previous list-inline-item">
-                  <button class="btn btn-primary" awPreviousStep>
-                    Add Line
-                  </button>
-                </li>
-              </ul>
-            </aw-wizard-step>
-          </aw-wizard>
+                <ul class="list-inline wizard mb-0 text-center">
+                  <li class="previous list-inline-item">
+                    <button
+                      type="submit"
+                      class="btn btn-ibex"
+                      awPreviousStep
+                      [disabled]="form.lineDetailsGroup.invalid"
+                    >
+                      Configure Line
+                    </button>
+                  </li>
+                </ul>
+              </aw-wizard-step>
+            </aw-wizard>
+          </form>
         </div>
       </div>
     </div>
