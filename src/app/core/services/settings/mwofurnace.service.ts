@@ -12,6 +12,11 @@ export class MWOFurnaceSettingsService {
     return this.http.get(this.apiurl);
   }
 
+  getHoldingFurnaceByID(id) {
+    let url = this.apiurl + id;
+    return this.http.get(url);
+  }
+
   addHoldingFurnace(machineData) {
     return this.http.post(this.apiurl, machineData);
   }

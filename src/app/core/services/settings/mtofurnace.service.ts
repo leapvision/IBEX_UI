@@ -12,6 +12,11 @@ export class MTOFurnaceSettingsService {
     return this.http.get(this.apiurl);
   }
 
+  getMeltingFurnaceByID(id) {
+    let url = this.apiurl + id;
+    return this.http.get(url);
+  }
+
   addMeltingFurnace(machineData) {
     return this.http.post(this.apiurl, machineData);
   }
