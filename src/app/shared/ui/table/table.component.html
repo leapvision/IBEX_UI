@@ -8,7 +8,7 @@
           aria-controls="tickets-table"
           name="pageSize"
           [(ngModel)]="pageSize"
-          (ngModelChange)="fetchRecords($event)"
+          (ngModelChange)="pageSizeSelected.emit(pageSize)"
           class="form-control form-control-sm mx-2"
         >
           <option [ngValue]="10">10</option>
@@ -32,6 +32,7 @@
           aria-controls="tickets-table"
           placeholder="Search"
           [(ngModel)]="searchTerm"
+          (ngModelChange)="searchValue.emit(searchTerm)"
       /></label>
     </div>
   </div>
@@ -195,7 +196,7 @@
         [collectionSize]="totalRecords"
         [(page)]="page"
         [pageSize]="pageSize"
-        (pageChange)="paginate($event)"
+        (pageChange)="pageNumber.emit(page)"
       >
       </ngb-pagination>
     </div>

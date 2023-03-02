@@ -1,5 +1,12 @@
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { Component, OnInit, Input } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  EventEmitter,
+  Output,
+  SimpleChanges,
+} from "@angular/core";
 import { ModalComponent } from "src/app/shared/ui/modal/modal.component";
 
 @Component({
@@ -15,6 +22,11 @@ export class TableComponent implements OnInit {
   @Input() children: boolean;
   @Input() slno: boolean;
   @Input() centered: boolean;
+  @Input() PaginationData;
+
+  @Output() pageSizeSelected = new EventEmitter<number>();
+  @Output() pageNumber = new EventEmitter<number>();
+  @Output() searchValue = new EventEmitter<string>();
 
   tableData: string[];
 
@@ -28,12 +40,40 @@ export class TableComponent implements OnInit {
   constructor(private modalService: NgbModal) {}
 
   ngOnInit() {
-    this.totalRecords = this.BodyArray.length;
-    this.page = 1;
+    // this.totalRecords = this.tableData.length;
+    // this.page = 1;
+    console.log(this.PaginationData);
     this.pageSize = 10;
+    this.searchTerm = "";
+    this.page = 1;
     this.startIndex = (this.page - 1) * this.pageSize + 1;
     this.endIndex = (this.page - 1) * this.pageSize + this.pageSize;
-    this.tableData = this.BodyArray.slice(this.startIndex - 1, this.endIndex);
+    // this.tableData = this.BodyArray.slice(this.startIndex - 1, this.endIndex);
+
+    this.totalRecords = this.PaginationData.total_records;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+    for (const propName in changes) {
+      if (propName === "BodyArray") {
+        const changedProp = changes[propName];
+        this.tableData = changedProp.currentValue;
+        // this.totalRecords = this.tableData.length;
+      }
+      if (propName === "PaginationData") {
+        const changedProp = changes[propName];
+        this.totalRecords = changedProp.currentValue.total_records;
+        if (this.searchTerm.length > 0) {
+          this.totalRecords = changedProp.currentValue.filtered_records;
+          if (this.endIndex > this.totalRecords) {
+            this.endIndex = this.totalRecords;
+          }
+        }
+      }
+      // console.log(changes[propName].currentValue);
+      // this.tableData = changes[propName].currentValue;
+    }
   }
 
   fetchRecords(pageSize) {

@@ -16,6 +16,10 @@ export class ScrapPurchaseComponent implements OnInit {
   @ViewChild(WizardComponent)
   public wizard: WizardComponent;
 
+  pageSize: number = 10;
+  pageNumber: number = 1;
+  searchValue: string = "";
+
   breadCrumbItems: Array<{}>;
   inwardScrapForm: FormGroup;
   responseData: any;
@@ -26,17 +30,18 @@ export class ScrapPurchaseComponent implements OnInit {
 
   selectValue: string[];
 
+  bodyArray = [];
+  paginationDetails = {};
+
   constructor(
     public fb: FormBuilder,
-    private scrappurchaseService: ScrapPurchaseService,
     private sapService: SAPService,
     private inwardscrapService: InwardScrapService
   ) {}
 
-  scrappurchaseHeadingArray =
-    this.scrappurchaseService.getScrapPurchaseReport().heading;
-  scrappurchaseBodyArray =
-    this.scrappurchaseService.getScrapPurchaseReport().body;
+  scrappurchaseHeadingArray = this.inwardscrapService.headingArray;
+  scrappurchaseBodyArray = [];
+  paginationData = {};
 
   ngOnInit(): void {
     this.breadCrumbItems = [
@@ -48,9 +53,11 @@ export class ScrapPurchaseComponent implements OnInit {
 
     this.fetchAllGRNs();
 
-    // this.grnNumbers = ["1", "2", "3", "4", "5"];
-
-    this.selectValue = ["Reason 1", "Reason 2", "Reason 3"];
+    this.fetchInwardScrapDetailsReport(
+      this.pageSize,
+      this.pageNumber,
+      this.searchValue
+    );
   }
 
   formInit() {
@@ -80,18 +87,18 @@ export class ScrapPurchaseComponent implements OnInit {
       for (let index = 0; index < this.responseData.Data.length; index++) {
         this.grnNumbers.push(this.responseData.Data[index].id);
       }
-      console.log(this.grnNumbers);
+      // console.log(this.grnNumbers);
     });
   }
 
   updateScrapDetails(id) {
     let response;
-    console.log(id);
+    // console.log(id);
     if (id != null) {
       this.sapService.getGRNByID(id).subscribe((result) => {
         if (result != null) {
           response = result;
-          console.log(response);
+          // console.log(response);
         }
         response.Data.forEach((item) => {
           this.scrapDetails = {
@@ -100,7 +107,7 @@ export class ScrapPurchaseComponent implements OnInit {
             weight: item.weight,
           };
         });
-        console.log(this.scrapDetails);
+        // console.log(this.scrapDetails);
         this.form.scrapDetailsGroup.patchValue({
           alloy_name: this.scrapDetails["alloyName"],
           source: this.scrapDetails["source"],
@@ -120,7 +127,7 @@ export class ScrapPurchaseComponent implements OnInit {
   }
   onInwardScrapFormSubmit() {
     let response;
-    console.log(this.inwardScrapForm.value);
+    // console.log(this.inwardScrapForm.value);
     const inwardScrapData = {
       sap_grn_id: this.form.scrapDetailsGroup.value["grn_no"],
       remarks: this.form.remarksGroup.value["remarks"],
@@ -154,5 +161,65 @@ export class ScrapPurchaseComponent implements OnInit {
           alert("Something went wrong!🥲");
         }
       });
+  }
+
+  fetchInwardScrapDetailsReport(pageSize, pageNumber, searchValue) {
+    let response;
+    this.inwardscrapService
+      .getAllInwardScrap(pageSize, pageNumber, searchValue)
+      .subscribe((result) => {
+        if (result != null) {
+          response = result;
+        }
+        this.paginationDetails = {};
+        this.paginationDetails = response.Data.pagination;
+        this.paginationData = this.paginationDetails;
+        // console.log(response.Data.pagination);
+        // console.log(response.Data.records);
+        this.bodyArray = [];
+        response.Data.records.forEach((item) => {
+          let dummyArray = [];
+          dummyArray.push({
+            value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+          });
+          dummyArray.push({ value: item["id"] });
+          dummyArray.push({ value: item["alloy_name"] });
+          dummyArray.push({ value: item["source"] });
+          dummyArray.push({ value: item["weight"] });
+          dummyArray.push({ value: item["remarks"] });
+          this.bodyArray.push(dummyArray);
+        });
+        this.scrappurchaseBodyArray = this.bodyArray;
+        // console.log(this.scrappurchaseBodyArray);
+      });
+  }
+
+  onChangePageSize(pageSizeSelected) {
+    this.pageSize = pageSizeSelected;
+    if (pageSizeSelected < this.bodyArray.length) {
+      this.fetchInwardScrapDetailsReport(
+        this.pageSize,
+        this.pageNumber,
+        this.searchValue
+      );
+    }
+  }
+
+  onChangePageNumber(page) {
+    this.pageNumber = page;
+    this.fetchInwardScrapDetailsReport(
+      this.pageSize,
+      this.pageNumber,
+      this.searchValue
+    );
+  }
+
+  onChangeSearchValue(searchTerm) {
+    this.searchValue = searchTerm;
+    this.fetchInwardScrapDetailsReport(
+      this.pageSize,
+      this.pageNumber,
+      this.searchValue
+    );
   }
 }
