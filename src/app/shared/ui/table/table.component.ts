@@ -61,11 +61,28 @@ export class TableComponent implements OnInit {
         this.tableData = changedProp.currentValue;
         // this.totalRecords = this.tableData.length;
       }
+
       if (propName === "PaginationData") {
         const changedProp = changes[propName];
-        this.totalRecords = changedProp.currentValue.total_records;
-        if (this.searchTerm.length > 0) {
+
+        if (changedProp.currentValue.filtered_records === 0) {
+          this.startIndex = 0;
+          this.endIndex = 0;
+        }
+
+        if (
+          this.searchTerm.length > 0 &&
+          changedProp.currentValue.filtered_records <
+            changedProp.currentValue.total_records
+        ) {
           this.totalRecords = changedProp.currentValue.filtered_records;
+          if (this.endIndex > this.totalRecords) {
+            this.endIndex = this.totalRecords;
+          }
+        } else {
+          this.totalRecords = changedProp.currentValue.total_records;
+          this.startIndex = (this.page - 1) * this.pageSize + 1;
+          this.endIndex = (this.page - 1) * this.pageSize + this.pageSize;
           if (this.endIndex > this.totalRecords) {
             this.endIndex = this.totalRecords;
           }

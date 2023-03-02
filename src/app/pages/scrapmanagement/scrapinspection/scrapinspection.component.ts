@@ -1,3 +1,4 @@
+import { InwardScrapInspectionService } from "./../../../core/services/scrapmanagement/inwardscrapinspection.service";
 import { ScrapInspectionService } from "./scrapinspection.service";
 import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
@@ -12,16 +13,26 @@ export class ScrapInspectionComponent implements OnInit {
   // bread crum data
   breadCrumbItems: Array<{}>;
 
+  pageSize: number = 10;
+  pageNumber: number = 1;
+  searchValue: string = "";
+
   hideme: boolean[] = [];
+
+  bodyArray = [];
+  paginationDetails = {};
 
   public isCollapsed = true;
 
-  constructor(private scrapinspectionService: ScrapInspectionService) {}
+  constructor(
+    private scrapinspectionService: ScrapInspectionService,
+    private inwardscrapinspectionService: InwardScrapInspectionService
+  ) {}
 
   scrapinspectionHeadingArray =
     this.scrapinspectionService.getScrapInspectionReport().heading;
-  scrapinspectionBodyArray =
-    this.scrapinspectionService.getScrapInspectionReport().body;
+  scrapinspectionBodyArray = [];
+  paginationData = {};
 
   parentReports: Array<{}> = [
     {
@@ -39,11 +50,73 @@ export class ScrapInspectionComponent implements OnInit {
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "Scrap Management" },
-      { label: "Inward Scrap", active: true },
+      { label: "Inward Scrap Inspection", active: true },
     ];
+
+    this.fetchInwardScrapInspectionReport(
+      this.pageSize,
+      this.pageNumber,
+      this.searchValue
+    );
   }
 
-  changeValue(i) {
-    this.hideme[i] = !this.hideme[i];
+  fetchInwardScrapInspectionReport(pageSize, pageNumber, searchValue) {
+    let response;
+    this.inwardscrapinspectionService
+      .getAllInwardScrapInspection(pageSize, pageNumber, searchValue)
+      .subscribe((result) => {
+        if (result != null) {
+          response = result;
+        }
+        this.paginationDetails = {};
+        this.paginationDetails = response.Data.pagination;
+        this.paginationData = this.paginationDetails;
+        // console.log(response.Data.pagination);
+        // console.log(response.Data.records);
+        this.bodyArray = [];
+        response.Data.records.forEach((item) => {
+          let dummyArray = [];
+          dummyArray.push({
+            value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+          });
+          dummyArray.push({ value: item["id"] });
+          dummyArray.push({ value: item["alloy_name"] });
+          dummyArray.push({ value: item["source"] });
+          dummyArray.push({ value: item["weight"] });
+          dummyArray.push({ value: item["remarks"] });
+          this.bodyArray.push(dummyArray);
+        });
+        this.scrapinspectionBodyArray = this.bodyArray;
+        // console.log(this.scrappurchaseBodyArray);
+      });
+  }
+
+  onChangePageSize(pageSizeSelected) {
+    this.pageSize = pageSizeSelected;
+    if (pageSizeSelected < this.bodyArray.length) {
+      this.fetchInwardScrapInspectionReport(
+        this.pageSize,
+        this.pageNumber,
+        this.searchValue
+      );
+    }
+  }
+
+  onChangePageNumber(page) {
+    this.pageNumber = page;
+    this.fetchInwardScrapInspectionReport(
+      this.pageSize,
+      this.pageNumber,
+      this.searchValue
+    );
+  }
+
+  onChangeSearchValue(searchTerm) {
+    this.searchValue = searchTerm;
+    this.fetchInwardScrapInspectionReport(
+      this.pageSize,
+      this.pageNumber,
+      this.searchValue
+    );
   }
 }
