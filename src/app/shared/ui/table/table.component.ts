@@ -68,6 +68,9 @@ export class TableComponent implements OnInit {
         if (changedProp.currentValue.filtered_records === 0) {
           this.startIndex = 0;
           this.endIndex = 0;
+        } else {
+          this.startIndex = (this.page - 1) * this.pageSize + 1;
+          this.endIndex = (this.page - 1) * this.pageSize + this.pageSize;
         }
 
         if (
