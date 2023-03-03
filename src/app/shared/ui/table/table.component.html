@@ -187,6 +187,10 @@
       aria-live="polite"
     >
       Showing {{ startIndex }} to {{ endIndex }} of {{ totalRecords }} entries
+
+      <span *ngIf="filtered"
+        >(filtered from {{ total_records_int_the_db }} total entries)</span
+      >
     </div>
   </div>
 

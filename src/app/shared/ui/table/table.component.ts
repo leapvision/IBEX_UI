@@ -31,11 +31,14 @@ export class TableComponent implements OnInit {
   tableData: string[];
 
   totalRecords: number;
+  total_records_int_the_db: number;
   page: number;
   pageSize: number;
   searchTerm: string;
   startIndex: number;
   endIndex: number;
+
+  filtered: boolean = false;
 
   constructor(private modalService: NgbModal) {}
 
@@ -51,6 +54,8 @@ export class TableComponent implements OnInit {
     // this.tableData = this.BodyArray.slice(this.startIndex - 1, this.endIndex);
 
     this.totalRecords = this.PaginationData.total_records;
+
+    this.total_records_int_the_db = this.PaginationData.total_records;
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -79,9 +84,12 @@ export class TableComponent implements OnInit {
             changedProp.currentValue.total_records
         ) {
           this.totalRecords = changedProp.currentValue.filtered_records;
+          this.total_records_int_the_db =
+            changedProp.currentValue.total_records;
           if (this.endIndex > this.totalRecords) {
             this.endIndex = this.totalRecords;
           }
+          this.filtered = true;
         } else {
           this.totalRecords = changedProp.currentValue.total_records;
           this.startIndex = (this.page - 1) * this.pageSize + 1;
@@ -89,6 +97,7 @@ export class TableComponent implements OnInit {
           if (this.endIndex > this.totalRecords) {
             this.endIndex = this.totalRecords;
           }
+          this.filtered = false;
         }
       }
       // console.log(changes[propName].currentValue);
