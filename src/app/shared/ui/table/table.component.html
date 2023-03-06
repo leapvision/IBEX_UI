@@ -63,7 +63,7 @@
           <span *ngIf="row.showParentReport" class="btn-expand">-</span>
         </td>
         <th *ngIf="!slno" scope="row">{{ 1000 + i + 1 }}</th>
-        <td *ngFor="let body of row">
+        <td *ngFor="let body of row['currentReport']">
           {{ body.value }}
           <img
             *ngIf="body.img"
@@ -134,7 +134,7 @@
             >
               <ngb-panel
                 id="static-{{ i + 1 }}"
-                *ngFor="let report of ParentReports; let i = index"
+                *ngFor="let report of row['allPreviousReports']; let i = index"
               >
                 <ng-template ngbPanelTitle class="text-black">
                   {{ report.name }}

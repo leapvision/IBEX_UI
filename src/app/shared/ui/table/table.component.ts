@@ -64,9 +64,9 @@ export class TableComponent implements OnInit {
       if (propName === "BodyArray") {
         const changedProp = changes[propName];
         this.tableData = changedProp.currentValue;
+        console.log(this.tableData);
         // this.totalRecords = this.tableData.length;
       }
-
       if (propName === "PaginationData") {
         const changedProp = changes[propName];
 
@@ -79,6 +79,7 @@ export class TableComponent implements OnInit {
         }
 
         if (
+          this.searchTerm &&
           this.searchTerm.length > 0 &&
           changedProp.currentValue.filtered_records <
             changedProp.currentValue.total_records
@@ -105,24 +106,24 @@ export class TableComponent implements OnInit {
     }
   }
 
-  fetchRecords(pageSize) {
-    this.startIndex = (this.page - 1) * pageSize + 1;
-    this.endIndex = (this.page - 1) * pageSize + pageSize;
-    if (this.endIndex > this.totalRecords) {
-      this.endIndex = this.totalRecords;
-    }
-    this.tableData = this.BodyArray.slice(this.startIndex - 1, this.endIndex);
-  }
+  // fetchRecords(pageSize) {
+  //   this.startIndex = (this.page - 1) * pageSize + 1;
+  //   this.endIndex = (this.page - 1) * pageSize + pageSize;
+  //   if (this.endIndex > this.totalRecords) {
+  //     this.endIndex = this.totalRecords;
+  //   }
+  //   this.tableData = this.BodyArray.slice(this.startIndex - 1, this.endIndex);
+  // }
 
-  paginate(page) {
-    this.startIndex = (page - 1) * this.pageSize + 1;
-    this.endIndex = (page - 1) * this.pageSize + this.pageSize;
-    if (this.endIndex > this.totalRecords) {
-      this.endIndex = this.totalRecords;
-    }
+  // paginate(page) {
+  //   this.startIndex = (page - 1) * this.pageSize + 1;
+  //   this.endIndex = (page - 1) * this.pageSize + this.pageSize;
+  //   if (this.endIndex > this.totalRecords) {
+  //     this.endIndex = this.totalRecords;
+  //   }
 
-    this.tableData = this.BodyArray.slice(this.startIndex - 1, this.endIndex);
-  }
+  //   this.tableData = this.BodyArray.slice(this.startIndex - 1, this.endIndex);
+  // }
 
   openModal(body) {
     const modalRef = this.modalService.open(ModalComponent, {
