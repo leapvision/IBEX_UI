@@ -40,14 +40,7 @@ export class MeltingComponent implements OnInit {
   meltingBodyArray = [];
   paginationData = {};
 
-  parentReports: Array<{}> = [
-    {
-      name: "Material Loading",
-      heading: this.materialLoadingHeadingArray,
-      body: this.materialLoadingBodyArray,
-      children: true,
-    },
-  ];
+  parentsReports = [];
 
   ngOnInit(): void {
     this.breadCrumbItems = [
@@ -76,21 +69,70 @@ export class MeltingComponent implements OnInit {
         // console.log(response.Data.pagination);
         // console.log(response.Data.records);
         this.bodyArray = [];
+        this.parentsReports = [];
         response.Data.records.forEach((item) => {
-          this.bodyArray.push([
+          this.parentsReports = [
             {
-              value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+              name: "Material Loading",
+              heading: this.materialLoadingHeadingArray,
+              body: [
+                {
+                  currentReport: [
+                    {
+                      value: new Date(
+                        item["loading_details"]["created_on"]
+                      ).toLocaleDateString("en-GB"),
+                    },
+                    {
+                      value: item["loading_details"]["melt_no"],
+                    },
+                    {
+                      value:
+                        item["loading_details"]["sfg_prod_order_details"]["id"],
+                    },
+                    {
+                      value:
+                        item["loading_details"]["sfg_prod_order_details"][
+                          "alloy_name"
+                        ],
+                    },
+                    {
+                      value:
+                        item["loading_details"]["sfg_prod_order_details"][
+                          "scrap_weight"
+                        ],
+                    },
+                    { viewDetails: true },
+                  ],
+                },
+              ],
+              children: true,
             },
-            { value: item["shift_details"]["name"] },
-            { value: item["loading_details"]["melt_no"] },
-            { value: item["melting_temp"] },
-            {
-              img: `http://localhost:8000${item["image_path"]}`,
-            },
-          ]);
+          ];
+          this.bodyArray.push({
+            currentReport: [
+              {
+                value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+              },
+              { value: item["shift_details"]["name"] },
+              { value: item["loading_details"]["melt_no"] },
+              { value: item["melting_temp"] },
+              {
+                img: `http://localhost:8000${item["image_path"]}`,
+              },
+            ],
+            allPreviousReports: this.parentsReports,
+          });
         });
         this.meltingBodyArray = this.bodyArray;
         // console.log(this.scrappurchaseBodyArray);
+
+        // let materialLoadingReport = {
+        //   name: "Material Loading",
+        //   heading: this.materialLoadingHeadingArray,
+        //   body: this.materialLoadingBodyArray,
+        //   children: true,
+        // };
       });
   }
 
@@ -115,6 +157,7 @@ export class MeltingComponent implements OnInit {
   }
 
   onChangeSearchValue(searchTerm) {
+    debugger;
     this.searchValue = searchTerm;
     this.fetchMTOMeltingReport(
       this.pageSize,
