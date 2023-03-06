@@ -153,6 +153,10 @@
             [BodyArray]="meltingBodyArray"
             [ParentReports]="parentReports"
             [source]="true"
+            (pageSizeSelected)="onChangePageSize($event)"
+            (pageNumber)="onChangePageNumber($event)"
+            (searchValue)="onChangeSearchValue($event)"
+            [PaginationData]="paginationDetails"
           ></app-table>
         </div>
       </div>
