@@ -144,6 +144,10 @@
             [BodyArray]="slaginspectionBodyArray"
             [source]="true"
             [ParentReports]="parentReports"
+            (pageSizeSelected)="onChangePageSize($event)"
+            (pageNumber)="onChangePageNumber($event)"
+            (searchValue)="onChangeSearchValue($event)"
+            [PaginationData]="paginationDetails"
           ></app-table>
         </div>
       </div>
