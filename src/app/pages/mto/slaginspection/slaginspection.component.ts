@@ -6,6 +6,7 @@ import { FluxMixingService } from "../fluxmixing/fluxmixing.service";
 import { SlagRemovingService } from "../slagremoving/slagremoving.service";
 import { SlagInspectionService } from "./slaginspection.service";
 import { MTOSlagInspectionService } from "src/app/core/services/mto/mtoslaginspection.service";
+import { convertTime } from "src/app/core/helpers/functions";
 
 @Component({
   selector: "app-slaginspection",
@@ -62,32 +63,7 @@ export class SlagInspectionComponent implements OnInit {
   slaginspectionBodyArray = [];
   paginationData = {};
 
-  parentReports: Array<{}> = [
-    {
-      name: "Slag Removal",
-      heading: this.slagremovingHeadingArray,
-      body: this.slagremovingBodyArray,
-      children: true,
-    },
-    {
-      name: "Flux Mixing",
-      heading: this.fluxmixingHeadingArray,
-      body: this.fluxmixingBodyArray,
-      children: true,
-    },
-    {
-      name: "Melting",
-      heading: this.meltingHeadingArray,
-      body: this.meltingBodyArray,
-      children: true,
-    },
-    {
-      name: "Material Loading",
-      heading: this.materialLoadingHeadingArray,
-      body: this.materialLoadingBodyArray,
-      children: true,
-    },
-  ];
+  parentsReports = [];
 
   inspectionSamples = [
     this.slaginspectionService.samplesArray,
@@ -126,25 +102,188 @@ export class SlagInspectionComponent implements OnInit {
         // console.log(response.Data.pagination);
         // console.log(response.Data.records);
         this.bodyArray = [];
+        this.parentsReports = [];
         response.Data.records.forEach((item) => {
-          this.bodyArray.push([
+          this.parentsReports = [
             {
-              value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+              name: "Slag Removal",
+              heading: this.meltingHeadingArray,
+              body: [
+                {
+                  currentReport: [
+                    {
+                      value: new Date(
+                        item["slag_removal_details"]["created_on"]
+                      ).toLocaleDateString("en-GB"),
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["shift_details"]["name"],
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["loading_details"]["melt_no"],
+                    },
+                    { value: item["slag_removal_details"]["slag_quantity"] },
+                    {
+                      value: convertTime(
+                        item["slag_removal_details"]["slag_removal_time"]
+                      ),
+                    },
+                  ],
+                },
+              ],
+              children: true,
             },
             {
-              value:
-                item["slag_removal_details"]["flux_details"]["melting_details"][
-                  "loading_details"
-                ]["melt_no"],
+              name: "Flux Mixing",
+              heading: this.meltingHeadingArray,
+              body: [
+                {
+                  currentReport: [
+                    {
+                      value: new Date(
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["created_on"]
+                      ).toLocaleDateString("en-GB"),
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["shift_details"]["name"],
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["loading_details"]["melt_no"],
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["melting_temp"],
+                    },
+                    {
+                      img: `http://localhost:8000${item["slag_removal_details"]["flux_details"]["melting_details"]["image_path"]}`,
+                    },
+                  ],
+                },
+              ],
+              children: true,
             },
-            { value: item["spectro_sample_1"]["sample"] },
-            { value: item["spectro_sample_2"]["sample"] },
-            { value: item["spectro_sample_3"]["sample"] },
-            { value: item["spectro_sample_4"]["sample"] },
-            { value: item["spectro_sample_5"]["sample"] },
-            { isButton: true, innerText: "Moved to MWO", success: true },
-            { value: item["remarks"] },
-          ]);
+            {
+              name: "Melting",
+              heading: this.meltingHeadingArray,
+              body: [
+                {
+                  currentReport: [
+                    {
+                      value: new Date(
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["created_on"]
+                      ).toLocaleDateString("en-GB"),
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["shift_details"]["name"],
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["loading_details"]["melt_no"],
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["melting_temp"],
+                    },
+                    {
+                      img: `http://localhost:8000${item["slag_removal_details"]["flux_details"]["melting_details"]["image_path"]}`,
+                    },
+                  ],
+                },
+              ],
+              children: true,
+            },
+            {
+              name: "Material Loading",
+              heading: this.materialLoadingHeadingArray,
+              body: [
+                {
+                  currentReport: [
+                    {
+                      value: new Date(
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["loading_details"]["created_on"]
+                      ).toLocaleDateString("en-GB"),
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["loading_details"]["melt_no"],
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["loading_details"]["sfg_prod_order_details"]["id"],
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["loading_details"]["sfg_prod_order_details"][
+                          "alloy_name"
+                        ],
+                    },
+                    {
+                      value:
+                        item["slag_removal_details"]["flux_details"][
+                          "melting_details"
+                        ]["loading_details"]["sfg_prod_order_details"][
+                          "scrap_weight"
+                        ],
+                    },
+                    { viewDetails: true },
+                  ],
+                },
+              ],
+              children: true,
+            },
+          ];
+          this.bodyArray.push({
+            currentReport: [
+              {
+                value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+              },
+              {
+                value:
+                  item["slag_removal_details"]["flux_details"][
+                    "melting_details"
+                  ]["loading_details"]["melt_no"],
+              },
+              { value: item["spectro_sample_1"]["sample"] },
+              { value: item["spectro_sample_2"]["sample"] },
+              { value: item["spectro_sample_3"]["sample"] },
+              { value: item["spectro_sample_4"]["sample"] },
+              { value: item["spectro_sample_5"]["sample"] },
+              { isButton: true, innerText: "Moved to MWO", success: true },
+              { value: item["remarks"] },
+            ],
+            allPreviousReports: this.parentsReports,
+          });
         });
         this.slaginspectionBodyArray = this.bodyArray;
         // console.log(this.scrappurchaseBodyArray);
