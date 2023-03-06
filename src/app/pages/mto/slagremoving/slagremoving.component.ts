@@ -5,6 +5,7 @@ import { DecimalPipe } from "@angular/common";
 import { MeltingService } from "../melting/melting.service";
 import { SlagRemovingService } from "./slagremoving.service";
 import { MTOSlagRemovalService } from "src/app/core/services/mto/mtoslagremoval.service";
+import { convertTime } from "src/app/core/helpers/functions";
 
 @Component({
   selector: "app-slagremoving",
@@ -53,26 +54,7 @@ export class SlagRemovingComponent implements OnInit {
   slagremovingBodyArray = [];
   paginationData = {};
 
-  parentReports: Array<{}> = [
-    {
-      name: "Flux Mixing",
-      heading: this.fluxmixingHeadingArray,
-      body: this.fluxmixingBodyArray,
-      children: true,
-    },
-    {
-      name: "Melting",
-      heading: this.meltingHeadingArray,
-      body: this.meltingBodyArray,
-      children: true,
-    },
-    {
-      name: "Material Loading",
-      heading: this.meltingHeadingArray,
-      body: this.meltingBodyArray,
-      children: true,
-    },
-  ];
+  parentsReports = [];
 
   ngOnInit(): void {
     this.breadCrumbItems = [
@@ -101,21 +83,140 @@ export class SlagRemovingComponent implements OnInit {
         // console.log(response.Data.pagination);
         // console.log(response.Data.records);
         this.bodyArray = [];
+        this.parentsReports = [];
         response.Data.records.forEach((item) => {
-          this.bodyArray.push([
+          this.parentsReports = [
             {
-              value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+              name: "Flux Mixing",
+              heading: this.meltingHeadingArray,
+              body: [
+                {
+                  currentReport: [
+                    {
+                      value: new Date(
+                        item["flux_details"]["melting_details"]["created_on"]
+                      ).toLocaleDateString("en-GB"),
+                    },
+                    {
+                      value:
+                        item["flux_details"]["melting_details"][
+                          "shift_details"
+                        ]["name"],
+                    },
+                    {
+                      value:
+                        item["flux_details"]["melting_details"][
+                          "loading_details"
+                        ]["melt_no"],
+                    },
+                    {
+                      value:
+                        item["flux_details"]["melting_details"]["melting_temp"],
+                    },
+                    {
+                      img: `http://localhost:8000${item["flux_details"]["melting_details"]["image_path"]}`,
+                    },
+                  ],
+                },
+              ],
+              children: true,
             },
-            { value: item["shift_details"]["name"] },
             {
-              value:
-                item["flux_details"]["melting_details"]["loading_details"][
-                  "melt_no"
-                ],
+              name: "Melting",
+              heading: this.meltingHeadingArray,
+              body: [
+                {
+                  currentReport: [
+                    {
+                      value: new Date(
+                        item["flux_details"]["melting_details"]["created_on"]
+                      ).toLocaleDateString("en-GB"),
+                    },
+                    {
+                      value:
+                        item["flux_details"]["melting_details"][
+                          "shift_details"
+                        ]["name"],
+                    },
+                    {
+                      value:
+                        item["flux_details"]["melting_details"][
+                          "loading_details"
+                        ]["melt_no"],
+                    },
+                    {
+                      value:
+                        item["flux_details"]["melting_details"]["melting_temp"],
+                    },
+                    {
+                      img: `http://localhost:8000${item["flux_details"]["melting_details"]["image_path"]}`,
+                    },
+                  ],
+                },
+              ],
+              children: true,
             },
-            { value: item["slag_quantity"] },
-            { value: item["slag_removal_time"] },
-          ]);
+            {
+              name: "Material Loading",
+              heading: this.materialLoadingHeadingArray,
+              body: [
+                {
+                  currentReport: [
+                    {
+                      value: new Date(
+                        item["flux_details"]["melting_details"][
+                          "loading_details"
+                        ]["created_on"]
+                      ).toLocaleDateString("en-GB"),
+                    },
+                    {
+                      value:
+                        item["flux_details"]["melting_details"][
+                          "loading_details"
+                        ]["melt_no"],
+                    },
+                    {
+                      value:
+                        item["flux_details"]["melting_details"][
+                          "loading_details"
+                        ]["sfg_prod_order_details"]["id"],
+                    },
+                    {
+                      value:
+                        item["flux_details"]["melting_details"][
+                          "loading_details"
+                        ]["sfg_prod_order_details"]["alloy_name"],
+                    },
+                    {
+                      value:
+                        item["flux_details"]["melting_details"][
+                          "loading_details"
+                        ]["sfg_prod_order_details"]["scrap_weight"],
+                    },
+                    { viewDetails: true },
+                  ],
+                },
+              ],
+              children: true,
+            },
+          ];
+          this.bodyArray.push({
+            currentReport: [
+              {
+                value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+              },
+              { value: item["shift_details"]["name"] },
+              {
+                value:
+                  item["flux_details"]["melting_details"]["loading_details"][
+                    "melt_no"
+                  ],
+              },
+              { value: item["slag_quantity"] },
+              { value: convertTime(item["slag_removal_time"]) },
+            ],
+            allPreviousReports: this.parentsReports,
+          });
         });
         this.slagremovingBodyArray = this.bodyArray;
         // console.log(this.slagremovingBodyArray);
