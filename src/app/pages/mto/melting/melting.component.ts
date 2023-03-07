@@ -103,8 +103,8 @@ export class MeltingComponent implements OnInit {
   }
 
   fetchMeltNumbers() {
+    let response;
     this.mtoMeltingService.getAllReadyForMelting().subscribe((result) => {
-      let response;
       if (result != null) {
         response = result;
         console.log(response);
@@ -127,16 +127,6 @@ export class MeltingComponent implements OnInit {
     const imageBlob = dataURItoBlob(this.webcamImage.imageAsBase64);
     this.imageFile = new File([imageBlob], imageName, { type: "image/png" });
     console.log(this.imageFile);
-    // const meltingData = {
-    //   loading_id: this.meltNumbers.find(
-    //     (item) => item.melt_no === this.form.meltNumberGroup.value["melt_no"]
-    //   ).id,
-    //   line_id: JSON.parse(localStorage.getItem("lineDetails")).id,
-    //   melting_temp: this.form.meltTemperatureGroup.value["melt_temp"],
-    //   image_path: this.imageFile,
-    //   shift_id: JSON.parse(localStorage.getItem("shiftDetails")).id,
-    //   remarks: this.form.remarksGroup.value["remarks"],
-    // };
 
     const meltingFormData = new FormData();
     meltingFormData.append(

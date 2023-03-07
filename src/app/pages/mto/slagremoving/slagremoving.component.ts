@@ -1,11 +1,19 @@
 import { MaterialLoadingService } from "./../loadingofrm/loadingofrm.service";
 import { FluxMixingService } from "./../fluxmixing/fluxmixing.service";
-import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  QueryList,
+  ViewChild,
+} from "@angular/core";
 import { DecimalPipe } from "@angular/common";
 import { MeltingService } from "../melting/melting.service";
 import { SlagRemovingService } from "./slagremoving.service";
 import { MTOSlagRemovalService } from "src/app/core/services/mto/mtoslagremoval.service";
 import { convertTime } from "src/app/core/helpers/functions";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { WizardComponent } from "angular-archwizard";
 
 @Component({
   selector: "app-slagremoving",
@@ -14,18 +22,26 @@ import { convertTime } from "src/app/core/helpers/functions";
   providers: [DecimalPipe],
 })
 export class SlagRemovingComponent implements OnInit {
+  @ViewChild(WizardComponent)
+  public wizard: WizardComponent;
   breadCrumbItems: Array<{}>;
 
   pageSize: number = 10;
   pageNumber: number = 1;
   searchValue: string = "";
+  isRemarksAvailable: boolean = false;
+
+  mtoSlagRemovalForm: FormGroup;
 
   hideme: boolean[] = [];
+
+  meltNumbers = [];
 
   bodyArray = [];
   paginationDetails = {};
 
   constructor(
+    private fb: FormBuilder,
     private materialLoadingService: MaterialLoadingService,
     private meltingService: MeltingService,
     private fluxingService: FluxMixingService,
@@ -62,11 +78,89 @@ export class SlagRemovingComponent implements OnInit {
       { label: "Slag Removing", active: true },
     ];
 
+    this.formInit();
+
+    this.fetchMeltNumbers();
+
     this.fetchMTOSlagRemovalReport(
       this.pageSize,
       this.pageNumber,
       this.searchValue
     );
+  }
+
+  formInit() {
+    this.mtoSlagRemovalForm = this.fb.group({
+      slagRemovalMeltNumberGroup: this.fb.group({
+        melt_no: [null, Validators.required],
+      }),
+      slagRemovalQuantityGroup: this.fb.group({
+        quantity: [null, Validators.required],
+      }),
+      slagRemovalTimeGroup: this.fb.group({
+        time: [null, Validators.required],
+      }),
+      remarksGroup: this.fb.group({
+        remarks: [""],
+      }),
+    });
+  }
+
+  remarks(value) {
+    if (value && value.length > 0) {
+      this.isRemarksAvailable = true;
+    }
+  }
+
+  fetchMeltNumbers() {
+    let response;
+    this.mtoslagremovalService
+      .getAllReadyForSlagRemoval()
+      .subscribe((result) => {
+        if (result != null) {
+          response = result;
+        }
+        this.meltNumbers = response.Data;
+      });
+  }
+
+  get form() {
+    return this.mtoSlagRemovalForm.controls;
+  }
+
+  onMtoSlagRemovalFormSubmit() {
+    console.log(this.mtoSlagRemovalForm.value);
+    let response;
+
+    let slagRemovalData = {
+      flux_id: 10002,
+      line_id: JSON.parse(localStorage.getItem("lineDetails")).id,
+      slag_quantity: this.form.slagRemovalQuantityGroup.value["quantity"],
+      shift_id: JSON.parse(localStorage.getItem("shiftDetails")).id,
+      remarks: this.form.remarksGroup.value["remarks"],
+    };
+
+    this.mtoslagremovalService
+      .addSlagRemoval(slagRemovalData)
+      .subscribe((result) => {
+        if (result != null) {
+          response = result;
+        }
+        console.log(response);
+        if (response.Result === "Success") {
+          this.mtoSlagRemovalForm.reset();
+          this.formInit();
+          this.wizard.reset();
+          this.fetchMeltNumbers();
+          this.fetchMTOSlagRemovalReport(
+            this.pageSize,
+            this.pageNumber,
+            this.searchValue
+          );
+        } else {
+          alert("Something went wrong!🥲");
+        }
+      });
   }
 
   fetchMTOSlagRemovalReport(pageSize, pageNumber, searchValue) {
@@ -213,7 +307,7 @@ export class SlagRemovingComponent implements OnInit {
                   ],
               },
               { value: item["slag_quantity"] },
-              { value: convertTime(item["slag_removal_time"]) },
+              { value: item["slag_removal_time"] },
             ],
             allPreviousReports: this.parentsReports,
           });

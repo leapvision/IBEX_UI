@@ -6,10 +6,19 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title mb-4 text-center">Slag Removal</h4>
-          <aw-wizard [navBarLayout]="'large-empty-symbols'">
-            <aw-wizard-step stepTitle="Melt Number">
-              <ng-template awWizardStepSymbol><b>1</b></ng-template>
-              <form>
+
+          <form
+            [formGroup]="mtoSlagRemovalForm"
+            (ngSubmit)="onMtoSlagRemovalFormSubmit()"
+          >
+            <aw-wizard [navBarLayout]="'large-empty-symbols'">
+              <!-- Step 1 -->
+              <aw-wizard-step
+                stepTitle="Melt Number"
+                formGroupName="slagRemovalMeltNumberGroup"
+              >
+                <ng-template awWizardStepSymbol><b>1</b></ng-template>
+
                 <div class="row mb-4 text-center mt-4">
                   <label for="horizontal-firstname-input" class="col-sm-12"
                     >Ready for Slag Removal</label
@@ -18,137 +27,250 @@
                 <div class="row mb-4 justify-content-center">
                   <div class="col-sm-12">
                     <div class="row">
-                      <div class="col-sm-4">
-                        <div
-                          class="card bg-success border border-success card-body"
+                      <div
+                        class="btn-group col-sm-4"
+                        role="group"
+                        *ngFor="let item of meltNumbers; let i = index"
+                      >
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="melt_no"
+                          formControlName="melt_no"
+                          [value]="item.melting_details.loading_details.melt_no"
+                          id="{{
+                            item.melting_details.loading_details.melt_no
+                          }}"
+                        />
+                        <label
+                          class="btn btn-outline-success p-4 font-size-16"
+                          for="{{
+                            item.melting_details.loading_details.melt_no
+                          }}"
+                          >{{
+                            item.melting_details.loading_details.melt_no
+                          }}</label
                         >
-                          <h3 class="card-title text-white text-center">
-                            MT-01-1001
-                          </h3>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <div class="card border border-primary card-body">
-                          <h3 class="card-title text-center">MT-01-1002</h3>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <div class="card border border-primary card-body">
-                          <h3 class="card-title text-center">MT-02-1003</h3>
-                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </form>
-              <ul class="list-inline wizard mb-0">
-                <li class="next list-inline-item float-end">
-                  <button class="btn btn-primary" awNextStep>Next</button>
-                </li>
-              </ul>
-            </aw-wizard-step>
 
-            <aw-wizard-step stepTitle="Slag Removal">
-              <ng-template awWizardStepSymbol><b>2</b></ng-template>
-              <form>
+                <ul class="list-inline wizard mb-0">
+                  <li class="next list-inline-item float-end">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      [disabled]="form.slagRemovalMeltNumberGroup.invalid"
+                      awNextStep
+                    >
+                      Next
+                    </button>
+                  </li>
+                </ul>
+              </aw-wizard-step>
+              <!-- Step 2 -->
+              <aw-wizard-step
+                stepTitle="Slag Removal"
+                formGroupName="slagRemovalQuantityGroup"
+              >
+                <ng-template awWizardStepSymbol><b>2</b></ng-template>
+
                 <div class="row mb-4 mt-4">
-                  <label
-                    for="horizontal-firstname-input"
-                    class="col-sm-3 col-form-label"
+                  <label for="quantity" class="col-sm-3 col-form-label"
                     >Quantity(KG)</label
                   >
                   <div class="col-sm-9">
-                    <input type="number" class="form-control" />
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="quantity"
+                      formControlName="quantity"
+                    />
                   </div>
                 </div>
-              </form>
-              <ul class="list-inline wizard mb-0">
-                <li class="previous list-inline-item">
-                  <button class="btn btn-primary" awPreviousStep>
-                    Previous
-                  </button>
-                </li>
-                <li class="next list-inline-item float-end">
-                  <button class="btn btn-primary" awNextStep>Next</button>
-                </li>
-              </ul>
-            </aw-wizard-step>
 
-            <aw-wizard-step stepTitle="Time">
-              <ng-template awWizardStepSymbol><b>3</b></ng-template>
-              <div class="mb-3 row mt-4">
-                <label for="example-time-input" class="col-md-2 col-form-label"
-                  >Time</label
-                >
-                <div class="col-md-10">
-                  <input class="form-control" type="time" value="10:00:00" />
-                </div>
-              </div>
-
-              <ul class="list-inline wizard mb-0">
-                <li class="previous list-inline-item">
-                  <button class="btn btn-primary" awPreviousStep>
-                    Previous
-                  </button>
-                </li>
-                <li class="next list-inline-item float-end">
-                  <button class="btn btn-primary" awNextStep>Next</button>
-                </li>
-              </ul>
-            </aw-wizard-step>
-
-            <aw-wizard-step stepTitle="Confirm">
-              <ng-template awWizardStepSymbol>4</ng-template>
-              <div class="row justify-content-center">
-                <div class="col-xl col-sm-6">
-                  <div class="mt-3 mb-0 text-center">
-                    <div
-                      class="card bg-success border border-success card-body"
-                    >
-                      <h3 class="card-title text-white text-center">
-                        Melt Number - MT-01-1001
-                      </h3>
-                    </div>
-                    <div
-                      class="card bg-success border border-success card-body"
-                    >
-                      <h3 class="card-title text-white text-center">
-                        Slag Removal Quantity - 17KG
-                      </h3>
-                    </div>
-                    <div
-                      class="card bg-success border border-success card-body"
-                    >
-                      <h3 class="card-title text-white text-center">
-                        Time - 10:20
-                      </h3>
-                    </div>
+                <ul class="list-inline wizard mb-0">
+                  <li class="previous list-inline-item">
                     <button
                       type="button"
-                      class="btn btn-ibex btn-lg w-md text-black"
+                      class="btn btn-primary"
+                      awPreviousStep
                     >
-                      Confirm
+                      Previous
                     </button>
-                    <br />
+                  </li>
+                  <li class="next list-inline-item float-end">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      [disabled]="form.slagRemovalQuantityGroup.invalid"
+                      awNextStep
+                    >
+                      Next
+                    </button>
+                  </li>
+                </ul>
+              </aw-wizard-step>
+              <!-- Step 3 -->
+              <aw-wizard-step
+                stepTitle="Time"
+                formGroupName="slagRemovalTimeGroup"
+              >
+                <ng-template awWizardStepSymbol><b>3</b></ng-template>
+                <div class="mb-3 row mt-4">
+                  <label for="time" class="col-md-2 col-form-label">Time</label>
+                  <div class="col-md-10">
+                    <input
+                      class="form-control"
+                      type="time"
+                      formControlName="time"
+                      id="time"
+                    />
                   </div>
                 </div>
-              </div>
-              <ul class="list-inline wizard mb-0">
-                <li class="previous list-inline-item">
-                  <button class="btn btn-primary" awPreviousStep>
-                    Previous
-                  </button>
-                </li>
-                <li class="next list-inline-item float-end">
-                  <a
-                    routerLink="/pages/mto/slaginspection"
-                    class="btn btn-primary"
-                    >Next Process</a
+
+                <ul class="list-inline wizard mb-0">
+                  <li class="previous list-inline-item">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      awPreviousStep
+                    >
+                      Previous
+                    </button>
+                  </li>
+                  <li class="next list-inline-item float-end">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      [disabled]="form.slagRemovalTimeGroup.invalid"
+                      awNextStep
+                    >
+                      Next
+                    </button>
+                  </li>
+                </ul>
+              </aw-wizard-step>
+
+              <!-- Step 4 -->
+              <aw-wizard-step stepTitle="Remarks" formGroupName="remarksGroup">
+                <ng-template awWizardStepSymbol><b>4</b></ng-template>
+
+                <div class="row mb-4">
+                  <label for="remarks" class="col-sm-3 col-form-label"
+                    >Remarks</label
                   >
-                </li>
-              </ul>
-            </aw-wizard-step>
-          </aw-wizard>
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="remarks"
+                      formControlName="remarks"
+                      (ngModelChange)="remarks($event)"
+                    />
+                  </div>
+                </div>
+
+                <ul class="list-inline wizard mb-0">
+                  <li class="previous list-inline-item">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      awPreviousStep
+                    >
+                      Previous
+                    </button>
+                  </li>
+                  <li class="next list-inline-item float-end">
+                    <button type="button" class="btn btn-primary" awNextStep>
+                      Next
+                    </button>
+                  </li>
+                </ul>
+              </aw-wizard-step>
+              <!-- Step 5 -->
+              <aw-wizard-step stepTitle="Confirm">
+                <ng-template awWizardStepSymbol>5</ng-template>
+                <div class="row justify-content-center">
+                  <div class="col-xl col-sm-6">
+                    <div class="mt-3 mb-0 text-center">
+                      <div
+                        class="card bg-success border border-success card-body"
+                      >
+                        <h3 class="card-title text-white text-center">
+                          {{
+                            "Melt Number - " +
+                              form.slagRemovalMeltNumberGroup.value["melt_no"]
+                          }}
+                        </h3>
+                      </div>
+                      <div
+                        class="card bg-success border border-success card-body"
+                      >
+                        <h3 class="card-title text-white text-center">
+                          {{
+                            "Slag Removal Quantity(KG) - " +
+                              form.slagRemovalQuantityGroup.value["quantity"]
+                          }}
+                        </h3>
+                      </div>
+                      <div
+                        class="card bg-success border border-success card-body"
+                      >
+                        <h3 class="card-title text-white text-center">
+                          {{
+                            "Slag Removal Time - " +
+                              form.slagRemovalTimeGroup.value["time"]
+                          }}
+                        </h3>
+                      </div>
+                      <div
+                        class="card bg-success border border-success card-body"
+                      >
+                        <h3
+                          *ngIf="isRemarksAvailable"
+                          class="card-title text-white text-center"
+                        >
+                          {{
+                            "Remarks - " + form.remarksGroup.value["remarks"]
+                          }}
+                        </h3>
+                        <h3
+                          *ngIf="!isRemarksAvailable"
+                          class="card-title text-white text-center"
+                        >
+                          No remarks
+                        </h3>
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-ibex btn-lg w-md text-black"
+                        [disabled]="form.invalid"
+                      >
+                        Confirm
+                      </button>
+                      <br />
+                    </div>
+                  </div>
+                </div>
+                <ul class="list-inline wizard mb-0">
+                  <li class="previous list-inline-item">
+                    <button class="btn btn-primary" awPreviousStep>
+                      Previous
+                    </button>
+                  </li>
+                  <li class="next list-inline-item float-end">
+                    <a
+                      routerLink="/pages/mto/slaginspection"
+                      class="btn btn-primary"
+                      >Next Process</a
+                    >
+                  </li>
+                </ul>
+              </aw-wizard-step>
+            </aw-wizard>
+          </form>
         </div>
       </div>
     </div>

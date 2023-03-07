@@ -24,4 +24,13 @@ export class MTOSlagRemovalService {
       `http://localhost:8000/MTO/mtoSlagRemoval/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
     );
   }
+
+  getAllReadyForSlagRemoval() {
+    let url = "http://localhost:8000/MTO/readyForSlagRemoval/";
+    return this.http.get(url);
+  }
+
+  addSlagRemoval(slagRemovalData) {
+    return this.http.post(this.apiurl, slagRemovalData);
+  }
 }
