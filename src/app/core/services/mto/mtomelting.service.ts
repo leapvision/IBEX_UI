@@ -31,4 +31,13 @@ export class MTOMeltingService {
       `http://localhost:8000/MTO/mtoMelting/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
     );
   }
+
+  getAllReadyForMelting() {
+    let url = "http://localhost:8000/MTO/readyForMelting/";
+    return this.http.get(url);
+  }
+
+  addMelting(meltingData) {
+    return this.http.post(this.apiurl, meltingData);
+  }
 }

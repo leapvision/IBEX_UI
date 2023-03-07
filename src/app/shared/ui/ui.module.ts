@@ -1,3 +1,4 @@
+import { WebcamComponent } from "./webcam/webcam.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
@@ -15,6 +16,7 @@ import { PagetitleComponent } from "./pagetitle/pagetitle.component";
 import { LoaderComponent } from "./loader/loader.component";
 import { TableComponent } from "./table/table.component";
 import { SpectroReportsComponent } from "./spectroreports/spectroreports.component";
+import { WebcamModule } from "ngx-webcam";
 
 @NgModule({
   declarations: [
@@ -22,10 +24,12 @@ import { SpectroReportsComponent } from "./spectroreports/spectroreports.compone
     LoaderComponent,
     TableComponent,
     SpectroReportsComponent,
+    WebcamComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
+    WebcamModule,
     NgbCollapseModule,
     NgbDatepickerModule,
     NgbTimepickerModule,
@@ -38,6 +42,7 @@ import { SpectroReportsComponent } from "./spectroreports/spectroreports.compone
     LoaderComponent,
     TableComponent,
     SpectroReportsComponent,
+    WebcamComponent,
   ],
 })
 export class UIModule {}

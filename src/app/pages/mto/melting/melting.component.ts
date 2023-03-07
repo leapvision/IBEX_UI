@@ -1,8 +1,18 @@
-import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
+import { WizardComponent } from "angular-archwizard";
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  QueryList,
+  ViewChild,
+} from "@angular/core";
 import { DecimalPipe } from "@angular/common";
 import { MeltingService } from "./melting.service";
 import { MaterialLoadingService } from "../loadingofrm/loadingofrm.service";
 import { MTOMeltingService } from "src/app/core/services/mto/mtomelting.service";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { WebcamImage } from "ngx-webcam";
+import { dataURItoBlob, dataURLtoFile } from "src/app/core/helpers/functions";
 
 @Component({
   selector: "app-melting",
@@ -11,18 +21,30 @@ import { MTOMeltingService } from "src/app/core/services/mto/mtomelting.service"
   providers: [DecimalPipe],
 })
 export class MeltingComponent implements OnInit {
+  @ViewChild(WizardComponent)
+  public wizard: WizardComponent;
+  webcamImage: WebcamImage | undefined;
+
   breadCrumbItems: Array<{}>;
 
   pageSize: number = 10;
   pageNumber: number = 1;
   searchValue: string = "";
+  isRemarksAvailable: boolean = false;
+  isMeltImageAvailable: boolean = false;
+  imageFile: any;
 
   hideme: boolean[] = [];
 
   bodyArray = [];
   paginationDetails = {};
 
+  meltNumbers = [];
+
+  mtoMeltingForm: FormGroup;
+
   constructor(
+    public fb: FormBuilder,
     private materialLoadingService: MaterialLoadingService,
     private meltingService: MeltingService,
     private mtoMeltingService: MTOMeltingService
@@ -48,11 +70,116 @@ export class MeltingComponent implements OnInit {
       { label: "Melting", active: true },
     ];
 
+    this.formInit();
+
+    this.fetchMeltNumbers();
+
     this.fetchMTOMeltingReport(
       this.pageSize,
       this.pageNumber,
       this.searchValue
     );
+  }
+
+  formInit() {
+    this.mtoMeltingForm = this.fb.group({
+      meltNumberGroup: this.fb.group({
+        melt_no: [null, Validators.required],
+      }),
+      meltTemperatureGroup: this.fb.group({
+        melt_image: [null],
+        melt_temp: [null, Validators.required],
+      }),
+      remarksGroup: this.fb.group({
+        remarks: [""],
+      }),
+    });
+  }
+
+  remarks(value) {
+    if (value && value.length > 0) {
+      this.isRemarksAvailable = true;
+    }
+  }
+
+  fetchMeltNumbers() {
+    this.mtoMeltingService.getAllReadyForMelting().subscribe((result) => {
+      let response;
+      if (result != null) {
+        response = result;
+        console.log(response);
+      }
+      this.meltNumbers = response.Data;
+    });
+  }
+
+  get form() {
+    return this.mtoMeltingForm.controls;
+  }
+
+  onMtoMeltingFormSubmit() {
+    let response;
+    // console.log(this.mtoMeltingForm.value);
+    // console.log(JSON.parse(localStorage.getItem("lineDetails")).id);
+    const imageName = `${
+      this.form.meltNumberGroup.value["melt_no"]
+    }-${new Date().getTime()}.png`;
+    const imageBlob = dataURItoBlob(this.webcamImage.imageAsBase64);
+    this.imageFile = new File([imageBlob], imageName, { type: "image/png" });
+    console.log(this.imageFile);
+    // const meltingData = {
+    //   loading_id: this.meltNumbers.find(
+    //     (item) => item.melt_no === this.form.meltNumberGroup.value["melt_no"]
+    //   ).id,
+    //   line_id: JSON.parse(localStorage.getItem("lineDetails")).id,
+    //   melting_temp: this.form.meltTemperatureGroup.value["melt_temp"],
+    //   image_path: this.imageFile,
+    //   shift_id: JSON.parse(localStorage.getItem("shiftDetails")).id,
+    //   remarks: this.form.remarksGroup.value["remarks"],
+    // };
+
+    const meltingFormData = new FormData();
+    meltingFormData.append(
+      "loading_id",
+      this.meltNumbers.find(
+        (item) => item.melt_no === this.form.meltNumberGroup.value["melt_no"]
+      ).id
+    );
+    meltingFormData.append(
+      "line_id",
+      JSON.parse(localStorage.getItem("lineDetails")).id
+    );
+    meltingFormData.append(
+      "melting_temp",
+      this.form.meltTemperatureGroup.value["melt_temp"]
+    );
+    meltingFormData.append("image_path", this.imageFile);
+    meltingFormData.append(
+      "shift_id",
+      JSON.parse(localStorage.getItem("shiftDetails")).id
+    );
+    meltingFormData.append("remarks", this.form.remarksGroup.value["remarks"]);
+
+    // console.log(meltingData);
+    this.mtoMeltingService.addMelting(meltingFormData).subscribe((result) => {
+      if (result != null) {
+        response = result;
+      }
+      console.log(response);
+      if (response.Result === "Success") {
+        this.mtoMeltingForm.reset();
+        this.formInit();
+        this.wizard.reset();
+        this.fetchMeltNumbers();
+        this.fetchMTOMeltingReport(
+          this.pageSize,
+          this.pageNumber,
+          this.searchValue
+        );
+      } else {
+        alert("Something went wrong!🥲");
+      }
+    });
   }
 
   fetchMTOMeltingReport(pageSize, pageNumber, searchValue) {
@@ -125,14 +252,6 @@ export class MeltingComponent implements OnInit {
           });
         });
         this.meltingBodyArray = this.bodyArray;
-        // console.log(this.scrappurchaseBodyArray);
-
-        // let materialLoadingReport = {
-        //   name: "Material Loading",
-        //   heading: this.materialLoadingHeadingArray,
-        //   body: this.materialLoadingBodyArray,
-        //   children: true,
-        // };
       });
   }
 
@@ -157,12 +276,22 @@ export class MeltingComponent implements OnInit {
   }
 
   onChangeSearchValue(searchTerm) {
-    debugger;
     this.searchValue = searchTerm;
     this.fetchMTOMeltingReport(
       this.pageSize,
       this.pageNumber,
       this.searchValue
     );
+  }
+
+  handleImage(webcamImage: WebcamImage) {
+    this.webcamImage = webcamImage;
+    console.log(webcamImage);
+
+    // this.imageFile = new File([webcamImage.imageAsDataUrl], "Image.png");
+    // console.log(this.imageFile);
+    // this.imageFile = dataURLtoFile(webcamImage.imageAsDataUrl, "image.jpeg");
+    // console.log(this.imageFile);
+    this.isMeltImageAvailable = true;
   }
 }
