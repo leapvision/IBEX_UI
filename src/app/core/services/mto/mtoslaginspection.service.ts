@@ -28,4 +28,13 @@ export class MTOSlagInspectionService {
       `http://localhost:8000/MTO/mtoInspection/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
     );
   }
+
+  getAllReadyForSlagInspection() {
+    let url = "http://localhost:8000/MTO/readyForInspection/";
+    return this.http.get(url);
+  }
+
+  addSlagInspection(slagInspectionData) {
+    return this.http.post(this.apiurl, slagInspectionData);
+  }
 }

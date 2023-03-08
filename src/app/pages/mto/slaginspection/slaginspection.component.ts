@@ -1,12 +1,20 @@
 import { MaterialLoadingService } from "./../loadingofrm/loadingofrm.service";
 import { MeltingService } from "./../melting/melting.service";
-import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  QueryList,
+  ViewChild,
+} from "@angular/core";
 import { DecimalPipe } from "@angular/common";
 import { FluxMixingService } from "../fluxmixing/fluxmixing.service";
 import { SlagRemovingService } from "../slagremoving/slagremoving.service";
 import { SlagInspectionService } from "./slaginspection.service";
 import { MTOSlagInspectionService } from "src/app/core/services/mto/mtoslaginspection.service";
 import { convertTime } from "src/app/core/helpers/functions";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { WizardComponent } from "angular-archwizard";
 
 @Component({
   selector: "app-slaginspection",
@@ -15,18 +23,25 @@ import { convertTime } from "src/app/core/helpers/functions";
   providers: [DecimalPipe],
 })
 export class SlagInspectionComponent implements OnInit {
+  @ViewChild(WizardComponent)
+  public wizard: WizardComponent;
   breadCrumbItems: Array<{}>;
 
   pageSize: number = 10;
   pageNumber: number = 1;
   searchValue: string = "";
+  mtoSlagInspectionForm: FormGroup;
+  isRemarksAvailable: boolean = false;
 
   hideme: boolean[] = [];
+
+  meltNumbers = [];
 
   bodyArray = [];
   paginationDetails = {};
 
   constructor(
+    public fb: FormBuilder,
     private materialLoadingService: MaterialLoadingService,
     private meltingService: MeltingService,
     private fluxmixingService: FluxMixingService,
@@ -81,11 +96,82 @@ export class SlagInspectionComponent implements OnInit {
       { label: "Composition Check", active: true },
     ];
 
+    this.formInit();
+
+    this.fetchMeltNumbers();
+
     this.fetchMTOSlagInspectionReport(
       this.pageSize,
       this.pageNumber,
       this.searchValue
     );
+  }
+
+  formInit() {
+    this.mtoSlagInspectionForm = this.fb.group({
+      slagInspectionMeltNumberGroup: this.fb.group({
+        melt_no: [null, Validators.required],
+      }),
+      remarksGroup: this.fb.group({
+        remarks: [""],
+      }),
+    });
+  }
+
+  remarks(value) {
+    if (value && value.length > 0) {
+      this.isRemarksAvailable = true;
+    }
+  }
+
+  fetchMeltNumbers() {
+    let response;
+    this.mtoslaginspectionService
+      .getAllReadyForSlagInspection()
+      .subscribe((result) => {
+        if (result != null) {
+          response = result;
+        }
+        this.meltNumbers = response.Data;
+      });
+  }
+
+  get form() {
+    return this.mtoSlagInspectionForm.controls;
+  }
+
+  onMtoSlagInspectionFormSubmit() {
+    console.log(this.mtoSlagInspectionForm.value);
+    let response;
+
+    let slagInspectionData = {
+      slag_removal_id: 10002,
+      line_id: JSON.parse(localStorage.getItem("lineDetails")).id,
+      shift_id: JSON.parse(localStorage.getItem("shiftDetails")).id,
+      remarks: this.form.remarksGroup.value["remarks"],
+    };
+
+    this.mtoslaginspectionService
+      .addSlagInspection(slagInspectionData)
+      .subscribe((result) => {
+        if (result != null) {
+          response = result;
+        }
+        console.log(response);
+        if (response.Result === "Success") {
+          this.mtoSlagInspectionForm.reset();
+          this.formInit();
+          this.wizard.reset();
+          this.fetchMeltNumbers();
+          this.fetchMTOSlagInspectionReport(
+            this.pageSize,
+            this.pageNumber,
+            this.searchValue
+          );
+        } else {
+          alert("Something went wrong!🥲");
+        }
+      });
   }
 
   fetchMTOSlagInspectionReport(pageSize, pageNumber, searchValue) {
