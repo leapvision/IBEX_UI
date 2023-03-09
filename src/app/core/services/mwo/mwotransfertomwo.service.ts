@@ -8,7 +8,7 @@ export class MWOTransferToMWOService {
     [
       { heading: "Sl No", rowspan: "1" },
       { heading: "Date", rowspan: "1" },
-      { heading: "Shift & Time", rowspan: "1" },
+      { heading: "Shift", rowspan: "1" },
       { heading: "Melt No", rowspan: "1" },
       { heading: "Hold No", colspan: "2" },
     ],

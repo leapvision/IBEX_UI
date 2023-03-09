@@ -54,6 +54,12 @@ export class TransferToMwoComponent implements OnInit {
     this.formInit();
 
     this.fetchMeltNumbers();
+
+    this.fetchMWOTransferToMWOReport(
+      this.pageSize,
+      this.pageNumber,
+      this.searchValue
+    );
   }
 
   formInit() {
@@ -116,13 +122,18 @@ export class TransferToMwoComponent implements OnInit {
           this.formInit();
           this.wizard.reset();
           this.fetchMeltNumbers();
+          this.fetchMWOTransferToMWOReport(
+            this.pageSize,
+            this.pageNumber,
+            this.searchValue
+          );
         } else {
           alert("Something went wrong!🥲");
         }
       });
   }
 
-  fetchMTOMeltingReport(pageSize, pageNumber, searchValue) {
+  fetchMWOTransferToMWOReport(pageSize, pageNumber, searchValue) {
     let response;
     this.mwoTransferToMWOService
       .getAllTransferToMWOReport(pageSize, pageNumber, searchValue)
@@ -144,11 +155,8 @@ export class TransferToMwoComponent implements OnInit {
                 value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
               },
               { value: item["shift_details"]["name"] },
-              { value: item["loading_details"]["melt_no"] },
-              { value: item["melting_temp"] },
-              {
-                img: `http://localhost:8000${item["image_path"]}`,
-              },
+              { value: item["melt_no"] },
+              { value: item["hold_no"] },
             ],
           });
         });
@@ -159,7 +167,7 @@ export class TransferToMwoComponent implements OnInit {
   onChangePageSize(pageSizeSelected) {
     this.pageSize = pageSizeSelected;
     if (pageSizeSelected < this.bodyArray.length) {
-      this.fetchMTOMeltingReport(
+      this.fetchMWOTransferToMWOReport(
         this.pageSize,
         this.pageNumber,
         this.searchValue
@@ -169,7 +177,7 @@ export class TransferToMwoComponent implements OnInit {
 
   onChangePageNumber(page) {
     this.pageNumber = page;
-    this.fetchMTOMeltingReport(
+    this.fetchMWOTransferToMWOReport(
       this.pageSize,
       this.pageNumber,
       this.searchValue
@@ -178,7 +186,7 @@ export class TransferToMwoComponent implements OnInit {
 
   onChangeSearchValue(searchTerm) {
     this.searchValue = searchTerm;
-    this.fetchMTOMeltingReport(
+    this.fetchMWOTransferToMWOReport(
       this.pageSize,
       this.pageNumber,
       this.searchValue
