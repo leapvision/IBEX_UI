@@ -46,7 +46,6 @@ export class MeltingComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     private materialLoadingService: MaterialLoadingService,
-    private meltingService: MeltingService,
     private mtoMeltingService: MTOMeltingService
   ) {}
 
