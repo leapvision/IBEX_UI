@@ -397,7 +397,13 @@
                         class="card bg-success border border-success card-body"
                       >
                         <h3 class="card-title text-white text-center">
-                          Melting Temperature - 700 °C
+                          {{
+                            "Melting Temperature -" +
+                              form.metalTappingToMWOGroup.value[
+                                "tapping_temp"
+                              ] +
+                              "°C"
+                          }}
                         </h3>
                       </div>
                       <div

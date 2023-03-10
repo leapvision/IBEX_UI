@@ -130,4 +130,8 @@ export class MWOCompositionCheckService {
   addCompositionCheck(compositionCheckData) {
     return this.http.post(this.apiurl, compositionCheckData);
   }
+
+  updateReadyForIngotPouring(ingotPouringDoneData) {
+    return this.http.put(this.apiurl, ingotPouringDoneData);
+  }
 }
