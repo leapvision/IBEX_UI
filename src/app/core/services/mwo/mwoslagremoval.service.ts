@@ -62,4 +62,8 @@ export class MWOSlagRemovalService {
   addSlagRemoval(slagRemovalData) {
     return this.http.post(this.apiurl, slagRemovalData);
   }
+
+  updateReadyForCompositionCheck(compositionCheckDoneData) {
+    return this.http.put(this.apiurl, compositionCheckDoneData);
+  }
 }

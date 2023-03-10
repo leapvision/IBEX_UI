@@ -32,4 +32,8 @@ export class MWOTransferToMWOService {
   addTransferToMWO(transfertomwoData) {
     return this.http.post(this.apiurl, transfertomwoData);
   }
+
+  updateReadyForSlagRemoval(slagRemovalDoneData) {
+    return this.http.put(this.apiurl, slagRemovalDoneData);
+  }
 }
