@@ -48,7 +48,7 @@ export class MWOIngotPouringService {
     return this.http.post(this.apiurl, ingotPouringData);
   }
 
-  updateReadyForCompositionCheck(compositionCheckDoneData) {
-    return this.http.put(this.apiurl, compositionCheckDoneData);
+  updateReadyForVisualInspection(visualinspectionDoneData) {
+    return this.http.put(this.apiurl, visualinspectionDoneData);
   }
 }

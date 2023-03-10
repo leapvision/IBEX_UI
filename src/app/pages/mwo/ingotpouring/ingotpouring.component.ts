@@ -1,15 +1,5 @@
-import {
-  Component,
-  OnInit,
-  ViewChildren,
-  QueryList,
-  ViewChild,
-} from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
-import { IgnotPouringService } from "./ingotpouring.service";
-import { MwoInspectionService } from "../mwoinspection/mwoinspection.service";
-import { SlagRemovingService } from "../slagremoving/slagremoving.service";
-import { TransferToMwoService } from "../transfertomwo/transfertomwo.service";
 import { WizardComponent } from "angular-archwizard";
 import { WebcamImage } from "ngx-webcam";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
