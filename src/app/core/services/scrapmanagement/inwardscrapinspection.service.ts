@@ -4,6 +4,17 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class InwardScrapInspectionService {
+  headingArray = [
+    [
+      { heading: "Sl No", rowspan: "1" },
+      { heading: "Date", rowspan: "1" },
+      { heading: "GRN No", rowspan: "1" },
+      { heading: "Alloy Name", rowspan: "1" },
+      { heading: "Source", rowspan: "1" },
+      { heading: "Weight(KG)", rowspan: "1" },
+    ],
+  ];
+
   apiurl = "http://localhost:8000/scrap_management/scrapInspection/";
 
   constructor(private http: HttpClient) {}

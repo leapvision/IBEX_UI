@@ -29,23 +29,11 @@ export class ScrapInspectionComponent implements OnInit {
     private inwardscrapinspectionService: InwardScrapInspectionService
   ) {}
 
-  scrapinspectionHeadingArray =
-    this.scrapinspectionService.getScrapInspectionReport().heading;
+  scrapinspectionHeadingArray = this.inwardscrapinspectionService.headingArray;
   scrapinspectionBodyArray = [];
   paginationData = {};
 
-  parentReports: Array<{}> = [
-    {
-      spectroReports: true,
-      name: "Sample Spectro Reports",
-      samples: [
-        {
-          name: "Sample 1",
-          data: this.scrapinspectionService.samplesArray,
-        },
-      ],
-    },
-  ];
+  parentsReports = [];
 
   ngOnInit(): void {
     this.breadCrumbItems = [
@@ -74,17 +62,33 @@ export class ScrapInspectionComponent implements OnInit {
         // console.log(response.Data.pagination);
         // console.log(response.Data.records);
         this.bodyArray = [];
+        this.parentsReports = [];
         response.Data.records.forEach((item) => {
-          let dummyArray = [];
-          dummyArray.push({
-            value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+          this.parentsReports = [
+            {
+              spectroReports: true,
+              name: "Sample Spectro Reports",
+              samples: [
+                {
+                  name: "Sample 1",
+                  data: this.scrapinspectionService.samplesArray,
+                },
+              ],
+            },
+          ];
+
+          this.bodyArray.push({
+            currentReport: [
+              {
+                value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+              },
+              { value: item["id"] },
+              { value: item["alloy_name"] },
+              { value: item["source"] },
+              { value: item["weight"] },
+            ],
+            allPreviousReports: this.parentsReports,
           });
-          dummyArray.push({ value: item["id"] });
-          dummyArray.push({ value: item["alloy_name"] });
-          dummyArray.push({ value: item["source"] });
-          dummyArray.push({ value: item["weight"] });
-          dummyArray.push({ value: item["remarks"] });
-          this.bodyArray.push(dummyArray);
         });
         this.scrapinspectionBodyArray = this.bodyArray;
         // console.log(this.scrappurchaseBodyArray);

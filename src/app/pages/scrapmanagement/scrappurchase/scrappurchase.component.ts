@@ -178,16 +178,18 @@ export class ScrapPurchaseComponent implements OnInit {
         // console.log(response.Data.records);
         this.bodyArray = [];
         response.Data.records.forEach((item) => {
-          let dummyArray = [];
-          dummyArray.push({
-            value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+          this.bodyArray.push({
+            currentReport: [
+              {
+                value: new Date(item["created_on"]).toLocaleDateString("en-GB"),
+              },
+              { value: item["id"] },
+              { value: item["alloy_name"] },
+              { value: item["source"] },
+              { value: item["weight"] },
+              { value: item["remarks"] },
+            ],
           });
-          dummyArray.push({ value: item["id"] });
-          dummyArray.push({ value: item["alloy_name"] });
-          dummyArray.push({ value: item["source"] });
-          dummyArray.push({ value: item["weight"] });
-          dummyArray.push({ value: item["remarks"] });
-          this.bodyArray.push(dummyArray);
         });
         this.scrappurchaseBodyArray = this.bodyArray;
         // console.log(this.scrappurchaseBodyArray);
