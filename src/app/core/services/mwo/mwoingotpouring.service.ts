@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: "root",
 })
@@ -29,18 +30,18 @@ export class MWOIngotPouringService {
     ],
   ];
 
-  apiurl = "http://localhost:8000/MWO/mwoIngotsPouring/";
+  apiurl = `${environment.domain}/MWO/mwoIngotsPouring/`;
 
   constructor(private http: HttpClient) {}
 
   getAllIngotPouringReport(pageSize, pageNumber, searchValue) {
     return this.http.get(
-      `http://localhost:8000/MWO/mwoIngotsPouring/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
+      `${this.apiurl}?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
     );
   }
 
   getAllReadyForIngotPouring() {
-    let url = "http://localhost:8000/MWO/readyForIngotsPouring/";
+    let url = `${environment.domain}/MWO/readyForIngotsPouring/`;
     return this.http.get(url);
   }
 

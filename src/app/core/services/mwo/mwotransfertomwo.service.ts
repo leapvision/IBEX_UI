@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: "root",
 })
@@ -14,18 +15,18 @@ export class MWOTransferToMWOService {
     ],
   ];
 
-  apiurl = "http://localhost:8000/MWO/mwoTransfer/";
+  apiurl = `${environment.domain}/MWO/mwoTransfer/`;
 
   constructor(private http: HttpClient) {}
 
   getAllTransferToMWOReport(pageSize, pageNumber, searchValue) {
     return this.http.get(
-      `http://localhost:8000/MWO/mwoTransfer/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
+      `${this.apiurl}?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
     );
   }
 
   getAllReadyForTransferToMWO() {
-    let url = "http://localhost:8000/MTO/readyForMWOTransfer/";
+    let url = `${environment.domain}/MTO/readyForMWOTransfer/`;
     return this.http.get(url);
   }
 

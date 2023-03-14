@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: "root",
 })
@@ -28,26 +29,26 @@ export class MWOPrintingService {
     ],
   ];
 
-  apiurl = "http://localhost:8000/MWO/mwoPrinting/";
+  apiurl = `${environment.domain}/MWO/mwoPrinting/`;
 
   constructor(private http: HttpClient) {}
 
   getAllPrintingReport(pageSize, pageNumber, searchValue) {
     return this.http.get(
-      `http://localhost:8000/MWO/mwoPrinting/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
+      `${this.apiurl}?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
     );
   }
 
   getAllReadyForPrinting() {
-    let url = "http://localhost:8000/MWO/readyForPrinting/";
+    let url = `${environment.domain}/MWO/readyForPrinting/`;
     return this.http.get(url);
   }
 
-  addPrinting(buffingAndPolishingData) {
-    return this.http.post(this.apiurl, buffingAndPolishingData);
+  addPrinting(printingData) {
+    return this.http.post(this.apiurl, printingData);
   }
 
-  updateReadyForFinalInspection(printingDoneData) {
-    return this.http.put(this.apiurl, printingDoneData);
+  updateReadyForFinalInspection(finalInspectionDoneData) {
+    return this.http.put(this.apiurl, finalInspectionDoneData);
   }
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: "root",
 })
@@ -112,18 +113,18 @@ export class MWOCompositionCheckService {
     },
   ];
 
-  apiurl = "http://localhost:8000/MWO/mwoInspection/";
+  apiurl = `${environment.domain}/MWO/mwoInspection/`;
 
   constructor(private http: HttpClient) {}
 
   getAllCompositionCheckReport(pageSize, pageNumber, searchValue) {
     return this.http.get(
-      `http://localhost:8000/MWO/mwoInspection/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
+      `${this.apiurl}?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
     );
   }
 
   getAllReadyForCompositionCheck() {
-    let url = "http://localhost:8000/MWO/readyForInspection/";
+    let url = `${environment.domain}/MWO/readyForInspection/`;
     return this.http.get(url);
   }
 

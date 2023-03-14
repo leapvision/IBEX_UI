@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: "root",
 })
@@ -26,18 +27,18 @@ export class MWOVisualInspectionService {
     ],
   ];
 
-  apiurl = "http://localhost:8000/MWO/mwoVisualInspection/";
+  apiurl = `${environment.domain}/MWO/mwoVisualInspection/`;
 
   constructor(private http: HttpClient) {}
 
   getAllVisualInspectionReport(pageSize, pageNumber, searchValue) {
     return this.http.get(
-      `http://localhost:8000/MWO/mwoVisualInspection/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
+      `${this.apiurl}?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
     );
   }
 
   getAllReadyForVisualInspection() {
-    let url = "http://localhost:8000/MWO/readyForVisualInspection/";
+    let url = `${environment.domain}/MWO/readyForVisualInspection/`;
     return this.http.get(url);
   }
 
