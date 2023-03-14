@@ -26,6 +26,11 @@
 
                 <div class="row mb-4 justify-content-center">
                   <div class="col-sm-12 align-items-center">
+                    <div class="row" *ngIf="finalHeatNumbers.length === 0">
+                      <h4 class="text-center">
+                        No heat numbers ready for final inspection
+                      </h4>
+                    </div>
                     <div class="row">
                       <div
                         class="btn-group col-sm-4"
@@ -38,23 +43,23 @@
                           name="final_heat_no"
                           formControlName="final_heat_no"
                           [value]="
-                            item.buffing_polishing_details.vis_ins_details.ingots_pouring_details
-                              .final_heat_no
+                            item.buffing_polishing_details.vis_ins_details
+                              .ingots_pouring_details.final_heat_no
                           "
                           id="{{
-                            item.buffing_polishing_details.vis_ins_details.ingots_pouring_details
-                              .final_heat_no
+                            item.buffing_polishing_details.vis_ins_details
+                              .ingots_pouring_details.final_heat_no
                           }}"
                         />
                         <label
                           class="btn btn-outline-success p-4 font-size-16"
                           for="{{
-                            item.buffing_polishing_details.vis_ins_details.ingots_pouring_details
-                              .final_heat_no
+                            item.buffing_polishing_details.vis_ins_details
+                              .ingots_pouring_details.final_heat_no
                           }}"
                           >{{
-                            item.buffing_polishing_details.vis_ins_details.ingots_pouring_details
-                              .final_heat_no
+                            item.buffing_polishing_details.vis_ins_details
+                              .ingots_pouring_details.final_heat_no
                           }}</label
                         >
                       </div>

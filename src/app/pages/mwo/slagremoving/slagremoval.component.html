@@ -25,6 +25,11 @@
                 </div>
                 <div class="row mb-4 justify-content-cente mt-4">
                   <div class="col-sm-12">
+                    <div class="row" *ngIf="holdNumbers.length === 0">
+                      <h4 class="text-center">
+                        No hold numbers ready for slag removal
+                      </h4>
+                    </div>
                     <div class="row">
                       <div
                         class="btn-group col-sm-4"

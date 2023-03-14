@@ -25,6 +25,11 @@
                 </div>
                 <div class="row justify-content-center mb-4">
                   <div class="col-sm-12">
+                    <div class="row" *ngIf="finalHeatNumbers.length === 0">
+                      <h4 class="text-center">
+                        No heat numbers ready for printing
+                      </h4>
+                    </div>
                     <div class="row">
                       <div
                         class="btn-group col-sm-4"

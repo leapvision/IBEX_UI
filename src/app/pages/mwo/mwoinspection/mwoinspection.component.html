@@ -25,6 +25,11 @@
                 </div>
                 <div class="row mb-4 justify-content-center">
                   <div class="col-sm-12">
+                    <div class="row" *ngIf="holdNumbers.length === 0">
+                      <h4 class="text-center">
+                        No hold numbers ready for mwo composition check
+                      </h4>
+                    </div>
                     <div class="row">
                       <div
                         class="btn-group col-sm-4"
