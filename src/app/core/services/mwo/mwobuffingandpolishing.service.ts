@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: "root",
 })
@@ -29,18 +30,18 @@ export class MWOBuffingAndPolishingService {
     ],
   ];
 
-  apiurl = "http://localhost:8000/MWO/mwoBuffingPolishing/";
+  apiurl = `${environment.domain}/MWO/mwoBuffingPolishing/`;
 
   constructor(private http: HttpClient) {}
 
   getAllBuffingAndPolishingReport(pageSize, pageNumber, searchValue) {
     return this.http.get(
-      `http://localhost:8000/MWO/mwoBuffingPolishing/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
+      `${this.apiurl}?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
     );
   }
 
   getAllReadyForBuffingAndPolishing() {
-    let url = "http://localhost:8000/MWO/readyForBuffingPolishing/";
+    let url = `${environment.domain}/MWO/readyForBuffingPolishing/`;
     return this.http.get(url);
   }
 
