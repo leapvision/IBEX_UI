@@ -15,6 +15,7 @@ import { MTOSlagInspectionService } from "src/app/core/services/mto/mtoslaginspe
 import { convertTime } from "src/app/core/helpers/functions";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { WizardComponent } from "angular-archwizard";
+import { MTOSlagRemovalService } from "src/app/core/services/mto/mtoslagremoval.service";
 
 @Component({
   selector: "app-slaginspection",
@@ -47,7 +48,8 @@ export class SlagInspectionComponent implements OnInit {
     private fluxmixingService: FluxMixingService,
     private slagremovingService: SlagRemovingService,
     private slaginspectionService: SlagInspectionService,
-    private mtoslaginspectionService: MTOSlagInspectionService
+    private mtoSlagRemovalService: MTOSlagRemovalService,
+    private mtoSlagInspectionService: MTOSlagInspectionService
   ) {}
 
   materialLoadingHeadingArray =
@@ -74,7 +76,7 @@ export class SlagInspectionComponent implements OnInit {
     this.slagremovingService.getSlagRemovingReportForMeltNumber("meltNumber")
       .body;
 
-  slaginspectionHeadingArray = this.mtoslaginspectionService.headingArray;
+  slaginspectionHeadingArray = this.mtoSlagInspectionService.headingArray;
   slaginspectionBodyArray = [];
   paginationData = {};
 
@@ -126,13 +128,13 @@ export class SlagInspectionComponent implements OnInit {
 
   fetchMeltNumbers() {
     let response;
-    this.mtoslaginspectionService
+    this.mtoSlagInspectionService
       .getAllReadyForSlagInspection()
       .subscribe((result) => {
         if (result != null) {
           response = result;
+          this.meltNumbers = response.Data;
         }
-        this.meltNumbers = response.Data;
       });
   }
 
@@ -151,7 +153,7 @@ export class SlagInspectionComponent implements OnInit {
       remarks: this.form.remarksGroup.value["remarks"],
     };
 
-    this.mtoslaginspectionService
+    this.mtoSlagInspectionService
       .addSlagInspection(slagInspectionData)
       .subscribe((result) => {
         if (result != null) {
@@ -159,15 +161,29 @@ export class SlagInspectionComponent implements OnInit {
         }
         console.log(response);
         if (response.Result === "Success") {
-          this.mtoSlagInspectionForm.reset();
-          this.formInit();
-          this.wizard.reset();
-          this.fetchMeltNumbers();
-          this.fetchMTOSlagInspectionReport(
-            this.pageSize,
-            this.pageNumber,
-            this.searchValue
-          );
+          this.mtoSlagRemovalService
+            .updateReadyForSlagInspection({
+              id: slagInspectionData.slag_removal_id,
+              move_to_inspection: true,
+            })
+            .subscribe((result) => {
+              if (result != null) {
+                response = result;
+              }
+              if (response.Result === "Success") {
+                this.mtoSlagInspectionForm.reset();
+                this.formInit();
+                this.wizard.reset();
+                this.fetchMeltNumbers();
+                this.fetchMTOSlagInspectionReport(
+                  this.pageSize,
+                  this.pageNumber,
+                  this.searchValue
+                );
+              } else {
+                alert("Something went wrong!🥲");
+              }
+            });
         } else {
           alert("Something went wrong!🥲");
         }
@@ -176,7 +192,7 @@ export class SlagInspectionComponent implements OnInit {
 
   fetchMTOSlagInspectionReport(pageSize, pageNumber, searchValue) {
     let response;
-    this.mtoslaginspectionService
+    this.mtoSlagInspectionService
       .getAllSlagInspectionReport(pageSize, pageNumber, searchValue)
       .subscribe((result) => {
         if (result != null) {
