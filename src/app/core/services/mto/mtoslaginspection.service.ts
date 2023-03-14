@@ -37,4 +37,8 @@ export class MTOSlagInspectionService {
   addSlagInspection(slagInspectionData) {
     return this.http.post(this.apiurl, slagInspectionData);
   }
+
+  updateReadyForTransferToMWO(transferToMWODoneData) {
+    return this.http.put(this.apiurl, transferToMWODoneData);
+  }
 }

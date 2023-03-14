@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: "root",
 })
@@ -15,22 +16,26 @@ export class MTOSlagRemovalService {
     ],
   ];
 
-  apiurl = "http://localhost:8000/MTO/mtoSlagRemoval/";
+  apiurl = `${environment.domain}/MTO/mtoSlagRemoval/`;
 
   constructor(private http: HttpClient) {}
 
   getAllSlagRemovalReport(pageSize, pageNumber, searchValue) {
     return this.http.get(
-      `http://localhost:8000/MTO/mtoSlagRemoval/?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
+      `${this.apiurl}?pageSize=${pageSize}&pageNumber=${pageNumber}&searchValue=${searchValue}`
     );
   }
 
   getAllReadyForSlagRemoval() {
-    let url = "http://localhost:8000/MTO/readyForSlagRemoval/";
+    let url = `${environment.domain}/MTO/readyForSlagRemoval/`;
     return this.http.get(url);
   }
 
   addSlagRemoval(slagRemovalData) {
     return this.http.post(this.apiurl, slagRemovalData);
+  }
+
+  updateReadyForSlagInspection(slagInspectionDoneData) {
+    return this.http.put(this.apiurl, slagInspectionDoneData);
   }
 }

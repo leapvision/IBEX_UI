@@ -40,4 +40,8 @@ export class MTOMeltingService {
   addMelting(meltingData) {
     return this.http.post(this.apiurl, meltingData);
   }
+
+  updateReadyForFluxMixing(fluxMixingDoneData) {
+    return this.http.put(this.apiurl, fluxMixingDoneData);
+  }
 }
